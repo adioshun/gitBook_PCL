@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-* [Installtion](installtion.md)
+* [Installation](installtion.md)
   * [1-PCL](installtion/1-pcl.md)
   * [2-Open3D](installtion/2-open3d.md)
   * [3-PDAL](installtion/3-pdal.md)

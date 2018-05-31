@@ -12,6 +12,7 @@ cd ~
 git clone https://github.com/IntelVCL/Open3D
 
 # install the dependencies and use CMake to build the project
+cd ~/Open3D
 util/scripts/install-deps-ubuntu.sh
 mkdir build
 cd build
