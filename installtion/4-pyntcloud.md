@@ -7,8 +7,8 @@
 
 ```python 
 # ubuntu16
-pip install  numpy numba scipy pandas
-pip install git+https://github.com/daavoo/pyntcloud
+pip3 install  numpy numba scipy pandas
+pip3 install git+https://github.com/daavoo/pyntcloud
 ```
 
 
