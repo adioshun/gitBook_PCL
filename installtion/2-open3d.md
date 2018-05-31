@@ -1,5 +1,7 @@
 # Open 3D Installation [[참고]](http://www.open3d.org/docs/getting_started.html#compiling-from-source)
 
+## 1. 소스코드 이용 설치 
+
 Ubuntu 16, python3, pip
 
 ```python
@@ -24,3 +26,11 @@ cd util/scripts
 ```
 
 설치 테스트 (python3) : `import open3d`
+
+
+## 2. Docker 이용 설치 
+
+```
+docker pull adioshun/ubuntu16:Open3D
+docker run -it -p 7777:8888 --name "Open3D" adioshun/ubuntu16:Open3D /bin/bash
+```
