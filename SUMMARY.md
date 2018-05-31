@@ -11,4 +11,5 @@
   * 1-File I/O
 * [Open3D](open3d.md)
   * [1-File I/O](open3d/1-file-io.md)
+  * [9-Visulization](open3d/9-visulization.md)
 

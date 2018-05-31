@@ -1,8 +1,12 @@
-
+# Open3D 
 
 2018.01. release
 
-www.open3d.org.
+- Website: open3d.org
+- Code: github.com/IntelVCL/Open3D
+- Document: open3d.org/docs
+- Getting started: open3d.org/docs/getting_started.html
+- License: The MIT license
 
 개발
 - [Qianyi Zhou](http://qianyi.info/) 
