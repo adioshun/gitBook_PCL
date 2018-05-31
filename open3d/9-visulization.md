@@ -17,8 +17,16 @@ draw_geometries([pcd])
 
 
 
-## 그리기 
+## 2. 그리기 
 
 > Detection 후 B.Box 그릴때 필요 할듯 
  
 http://www.open3d.org/docs/tutorial/Basic/visualization.html#draw-multiple-geometries
+
+
+## 3. 색변경 
+
+
+np.asarray(pcd.colors)[idx[1:], :] = [0, 0, 1]
+
+> [pcd.colors](http://www.open3d.org/docs/tutorial/Basic/kdtree.html#using-search-radius-vector-3d)

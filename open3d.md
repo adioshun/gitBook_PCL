@@ -21,3 +21,14 @@
 언어 
 - For C++ code, it is recommended to use C++11 features. However, do not use C++14 or C++17
 - For Python code, make sure it runs on both Python 2.7 and Python 3.x.
+
+
+
+
+
+---
+
+## 참고 페이지 
+
+[Open3D Point cloud](https://blog.naver.com/pjy6075/221211910971): 리프(pjy6075)
+
