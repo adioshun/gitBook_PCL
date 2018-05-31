@@ -7,7 +7,7 @@
 
 ```python 
 # ubuntu16
-pip3 install  numpy numba scipy pandas
+pip3 install  numpy numba scipy pandas matplotlib
 pip3 install git+https://github.com/daavoo/pyntcloud
 ```
 
@@ -21,6 +21,9 @@ from pyntcloud import PyntCloud
 ```
 
 ![](https://raw.githubusercontent.com/daavoo/pyntcloud/master/docs/images/plot1.gif)
+
+
+테트용 ply : https://raw.githubusercontent.com/daavoo/pyntcloud/master/examples/data/ankylosaurus_mesh.ply
 
 
 
