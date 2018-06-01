@@ -2,11 +2,12 @@
 
 [github](https://github.com/dimatura/pypcd)
 
-설치 (Python2 Only)
+설치 (Python2 Only??)
 
-```
+```python
 # pip이용설치
-pip install pypcd
+pip3 install pypcd
+#pip install pypcd
 
 # 소스코드 설치 
 git clone https://github.com/dimatura/pypcd
