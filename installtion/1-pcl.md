@@ -2,6 +2,25 @@
 
 ## A. Source 설치 
 
+```python 
+apt-get update -qq && apt-get install -y --no-install-recommends \
+      make cmake build-essential git \
+      libeigen3-dev \
+      libflann-dev \
+      libusb-1.0-0-dev \
+      libvtk6-qt-dev \
+      libpcap-dev \
+      libboost-all-dev \
+      libproj-dev \
+      && rm -rf /var/lib/apt/lists/*
+ 
+ wget https://github.com/PointCloudLibrary/pcl/archive/pcl-1.8.1.tar.gz
+ 
+ tar zvfx pcl-1.8.1.tar.gz
+
+ 
+ ```
+
 
 ```python
 apt-get install git
