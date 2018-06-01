@@ -1,36 +1,37 @@
 # 1. PCL for C++ 설치 
 
-## 1.1 Source 설치 
+## A. Source 설치 
 
 
-```
-sudo apt-get install git
-cd
+```python
+apt-get install git
+apt-get install libeigen3-dev #package 'eigen3' not found
+apt-get install libflann-dev # package 'flann>=1.7.0' not found
+
+cd ~
 git clone https://github.com/PointCloudLibrary/pcl.git
 cd pcl
-mkdir build
-cd build
+mkdir build && cd build
 cmake ..
 make
+#checkinstall #apt-get install checkinstall
 make install 
 
-#checkinstall #apt-get install checkinstall
+
 ```
 
 
-|Error Code | Solution|
-|-|-|
-|package 'eigen3' not found | apt-get install libeigen3-dev|
-|package 'flann>=1.7.0' not found|apt-get install libflann-dev|
 
 
 
 
+## B. apt 설치 
 
-## 1.1 apt 설치 
-```
+```python
 add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl
 apt-get update
+
+# for Ubuntu 14.04
 apt-get install libpcl-all
 
 # for Ubuntu 16.04
@@ -45,18 +46,20 @@ sudo apt install libpcl-dev  # depends: libvtk6-dev
 
 
 
+## 설치 테스트 
 
-## 1.2 deb 설치 
 ```
-wget https://www.dropbox.com/s/9llzm20pc4opdn9/PCL-1.8.0-Linux.deb?dl=0 #파일명 에서 `?dl=0`제거 
-dpkg -i PCL-1.8.0-Linux.deb
+mkdir pcl-test; cd pcl-test
+wget https://gist.githubusercontent.com/adioshun/319d6a1326d33fa42cdd56833c3ef560/raw/e10d3502ddcd871f9d6b7b57d176b17d52de5571/CMakeLists.txt
+wget https://gist.githubusercontent.com/adioshun/319d6a1326d33fa42cdd56833c3ef560/raw/e10d3502ddcd871f9d6b7b57d176b17d52de5571/main.cpp
+
+mkdir build && cd build
+cmake ..
+make
+
+./pcl-test
 ```
-
-> 출처 : [POINT CLOUD LIBRARY ON UBUNTU 16.04 LTS](https://larrylisky.com/2016/11/03/point-cloud-library-on-ubuntu-16-04-lts/)
-
-> [PLC for Ubuntu 16.4 & 17.10](https://askubuntu.com/questions/916260/how-to-install-point-cloud-library-v1-8-pcl-1-8-0-on-ubuntu-16-04-2-lts-for)
-
-
+---
 
 
 
@@ -70,23 +73,22 @@ dpkg -i PCL-1.8.0-Linux.deb
 
 ## 2.1 pip 설치 
 
-```
-# 
+```python 
 apt-get install build-essential
 apt-get install -y python-pip git python-dev
 apt install pkg-config
 
-pip install numpy cython 
+pip3 install numpy cython 
 
 # ubunutu 14??
-pip install git+https://github.com/strawlab/python-pcl
+pip3 install git+https://github.com/strawlab/python-pcl
 #pip install git+https://github.com/strawlab/python-pcl.git#egg=pcl
 
 # ubuntu 16??
-#git clone https://github.com/strawlab/python-pcl.git
-#cd python-pcl
-#python3 setup.py build
-#python3 setup.py install
+git clone https://github.com/strawlab/python-pcl.git
+cd python-pcl
+python3 setup.py build
+python3 setup.py install
 ```
 
 > 참고 : [python-pcl, python 3, ubuntu 14.04](http://adamsteer.blogspot.kr/2016/01/python-pcl-python-3-ubuntu-1404.html)
