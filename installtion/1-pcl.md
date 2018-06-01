@@ -14,10 +14,15 @@ apt-get update -qq && apt-get install -y --no-install-recommends \
       libproj-dev \
       && rm -rf /var/lib/apt/lists/*
  
- wget https://github.com/PointCloudLibrary/pcl/archive/pcl-1.8.1.tar.gz
+wget https://github.com/PointCloudLibrary/pcl/archive/pcl-1.8.1.tar.gz
  
- tar zvfx pcl-1.8.1.tar.gz
+tar zvfx pcl-1.8.1.tar.gz
 
+cd pcl-1.8.1
+mkdir build && cd build
+cmake -DCMAKE_BUILD_TYPE=Release ..
+make -j2
+sudo make -j2 install
  
  ```
 
