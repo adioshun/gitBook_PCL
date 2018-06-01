@@ -17,6 +17,8 @@ make
 #checkinstall #apt-get install checkinstall
 make install 
 
+# Error 
+ln -s /usr/lib/x86_64-linux-gnu/libproj.so.<버젼> /usr/lib/x86_64-linux-gnu/libproj.so # make[2]: *** No rule to make target '/usr/lib/x86_64-linux-gnu/libproj.so',
 
 ```
 
