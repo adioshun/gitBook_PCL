@@ -17,7 +17,7 @@
   * [1-File I/O](open3d/1-file-io.md)
   * [2- Numpy ](open3d/2-numpy.md)
   * [9-Visulization](open3d/9-visulization.md)
-* pyPCD
+* [pyPCD](pypcd.md)
   * [1-File I/O](1-file-io.md)
 * [ROS](ros.md)
   * [9-Visualization](ros/9-visualization.md)

@@ -10,3 +10,20 @@ Add 3 new scalar fields by converting RGB to HSV.
 Build a grid of voxels from the point cloud.
 Build a new point cloud keeping only the nearest point to each occupied voxel center.
 Save the new point cloud.
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+
+[python-plyfile ](https://github.com/dranjan/python-plyfile): numpy를 ply로 변환??
