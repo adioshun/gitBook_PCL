@@ -7,7 +7,7 @@ import numpy as np
 #p = pcl.PointCloud()
 #p.from_file("test.pcd") # Deprecated; use pcl.load instead.
 
-pc = pcl.load("sample_sec.pcd")
+pc = pcl.load("sample_sec.pcd") #cloud = pcl.load_XYZRGB('sample_table.pcd')
 pa = pc.to_array()
 
 print(type(pc))
@@ -28,8 +28,8 @@ for i in range(0, cloud.size):
 print ('x: ' + str(cloud[i][0]) + ', y : ' + str(cloud[i][1]) + ', z : ' + str(cloud[i][2]))
 
 
-filename = 'voxel_downsampled.pcd'
-pcl.save(cloud, filename)
+
+pcl.save(cloud, 'test.pcd') pcl.save_XYZRGBA(pc, 'test.pcd')
 
 ```
 

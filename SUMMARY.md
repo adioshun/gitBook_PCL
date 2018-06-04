@@ -12,6 +12,7 @@
 * [PCL](pcl.md)
   * [1-File I/O](pcl/1-file-io.md)
   * [2-Numpy](pcl/2-numpy.md)
+  * [3-Downsampling](pcl/3-downsampling.md)
 * [Open3D](open3d.md)
   * [1-File I/O](open3d/1-file-io.md)
   * [2- Numpy ](open3d/2-numpy.md)
