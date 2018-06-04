@@ -27,5 +27,9 @@ print ('Loaded ' + str(cloud.width * cloud.height) + ' data points from test_pcd
 for i in range(0, cloud.size):
 print ('x: ' + str(cloud[i][0]) + ', y : ' + str(cloud[i][1]) + ', z : ' + str(cloud[i][2]))
 
+
+filename = 'voxel_downsampled.pcd'
+pcl.save(cloud, filename)
+
 ```
 
