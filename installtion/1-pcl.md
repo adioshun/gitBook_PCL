@@ -53,6 +53,8 @@ ln -s /usr/lib/x86_64-linux-gnu/libproj.so.<버젼> /usr/lib/x86_64-linux-gnu/li
 
 ## B. apt 설치 
 
+> PCL설치는 되지만 pcl-python과의 연동이 안되는듯 
+
 ```python
 add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl
 apt-get update
