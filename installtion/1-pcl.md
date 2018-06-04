@@ -69,7 +69,7 @@ sudo apt install libpcl-dev  # depends: libvtk6-dev
 |add-apt-repository command not found | `apt-get install software-properties-common python-software-properties`|
 |Unable to locate package libpcl-all|apt-get install libpcl1|
 |pip10, ImportError: cannot import name main|Downgrade: `python2 -m pip install --user --upgrade pip==9.0.3`|
-
+|fatal error: 'pcl/point_cloud.h' file not found |seems due to that I don’t have an ROS environment.|
 
 
 ## 설치 테스트 
