@@ -1,17 +1,18 @@
-from pcl_helper import *
 
+
+
+코드 다운로드 : `wget https://gist.githubusercontent.com/adioshun/f35919c895631314394aa1762c24334c/raw/eb3b6493b964007f3103314e3208a48395f0f973/pcl_helper.py`
+
+```python
+from pcl_helper import *
 
 color = random_color_gen()
 xyzrgb = XYZ_to_XYZRGB(pc, color)
+```
 
 
 
----
 
-
-https://github.com/cedricxie/perception_exercises
-
-`wget https://gist.githubusercontent.com/adioshun/f35919c895631314394aa1762c24334c/raw/eb3b6493b964007f3103314e3208a48395f0f973/pcl_helper.py`
 
 
 ## Documentation for `pcl_helper.py`
