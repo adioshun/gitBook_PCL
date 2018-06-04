@@ -19,4 +19,6 @@
   * pcl\_helper
 * pyPCD
   * [1-File I/O](1-file-io.md)
+* [ROS](ros.md)
+  * [9-Visualization](ros/9-visualization.md)
 

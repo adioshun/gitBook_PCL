@@ -1,0 +1,1 @@
+If you would like to see what points are part of the plane detected by RANSAC, publish your cloud variable to a PointCloud2 topic after it's been detected. Publish to a new topic name and display this PointCloud2 topic in RViz, and set the color to be different from the color of your other point clouds in the scene. Then it should be easy to see your detected plane.
