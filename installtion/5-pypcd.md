@@ -2,7 +2,11 @@
 
 [github](https://github.com/dimatura/pypcd)
 
-설치 (Python2 Only??)
+설치 
+
+> It also can't run on Python 3(Python2 Only??)
+
+
 
 ```python
 # pip이용설치
