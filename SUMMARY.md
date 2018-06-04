@@ -7,7 +7,8 @@
   * [3-PDAL](installtion/3-pdal.md)
   * [4-PyntCloud](installtion/4-pyntcloud.md)
   * [5-PyPCD](installtion/5-pypcd.md)
-  * [6-Dockerfile](installtion/6-dockerfile.md)
+  * [6-pyPCL](installtion/6-pypcl.md)
+  * [0-Dockerfile](installtion/6-dockerfile.md)
 * [PCL](pcl.md)
   * 1-File I/O
 * [Open3D](open3d.md)

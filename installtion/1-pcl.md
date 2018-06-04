@@ -97,12 +97,13 @@ make
 
 - conda를 이용한 설치 방법 추천 
 
-## 2.1 pip 설치 
+## 2.1 pip 설치 (ubuntu 14용)
 
 ```python 
 apt-get install build-essential
-apt-get install -y python-pip git python-dev
+apt-get install -y python3-pip git python-dev
 apt install pkg-config
+
 
 pip3 install numpy cython 
 
