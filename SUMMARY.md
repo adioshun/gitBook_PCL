@@ -11,14 +11,17 @@
   * [0-Dockerfile](installtion/6-dockerfile.md)
 * [PCL](pcl.md)
   * [1-File I/O](pcl/1-file-io.md)
+  * [2-Numpy](pcl/2-numpy.md)
 * [Open3D](open3d.md)
   * [1-File I/O](open3d/1-file-io.md)
   * [2- Numpy ](open3d/2-numpy.md)
   * [9-Visulization](open3d/9-visulization.md)
-* [helper](helper.md)
-  * pcl\_helper
 * pyPCD
   * [1-File I/O](1-file-io.md)
 * [ROS](ros.md)
   * [9-Visualization](ros/9-visualization.md)
+* [helper](helper.md)
+  * [pcl\_helper](helper/pclhelper.md)
+* [pytncloud](pytncloud.md)
+  * [1-File I/O](pytncloud/1-file-io.md)
 
