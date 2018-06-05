@@ -56,7 +56,7 @@ ln -s /usr/lib/x86_64-linux-gnu/libproj.so.<버젼> /usr/lib/x86_64-linux-gnu/li
 
 > PCL설치는 되지만 pcl-python과 충돌 
 
-
+> [ref](https://recordnotfound.com/python-pcl-strawlab-23316)
 
 ```python
 
@@ -79,7 +79,7 @@ sudo apt-get install libpcl-all -y
 
 
 # PCL 1.7.2 and Ubuntu16.04 (use Debian package)
-
+## PCL설치 
 sudo apt-get update -y
 sudo apt-get install build-essential devscripts
 dget -u https://launchpad.net/ubuntu/+archive/primary/+files/pcl_1.7.2-14ubuntu1.16.04.1.dsc
@@ -87,9 +87,10 @@ cd pcl-1.7.2
 sudo dpkg-buildpackage -r -uc -b
 sudo dpkg -i pcl_*.deb
 
-sudo add-apt-repository -remove ppa:v-launchpad-jochen-sprickerhof-de/pcl -y)
+## PCL-python
 
-https://launchpad.net/ubuntu/xenial/+package/pcl-tools
+sudo add-apt-repository -remove ppa:v-launchpad-jochen-sprickerhof-de/pcl -y
+
 
 
 # PCL 1.8.0 and Ubuntu16.04(build module)([CI Test Timeout])
