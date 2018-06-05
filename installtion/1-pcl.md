@@ -15,7 +15,6 @@ apt-get update -qq && apt-get install -y --no-install-recommends \
       && rm -rf /var/lib/apt/lists/*
  
 wget https://github.com/PointCloudLibrary/pcl/archive/pcl-1.8.1.tar.gz
- 
 tar zvfx pcl-1.8.1.tar.gz
 
 cd pcl-1.8.1
@@ -24,15 +23,7 @@ cmake -DCMAKE_BUILD_TYPE=Release ..
 make -j2
 sudo make -j2 install
  
- ```
-
-
-```python
-apt-get install git
-apt-get install libeigen3-dev #package 'eigen3' not found
-apt-get install libflann-dev # package 'flann>=1.7.0' not found
-
-cd ~
+# or (확인 안됨)
 git clone https://github.com/PointCloudLibrary/pcl.git
 cd pcl
 mkdir build && cd build
@@ -45,6 +36,7 @@ make install
 ln -s /usr/lib/x86_64-linux-gnu/libproj.so.<버젼> /usr/lib/x86_64-linux-gnu/libproj.so # make[2]: *** No rule to make target '/usr/lib/x86_64-linux-gnu/libproj.so',
 
 ```
+
 
 
 
@@ -74,19 +66,24 @@ sudo apt install libpcl-dev  # depends: libvtk6-dev
 |fatal error: 'pcl/point_cloud.h' file not found |seems due to that I don’t have an ROS environment.|
 
 
+
 ## 설치 테스트 
 
 ```
-mkdir pcl-test; cd pcl-test
+cd ~ && mkdir pcl-test && cd pcl-test
+
 wget https://gist.githubusercontent.com/adioshun/319d6a1326d33fa42cdd56833c3ef560/raw/e10d3502ddcd871f9d6b7b57d176b17d52de5571/CMakeLists.txt
 wget https://gist.githubusercontent.com/adioshun/319d6a1326d33fa42cdd56833c3ef560/raw/e10d3502ddcd871f9d6b7b57d176b17d52de5571/main.cpp
 
 mkdir build && cd build
-cmake ..
-make
-
-./pcl-test
+cmake .. && make && ./pcl-test
 ```
+
+
+
+
+
+
 ---
 
 
