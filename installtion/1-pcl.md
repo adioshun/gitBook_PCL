@@ -2,8 +2,6 @@
 
 ## A. Source 설치 
 
-> 1.8.1은 python-pcl과 충돌 나는듯
-
 ```python 
 apt-get update -qq && apt-get install -y --no-install-recommends \
       make cmake build-essential git \
@@ -54,14 +52,9 @@ ln -s /usr/lib/x86_64-linux-gnu/libproj.so.<버젼> /usr/lib/x86_64-linux-gnu/li
 ```
 
 
-
-
-
-
-
 ## B. apt 설치 
 
-> PCL설치는 되지만 pcl-python과의 연동이 안되는듯 
+> PCL설치는 되지만 pcl-python과 충돌 
 
 ```python
 add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl
