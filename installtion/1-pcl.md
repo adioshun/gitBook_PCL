@@ -2,6 +2,8 @@
 
 ## A. Source 설치 
 
+> 1.8.1은 python-pcl과 충돌 나는듯
+
 ```python 
 apt-get update -qq && apt-get install -y --no-install-recommends \
       make cmake build-essential git \
@@ -31,6 +33,20 @@ cmake ..
 make
 #checkinstall #apt-get install checkinstall
 make install 
+
+
+
+# 설치 테스트 
+cd ~ && mkdir pcl-test && cd pcl-test
+
+wget https://gist.githubusercontent.com/adioshun/319d6a1326d33fa42cdd56833c3ef560/raw/e10d3502ddcd871f9d6b7b57d176b17d52de5571/CMakeLists.txt 
+wget https://gist.githubusercontent.com/adioshun/319d6a1326d33fa42cdd56833c3ef560/raw/e10d3502ddcd871f9d6b7b57d176b17d52de5571/main.cpp
+
+mkdir build && cd build
+cmake .. && make && ./pcl-test
+```
+
+
 
 # Error 
 ln -s /usr/lib/x86_64-linux-gnu/libproj.so.<버젼> /usr/lib/x86_64-linux-gnu/libproj.so # make[2]: *** No rule to make target '/usr/lib/x86_64-linux-gnu/libproj.so',
@@ -67,17 +83,7 @@ sudo apt install libpcl-dev  # depends: libvtk6-dev
 
 
 
-## 설치 테스트 
 
-```
-cd ~ && mkdir pcl-test && cd pcl-test
-
-wget https://gist.githubusercontent.com/adioshun/319d6a1326d33fa42cdd56833c3ef560/raw/e10d3502ddcd871f9d6b7b57d176b17d52de5571/CMakeLists.txt
-wget https://gist.githubusercontent.com/adioshun/319d6a1326d33fa42cdd56833c3ef560/raw/e10d3502ddcd871f9d6b7b57d176b17d52de5571/main.cpp
-
-mkdir build && cd build
-cmake .. && make && ./pcl-test
-```
 
 
 
@@ -99,18 +105,12 @@ cmake .. && make && ./pcl-test
 ## 2.1 pip 설치 (ubuntu 14용)
 
 ```python 
-apt-get install build-essential
-apt-get install -y python3-pip git python-dev
-apt install pkg-config
-
-
+apt-get install build-essential python3-pip git python-dev -y
 pip3 install numpy cython 
 
-# ubunutu 14??
 pip3 install git+https://github.com/strawlab/python-pcl
-#pip install git+https://github.com/strawlab/python-pcl.git#egg=pcl
+pip3 install git+https://github.com/strawlab/python-pcl.git#egg=pcl
 
-# ubuntu 16??
 git clone https://github.com/strawlab/python-pcl.git
 cd python-pcl
 python3 setup.py build
@@ -123,6 +123,7 @@ python3 setup.py install
 |에러코드|해결책|원인|
 |-|-|-|
 |fatal error: pcl/features/cppf.h: No such file or directory|`sudo add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl;sudo apt-get update;sudo apt-get upgrade libpcl-features-dev libpcl-io-1.7 libpcl-io-1.7-dev`|ubnutu 14 떄문인|
+|'pcl_2d-1.8', required by 'pcl_features-1.8'| line 10 in /usr/local/lib/pkgconfig/pcl_features-1.8.pc <br>`Requires: pcl_common-1.8 pcl_search-1.8 pcl_kdtree-1.8 pcl_octree-1.8 pcl_filters-1.8 #pcl_2d-1.8`|[출처](https://github.com/strawlab/python-pcl/issues/97)|
 
 
 ### 2.2 conda 설치
@@ -131,25 +132,6 @@ python3 setup.py install
 conda config --add channels conda-forge
 conda install -c sirokujira python-pcl #v0.3
 #conda install -c https://conda.anaconda.org/ccordoba12 python-pcl  #v0.2
-```
-
-
-### 2.3 Python-pcl docker
-
-```
-#Dockerfile
-
-FROM ubuntu:14.04  
-
-RUN apt-get install -y software-properties-common
-RUN add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl
-RUN apt-get update && \
-    apt-get install -y libpcl-all  #유분투 16에서 동작 암함 
-
-RUN apt-get install -y python-pip git python-dev
-RUN pip install cython
-RUN pip install numpy
-RUN pip install git+https://github.com/strawlab/python-pcl.git#egg=pcl
 ```
 
 
