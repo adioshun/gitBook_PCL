@@ -56,15 +56,55 @@ ln -s /usr/lib/x86_64-linux-gnu/libproj.so.<버젼> /usr/lib/x86_64-linux-gnu/li
 
 > PCL설치는 되지만 pcl-python과 충돌 
 
+
+
 ```python
-add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl
-apt-get update
+
+가능 버젼 확인 : apt-cache search libpcl-dev
+설치 버젼 확인 : apt-get -s install libpcl-dev
+
 
 # for Ubuntu 14.04
 apt-get install libpcl-all
 
 # for Ubuntu 16.04
-sudo apt install libpcl-dev  # depends: libvtk6-dev
+sudo apt install libpcl-dev #version 1.7.2  # depends: libvtk6-dev
+
+
+# PCL 1.7.0 and Ubuntu14.04 (use apt-get)
+
+sudo add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl -y
+sudo apt-get update -y
+sudo apt-get install libpcl-all -y
+
+
+# PCL 1.7.2 and Ubuntu16.04 (use Debian package)
+
+sudo apt-get update -y
+sudo apt-get install build-essential devscripts
+dget -u https://launchpad.net/ubuntu/+archive/primary/+files/pcl_1.7.2-14ubuntu1.16.04.1.dsc
+cd pcl-1.7.2
+sudo dpkg-buildpackage -r -uc -b
+sudo dpkg -i pcl_*.deb
+
+sudo add-apt-repository -remove ppa:v-launchpad-jochen-sprickerhof-de/pcl -y)
+
+https://launchpad.net/ubuntu/xenial/+package/pcl-tools
+
+
+# PCL 1.8.0 and Ubuntu16.04(build module)([CI Test Timeout])
+
+https://askubuntu.com/questions/916260/how-to-install-point-cloud-library-v1-8-pcl-1-8-0-on-ubuntu-16-04-2-lts-for
+
+
+
+pip install --upgrade pip
+
+pip install cython==0.25.2
+
+pip install numpy
+
+
 ```
 
 |Error Code | Solution|
