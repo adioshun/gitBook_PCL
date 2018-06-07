@@ -86,6 +86,8 @@ cloud = do_passthrough(cloud, filter_axis, axis_min, axis_max)
 
 ```
 
+단위는 무었인가? 크기는? The indices_xz array indexes all points of cloud_in that have x between 0.0 and 1000.0 and z larger than 10.0 or smaller than -10.0
+
 ## 4. RANSAC
 
 
