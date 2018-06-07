@@ -23,6 +23,7 @@
   * [2-Numpy](2-numpy.md)
 * [ROS](ros.md)
   * [9-Visualization](ros/9-visualization.md)
+  * [3-Downsampling](ros/3-downsampling.md)
 * [helper](helper.md)
   * [pcl\_helper](helper/pclhelper.md)
 * [pytncloud](pytncloud.md)
