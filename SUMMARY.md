@@ -9,6 +9,7 @@
   * [5-PyPCD](installtion/5-pypcd.md)
   * [6-pyPCL](installtion/6-pypcl.md)
   * [0-Dockerfile](installtion/6-dockerfile.md)
+  * [0-Sample\_PCD](installtion/0-samplepcd.md)
 * [PCL](pcl.md)
   * [1-File I/O](pcl/1-file-io.md)
   * [2-Numpy](pcl/2-numpy.md)
