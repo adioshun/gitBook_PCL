@@ -59,7 +59,7 @@ def do_passthrough(pcl_data,filter_axis,axis_min,axis_max):
     '''
     Create a PassThrough  object and assigns a filter axis and range.
     :param pcl_data: point could data subscriber
-    :param filter_axis: filter axis
+    :param filter_axis: filter axis, x is in the direction of the camera, y is the left & right of the camera, z up & down
     :param axis_min: Minimum  axis to the passthrough filter object
     :param axis_max: Maximum axis to the passthrough filter object
     :return: passthrough on point cloud

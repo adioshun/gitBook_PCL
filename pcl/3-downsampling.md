@@ -34,10 +34,10 @@ pcl.save(cloud_filtered, filename)
 ```python
 def do_voxel_grid_downssampling(pcl_data,leaf_size):
     '''
-    Create a VoxelGrid filter object for a input point cloud
-    :param pcl_data: point cloud data subscriber
-    :param leaf_size: voxel(or leaf) size
-    :return: Voxel grid downsampling on point cloud
+    Voxel grid down samples the point cloud
+    :param: point_cloud, point cloud containing the filtered clusters
+    :param: leaf_size, the measurement size of each unit
+    :return: Voxel point cloud
     '''
     vox = pcl_data.make_voxel_grid_filter()
     vox.set_leaf_size(leaf_size, leaf_size, leaf_size)
