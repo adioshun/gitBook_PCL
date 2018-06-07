@@ -8,21 +8,21 @@ Statistical Outlier Filtering is use to remove outlieres using
 
 ```python
 def do_statistical_outlier_filtering(pcl_data,mean_k,tresh):
-'''
-:param pcl_data: point could data subscriber
-:param mean_k: number of neighboring points to analyze for any given point
-:param tresh: Any point with a mean distance larger than global will be considered outlier
-:return: Statistical outlier filtered point cloud data
-'''
-outlier_filter = pcl_data.make_statistical_outlier_filter()
-
-## Set the number of neighboring points to analyze for any given point
-outlier_filter.set_mean_k(mean_k) 
-
-# Any point with a mean distance larger than global (mean distance+x*std_dev)
-# will be considered outlier
-outlier_filter.set_std_dev_mul_thresh(tresh)
-return outlier_filter.filter()
+    '''
+    :param pcl_data: point could data subscriber
+    :param mean_k: number of neighboring points to analyze for any given point
+    :param tresh: Any point with a mean distance larger than global will be considered outlier
+    :return: Statistical outlier filtered point cloud data
+    '''
+    outlier_filter = pcl_data.make_statistical_outlier_filter()
+    
+    ## Set the number of neighboring points to analyze for any given point
+    outlier_filter.set_mean_k(mean_k) 
+    
+    # Any point with a mean distance larger than global (mean distance+x*std_dev)
+    # will be considered outlier
+    outlier_filter.set_std_dev_mul_thresh(tresh)
+    return outlier_filter.filter()
 
 # Convert ROS msg to PCL data
 cloud = ros_to_pcl(pcl_msg)
@@ -56,18 +56,20 @@ pcl.save(cloud_filtered, filename)
 
 ```python
 def do_passthrough(pcl_data,filter_axis,axis_min,axis_max):
-'''
-Create a PassThrough object and assigns a filter axis and range.
-:param pcl_data: point could data subscriber
-:param filter_axis: filter axis
-:param axis_min: Minimum axis to the passthrough filter object
-:param axis_max: Maximum axis to the passthrough filter object
-:return: passthrough on point cloud
-'''
-passthrough = pcl_data.make_passthrough_filter()
-passthrough.set_filter_field_name(filter_axis)
-passthrough.set_filter_limits(axis_min, axis_max)
-return passthrough.filter()
+    '''
+    Create a PassThrough  object and assigns a filter axis and range.
+    :param pcl_data: point could data subscriber
+    :param filter_axis: filter axis
+    :param axis_min: Minimum  axis to the passthrough filter object
+    :param axis_max: Maximum axis to the passthrough filter object
+    :return: passthrough on point cloud
+    '''
+    passthrough = pcl_data.make_passthrough_filter()
+    passthrough.set_filter_field_name(filter_axis)
+    passthrough.set_filter_limits(axis_min, axis_max)
+    return passthrough.filter()
+
+
 # Convert ROS msg to PCL data
 cloud = ros_to_pcl(pcl_msg)
 
@@ -90,29 +92,33 @@ cloud = do_passthrough(cloud, filter_axis, axis_min, axis_max)
 ```python
 
 def do_ransac_plane_segmentation(pcl_data,pcl_sac_model_plane,pcl_sac_ransac,max_distance):
-'''
-Create the segmentation object
-:param pcl_data: point could data subscriber
-:param pcl_sac_model_plane: use to determine plane models
-:param pcl_sac_ransac: RANdom SAmple Consensus
-:param max_distance: Max distance for apoint to be considered fitting the model
-:return: segmentation object
-'''
-seg = pcl_data.make_segmenter()
-seg.set_model_type(pcl_sac_model_plane)
-seg.set_method_type(pcl_sac_ransac)
-seg.set_distance_threshold(max_distance)
-return seg
-def extract_cloud_objects_and_cloud_table(pcl_data,ransac_segmentation):
-'''
-:param pcl_data:
-:param ransac_segmentation:
-:return: cloud table and cloud object
-'''
-inliers, coefficients = ransac_segmentation.segment()
-cloud_table = pcl_data.extract(inliers, negative=False)
-cloud_objects = pcl_data.extract(inliers, negative=True)
-return cloud_table,cloud_objects
+    '''
+    Create the segmentation object
+    :param pcl_data: point could data subscriber
+    :param pcl_sac_model_plane: use to determine plane models
+    :param pcl_sac_ransac: RANdom SAmple Consensus
+    :param max_distance: Max distance for apoint to be considered fitting the model
+    :return: segmentation object
+    '''
+    seg = pcl_data.make_segmenter()
+    seg.set_model_type(pcl_sac_model_plane)
+    seg.set_method_type(pcl_sac_ransac)
+    seg.set_distance_threshold(max_distance)
+    return seg
+
+
+def  extract_cloud_objects_and_cloud_table(pcl_data,ransac_segmentation):
+    '''
+    :param pcl_data:
+    :param ransac_segmentation:
+    :return: cloud table and cloud object
+    '''
+    inliers, coefficients = ransac_segmentation.segment()
+    cloud_table = pcl_data.extract(inliers, negative=False)
+    cloud_objects = pcl_data.extract(inliers, negative=True)
+    return cloud_table,cloud_objects
+
+
 # Convert ROS msg to PCL data
 cloud = ros_to_pcl(pcl_msg)
 # RANSAC Plane Segmentation
