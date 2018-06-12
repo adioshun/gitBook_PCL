@@ -1,3 +1,19 @@
+![image](https://user-images.githubusercontent.com/17797922/41264288-c5b9c6da-6da0-11e8-97f7-0cf5d68708d9.png)
+
+Some important things to note about images:
+
+The coordinate values in an image are always positive.
+The origin is located on the upper left hand corner.
+The coordinates are integer values.
+Things to note about point cloud coordinates:
+
+The coordinate values in point cloud can be positive or negative.
+The coordinates can take on real numbered values.
+The positive x axis represents forward.
+The positive y axis represents left.
+The positive z axis represents up.
+
+
 # My Awesome Book
 
 This file file serves as your book's preface, a great place to describe your book's content and ideas.
