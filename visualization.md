@@ -17,3 +17,15 @@ plot.camera_auto_fit = False
 plot.display()
 
 ```
+
+
+---
+
+https://www.paraview.org/
+
+https://www.slicer.org/ : medical images
+
+
+http://www.sci.utah.edu/software/imagevis3d.html
+
+http://www.danielgm.net/cc/
