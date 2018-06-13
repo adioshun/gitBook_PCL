@@ -22,13 +22,12 @@ plot.display()
 # Matplot를 이용한 시각화 
 
 
-```python
 
-%matplotlib inline
+
+#%matplotlib inline
 
 X = data
 
-# #############################################################################
 # Plot result
 import matplotlib.pyplot as plt
 
