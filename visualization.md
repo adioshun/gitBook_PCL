@@ -22,7 +22,7 @@ plot.display()
 # Matplot를 이용한 시각화 
 
 
-
+```python
 
 #%matplotlib inline
 
