@@ -34,4 +34,5 @@
   * [1-File I/O](pypcl/1-file-io.md)
 * [LasPy](laspy.md)
   * [9-Visualization](laspy/9-visualization.md)
+* [Visualization](visualization.md)
 
