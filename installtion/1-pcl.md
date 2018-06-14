@@ -24,6 +24,9 @@ pip install git+https://github.com/strawlab/python-pcl
 
 
 add-apt-repository -remove ppa:v-launchpad-jochen-sprickerhof-de/pcl -y 
+
+# docker pull adioshun/pcls:u14python23_pcl
+
 ```
 
 #### Ubuntu 16 (python2 실패, python3에서 성공)
@@ -43,6 +46,9 @@ pip3 install git+https://github.com/strawlab/python-pcl
 
 
 add-apt-repository -remove ppa:v-launchpad-jochen-sprickerhof-de/pcl -y 
+
+# docker pull adioshun/pcls:u16python3_pcl
+
 ```
 
 
@@ -95,6 +101,9 @@ sudo make install
 cd ~/Downloads
 rm libeigen3-dev_3.2.5-4_all.deb VTK-7.1.0.tar.gz pcl-1.8.0.tar.gz
 sudo rm -r VTK-7.1.0 pcl-pcl-1.8.0
+
+# docker pull adioshun/pcls:pcl_only
+
 ```
 
 ### For PCL v1.8.1, Ubuntu 17.10 input the following:
