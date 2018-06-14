@@ -1,14 +1,14 @@
 ```python
 
-cloud = PyntCloud.from_file("sample_table.pcd")
+cloud = PyntCloud.from_file("sample_sec.pcd")
+#Error : ValueError: field '__0000' occurs more than once
+
 cloud.plot() #jupyter
 ```
 
-
+dataframe으로 변경 후 실행  
 
 ```python 
-
-#pcd 
 
 import pcl
 import numpy as np
