@@ -35,4 +35,6 @@
 * [LasPy](laspy.md)
   * [9-Visualization](laspy/9-visualization.md)
 * [Visualization](visualization.md)
+  * [Tool\_CloudCompare](visualization/toolcloudcompare.md)
 * [Numpy](https://legacy.gitbook.com/book/adioshun/python_snippet/edit#/edit/master/packagenumpy.md?_k=s830r0)
+
