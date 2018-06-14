@@ -1,3 +1,87 @@
+# PCL
+
+## 최종 솔루션 
+
+
+사전 설치
+
+```
+apt-get install software-properties-common -y
+
+#Install oracle-java8-jdk:
+sudo add-apt-repository -y ppa:webupd8team/java && sudo apt update && sudo apt -y install oracle-java8-installer
+#add-apt-repository -y ppa:webupd8team/java && apt update && apt -y install oracle-java8-installer
+
+#Install universal pre-requisites:
+
+sudo apt -y install g++ cmake cmake-gui doxygen mpi-default-dev openmpi-bin openmpi-common libusb-1.0-0-dev libqhull* libusb-dev libgtest-dev
+sudo apt -y install git-core freeglut3-dev pkg-config build-essential libxmu-dev libxi-dev libphonon-dev libphonon-dev phonon-backend-gstreamer
+sudo apt -y install phonon-backend-vlc graphviz mono-complete qt-sdk libflann-dev  
+#apt -y install g++ cmake cmake-gui doxygen mpi-default-dev openmpi-bin openmpi-common libusb-1.0-0-dev libqhull* libusb-dev libgtest-dev git-core freeglut3-dev pkg-config build-essential libxmu-dev libxi-dev libphonon-dev libphonon-dev phonon-backend-gstreamer phonon-backend-vlc graphviz mono-complete qt-sdk libflann-dev  
+```   
+
+For PCL v1.8, Ubuntu 16.04.2 input the following:
+
+```
+sudo apt -y install libflann1.8 libboost1.58-all-dev libeigen3-dev cmake 
+
+cd ~/Downloads
+wget http://launchpadlibrarian.net/209530212/libeigen3-dev_3.2.5-4_all.deb
+sudo dpkg -i libeigen3-dev_3.2.5-4_all.deb
+sudo apt-mark hold libeigen3-dev
+
+wget http://www.vtk.org/files/release/7.1/VTK-7.1.0.tar.gz
+tar -xf VTK-7.1.0.tar.gz
+cd VTK-7.1.0 && mkdir build && cd build
+cmake ..
+make                                                                   
+sudo make install
+
+cd ~/Downloads
+wget https://github.com/PointCloudLibrary/pcl/archive/pcl-1.8.0.tar.gz
+tar -xf pcl-1.8.0.tar.gz
+cd pcl-pcl-1.8.0 && mkdir build && cd build
+cmake ..
+make
+sudo make install
+
+cd ~/Downloads
+rm libeigen3-dev_3.2.5-4_all.deb VTK-7.1.0.tar.gz pcl-1.8.0.tar.gz
+sudo rm -r VTK-7.1.0 pcl-pcl-1.8.0
+```
+
+For PCL v1.8.1, Ubuntu 17.10 input the following:
+```
+sudo apt -y install libflann1.9 libboost1.63-all-dev libeigen3-dev
+
+cd ~/Downloads
+wget http://www.vtk.org/files/release/8.0/VTK-8.0.1.tar.gz
+tar -xf VTK-8.0.1.tar.gz
+cd VTK-8.0.1 && mkdir build && cd build
+cmake ..
+make                                                                   
+sudo make install
+
+cd ~/Downloads
+wget https://github.com/PointCloudLibrary/pcl/archive/pcl-1.8.1.tar.gz
+tar -xf pcl-1.8.1.tar.gz
+cd pcl-pcl-1.8.1 && mkdir build && cd build
+cmake ..
+make
+sudo make install
+
+cd ~/Downloads
+rm VTK-8.0.1.tar.gz pcl-1.8.1.tar.gz
+sudo rm -r VTK-8.0.1 pcl-pcl-1.8.1
+```
+
+
+
+
+---
+
+
+
 # 1. PCL for C++ 설치 
 
 ## A. Source 설치 
@@ -42,7 +126,6 @@ wget https://gist.githubusercontent.com/adioshun/319d6a1326d33fa42cdd56833c3ef56
 
 mkdir build && cd build
 cmake .. && make && ./pcl-test
-```
 
 
 
@@ -54,30 +137,23 @@ ln -s /usr/lib/x86_64-linux-gnu/libproj.so.<버젼> /usr/lib/x86_64-linux-gnu/li
 
 ## B. apt 설치 
 
-> PCL설치는 되지만 pcl-python과 충돌 
+> PCL설치는 되지만 pcl-python과 충돌 [ref](https://recordnotfound.com/python-pcl-strawlab-23316)
 
-> [ref](https://recordnotfound.com/python-pcl-strawlab-23316)
-
-```python
+sudo add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl -y
+sudo add-apt-repository -remove ppa:v-launchpad-jochen-sprickerhof-de/pcl -y #설치 후 제거 
 
 가능 버젼 확인 : apt-cache search libpcl-dev
 설치 버젼 확인 : apt-get -s install libpcl-dev
 
 
-# for Ubuntu 14.04
-apt-get install libpcl-all
+PCL for Ubuntu 14.04 : apt-get install libpcl-all
 
-# for Ubuntu 16.04
-sudo apt install libpcl-dev #version 1.7.2  # depends: libvtk6-dev
+PCL 1.7.2 for Ubuntu 16.04 : ~~sudo apt install libpcl-dev~~   #설치는 되나 hello 테스트 실패 
 
-
-# PCL 1.7.0 and Ubuntu14.04 (use apt-get)
-
-sudo add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl -y
-sudo apt-get update -y
-sudo apt-get install libpcl-all -y
+PCL 1.8.0 and Ubuntu 16.04 : ~~wget https://www.dropbox.com/s/9llzm20pc4opdn9/PCL-1.8.0-Linux.deb && dpkg -i PCL-1.8.0-Linux.deb~~  #설치는되나 hello 테스트 에러 
 
 
+```
 # PCL 1.7.2 and Ubuntu16.04 (use Debian package)
 ## PCL설치 
 sudo apt-get update -y
@@ -86,10 +162,8 @@ dget -u https://launchpad.net/ubuntu/+archive/primary/+files/pcl_1.7.2-14ubuntu1
 cd pcl-1.7.2
 sudo dpkg-buildpackage -r -uc -b
 sudo dpkg -i pcl_*.deb
+```
 
-## PCL-python
-
-sudo add-apt-repository -remove ppa:v-launchpad-jochen-sprickerhof-de/pcl -y
 
 
 
@@ -106,7 +180,6 @@ pip install cython==0.25.2
 pip install numpy
 
 
-```
 
 |Error Code | Solution|
 |-|-|
