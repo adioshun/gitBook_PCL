@@ -1,11 +1,11 @@
 # PCL
 
-## 최종 솔루션 
+## [최종 솔루션](https://askubuntu.com/questions/916260/how-to-install-point-cloud-library-v1-8-pcl-1-8-0-on-ubuntu-16-04-2-lts-for)
 
 
-사전 설치
+### 사전 설치
 
-```
+```python
 apt-get install software-properties-common -y
 
 #Install oracle-java8-jdk:
@@ -20,9 +20,9 @@ sudo apt -y install phonon-backend-vlc graphviz mono-complete qt-sdk libflann-de
 #apt -y install g++ cmake cmake-gui doxygen mpi-default-dev openmpi-bin openmpi-common libusb-1.0-0-dev libqhull* libusb-dev libgtest-dev git-core freeglut3-dev pkg-config build-essential libxmu-dev libxi-dev libphonon-dev libphonon-dev phonon-backend-gstreamer phonon-backend-vlc graphviz mono-complete qt-sdk libflann-dev  
 ```   
 
-For PCL v1.8, Ubuntu 16.04.2 input the following:
+### For PCL v1.8, Ubuntu 16.04.2 input the following:
 
-```
+```python
 sudo apt -y install libflann1.8 libboost1.58-all-dev libeigen3-dev cmake 
 
 cd ~/Downloads
@@ -50,8 +50,9 @@ rm libeigen3-dev_3.2.5-4_all.deb VTK-7.1.0.tar.gz pcl-1.8.0.tar.gz
 sudo rm -r VTK-7.1.0 pcl-pcl-1.8.0
 ```
 
-For PCL v1.8.1, Ubuntu 17.10 input the following:
-```
+### For PCL v1.8.1, Ubuntu 17.10 input the following:
+
+```python
 sudo apt -y install libflann1.9 libboost1.63-all-dev libeigen3-dev
 
 cd ~/Downloads
@@ -76,15 +77,101 @@ sudo rm -r VTK-8.0.1 pcl-pcl-1.8.1
 ```
 
 
+### 설치 테스트 
+
+```python
+cd ~ && mkdir pcl-test && cd pcl-test
+
+wget https://gist.githubusercontent.com/adioshun/319d6a1326d33fa42cdd56833c3ef560/raw/e10d3502ddcd871f9d6b7b57d176b17d52de5571/CMakeLists.txt 
+wget https://gist.githubusercontent.com/adioshun/319d6a1326d33fa42cdd56833c3ef560/raw/e10d3502ddcd871f9d6b7b57d176b17d52de5571/main.cpp
+
+mkdir build && cd build
+cmake .. && make && ./pcl-test
+
+# Error 
+ln -s /usr/lib/x86_64-linux-gnu/libproj.so.<버젼> /usr/lib/x86_64-linux-gnu/libproj.so # make[2]: *** No rule to make target '/usr/lib/x86_64-linux-gnu/libproj.so',
+```
+
+
+# 2. PCL for Python 설치 
+
+- [공식 홈페이지](http://strawlab.github.io/python-pcl/), [example](https://github.com/strawlab/python-pcl/tree/master/examples)
+
+- conda를 이용한 설치 방법 추천 
+
+## 2.1 pip 설치 (ubuntu 14용)
+
+```python 
+apt-get install build-essential python3-pip git python-dev -y
+pip3 install numpy cython 
+
+pip3 install git+https://github.com/strawlab/python-pcl
+pip3 install git+https://github.com/strawlab/python-pcl.git#egg=pcl
+
+git clone https://github.com/strawlab/python-pcl.git
+cd python-pcl
+python3 setup.py build
+python3 setup.py install
+```
+
+> 참고 : [python-pcl, python 3, ubuntu 14.04](http://adamsteer.blogspot.kr/2016/01/python-pcl-python-3-ubuntu-1404.html)
+
+
+|에러코드|해결책|원인|
+|-|-|-|
+|fatal error: pcl/features/cppf.h: No such file or directory|`sudo add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl;sudo apt-get update;sudo apt-get upgrade libpcl-features-dev libpcl-io-1.7 libpcl-io-1.7-dev`|ubnutu 14 떄문인|
+|'pcl_2d-1.8', required by 'pcl_features-1.8'| line 10 in /usr/local/lib/pkgconfig/pcl_features-1.8.pc <br>`Requires: pcl_common-1.8 pcl_search-1.8 pcl_kdtree-1.8 pcl_octree-1.8 pcl_filters-1.8 #pcl_2d-1.8`|[출처](https://github.com/strawlab/python-pcl/issues/97)|
+
+
+### 2.2 conda 설치
+
+```
+conda config --add channels conda-forge
+conda install -c sirokujira python-pcl #v0.3
+#conda install -c https://conda.anaconda.org/ccordoba12 python-pcl  #v0.2
+```
+
+
+|에러|해결책|
+|-|-|
+|Python locale error: unsupported locale setting|$ export LC_ALL="en_US.UTF-8"<br>$ export LC_CTYPE="en_US.UTF-8"<br>$ sudo dpkg-reconfigure locales|
+
+
+
+## 3. PCL for ROS
+
+> How-to : Gitbook - ros_autoware - rospcl
+
+### 3.1 Source 설치 (ubuntu 14)
+
+```
+## Download
+cd ~/catkin_ws/src
+git clone https://github.com/ros-perception/perception_pcl
+rosdep install --from-paths ./ --ignore-src --rosdistro indigo -y
+
+## Register {launch} with ROS via catkin_make.
+cd ~/catkin_ws
+catkin_make 
+source ./devel/setup.sh
+
+## Check
+rospack profile
+rospack list | grep {velodyne}
+rospack find {}
+```
+
+
+
+
+
 
 
 ---
-## 
+## 삽질의 흔적들 
 
 
-# 1. PCL for C++ 설치 
-
-## A. Source 설치 
+#### A. Source 설치 
 
 ```python 
 apt-get update -qq && apt-get install -y --no-install-recommends \
@@ -118,19 +205,6 @@ make install
 
 
 
-# 설치 테스트 
-cd ~ && mkdir pcl-test && cd pcl-test
-
-wget https://gist.githubusercontent.com/adioshun/319d6a1326d33fa42cdd56833c3ef560/raw/e10d3502ddcd871f9d6b7b57d176b17d52de5571/CMakeLists.txt 
-wget https://gist.githubusercontent.com/adioshun/319d6a1326d33fa42cdd56833c3ef560/raw/e10d3502ddcd871f9d6b7b57d176b17d52de5571/main.cpp
-
-mkdir build && cd build
-cmake .. && make && ./pcl-test
-
-
-
-# Error 
-ln -s /usr/lib/x86_64-linux-gnu/libproj.so.<버젼> /usr/lib/x86_64-linux-gnu/libproj.so # make[2]: *** No rule to make target '/usr/lib/x86_64-linux-gnu/libproj.so',
 
 ```
 
@@ -203,73 +277,6 @@ pip install numpy
 
 
 
-# 2. PCL for Python 설치 
-
-- [공식 홈페이지](http://strawlab.github.io/python-pcl/), [example](https://github.com/strawlab/python-pcl/tree/master/examples)
-
-- conda를 이용한 설치 방법 추천 
-
-## 2.1 pip 설치 (ubuntu 14용)
-
-```python 
-apt-get install build-essential python3-pip git python-dev -y
-pip3 install numpy cython 
-
-pip3 install git+https://github.com/strawlab/python-pcl
-pip3 install git+https://github.com/strawlab/python-pcl.git#egg=pcl
-
-git clone https://github.com/strawlab/python-pcl.git
-cd python-pcl
-python3 setup.py build
-python3 setup.py install
-```
-
-> 참고 : [python-pcl, python 3, ubuntu 14.04](http://adamsteer.blogspot.kr/2016/01/python-pcl-python-3-ubuntu-1404.html)
-
-
-|에러코드|해결책|원인|
-|-|-|-|
-|fatal error: pcl/features/cppf.h: No such file or directory|`sudo add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl;sudo apt-get update;sudo apt-get upgrade libpcl-features-dev libpcl-io-1.7 libpcl-io-1.7-dev`|ubnutu 14 떄문인|
-|'pcl_2d-1.8', required by 'pcl_features-1.8'| line 10 in /usr/local/lib/pkgconfig/pcl_features-1.8.pc <br>`Requires: pcl_common-1.8 pcl_search-1.8 pcl_kdtree-1.8 pcl_octree-1.8 pcl_filters-1.8 #pcl_2d-1.8`|[출처](https://github.com/strawlab/python-pcl/issues/97)|
-
-
-### 2.2 conda 설치
-
-```
-conda config --add channels conda-forge
-conda install -c sirokujira python-pcl #v0.3
-#conda install -c https://conda.anaconda.org/ccordoba12 python-pcl  #v0.2
-```
-
-
-|에러|해결책|
-|-|-|
-|Python locale error: unsupported locale setting|$ export LC_ALL="en_US.UTF-8"<br>$ export LC_CTYPE="en_US.UTF-8"<br>$ sudo dpkg-reconfigure locales|
-
-
-
-## 3. PCL for ROS
-
-> How-to : Gitbook - ros_autoware - rospcl
-
-### 3.1 Source 설치 (ubuntu 14)
-
-```
-## Download
-cd ~/catkin_ws/src
-git clone https://github.com/ros-perception/perception_pcl
-rosdep install --from-paths ./ --ignore-src --rosdistro indigo -y
-
-## Register {launch} with ROS via catkin_make.
-cd ~/catkin_ws
-catkin_make 
-source ./devel/setup.sh
-
-## Check
-rospack profile
-rospack list | grep {velodyne}
-rospack find {}
-```
 
 
 
