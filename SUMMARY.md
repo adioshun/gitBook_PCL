@@ -30,6 +30,8 @@
   * [pcl\_helper](helper/pclhelper.md)
 * [pytncloud](pytncloud.md)
   * [1-File I/O](pytncloud/1-file-io.md)
+  * [2-Numpy](pytncloud/2-numpy.md)
+  * [9-Visualization](pytncloud/9-visualization.md)
 * [pyPCL](pypcl.md)
   * [1-File I/O](pypcl/1-file-io.md)
 * [LasPy](laspy.md)
