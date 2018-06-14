@@ -1,6 +1,53 @@
 # PCL
 
-## [최종 솔루션](https://askubuntu.com/questions/916260/how-to-install-point-cloud-library-v1-8-pcl-1-8-0-on-ubuntu-16-04-2-lts-for)
+[공식 홈페이지](http://strawlab.github.io/python-pcl/), [example](https://github.com/strawlab/python-pcl/tree/master/examples)
+
+
+
+## 1. 패키지 설치 
+
+#### Ubuntu 14 (python2,3에서 성공)
+
+```python
+apt-get update && apt-get install -y software-properties-common git && add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl -y 
+
+apt-get update && apt-get install -y libpcl-all #ubnutu 14
+apt-get update && apt-get install -y libpcl-dev #ubuntu 16
+
+apt-get install -y python-pip python-dev git && pip install cython==0.25.2 && pip install numpy
+
+pip install git+https://github.com/strawlab/python-pcl
+#git clone https://github.com/strawlab/python-pcl.git
+#cd python-pcl
+#python3 setup.py build
+#python3 setup.py install
+
+
+add-apt-repository -remove ppa:v-launchpad-jochen-sprickerhof-de/pcl -y 
+```
+
+#### Ubuntu 16 (python2 실패, python3에서 성공)
+
+```python
+apt-get update && apt-get install -y software-properties-common git && add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl -y 
+
+apt-get update && apt-get install -y libpcl-dev #ubuntu 16
+
+apt-get install -y python3-pip python3-dev git && pip3 install cython==0.25.2 && pip3 install numpy
+
+pip3 install git+https://github.com/strawlab/python-pcl
+#git clone https://github.com/strawlab/python-pcl.git
+#cd python-pcl
+#python3 setup.py build
+#python3 setup.py install
+
+
+add-apt-repository -remove ppa:v-launchpad-jochen-sprickerhof-de/pcl -y 
+```
+
+
+
+## 2. [소스설치](https://askubuntu.com/questions/916260/how-to-install-point-cloud-library-v1-8-pcl-1-8-0-on-ubuntu-16-04-2-lts-for)
 
 
 ### 사전 설치
@@ -93,28 +140,6 @@ ln -s /usr/lib/x86_64-linux-gnu/libproj.so.<버젼> /usr/lib/x86_64-linux-gnu/li
 ```
 
 
-# 2. PCL for Python 설치 
-
-- [공식 홈페이지](http://strawlab.github.io/python-pcl/), [example](https://github.com/strawlab/python-pcl/tree/master/examples)
-
-- conda를 이용한 설치 방법 추천 
-
-## 2.1 pip 설치 (ubuntu 14용)
-
-```python 
-apt-get install build-essential python3-pip git python-dev -y
-pip3 install numpy cython 
-
-pip3 install git+https://github.com/strawlab/python-pcl
-pip3 install git+https://github.com/strawlab/python-pcl.git#egg=pcl
-
-git clone https://github.com/strawlab/python-pcl.git
-cd python-pcl
-python3 setup.py build
-python3 setup.py install
-```
-
-> 참고 : [python-pcl, python 3, ubuntu 14.04](http://adamsteer.blogspot.kr/2016/01/python-pcl-python-3-ubuntu-1404.html)
 
 
 |에러코드|해결책|원인|
