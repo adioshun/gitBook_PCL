@@ -6,13 +6,16 @@
 
 ## 1. 패키지 설치 
 
+Must Install Java : sudo add-apt-repository -y ppa:webupd8team/java && sudo apt update && sudo apt -y install oracle-java8-installer
+
+For Ubuntu 16 :  PCL-1.8.1 supports Ubuntu > 16.04. Try to upgrade your O.S
+
 #### Ubuntu 14 (python2,3에서 성공)
 
 ```python
 apt-get update && apt-get install -y software-properties-common git && add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl -y 
 
 apt-get update && apt-get install -y libpcl-all #ubnutu 14
-apt-get update && apt-get install -y libpcl-dev #ubuntu 16
 
 apt-get install -y python-pip python-dev git && pip install cython==0.25.2 && pip install numpy
 
@@ -31,10 +34,13 @@ add-apt-repository -remove ppa:v-launchpad-jochen-sprickerhof-de/pcl -y
 
 #### Ubuntu 16 (python2 실패, python3에서 성공)
 
+
+
 ```python
 apt-get update && apt-get install -y software-properties-common git && add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl -y 
 
 apt-get update && apt-get install -y libpcl-dev #ubuntu 16
+apt-get -s install libpcl-dev # PCL-1.8.1 supports Ubuntu > 16.04. Try to upgrade your O.S
 
 apt-get install -y python3-pip python3-dev git && pip3 install cython==0.25.2 && pip3 install numpy
 
