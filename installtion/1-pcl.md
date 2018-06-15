@@ -218,7 +218,8 @@ apt-get update -qq && apt-get install -y --no-install-recommends \
       libboost-all-dev \
       libproj-dev \
       && rm -rf /var/lib/apt/lists/*
- 
+
+# ubuntu 16 (checked) 
 wget https://github.com/PointCloudLibrary/pcl/archive/pcl-1.8.1.tar.gz
 tar zvfx pcl-1.8.1.tar.gz
 
@@ -248,6 +249,7 @@ make install
 > PCL설치는 되지만 pcl-python과 충돌 [ref](https://recordnotfound.com/python-pcl-strawlab-23316)
 
 sudo add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl -y
+
 sudo add-apt-repository -remove ppa:v-launchpad-jochen-sprickerhof-de/pcl -y #설치 후 제거 
 
 가능 버젼 확인 : apt-cache search libpcl-dev
@@ -272,20 +274,6 @@ sudo dpkg-buildpackage -r -uc -b
 sudo dpkg -i pcl_*.deb
 ```
 
-
-
-
-# PCL 1.8.0 and Ubuntu16.04(build module)([CI Test Timeout])
-
-https://askubuntu.com/questions/916260/how-to-install-point-cloud-library-v1-8-pcl-1-8-0-on-ubuntu-16-04-2-lts-for
-
-
-
-pip install --upgrade pip
-
-pip install cython==0.25.2
-
-pip install numpy
 
 
 
