@@ -17,9 +17,10 @@ For Ubuntu 16 :  PCL-1.8.1 supports Ubuntu > 16.04. Try to upgrade your O.S
 
 
 ```python
-apt-get update && apt-get install -y software-properties-common git && add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl -y 
+apt-get update && apt-get install -y software-properties-common git && add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl -y && apt-get update 
 
-apt-get update && apt-get install -y libpcl-dev #ubuntu 16
+
+apt-get install -y libpcl-dev #ubuntu 16
 #apt-get -s install libpcl-dev # PCL-1.8.1 supports Ubuntu > 16.04. Try to upgrade your O.S
 
 apt-get install -y python3-pip python3-dev git
