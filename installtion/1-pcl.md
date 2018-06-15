@@ -10,6 +10,34 @@ Must Install Java : sudo add-apt-repository -y ppa:webupd8team/java && sudo apt 
 
 For Ubuntu 16 :  PCL-1.8.1 supports Ubuntu > 16.04. Try to upgrade your O.S
 
+
+
+#### Ubuntu 16 (python2 실패, python3에서 성공)
+
+
+
+```python
+apt-get update && apt-get install -y software-properties-common git && add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl -y 
+
+apt-get update && apt-get install -y libpcl-dev #ubuntu 16
+#apt-get -s install libpcl-dev # PCL-1.8.1 supports Ubuntu > 16.04. Try to upgrade your O.S
+
+apt-get install -y python3-pip python3-dev git
+pip3 install cython==0.25.2 && pip3 install numpy
+
+pip3 install git+https://github.com/strawlab/python-pcl
+#git clone https://github.com/strawlab/python-pcl.git
+#cd python-pcl
+#python3 setup.py build
+#python3 setup.py install
+
+
+add-apt-repository -remove ppa:v-launchpad-jochen-sprickerhof-de/pcl -y 
+
+# docker pull adioshun/pcls:u16python3_pcl
+
+```
+
 #### Ubuntu 14 (python2,3에서 성공)
 
 ```python
@@ -29,31 +57,6 @@ pip install git+https://github.com/strawlab/python-pcl
 add-apt-repository -remove ppa:v-launchpad-jochen-sprickerhof-de/pcl -y 
 
 # docker pull adioshun/pcls:u14python23_pcl
-
-```
-
-#### Ubuntu 16 (python2 실패, python3에서 성공)
-
-
-
-```python
-apt-get update && apt-get install -y software-properties-common git && add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl -y 
-
-apt-get update && apt-get install -y libpcl-dev #ubuntu 16
-apt-get -s install libpcl-dev # PCL-1.8.1 supports Ubuntu > 16.04. Try to upgrade your O.S
-
-apt-get install -y python3-pip python3-dev git && pip3 install cython==0.25.2 && pip3 install numpy
-
-pip3 install git+https://github.com/strawlab/python-pcl
-#git clone https://github.com/strawlab/python-pcl.git
-#cd python-pcl
-#python3 setup.py build
-#python3 setup.py install
-
-
-add-apt-repository -remove ppa:v-launchpad-jochen-sprickerhof-de/pcl -y 
-
-# docker pull adioshun/pcls:u16python3_pcl
 
 ```
 
