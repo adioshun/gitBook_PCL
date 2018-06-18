@@ -30,7 +30,10 @@ cd util/scripts
 
 ## 2. pip 설치 
 
+ubnutu16(0)
+
 ```
+apt-get install libglu1-mesa-dev libgl1-mesa-glx libglew-dev libglfw3-dev libjsoncpp-dev libeigen3-dev libpng16-dev libjpeg-dev python-dev python3-dev python-tk python3-tk
 pip install open3d-python
 ```
 
