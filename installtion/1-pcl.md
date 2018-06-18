@@ -2,6 +2,7 @@
 
 [공식 홈페이지](http://strawlab.github.io/python-pcl/), [example](https://github.com/strawlab/python-pcl/tree/master/examples) [Qna](https://www.bountysource.com/teams/strawlab/issues?tracker_ids=658709)
 
+[원하는 QT 버전에 맞게 PCL 설치하기](http://jinyongjeong.github.io/2017/01/09/pcl_install_with_qt5/): 2017
 
 
 ## 1. 패키지 설치 
@@ -14,6 +15,7 @@ For Ubuntu 16 :  PCL-1.8.1 supports Ubuntu > 16.04. Try to upgrade your O.S
 
 #### Ubuntu 16 (python2 실패, python3에서 성공)
 
+> ubuntu 17 (X)
 
 
 ```python
