@@ -34,7 +34,7 @@ pip3 install git+https://github.com/strawlab/python-pcl
 #python3 setup.py install
 
 
-add-apt-repository -remove ppa:v-launchpad-jochen-sprickerhof-de/pcl -y 
+add-apt-repository --remove ppa:v-launchpad-jochen-sprickerhof-de/pcl -y 
 
 # docker pull adioshun/pcls:u16python3_pcl
 
