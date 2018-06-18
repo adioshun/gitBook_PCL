@@ -28,7 +28,13 @@ cd util/scripts
 
 설치 테스트 \(python3\) : `import open3d`
 
-## 2. Docker 이용 설치
+## 2. pip 설치 
+
+```
+pip install open3d-python
+```
+
+## 3. Docker 이용 설치
 
 ```
 docker pull adioshun/ubuntu16:Open3D
