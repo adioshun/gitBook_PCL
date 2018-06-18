@@ -2,7 +2,7 @@
 
 ## 1. 소스코드 이용 설치
 
-Ubuntu 16 & 18, python3, pip
+Ubuntu 16(x), 17(o) & 18(o), python3, pip
 
 ```python
 apt-get install cmake 
