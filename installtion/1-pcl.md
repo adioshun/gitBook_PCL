@@ -24,10 +24,16 @@ sudo add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl -y && sudo apt
 apt-get install -y libpcl-dev #ubuntu 16
 #apt-get -s install libpcl-dev # PCL-1.8.1 supports Ubuntu > 16.04. Try to upgrade your O.S
 
-apt-get install -y python3-pip python3-dev git
+apt-get install -y python3-pip python3-dev python-pip python-dev git
+
 pip3 install cython==0.25.2 && pip3 install numpy
+pip install cython==0.25.2 && pip install numpy
+
+
 
 pip3 install git+https://github.com/strawlab/python-pcl
+pip install git+https://github.com/strawlab/python-pcl
+
 #git clone https://github.com/strawlab/python-pcl.git
 #cd python-pcl
 #python3 setup.py build
