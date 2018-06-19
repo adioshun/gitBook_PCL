@@ -1,6 +1,55 @@
 # Visulaiztion 
 
-## 1. 보기 
+## 1. 그리기 
+
+> Detection 후 B.Box 그릴때 필요 할듯 
+ 
+http://www.open3d.org/docs/tutorial/Basic/visualization.html#draw-multiple-geometries
+
+
+## 2. 색변경 
+
+
+np.asarray(pcd.colors)[idx[1:], :] = [0, 0, 1]
+
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/r/robonchu/20180225/20180225112642.png)
+
+```python
+We pick the 1500-th point as the anchor point and paint it red.
+
+# src/Python/Tutorial/Basic/kdtree.py
+
+import sys
+import numpy as np
+sys.path.append("../..")
+from py3d import *
+
+if __name__ == "__main__":
+
+    print("Testing kdtree in py3d ...")
+    print("Load a point cloud and paint it gray.")
+    pcd = read_point_cloud("../../TestData/Feature/cloud_bin_0.pcd")
+    pcd.paint_uniform_color([0.5, 0.5, 0.5])
+    pcd_tree = KDTreeFlann(pcd)
+
+    print("Paint the 1500th point red.")
+    pcd.colors[1500] = [1, 0, 0]
+
+    print("Find its 200 nearest neighbors, paint blue.")
+    [k, idx, _] = pcd_tree.search_knn_vector_3d(pcd.points[1500], 200)
+    np.asarray(pcd.colors)[idx[1:], :] = [0, 0, 1]
+
+    print("Find its neighbors with distance less than 0.2, paint green.")
+    [k, idx, _] = pcd_tree.search_radius_vector_3d(pcd.points[1500], 0.2)
+    np.asarray(pcd.colors)[idx[1:], :] = [0, 1, 0]
+
+    print("Visualize the point cloud.")
+    draw_geometries([pcd])
+    print("")
+```
+
+
+## 3. 보기 
 
 
 Open3D provides a convenient visualization function `draw_geometries` which takes a list of geometry objects (PointCloud, TriangleMesh, or Image), and renders them together. 
@@ -69,16 +118,5 @@ draw_geometries([pcd])
 
 
 
-## 2. 그리기 
-
-> Detection 후 B.Box 그릴때 필요 할듯 
- 
-http://www.open3d.org/docs/tutorial/Basic/visualization.html#draw-multiple-geometries
-
-
-## 3. 색변경 
-
-
-np.asarray(pcd.colors)[idx[1:], :] = [0, 0, 1]
 
 > [pcd.colors](http://www.open3d.org/docs/tutorial/Basic/kdtree.html#using-search-radius-vector-3d)
