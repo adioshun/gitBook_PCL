@@ -17,6 +17,9 @@ run : cloudcompare.CloudCompare
 프로그램 실행 - help - about plugins
 
 
+https://github.com/CloudCompare/CloudCompare/issues/536
+
+
 
 
 
