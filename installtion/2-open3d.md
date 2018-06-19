@@ -1,20 +1,5 @@
 # Open 3D 
 
-## 1. 소개 
-
-관련 링크 : [홈페이지](http://www.open3d.org/docs/getting_started.html#compiling-from-source), [깃허브](), [논문](http://www.open3d.org/paper.pdf), [블로그]()
-
-
-기존 PCL의 제약 
-- Only C ++ can be used (C ++ weak ...)
-- I have to build every bit for a bit of correction
-- I need to write a lot of rows
-
-Open3D 장점 
-- Can use Python
-- It is multiplied by a small number of lines (it is 1/5 of PCL)
-- Debugging with Jupyter Notebook
-
 
 ## 2. 설치 
 
