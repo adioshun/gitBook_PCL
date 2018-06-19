@@ -8,8 +8,15 @@ run : cloudcompare.CloudCompare
 
 
 
+
 ---
 
 플러그인 : https://github.com/CloudCompare/CloudCompare/issues/646
+플러그인 so파일을 `/snap/cloudcompare/current/lib/cloudcompare/plugins` 
+
+프로그램 실행 - help - about plugins
+
+
+
 
 
