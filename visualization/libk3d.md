@@ -1,4 +1,12 @@
 
+# 설치 
+
+```
+$ pip install k3d
+$ jupyter nbextension install --py --sys-prefix k3d
+$ jupyter nbextension enable --py --sys-prefix k3d
+```
+
 
 ```python 
 #jupyter
