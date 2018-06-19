@@ -18,7 +18,7 @@ Open3D 장점
 
 ## 2. 설치 
 
-### 2.1 pip 설치 
+### 2.1 [pip](https://pypi.org/project/open3d-python/) 설치 
 
 ubnutu16(0)
 
