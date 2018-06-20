@@ -59,7 +59,7 @@ plt.show()
 
 ---
 
-https://www.paraview.org/
+
 
 https://www.slicer.org/ : medical images
 
