@@ -45,4 +45,6 @@
   * [Tool\_ParaView with PCL](visualization/toolparaview-with-pcl.md)
   * [lib\_k3d](visualization/libk3d.md)
 * [Numpy](https://legacy.gitbook.com/book/adioshun/python_snippet/edit#/edit/master/packagenumpy.md?_k=s830r0)
+* References
+  * [Normal Estimation](normal-estimation.md)
 
