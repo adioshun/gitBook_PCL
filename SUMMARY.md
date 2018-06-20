@@ -23,6 +23,7 @@
   * [9-Visulization](open3d/9-visulization.md)
   * [3-Downsampling](open3d/3-downsampling.md)
   * [4-Filtering](open3d/4-filtering.md)
+  * [6-SLAM](open3d/6-slam.md)
 * [pyPCD](pypcd.md)
   * [1-File I/O](1-file-io.md)
   * [2-Numpy](2-numpy.md)
