@@ -8,6 +8,14 @@ draw_geometries([downpcd])
 print("")
 ```
 
+
+법선(Normals) : 곡선 C 위의 한 점 P를 지나고 그 점에서 접선 t에 수직인 직선
+- 꼭지점 법선(Vertex Normals)
+- 면 법선(Face Normals) 
+
+
+> Normal의 어원은 라틴어 Norma 로 '목수의 직각자' 라는 뜻이라고 합니다.
+
 법선 백터 추정(Normal Estimation) : 샘플링 된 값들로부터 방향 정보를 복원해 내는 작업 
 - 한점의 깊이 점보만으로는 법선 벡터를 구할수 없다. 그러나 벡터를 구하려고 하는 대상 점의 이웃한 점들이 가지고 있는 값들을 이용하면 샘플링하기 전에 그 점을 포함하고 있던 면의 법선 벡터를 근사적으로 추정 할수 있다. 
 - 대상점을 중심으로 한 국소적인 정보로 부터 구해 낸 법선 벡터를 추정 법선 벡터(estimated normal)라 한다. 
@@ -18,6 +26,11 @@ print("")
 - Context sensitive method 
 
 > 표면 특성 감응식 법선 벡터 추정 방법(Surface-Characteristic-Sensitive Normal Estimation Method), 신병석, 1995
+
+
+The exact computation of vertex normal vectors is essential for user to apply a variety of geometric operations to the mesh and get more realistic rendering results. 
+보다 다양한 형태로의 변형이나 현실감 있는 렌더링을 얻기 위해서는 정점에서의 올바른 법선벡터(vertex normal) 계산이 필수적이다. 
+
 
 Normal manipulation is possible with "n", "+", "-" on the screen
 
@@ -36,6 +49,7 @@ Normal manipulation is possible with "n", "+", "-" on the screen
         draw_geometriesTo visualize the point cloud nand press to display the normal of the point. -You +can control the length of the normal by using keys and keys.
 
 
+## Matlab code `normals = pcnormals(ptCloud,k)`
 
 input Arguments
 - ptCloud — Object for storing point cloud
