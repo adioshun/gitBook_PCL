@@ -130,4 +130,26 @@ ransac_segmentation = do_ransac_plane_segmentation(cloud,pcl.SACMODEL_PLANE,pcl.
 cloud_table,cloud_objects= extract_cloud_objects_and_cloud_table(cloud,ransac_segmentation )
 ```
 
+SACMODEL
+
+```
+   48     SACMODEL_PLANE,
+   49     SACMODEL_LINE,
+   50     SACMODEL_CIRCLE2D,
+   51     SACMODEL_CIRCLE3D,
+   52     SACMODEL_SPHERE,
+   53     SACMODEL_CYLINDER,
+   54     SACMODEL_CONE,
+   55     SACMODEL_TORUS,
+   56     SACMODEL_PARALLEL_LINE,
+   57     SACMODEL_PERPENDICULAR_PLANE,
+   58     SACMODEL_PARALLEL_LINES,
+   59     SACMODEL_NORMAL_PLANE,
+   60     SACMODEL_NORMAL_SPHERE,
+   61     SACMODEL_REGISTRATION,
+   62     SACMODEL_REGISTRATION_2D,
+   63     SACMODEL_PARALLEL_PLANE,
+   64     SACMODEL_NORMAL_PARALLEL_PLANE,
+   65     SACMODEL_STICK
+  ```
 
