@@ -1,6 +1,6 @@
 # Open3D 
 
-관련 링크 : [홈페이지](http://www.open3d.org/docs/getting_started.html#compiling-from-source), [깃허브](), [논문](http://www.open3d.org/paper.pdf), [블로그](), 
+관련 링크 : [홈페이지](http://www.open3d.org/docs/getting_started.html#compiling-from-source), [깃허브](https://github.com/IntelVCL/Open3D), [논문](http://www.open3d.org/paper.pdf), [블로그](), 
 
 튜토리얼: [Jupyter](https://nbviewer.jupyter.org/url/lang.sist.chukyo-u.ac.jp/Classes/Open3D/Open3D.ipynb), [SSII2018_Tutorial_Open3D](https://github.com/sakizuki/SSII2018_Tutorial_Open3D)
 
@@ -40,11 +40,4 @@ Open3D 장점
 
 
 
-
-
----
-
-## 참고 페이지 
-
-[Open3D Point cloud](https://blog.naver.com/pjy6075/221211910971): 리프(pjy6075)
 
