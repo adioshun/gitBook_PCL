@@ -27,6 +27,7 @@ print("")
 
 > 표면 특성 감응식 법선 벡터 추정 방법(Surface-Characteristic-Sensitive Normal Estimation Method), 신병석, 1995
 
+normal vector를 제대로 찾아내지 못하면 registration의 실패 요인이 될 수 있다.
 
 The exact computation of vertex normal vectors is essential for user to apply a variety of geometric operations to the mesh and get more realistic rendering results. 
 보다 다양한 형태로의 변형이나 현실감 있는 렌더링을 얻기 위해서는 정점에서의 올바른 법선벡터(vertex normal) 계산이 필수적이다. 
