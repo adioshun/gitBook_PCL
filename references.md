@@ -2,3 +2,6 @@ http://fgg-web.fgg.uni-lj.si/~/alisec/ISPRS_SS_2007/gradivo/ISPRS_SS2007/doc/PRE
 
 
 ellipses(타원)
+
+
+The Hough transform in its simplest form is a method to detect straight lines but it can also be used to detect circles or ellipses
