@@ -15,8 +15,11 @@ PDAL is a C++ BSD library for translating and manipulating point cloud data. [[�
 
 ## Installation 
 
+![image](https://user-images.githubusercontent.com/17797922/41730145-e92bc65e-752f-11e8-97be-771c986d5a5f.png)
 
-### apt
+> ubuntu 16.04 은 지원 안하는듯. 
+
+### apt (Ubuntu 16.10)
 
 pdal - Point Data Abstraction Library
 apt-get install python3-pdal
