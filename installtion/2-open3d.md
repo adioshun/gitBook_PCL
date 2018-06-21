@@ -6,7 +6,7 @@
 
 ubnutu16(0)
 
-```
+```python
 
 sudo apt-get install -y libpng16-tools # libpng16-dev #libpng-dev 
 sudo apt-get install -y libglu1-mesa-dev libgl1-mesa-glx libglew-dev libglfw3-dev libjsoncpp-dev libeigen3-dev libjpeg-dev python-dev python3-dev python-tk python3-tk
