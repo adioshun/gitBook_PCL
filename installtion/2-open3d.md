@@ -1,6 +1,5 @@
 # Open 3D 
 
-
 ## 2. 설치 
 
 ### 2.1 [pip](https://pypi.org/project/open3d-python/) 설치 
@@ -8,7 +7,19 @@
 ubnutu16(0)
 
 ```
-apt-get install libglu1-mesa-dev libgl1-mesa-glx libglew-dev libglfw3-dev libjsoncpp-dev libeigen3-dev libpng16-dev libjpeg-dev python-dev python3-dev python-tk python3-tk
+apt-get install libglu1-mesa-dev libgl1-mesa-glx libglew-dev libglfw3-dev libjsoncpp-dev libeigen3-dev libpng16-dev libjpeg-dev 
+apt-get install python-dev python3-dev python-tk python3-tk 
+
+
+
+#apt-get install xorg-dev libglu1-mesa-dev libgl1-mesa-glx libglew-dev libglfw3-dev libjsoncpp-dev libeigen3-dev libpng16-dev libjpeg-dev 
+apt-get install libpng12-dev 
+
+apt-get pybind11-dev
+## pybind11-dev
+~/Open3D/src/External/pybind11/build
+cmake ..
+sudo make install 
 
 
 pip install open3d-python
@@ -28,7 +39,9 @@ git clone https://github.com/IntelVCL/Open3D
 # install the dependencies and use CMake to build the project
 cd ~/Open3D
 util/scripts/install-deps-ubuntu.sh
-#apt-get install xorg-dev libglu1-mesa-dev libgl1-mesa-glx libglew-dev libglfw3-dev libjsoncpp-dev libeigen3-dev libpng16-dev libjpeg-dev python-dev python3-dev python-tk python3-tk apt-get install libpng-dev pybind11-dev
+
+
+
 mkdir build
 cd build
 cmake ../src
