@@ -1,3 +1,10 @@
+# Key Point / Feature
+
+http://www.pointclouds.org/assets/uploads/cglibs13_features.pdf
+https://github.com/PointCloudLibrary/pcl/wiki/Overview-and-Comparison-of-Features
+
+---
+
 # normal estimation(법선추정)
 
 

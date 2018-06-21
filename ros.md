@@ -1,4 +1,8 @@
+![](https://raw.githubusercontent.com/mithi/point-cloud-clusters/master/img/screenshot.png)
+
 https://github.com/mithi/point-cloud-recognition/blob/master/src/sensor_stick/scripts/object_recognition.py
+
+https://github.com/mithi/point-cloud-clusters
 
 ```python
 #!/usr/bin/env python
