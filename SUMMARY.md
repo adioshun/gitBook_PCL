@@ -24,6 +24,7 @@
   * [4-Filtering](open3d/4-filtering.md)
   * [6-SLAM](open3d/6-slam.md)
   * [9-Visulization](open3d/9-visulization.md)
+  * [8-ROS](open3d/8-ros.md)
 * [pyPCD](pypcd.md)
   * [1-File I/O](1-file-io.md)
   * [2-Numpy](2-numpy.md)
