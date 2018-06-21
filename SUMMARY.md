@@ -50,5 +50,6 @@
   * [RANSAC](ransac.md)
   * [Voxelization](voxelization.md)
   * [CCL](ccl.md)
+  * [Hough Transform](hough-transform.md)
   * [DBSCAN](dbscan.md)
 
