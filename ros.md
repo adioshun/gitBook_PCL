@@ -1,8 +1,8 @@
 ![](https://raw.githubusercontent.com/mithi/point-cloud-clusters/master/img/screenshot.png)
 
-https://github.com/mithi/point-cloud-recognition/blob/master/src/sensor_stick/scripts/object_recognition.py
+[https://github.com/mithi/point-cloud-recognition/blob/master/src/sensor\_stick/scripts/object\_recognition.py](https://github.com/mithi/point-cloud-recognition/blob/master/src/sensor_stick/scripts/object_recognition.py)
 
-https://github.com/mithi/point-cloud-clusters
+[https://github.com/mithi/point-cloud-clusters](https://github.com/mithi/point-cloud-clusters)
 
 ```python
 #!/usr/bin/env python
@@ -61,13 +61,13 @@ def get_clusters(cloud, tolerance, min_size, max_size):
   # 'clusters' is effectively a list of lists, with each list containing indices of the cloud
   clusters = extraction_object.Extract()
   return clusters
-  
+
 
 # clusters is a list of lists each list containing indices of the cloud
 # cloud is an array with each cell having three numbers corresponding to x, y, z position
 # Returns list of [x, y, z, color]
 def get_colored_clusters(clusters, cloud):
-  
+
   # Get a random unique colors for each object
   number_of_clusters = len(clusters)
   colors = get_color_list(number_of_clusters)
@@ -81,7 +81,7 @@ def get_colored_clusters(clusters, cloud):
       x, y, z = cloud[i][0], cloud[i][1], cloud[i][2]
       color = rgb_to_float(colors[cluster_id])
       colored_points.append([x, y, z, color])
-  
+
   return colored_points
 
 
@@ -101,7 +101,7 @@ def pcl_callback(pcl_msg):
 
   # Get a point cloud of only the position information without color information
   colorless_cloud = XYZRGB_to_XYZ(objects_cloud)
-  
+
   # Get groups of indices for each cluster of points
   # Each group of points belongs to the same object
   # This is effectively a list of lists, with each list containing indices of the cloud
@@ -116,22 +116,22 @@ def pcl_callback(pcl_msg):
   clusters_cloud.from_list(colored_points)
 
   # CLASSIFY THE CLUSTERS 
-  
+
   detected_objects_labels = []
   detected_objects = []
 
   for i, indices in enumerate(clusters):
-    
+
     cluster = objects_cloud.extract(indices)
-    
+
     # Convert point cloud cluster to ros message
     cluster_msg = pcl_to_ros(cluster)
-    
+
     # Get features
     color_hist = compute_color_histograms(cluster_msg, using_hsv = True)
     normal_hist = compute_normal_histograms(get_normals(cluster_msg))
     features = np.concatenate((color_hist, normal_hist))    
-    
+
     # Predict and get label
     prediction = classifier.predict(scaler.transform(features.reshape(1, -1)))
     label = encoder.inverse_transform(prediction)[0]
@@ -142,13 +142,13 @@ def pcl_callback(pcl_msg):
     label_position[2] += 0.4
     object_markers_publisher.publish(make_label(label, label_position, i))
 
- 
+
     # Add detection to list of detected objects
     detectedObject = DetectedObject()
     detectedObject.label = label
     detectedObject.cloud = pcl_to_ros(clusters_cloud)
     detected_objects.append(detectedObject)
- 
+
 
   # Publish the list of detected objects
   rospy.loginfo('Detected {} objects: {}'.format(len(detected_objects_labels), detected_objects_labels))
@@ -160,7 +160,7 @@ if __name__ == '__main__':
 
   # Initialize ros node
   rospy.init_node('object_markers_pub', anonymous = True)
-  
+
   # Create Subscribers
   subscriber = rospy.Subscriber("/sensor_stick/point_cloud", pc2.PointCloud2, pcl_callback, queue_size = 1)
 
@@ -182,3 +182,6 @@ if __name__ == '__main__':
   while not rospy.is_shutdown():
 rospy.spin()
 ```
+
+
+
