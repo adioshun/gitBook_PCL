@@ -9,3 +9,28 @@ PDAL is a C++ BSD library for translating and manipulating point cloud data. [[�
 
 
 > 참고 : [libpointmatcher](https://libpointmatcher.readthedocs.io/en/latest/) : [Down-sampling](https://libpointmatcher.readthedocs.io/en/latest/Datafilters/)
+
+
+
+
+## Installation 
+
+
+### apt
+
+pdal - Point Data Abstraction Library
+apt-get install python3-pdal
+
+
+### pip
+
+pip install PDAL # https://pypi.org/project/PDAL/
+
+
+### Conda
+
+`pdal` will install the PDAL binaries and development files.
+`python-pdal` will install the PDAL Python extension.
+
+
+conda install -c conda-forge pdal python-pdal
