@@ -9,11 +9,13 @@ ubnutu16(0)
 ```
 
 sudo apt-get install libpng16-tools # libpng16-dev #libpng-dev 
+sudo apt-get install libglu1-mesa-dev libgl1-mesa-glx libglew-dev libglfw3-dev libjsoncpp-dev libeigen3-dev libjpeg-dev python-dev python3-dev python-tk python3-tk
 
-sudo apt-get install xorg-dev libglu1-mesa-dev libgl1-mesa-glx libglew-dev libglfw3-dev libjsoncpp-dev libeigen3-dev libjpeg-dev python-dev python3-dev python-tk python3-tk
-sudo apt-get install pybind11-dev # ~/Open3D/src/External/pybind11/build 
+sudo apt-get install -y python3-pip 
+pip3 install open3d-python
 
-pip install open3d-python
+#sudo apt-get install pybind11-dev # ~/Open3D/src/External/pybind11/build 
+#sudo apt-get install xorg-dev 
 ```
 
 ### 2.3 소스코드 이용 설치
