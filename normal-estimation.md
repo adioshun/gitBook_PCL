@@ -49,6 +49,15 @@ Normal manipulation(조정) is possible with "n", "+", "-" on the screen
 
 ### 1.5 동작 원리 
 
+전처리 과정에서 가장 중요한 법선 추정은 주변의 점들을 이용한다. 
+
+한 점 A에서 법선 추정은 그림 2와 같이 한점을 기준으로 일정거리 혹은 일정개수 만큼의 점들을 통해 Normal을 추정하게 된다. 
+
+이때 KD-Tree 자료구조를 이용하여 주변 점들로부터, 공분산 행렬(Covarience Matrix)을 구성하여 고유 벡터(Eigen Vector)를 계산한다
+
+
+
+
 `estimate_normals` computes normal for every point. 
 
 - The function finds adjacent points and calculate the principal axis of the adjacent points using covariance analysis.
@@ -65,15 +74,24 @@ Recompute the normal of the downsampled point cloud
 `estimate_normals` Calculates the normals of all points. 
 - This function finds neighboring points using covariance analysis and computes the principal axes of neighboring points.
 
-This function KDTreeSearchParamHybridtakes an instance of a class as an argument. radius = 0.1And max_nn = 30two important argument that is used to specify a search radius and up to the nearest neighbor. This has a search radius of 10 cm, considering only up to 30 neighborhoods in order to save calculation time.
 
-The covariance analysis algorithm generates two mutually opposite vectors as normal candidates. If you do not know the global structure of the geometry, neither is correct. This is a problem known as the normal direction problem. Open3D attempts to orient the normals so that they are aligned with the original normals when normals are present. Otherwise, Open3D makes random guesses. If the direction is important, you need to call an orientation function such as  orient_normals_to_align_with_directionand orient_normals_towards_camera_location.
+- The covariance analysis algorithm generates two mutually opposite vectors as normal candidates. 
 
-draw_geometriesTo visualize the point cloud nand press to display the normal of the point. -You +can control the length of the normal by using keys and keys.
+- If you do not know the global structure of the geometry, neither is correct. 
+
+- This is a problem known as the normal direction problem. 
+
+- Open3D attempts to orient the normals so that they are aligned with the original normals when normals are present. 
+
+- Otherwise, Open3D makes random guesses. 
+
+- If the direction is important, you need to call an orientation function such as  orient_normals_to_align_with_directionand orient_normals_towards_camera_location.
+
+- draw_geometries To visualize the point cloud nand press to display the normal of the point. -You +can control the length of the normal by using keys and keys.
 
 
 
-전처리 과정에서 가장 중요한 법선 추정은 주변의 점들을 이용한다. 한 점 A에서 법선 추정은 그림 2와 같이 한점을 기준으로 일정거리 혹은 일정개수 만큼의 점들을 통해 Normal을 추정하게 된다. 이때 KD-Tree 자료구조를 이용하여 주변 점들로부터, 공분산 행렬(Covarience Matrix)을 구성하여 고유 벡터(Eigen Vector)를 계산한다
+
 
 
 ---
