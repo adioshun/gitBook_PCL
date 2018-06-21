@@ -28,6 +28,7 @@
 * [pyPCD](pypcd.md)
   * [1-File I/O](1-file-io.md)
   * [2-Numpy](2-numpy.md)
+  * [8-ROS](8-ros.md)
 * [ROS](ros.md)
   * [3-Downsampling](ros/3-downsampling.md)
   * [9-Visualization](ros/9-visualization.md)
