@@ -33,8 +33,6 @@
 * [ROS](ros.md)
   * [3-Downsampling](ros/3-downsampling.md)
   * [9-Visualization](ros/9-visualization.md)
-* [helper](helper.md)
-  * [pcl\_helper](helper/pclhelper.md)
 * [pytncloud](pytncloud.md)
   * [1-File I/O](pytncloud/1-file-io.md)
   * [2-Numpy](pytncloud/2-numpy.md)
