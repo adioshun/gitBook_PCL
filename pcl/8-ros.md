@@ -6,3 +6,7 @@
 
 
 [Python sensor_msgs.msg.PointCloud2() Examples](https://www.programcreek.com/python/example/99841/sensor_msgs.msg.PointCloud2): 32개 코드 샘플
+
+
+
+[ROS Customized PointCloud2](https://gist.github.com/yuma-m/b5dcce1b515335c93ce8)
