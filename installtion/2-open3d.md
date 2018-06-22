@@ -55,11 +55,7 @@ docker run -it -p 7777:8888 --name "Open3D" adioshun/ubuntu16:Open3D /bin/bash
 ```
 
 
-## 3. ROS 연동 
 
-[Open3D on ROS scripts](https://github.com/karaage0703/open3d_ros)
-
-[How to set up Open3D and ROS linkage by "open3d_ros](https://karaage.hatenadiary.jp/entry/2018/03/12/073000): 중간 부분 부터 
 
 
 ## 4. VS 연동 

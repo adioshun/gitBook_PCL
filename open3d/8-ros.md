@@ -1,3 +1,12 @@
+## 3. ROS 연동 
+
+[Open3D on ROS scripts](https://github.com/karaage0703/open3d_ros)
+
+[How to set up Open3D and ROS linkage by "open3d_ros](https://karaage.hatenadiary.jp/entry/2018/03/12/073000): 중간 부분 부터 
+
+
+
+
 # [open3d_ros](https://github.com/karaage0703/open3d_ros) : karaage0703
     - [Util.py](https://gist.github.com/adioshun/17dd3e4f4351bf422830282781a644b7)
     
