@@ -95,7 +95,7 @@ sudo apt -y install phonon-backend-vlc graphviz mono-complete qt-sdk libflann-de
 ### For PCL v1.8, Ubuntu 16.04.2 input the following:
 
 ```python
-sudo apt -y install libflann1.8 libboost1.58-all-dev libeigen3-dev cmake 
+sudo apt -y install libflann1.8 libboost1.58-all-dev cmake #libeigen3-dev (아래에서 dpkg로 설치)
 
 cd ~/Downloads
 wget http://launchpadlibrarian.net/209530212/libeigen3-dev_3.2.5-4_all.deb
