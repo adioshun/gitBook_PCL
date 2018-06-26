@@ -201,7 +201,7 @@ conda install -c sirokujira python-pcl #v0.3
 ## Download
 cd ~/catkin_ws/src
 git clone https://github.com/ros-perception/perception_pcl
-rosdep install --from-paths ./ --ignore-src --rosdistro indigo -y
+rosdep install --from-paths ./ --ignore-src --rosdistro $ROS_DISTRO
 
 ## Register {launch} with ROS via catkin_make.
 cd ~/catkin_ws
