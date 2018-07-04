@@ -17,10 +17,16 @@ print(p[3])             # prints (1.0, 0.0, 0.0)
 pa = pc.
 ## 2. From arr to pc
 
+### XYZ
 pc = pcl.PointCloud(array)
 
 
+### XYZRGB
 
+```
+p = pcl.PointCloud_PointXYZRGBA()
+p.from_array(np.array(concate, dtype=np.float32))
+```
 
 ---
 
