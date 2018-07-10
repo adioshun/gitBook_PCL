@@ -3,9 +3,11 @@
 
 [블로그](http://www.pointcloud.jp/blog_n23/)
 
-snap install cloudcompare
-run : cloudcompare.CloudCompare
-
+```python
+$ sudo snap install cloudcompare
+$ sudo snap refresh --edge cloudcompare
+$ cloudcompare.CloudCompare
+```
 
 
 
