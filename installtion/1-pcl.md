@@ -7,7 +7,7 @@
 
 ## 1. 패키지 설치 
 
-Python연동을 목적으로 한다면 소스 설치 권장 
+Python연동을 목적으로 한다면 소스 설치 권장, ROS우선 설치 권장  
 - 패키지 설치시 pcl 1.7이 설치 되며, python-pcl에서 지원 하지 않는것 같음 
 - For Ubuntu 16 :  PCL-1.8.1 supports Ubuntu > 16.04. Try to upgrade your O.S
 
