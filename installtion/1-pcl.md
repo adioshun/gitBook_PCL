@@ -81,7 +81,7 @@ apt-get install software-properties-common -y
 
 #Install oracle-java8-jdk:
 sudo add-apt-repository -y ppa:webupd8team/java && sudo apt update && sudo apt -y install oracle-java8-installer
-#add-apt-repository -y ppa:webupd8team/java && apt update && apt -y install oracle-java8-installer
+#sudo add-apt-repository -y ppa:webupd8team/java && apt update && apt -y install oracle-java8-installer
 
 #Install universal pre-requisites:
 
