@@ -21,6 +21,7 @@ sudo add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl -y && sudo apt
 sudo apt-get install -y libpcl-dev #ubuntu 16
 sudo apt-get install -y libpcl-all #ubnutu 14
 
+"""
 ### 설치 테스트 
 
 
@@ -32,6 +33,8 @@ mkdir build && cd build
 cmake .. && make && ./pcl-test
 # Error 
 ln -s /usr/lib/x86_64-linux-gnu/libproj.so.<버젼> /usr/lib/x86_64-linux-gnu/libproj.so # make[2]: *** No rule to make target '/usr/lib/x86_64-linux-gnu/libproj.so',
+ln -s /usr/lib/x86_64-linux-gnu/libvtkCommonCore-6.2.so /usr/lib/libvtkproj4.so
+"""
 
 ### python-pcl 설치 
 
