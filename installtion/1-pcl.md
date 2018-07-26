@@ -13,7 +13,6 @@ sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends \
       libpcap-dev \
       libboost-all-dev \
       libproj-dev \
-      && sudo rm -rf /var/lib/apt/lists/*
 
 sudo apt-get update && sudo apt-get install -y software-properties-common git
 sudo add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl -y && sudo apt-get update 
@@ -52,7 +51,11 @@ pip install git+https://github.com/strawlab/python-pcl
 #python3 setup.py build
 #python3 setup.py install
 
+
+## 불필요한 파일 / 정보 삭제 
 add-apt-repository --remove ppa:v-launchpad-jochen-sprickerhof-de/pcl -y 
+sudo rm -rf /var/lib/apt/lists/*
+
 
 
 
