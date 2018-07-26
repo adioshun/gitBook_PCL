@@ -3,19 +3,45 @@
 
 
 ```python
+
+sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends \
+      make cmake build-essential git \
+      libeigen3-dev \
+      libflann-dev \
+      libusb-1.0-0-dev \
+      libvtk6-qt-dev \
+      libpcap-dev \
+      libboost-all-dev \
+      libproj-dev \
+      && sudo rm -rf /var/lib/apt/lists/*
+
 sudo apt-get update && sudo apt-get install -y software-properties-common git
 sudo add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl -y && sudo apt-get update 
 
 sudo apt-get install -y libpcl-dev #ubuntu 16
 sudo apt-get install -y libpcl-all #ubnutu 14
 
+### 설치 테스트 
+
+
+cd ~ && mkdir pcl-test && cd pcl-test
+
+wget https://gist.githubusercontent.com/adioshun/319d6a1326d33fa42cdd56833c3ef560/raw/e10d3502ddcd871f9d6b7b57d176b17d52de5571/CMakeLists.txt 
+wget https://gist.githubusercontent.com/adioshun/319d6a1326d33fa42cdd56833c3ef560/raw/e10d3502ddcd871f9d6b7b57d176b17d52de5571/main.cpp
+mkdir build && cd build
+cmake .. && make && ./pcl-test
+# Error 
+ln -s /usr/lib/x86_64-linux-gnu/libproj.so.<버젼> /usr/lib/x86_64-linux-gnu/libproj.so # make[2]: *** No rule to make target '/usr/lib/x86_64-linux-gnu/libproj.so',
+
+### python-pcl 설치 
 
 sudo apt-get install -y python3-pip python3-dev python-pip python-dev git
 
 pip3 install cython==0.25.2 && pip3 install numpy
-pip install cython==0.25.2 && pip install numpy
-
 pip3 install git+https://github.com/strawlab/python-pcl
+
+
+pip install cython==0.25.2 && pip install numpy
 pip install git+https://github.com/strawlab/python-pcl
 
 #git clone https://github.com/strawlab/python-pcl.git
@@ -120,19 +146,7 @@ sudo rm -r VTK-8.0.1 pcl-pcl-1.8.1
 ```
 
 
-### 설치 테스트 
 
-```python
-cd ~ && mkdir pcl-test && cd pcl-test
-
-wget https://gist.githubusercontent.com/adioshun/319d6a1326d33fa42cdd56833c3ef560/raw/e10d3502ddcd871f9d6b7b57d176b17d52de5571/CMakeLists.txt 
-wget https://gist.githubusercontent.com/adioshun/319d6a1326d33fa42cdd56833c3ef560/raw/e10d3502ddcd871f9d6b7b57d176b17d52de5571/main.cpp
-
-mkdir build && cd build
-cmake .. && make && ./pcl-test
-
-# Error 
-ln -s /usr/lib/x86_64-linux-gnu/libproj.so.<버젼> /usr/lib/x86_64-linux-gnu/libproj.so # make[2]: *** No rule to make target '/usr/lib/x86_64-linux-gnu/libproj.so',
 ```
 
 
