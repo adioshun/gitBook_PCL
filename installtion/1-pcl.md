@@ -7,10 +7,9 @@
 
 ## 1. 패키지 설치 
 
-Must Install Java : sudo add-apt-repository -y ppa:webupd8team/java && sudo apt update && sudo apt -y install oracle-java8-installer
-
-For Ubuntu 16 :  PCL-1.8.1 supports Ubuntu > 16.04. Try to upgrade your O.S
-
+Python연동을 목적으로 한다면 소스 설치 권장 
+- 패키지 설치시 pcl 1.7이 설치 되며, python-pcl에서 지원 하지 않는것 같음 
+- For Ubuntu 16 :  PCL-1.8.1 supports Ubuntu > 16.04. Try to upgrade your O.S
 
 
 #### Ubuntu 16 (python2 실패, python3에서 성공)
@@ -89,7 +88,7 @@ sudo add-apt-repository -y ppa:webupd8team/java && sudo apt update && sudo apt -
 sudo apt -y install g++ cmake cmake-gui doxygen mpi-default-dev openmpi-bin openmpi-common libusb-1.0-0-dev libqhull* libusb-dev libgtest-dev
 sudo apt -y install git-core freeglut3-dev pkg-config build-essential libxmu-dev libxi-dev libphonon-dev libphonon-dev phonon-backend-gstreamer
 sudo apt -y install phonon-backend-vlc graphviz mono-complete qt-sdk libflann-dev  
-#apt -y install g++ cmake cmake-gui doxygen mpi-default-dev openmpi-bin openmpi-common libusb-1.0-0-dev libqhull* libusb-dev libgtest-dev git-core freeglut3-dev pkg-config build-essential libxmu-dev libxi-dev libphonon-dev libphonon-dev phonon-backend-gstreamer phonon-backend-vlc graphviz mono-complete qt-sdk libflann-dev  
+#sudo apt -y install g++ cmake cmake-gui doxygen mpi-default-dev openmpi-bin openmpi-common libusb-1.0-0-dev libqhull* libusb-dev libgtest-dev git-core freeglut3-dev pkg-config build-essential libxmu-dev libxi-dev libphonon-dev libphonon-dev phonon-backend-gstreamer phonon-backend-vlc graphviz mono-complete qt-sdk libflann-dev  
 ```   
 
 ### For PCL v1.8, Ubuntu 16.04.2 input the following:
