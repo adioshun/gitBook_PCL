@@ -1,36 +1,19 @@
-# PCL
+# PCL & 
 
-[공식 홈페이지](http://strawlab.github.io/python-pcl/), [example](https://github.com/strawlab/python-pcl/tree/master/examples) [Qna](https://www.bountysource.com/teams/strawlab/issues?tracker_ids=658709)
-
-[원하는 QT 버전에 맞게 PCL 설치하기](http://jinyongjeong.github.io/2017/01/09/pcl_install_with_qt5/): 2017
-
-
-## 1. 패키지 설치 
-
-Python연동을 목적으로 한다면 소스 설치 권장, ROS우선 설치 권장  
-- 패키지 설치시 pcl 1.7이 설치 되며, python-pcl에서 지원 하지 않는것 같음 
-- For Ubuntu 16 :  PCL-1.8.1 supports Ubuntu > 16.04. Try to upgrade your O.S
-
-
-#### Ubuntu 16 (python2 실패, python3에서 성공)
-
-> ubuntu 17 (X)
 
 
 ```python
 sudo apt-get update && sudo apt-get install -y software-properties-common git
 sudo add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl -y && sudo apt-get update 
 
+sudo apt-get install -y libpcl-dev #ubuntu 16
+sudo apt-get install -y libpcl-all #ubnutu 14
 
-apt-get install -y libpcl-dev #ubuntu 16
-#apt-get -s install libpcl-dev # PCL-1.8.1 supports Ubuntu > 16.04. Try to upgrade your O.S
 
-apt-get install -y python3-pip python3-dev python-pip python-dev git
+sudo apt-get install -y python3-pip python3-dev python-pip python-dev git
 
 pip3 install cython==0.25.2 && pip3 install numpy
 pip install cython==0.25.2 && pip install numpy
-
-
 
 pip3 install git+https://github.com/strawlab/python-pcl
 pip install git+https://github.com/strawlab/python-pcl
@@ -40,34 +23,20 @@ pip install git+https://github.com/strawlab/python-pcl
 #python3 setup.py build
 #python3 setup.py install
 
-
 add-apt-repository --remove ppa:v-launchpad-jochen-sprickerhof-de/pcl -y 
 
-# docker pull adioshun/pcls:u16python3_pcl
+
 
 ```
 
-#### Ubuntu 14 (python2,3에서 성공)
+---
 
-```python
-apt-get update && apt-get install -y software-properties-common git && add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl -y 
+[공식 홈페이지](http://strawlab.github.io/python-pcl/), [example](https://github.com/strawlab/python-pcl/tree/master/examples) [Qna](https://www.bountysource.com/teams/strawlab/issues?tracker_ids=658709)
 
-apt-get update && apt-get install -y libpcl-all #ubnutu 14
-
-apt-get install -y python-pip python-dev git && pip install cython==0.25.2 && pip install numpy
-
-pip install git+https://github.com/strawlab/python-pcl
-#git clone https://github.com/strawlab/python-pcl.git
-#cd python-pcl
-#python3 setup.py build
-#python3 setup.py install
+[원하는 QT 버전에 맞게 PCL 설치하기](http://jinyongjeong.github.io/2017/01/09/pcl_install_with_qt5/): 2017
 
 
-add-apt-repository -remove ppa:v-launchpad-jochen-sprickerhof-de/pcl -y 
-
-# docker pull adioshun/pcls:u14python23_pcl
-
-```
+## 1. 패키지 설치 
 
 
 
@@ -184,41 +153,6 @@ conda install -c sirokujira python-pcl #v0.3
 ```
 
 
-|에러|해결책|
-|-|-|
-|Python locale error: unsupported locale setting|$ export LC_ALL="en_US.UTF-8"<br>$ export LC_CTYPE="en_US.UTF-8"<br>$ sudo dpkg-reconfigure locales|
-
-
-
-## 3. PCL for ROS
-
-> How-to : Gitbook - ros_autoware - rospcl
-
-### 3.1 Source 설치 (ubuntu 14)
-
-```
-## Download
-cd ~/catkin_ws/src
-git clone https://github.com/ros-perception/perception_pcl
-rosdep install --from-paths ./ --ignore-src --rosdistro $ROS_DISTRO
-
-## Register {launch} with ROS via catkin_make.
-cd ~/catkin_ws
-catkin_make 
-source ./devel/setup.sh
-
-## Check
-rospack profile
-rospack list | grep {velodyne}
-rospack find {}
-```
-
-
-
-
-
-
-
 ---
 ## 삽질의 흔적들 
 
@@ -226,7 +160,7 @@ rospack find {}
 #### A. Source 설치 
 
 ```python 
-apt-get update -qq && apt-get install -y --no-install-recommends \
+sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends \
       make cmake build-essential git \
       libeigen3-dev \
       libflann-dev \
@@ -235,7 +169,7 @@ apt-get update -qq && apt-get install -y --no-install-recommends \
       libpcap-dev \
       libboost-all-dev \
       libproj-dev \
-      && rm -rf /var/lib/apt/lists/*
+      && sudo rm -rf /var/lib/apt/lists/*
 
 # ubuntu 16 (checked) 
 wget https://github.com/PointCloudLibrary/pcl/archive/pcl-1.8.1.tar.gz
@@ -255,42 +189,8 @@ cmake ..
 make
 #checkinstall #apt-get install checkinstall
 make install 
-
-
-
-
 ```
 
-
-## B. apt 설치 
-
-> PCL설치는 되지만 pcl-python과 충돌 [ref](https://recordnotfound.com/python-pcl-strawlab-23316)
-
-sudo add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl -y
-
-sudo add-apt-repository -remove ppa:v-launchpad-jochen-sprickerhof-de/pcl -y #설치 후 제거 
-
-가능 버젼 확인 : apt-cache search libpcl-dev
-설치 버젼 확인 : apt-get -s install libpcl-dev
-
-
-PCL for Ubuntu 14.04 : apt-get install libpcl-all
-
-PCL 1.7.2 for Ubuntu 16.04 : ~~sudo apt install libpcl-dev~~   #설치는 되나 hello 테스트 실패 
-
-PCL 1.8.0 and Ubuntu 16.04 : ~~wget https://www.dropbox.com/s/9llzm20pc4opdn9/PCL-1.8.0-Linux.deb && dpkg -i PCL-1.8.0-Linux.deb~~  #설치는되나 hello 테스트 에러 
-
-
-```
-# PCL 1.7.2 and Ubuntu16.04 (use Debian package)
-## PCL설치 
-sudo apt-get update -y
-sudo apt-get install build-essential devscripts
-dget -u https://launchpad.net/ubuntu/+archive/primary/+files/pcl_1.7.2-14ubuntu1.16.04.1.dsc
-cd pcl-1.7.2
-sudo dpkg-buildpackage -r -uc -b
-sudo dpkg -i pcl_*.deb
-```
 
 
 
@@ -301,6 +201,7 @@ sudo dpkg -i pcl_*.deb
 |Unable to locate package libpcl-all|apt-get install libpcl1|
 |pip10, ImportError: cannot import name main|Downgrade: `python2 -m pip install --user --upgrade pip==9.0.3`|
 |fatal error: 'pcl/point_cloud.h' file not found |seems due to that I don’t have an ROS environment.|
+|Python locale error: unsupported locale setting|$ export LC_ALL="en_US.UTF-8"<br>$ export LC_CTYPE="en_US.UTF-8"<br>$ sudo dpkg-reconfigure locales|
 
 
 
