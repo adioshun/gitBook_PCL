@@ -1,4 +1,4 @@
-# PCL & 
+# PCL 
 
 
 
@@ -22,8 +22,6 @@ sudo apt-get install -y libpcl-all #ubnutu 14
 
 """
 ### 설치 테스트 
-
-
 cd ~ && mkdir pcl-test && cd pcl-test
 
 wget https://gist.githubusercontent.com/adioshun/319d6a1326d33fa42cdd56833c3ef560/raw/e10d3502ddcd871f9d6b7b57d176b17d52de5571/CMakeLists.txt 
@@ -31,35 +29,36 @@ wget https://gist.githubusercontent.com/adioshun/319d6a1326d33fa42cdd56833c3ef56
 mkdir build && cd build
 cmake .. && make && ./pcl-test
 # Error 
-ln -s /usr/lib/x86_64-linux-gnu/libproj.so.<버젼> /usr/lib/x86_64-linux-gnu/libproj.so # make[2]: *** No rule to make target '/usr/lib/x86_64-linux-gnu/libproj.so',
-ln -s /usr/lib/x86_64-linux-gnu/libvtkCommonCore-6.2.so /usr/lib/libvtkproj4.so
+sudo ln -s /usr/lib/x86_64-linux-gnu/libproj.so.9.1.0 /usr/lib/x86_64-linux-gnu/libproj.so
+sudo ln -s /usr/lib/x86_64-linux-gnu/libvtkCommonCore-6.2.so /usr/lib/libvtkproj4.so
 """
+```
+
 
 ### python-pcl 설치 
 
-sudo apt-get install -y python3-pip python3-dev python-pip python-dev git
+```python
+"""
+python3.5에서 안정되게 동작 하는것 같음 (PCL 1.7.2, Cython 0.25.2)
+"""
+sudo apt-get install -y python3-pip python3-dev
 
 pip3 install cython==0.25.2 && pip3 install numpy
-pip3 install git+https://github.com/strawlab/python-pcl
+git clone https://github.com/strawlab/python-pcl.git
+cd python-pcl
+python3 setup.py build_ext -i
+python3 setup.py install
 
-
-pip install cython==0.25.2 && pip install numpy
-pip install git+https://github.com/strawlab/python-pcl
-
-#git clone https://github.com/strawlab/python-pcl.git
-#cd python-pcl
-#python3 setup.py build
-#python3 setup.py install
-
+#pip3 install git+https://github.com/strawlab/python-pcl
+```
 
 ## 불필요한 파일 / 정보 삭제 
-add-apt-repository --remove ppa:v-launchpad-jochen-sprickerhof-de/pcl -y 
-sudo rm -rf /var/lib/apt/lists/*
-
-
-
 
 ```
+add-apt-repository --remove ppa:v-launchpad-jochen-sprickerhof-de/pcl -y 
+sudo rm -rf /var/lib/apt/lists/*
+```
+
 
 ---
 
