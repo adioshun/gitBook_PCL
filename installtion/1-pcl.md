@@ -1,18 +1,10 @@
-# PCL 
+# PCL & python-pcl
 
 
 
 ```python
 
-sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends \
-      make cmake build-essential git \
-      libeigen3-dev \
-      libflann-dev \
-      libusb-1.0-0-dev \
-      libvtk6-qt-dev \
-      libpcap-dev \
-      libboost-all-dev \
-      libproj-dev \
+
 
 sudo apt-get update && sudo apt-get install -y software-properties-common git
 sudo add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl -y && sudo apt-get update 
@@ -151,8 +143,6 @@ sudo rm -r VTK-8.0.1 pcl-pcl-1.8.1
 ```
 
 
-
-```
 
 
 
