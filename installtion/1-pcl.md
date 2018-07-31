@@ -59,11 +59,20 @@ sudo rm -rf /var/lib/apt/lists/*
 [원하는 QT 버전에 맞게 PCL 설치하기](http://jinyongjeong.github.io/2017/01/09/pcl_install_with_qt5/): 2017
 
 
-## 1. 패키지 설치 
+### conda 설치
+
+```
+conda config --add channels conda-forge
+conda install -c sirokujira python-pcl #v0.3
+#conda install -c https://conda.anaconda.org/ccordoba12 python-pcl  #v0.2
+```
 
 
 
-## 2. [소스설치](https://askubuntu.com/questions/916260/how-to-install-point-cloud-library-v1-8-pcl-1-8-0-on-ubuntu-16-04-2-lts-for)
+
+
+
+## [소스설치](https://askubuntu.com/questions/916260/how-to-install-point-cloud-library-v1-8-pcl-1-8-0-on-ubuntu-16-04-2-lts-for)
 
 
 ### 사전 설치
@@ -143,30 +152,7 @@ sudo rm -r VTK-8.0.1 pcl-pcl-1.8.1
 ```
 
 
-
-
-
-
-|에러코드|해결책|원인|
-|-|-|-|
-|fatal error: pcl/features/cppf.h: No such file or directory|`sudo add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl;sudo apt-get update;sudo apt-get upgrade libpcl-features-dev libpcl-io-1.7 libpcl-io-1.7-dev`|ubnutu 14 떄문인|
-|'pcl_2d-1.8', required by 'pcl_features-1.8'| line 10 in /usr/local/lib/pkgconfig/pcl_features-1.8.pc <br>`Requires: pcl_common-1.8 pcl_search-1.8 pcl_kdtree-1.8 pcl_octree-1.8 pcl_filters-1.8 #pcl_2d-1.8`|[출처](https://github.com/strawlab/python-pcl/issues/97)|
-
-
-### 2.2 conda 설치
-
-```
-conda config --add channels conda-forge
-conda install -c sirokujira python-pcl #v0.3
-#conda install -c https://conda.anaconda.org/ccordoba12 python-pcl  #v0.2
-```
-
-
----
-## 삽질의 흔적들 
-
-
-#### A. Source 설치 
+## Github 소스 설치 
 
 ```python 
 sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends \
@@ -211,6 +197,13 @@ make install
 |pip10, ImportError: cannot import name main|Downgrade: `python2 -m pip install --user --upgrade pip==9.0.3`|
 |fatal error: 'pcl/point_cloud.h' file not found |seems due to that I don’t have an ROS environment.|
 |Python locale error: unsupported locale setting|$ export LC_ALL="en_US.UTF-8"<br>$ export LC_CTYPE="en_US.UTF-8"<br>$ sudo dpkg-reconfigure locales|
+|fatal error: pcl/features/cppf.h: No such file or directory|`sudo add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl;sudo apt-get update;sudo apt-get upgrade libpcl-features-dev libpcl-io-1.7 libpcl-io-1.7-dev`|ubnutu 14 떄문인|
+|'pcl_2d-1.8', required by 'pcl_features-1.8'| line 10 in /usr/local/lib/pkgconfig/pcl_features-1.8.pc <br>`Requires: pcl_common-1.8 pcl_search-1.8 pcl_kdtree-1.8 pcl_octree-1.8 pcl_filters-1.8 #pcl_2d-1.8`|[출처](https://github.com/strawlab/python-pcl/issues/97)|
+
+
+
+
+
 
 
 
