@@ -54,6 +54,7 @@
   * [CCL](ccl.md)
   * [Hough Transform](hough-transform.md)
   * [DBSCAN](dbscan.md)
+  * [octree](octree.md)
 * [pyDriver](pydriver.md)
 * [ecto\_PCL](ectopcl.md)
 
