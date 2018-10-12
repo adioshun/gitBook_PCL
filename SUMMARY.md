@@ -49,12 +49,12 @@
 
 ## PCL Tutorial
 
+* [Introduction](introduction.md)
 * [Filtering](filtering.md)
   * [Filtering a PointCloud using a PassThrough filter](filtering/filtering-a-pointcloud-using-a-passthrough-filter.md)
 * KdTree
   * [How to use a KdTree to search](how-to-use-a-kdtree-to-search.md)
 * Octree
-
 
 ## Open3D Tutorial
 
