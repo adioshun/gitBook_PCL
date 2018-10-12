@@ -57,9 +57,6 @@
   * [octree](octree.md)
 * [pyDriver](pydriver.md)
 * [ecto\_PCL](ectopcl.md)
-
----
-
-# Tutorial 
-
+* [Filtering](filtering.md)
+  * [Filtering a PointCloud using a PassThrough filter](filtering/filtering-a-pointcloud-using-a-passthrough-filter.md)
 
