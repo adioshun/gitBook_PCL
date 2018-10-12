@@ -55,9 +55,14 @@ Deletion
 
 
 
-### [정만이의 제멋대로 리뷰](http://wisdomworker.tistory.com/22)
 
 
 ---
 
 [ppt_search](http://www.pointclouds.org/assets/rss2011/06_search.pdf): RSS2011
+[Introductory guide to Information Retrieval using kNN and KDTree](https://www.analyticsvidhya.com/blog/2017/11/information-retrieval-using-kdtree/)
+[K-d 트리](http://3dmpengines.tistory.com/1352)
+[kd-tree](http://www.snisni.net/98)
+[알고리즘 배우기 - Week5. Geometric Search - kd trees](http://algs4.tistory.com/68)
+[코세라](https://ko.coursera.org/lecture/ml-clustering-and-retrieval/kd-tree-representation-S0gfp)
+
