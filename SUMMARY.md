@@ -52,6 +52,7 @@
 * [Introduction](introduction.md)
 * [Filtering](filtering.md)
   * [Filtering a PointCloud using a PassThrough filter](filtering/filtering-a-pointcloud-using-a-passthrough-filter.md)
+  * [Extracting indices from a PointCloud](filtering/extracting-indices-from-a-pointcloud.md)
 * [KdTree](kdtree.md)
   * [How to use a KdTree to search](how-to-use-a-kdtree-to-search.md)
 * Octree
