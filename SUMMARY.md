@@ -50,12 +50,16 @@
 ## PCL Tutorial
 
 * [Introduction](introduction.md)
+* Input\_Output
+  * [Concatenate the points of two Point Clouds](concatenate-the-points-of-two-point-clouds.md)
 * [Filtering](filtering.md)
   * [Filtering a PointCloud using a PassThrough filter](filtering/filtering-a-pointcloud-using-a-passthrough-filter.md)
   * [Extracting indices from a PointCloud](filtering/extracting-indices-from-a-pointcloud.md)
 * [KdTree](kdtree.md)
   * [How to use a KdTree to search](how-to-use-a-kdtree-to-search.md)
-* Octree
+* [Octree](octree.md)
+  * [Spatial Partitioning and Search Operations with Octrees](octree/spatial-partitioning-and-search-operations-with-octrees.md)
+  * [Spatial change detection on unorganized point cloud data](octree/spatial-change-detection-on-unorganized-point-cloud-data.md)
 
 ## Open3D Tutorial
 
