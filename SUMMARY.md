@@ -54,6 +54,7 @@
   * [Concatenate the points of two Point Clouds](concatenate-the-points-of-two-point-clouds.md)
 * [Filtering](filtering.md)
   * [Filtering a PointCloud using a PassThrough filter](filtering/filtering-a-pointcloud-using-a-passthrough-filter.md)
+  * [Downsampling a PointCloud using a VoxelGrid filter](filtering/downsampling-a-pointcloud-using-a-voxelgrid-filter.md)
   * [Extracting indices from a PointCloud](filtering/extracting-indices-from-a-pointcloud.md)
 * [KdTree](kdtree.md)
   * [How to use a KdTree to search](how-to-use-a-kdtree-to-search.md)
@@ -72,7 +73,6 @@
 * [CCL](ccl.md)
 * [Hough Transform](hough-transform.md)
 * [DBSCAN](dbscan.md)
-
 * [Visualization](visualization.md)
   * [Tool\_CloudCompare](visualization/toolcloudcompare.md)
   * [Tool\_ParaView with PCL](visualization/toolparaview-with-pcl.md)
