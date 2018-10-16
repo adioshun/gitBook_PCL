@@ -66,13 +66,13 @@
 ## 참고
 
 * [References](references.md)
-  * [Normal Estimation](normal-estimation.md)
-  * [RANSAC](ransac.md)
-  * [Voxelization](voxelization.md)
-  * [CCL](ccl.md)
-  * [Hough Transform](hough-transform.md)
-  * [DBSCAN](dbscan.md)
-  * [octree](octree.md)
+* [Normal Estimation](normal-estimation.md)
+* [RANSAC](ransac.md)
+* [Voxelization](voxelization.md)
+* [CCL](ccl.md)
+* [Hough Transform](hough-transform.md)
+* [DBSCAN](dbscan.md)
+
 * [Visualization](visualization.md)
   * [Tool\_CloudCompare](visualization/toolcloudcompare.md)
   * [Tool\_ParaView with PCL](visualization/toolparaview-with-pcl.md)
