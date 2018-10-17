@@ -47,13 +47,20 @@ This program is able to load one PCD or PLY file; apply a matrix transformation 
     - z = z
 
 > Revolute의 관계식 cos/sin을 통해 구하는것은 복잡하고 어렵기 때문에 이를 쉽게 하는것이 **Rotation Matrix**이다. 
-> 각 관절에서의 Rotation Matrix를 구해서 이를 모두 곱하면 (x,y,z)가 나옴 
+> 각 관절에서의 Transformation Matrix를 구해서 이를 모두 곱하면 (x,y,z)가 나옴 
+> Transformation Matrix = Rotation Matrix + 길이(관절과 관절 사이)정보 
 
-### Rotation Matirix 개요 
+
+### Rotation Matrix 개요 
 
 - 3x3 행렬 
 - det(R) = +1 (*determinant)
     - Identity Matrix도 det(R) = +1
+
+### Transformation Matrix 개요 
+
+
+
 
 
 
