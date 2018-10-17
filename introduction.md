@@ -23,3 +23,5 @@
 - 포인트 클라우드에서 누가 누가 빠른가(2) octree
 - 포인트 클라우드 분할
 
+
+부분적으로 [PCL/OpenNI](http://robotica.unileon.es/index.php/PhD-3D-Object-Tracking)의 tutorial 2: Cloud processing (basic)을 참고 하였음 
