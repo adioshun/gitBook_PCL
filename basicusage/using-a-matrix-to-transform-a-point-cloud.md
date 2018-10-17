@@ -77,6 +77,7 @@ $$
 
 
 모든 Rotation Matrix는 3번의 회전(a,b,c)으로 표현 가능 
+- roll, pitch, yaw
 
 오일러 글을 알면 각각을 곱해서 Rotation matrix를 구할수 있음
 
@@ -95,6 +96,8 @@ Space fixed movement : 회전하는 축이 움직이지 않는것
 
 Body fixed movement : 이동한 다음에 움직이는 것, 로봇 세상에서 대부분의 움직임 
 
+
+### Rotation matrix와 SO
 
 
 
