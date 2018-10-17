@@ -1,6 +1,27 @@
+# [Using a matrix to transform a point cloud](http://pointclouds.org/documentation/tutorials/matrix_transform.php#matrix-transform)
+
+In this tutorial we will learn how to transform a point cloud using a 4x4 matrix. We will apply a rotation and a translation to a loaded point cloud and display then result.
+
+This program is able to load one PCD or PLY file; apply a matrix transformation on it and display the original and transformed point cloud.
 
 
-관절의 회전과 주먹 끝의 움직임의 관계를 이해하는 것, 그것이 바로 Kinematics의 첫걸음
+
+
+
+
+
+
+
+
+
+
+
+---
+
+## 참고 자료 
+
+
+Kinematics : 관절의 회전과 주먹 끝의 움직임의 관계를 이해하는 것, 그것이 바로의 첫걸음
 
 ---
 [회전변환행렬](http://t-robotics.blogspot.com/2013/07/rotation-matrix.html#.W8ZOAWgzYuV): 위키피디
