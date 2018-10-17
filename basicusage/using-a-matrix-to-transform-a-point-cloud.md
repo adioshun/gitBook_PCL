@@ -67,9 +67,11 @@ $$
 
 V_a = R_{ab}V_b 
 
+R_{ab} = a프레임에서 바로본 b프레임 = [a에서 바로본 b의 x, a에서 바로본 b의y, a에서 바로본 b의z]
+
 $$
 
-
+> 공식 유도 : https://youtu.be/MgB0oiIhoTQ?t=238
 
 
 
