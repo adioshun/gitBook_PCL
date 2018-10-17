@@ -1,0 +1,9 @@
+
+
+관절의 회전과 주먹 끝의 움직임의 관계를 이해하는 것, 그것이 바로 Kinematics의 첫걸음
+
+---
+[회전변환행렬](http://t-robotics.blogspot.com/2013/07/rotation-matrix.html#.W8ZOAWgzYuV): 위키피디
+[저랑 야바위 한판 하실래요? Rotation Matrix](http://t-robotics.blogspot.com/2013/07/rotation-matrix.html#.W8ZOAWgzYuV): T-Robotics블로그 
+[회전 행렬(Rotation matrix)의 유도](https://o-tantk.github.io/posts/derive-rotation-matrix/)
+[Rotation Matrix](http://livingeasy.tistory.com/10)
