@@ -20,8 +20,14 @@ This program is able to load one PCD or PLY file; apply a matrix transformation 
 
 ## 참고 자료 
 
-### Rotation Matirix를 목적 
+### Rotation Matrix를 목적 
 
+물체의 회전을 표현 하기 위한 방법 
+- Rotation matrix 
+- Euler Angles 
+
+
+#### 로봇 공학과 Rotation matrix 
 
 내부 모델 : 물체를 움직이기 위한 모델, 
 - Kinematics 내부모델 : 관절의 회전(Joint Space)과 주먹 끝(Task Space)의 움직임의 관계를 이해하는 것
@@ -56,6 +62,14 @@ This program is able to load one PCD or PLY file; apply a matrix transformation 
 - 3x3 행렬 
 - det(R) = +1 (*determinant)
     - Identity Matrix도 det(R) = +1
+    
+    
+#### Rotation Matrix 유도 방법 
+
+- 삼각형의 합동 이용 
+- 벡터의 내적을 이용
+- 선형 변환을 이용하는 방법 
+- etc. 
 
 ### Transformation Matrix 개요 
 
@@ -97,13 +111,23 @@ Space fixed movement : 회전하는 축이 움직이지 않는것
 Body fixed movement : 이동한 다음에 움직이는 것, 로봇 세상에서 대부분의 움직임 
 
 
-### Rotation matrix와 SO
+### Rotation matrix와 SO(3)그룹 
+
+Roation matrix의 조건에 대한 설명 https://youtu.be/USbu0vIc8VQ
+
+> 그룹 : element, operation (element가 operation후에도 element에 속하면 그룹이라 함) 
+
+직교?
+
+
 
 
 
 ---
-[회전변환행렬](http://t-robotics.blogspot.com/2013/07/rotation-matrix.html#.W8ZOAWgzYuV): 위키피디
+[회전변환행렬](http://t-robotics.blogspot.com/2013/07/rotation-matrix.html#.W8ZOAWgzYuV)
 [저랑 야바위 한판 하실래요? Rotation Matrix](http://t-robotics.blogspot.com/2013/07/rotation-matrix.html#.W8ZOAWgzYuV): T-Robotics블로그 
-[회전 행렬(Rotation matrix)의 유도](https://o-tantk.github.io/posts/derive-rotation-matrix/)
-[Rotation Matrix](http://livingeasy.tistory.com/10)
+선형 변환을 이용한 [회전 행렬(Rotation matrix)의 유도](https://o-tantk.github.io/posts/derive-rotation-matrix/)
+[Rotation Matrix](http://dolphin.ivyro.net/file/mathematics/tutorial08.html)
 [Youtube] Rotation matrix 회전행렬 : [[1강]](https://youtu.be/2oKGg_cYE70), [[2강]](), [[3강]]()
+[오일러각과 회전행렬(Euler Angles and Rotation Matrix) ](http://blog.daum.net/pg365/170)
+[Tutorial 3 : 행렬(매트릭스)](http://www.opengl-tutorial.org/kr/beginners-tutorials/tutorial-3-matrices/)
