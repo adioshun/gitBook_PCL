@@ -50,6 +50,8 @@
 ## PCL Tutorial
 
 * [Introduction](introduction.md)
+* [Basic\_Usage](basicusage.md)
+  * [Using a matrix to transform a point cloud](basicusage/using-a-matrix-to-transform-a-point-cloud.md)
 * Input\_Output
   * [Concatenate the points of two Point Clouds](concatenate-the-points-of-two-point-clouds.md)
 * [Filtering](filtering.md)
