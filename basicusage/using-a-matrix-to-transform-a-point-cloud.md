@@ -59,8 +59,15 @@ This program is able to load one PCD or PLY file; apply a matrix transformation 
 
 ### Transformation Matrix 개요 
 
+간단한 2차식에서의 예 : https://youtu.be/Y0Vjc9sOq-M?t=620
 
 
+
+$$
+
+V_a = R_{ab}V_b 
+
+$$
 
 
 
