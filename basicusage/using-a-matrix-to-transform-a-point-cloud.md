@@ -11,8 +11,13 @@ This program is able to load one PCD or PLY file; apply a matrix transformation 
 
 
 
+![image](https://user-images.githubusercontent.com/17797922/47072738-a2b80700-d231-11e8-8ff8-67aa8f23cad3.png)
+- w == 1 이면, 벡터 (x,y,z,1) 은 공간에서의 위치 입니다.
+- w == 0 이면, 벡터 (x,y,z,0) 은 방향입니다.
 
 
+[예제-평행 이동]
+![image](https://user-images.githubusercontent.com/17797922/47073043-53260b00-d232-11e8-854b-26a675033d54.png)
 
 
 
@@ -62,8 +67,9 @@ This program is able to load one PCD or PLY file; apply a matrix transformation 
 - 3x3 행렬 
 - det(R) = +1 (*determinant)
     - Identity Matrix도 det(R) = +1
-    
-    
+
+
+   
 #### Rotation Matrix 유도 방법 
 
 - 삼각형의 합동 이용 
