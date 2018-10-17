@@ -20,6 +20,8 @@ This program is able to load one PCD or PLY file; apply a matrix transformation 
 
 ## 참고 자료 
 
+### Rotation Matirix를 목적 
+
 
 내부 모델 : 물체를 움직이기 위한 모델, 
 - Kinematics 내부모델 : 관절의 회전(Joint Space)과 주먹 끝(Task Space)의 움직임의 관계를 이해하는 것
@@ -45,6 +47,16 @@ This program is able to load one PCD or PLY file; apply a matrix transformation 
     - z = z
 
 > Revolute의 관계식 cos/sin을 통해 구하는것은 복잡하고 어렵기 때문에 이를 쉽게 하는것이 **Rotation Matrix**이다. 
+> 각 관절에서의 Rotation Matrix를 구해서 이를 모두 곱하면 (x,y,z)가 나옴 
+
+### Rotation Matirix 개요 
+
+- 3x3 행렬 
+- det(R) = +1 (*determinant)
+    - Identity Matrix도 det(R) = +1
+
+
+
 
 
 
