@@ -78,7 +78,9 @@ $$
 ### Euler angle (오일러 각) 회전
 
 
-모든 Rotation Matrix는 3번의 회전(a,b,c)으로 표현 가능 -> 오일러 앤글을 알면 각각을 곱해서 Rotation matrix를 구할수 있음
+모든 Rotation Matrix는 3번의 회전(a,b,c)으로 표현 가능 
+
+오일러 글을 알면 각각을 곱해서 Rotation matrix를 구할수 있음
 
 
 3차원 공간에서 
