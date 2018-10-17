@@ -4,8 +4,8 @@ In this tutorial we will learn how to transform a point cloud using a 4x4 matrix
 
 This program is able to load one PCD or PLY file; apply a matrix transformation on it and display the original and transformed point cloud.
 
-```cpp
 
+```cpp
 /* Reminder: how transformation matrices work :
 
            |-------> This column is the translation
@@ -17,6 +17,13 @@ This program is able to load one PCD or PLY file; apply a matrix transformation 
     METHOD #1: Using a Matrix4f
     This is the "manual" method, perfect to understand but error prone !
   */
+
+```
+
+### 첫번쨰 방법 
+
+```cpp
+
   Eigen::Matrix4f transform_1 = Eigen::Matrix4f::Identity();
 
   // Define a rotation matrix (see https://en.wikipedia.org/wiki/Rotation_matrix)
@@ -33,7 +40,10 @@ This program is able to load one PCD or PLY file; apply a matrix transformation 
   // Print the transformation
   printf ("Method #1: using a Matrix4f\n");
   std::cout << transform_1 << std::endl;
+```
 
+### 두번째 방법 
+```cpp
   /*  METHOD #2: Using a Affine3f
     This method is easier and less error prone
   */
@@ -48,41 +58,9 @@ This program is able to load one PCD or PLY file; apply a matrix transformation 
   // Print the transformation
   printf ("\nMethod #2: using an Affine3f\n");
   std::cout << transform_2.matrix() << std::endl;
-
-  // Executing the transformation
-  pcl::PointCloud<pcl::PointXYZ>::Ptr transformed_cloud (new pcl::PointCloud<pcl::PointXYZ> ());
-  // You can either apply transform_1 or transform_2; they are the same
-  pcl::transformPointCloud (*source_cloud, *transformed_cloud, transform_2);
-
-  // Visualization
-  printf(  "\nPoint cloud colors :  white  = original point cloud\n"
-      "                        red  = transformed point cloud\n");
-  pcl::visualization::PCLVisualizer viewer ("Matrix transformation example");
-
-   // Define R,G,B colors for the point cloud
-  pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> source_cloud_color_handler (source_cloud, 255, 255, 255);
-  // We add the point cloud to the viewer and pass the color handler
-  viewer.addPointCloud (source_cloud, source_cloud_color_handler, "original_cloud");
-
-  pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> transformed_cloud_color_handler (transformed_cloud, 230, 20, 20); // Red
-  viewer.addPointCloud (transformed_cloud, transformed_cloud_color_handler, "transformed_cloud");
-
-  viewer.addCoordinateSystem (1.0, "cloud", 0);
-  viewer.setBackgroundColor(0.05, 0.05, 0.05, 0); // Setting background to a dark grey
-  viewer.setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 2, "original_cloud");
-  viewer.setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 2, "transformed_cloud");
-  //viewer.setPosition(800, 400); // Setting visualiser window position
-
-  while (!viewer.wasStopped ()) { // Display the visualiser until 'q' key is pressed
-    viewer.spinOnce ();
-  }
-
-  return 0;
-}
-
-
-
 ```
+
+
 
 
 
@@ -93,6 +71,8 @@ This program is able to load one PCD or PLY file; apply a matrix transformation 
 - w == 1 이면, 벡터 (x,y,z,1) 은 공간에서의 위치 입니다.
 - w == 0 이면, 벡터 (x,y,z,0) 은 방향입니다.
 
+- The first 3 rows and columns (top left) components are the rotation matrix. 
+- The first 3 rows of the last column is the translation.
 
 [예제-평행 이동]
 ![image](https://user-images.githubusercontent.com/17797922/47073043-53260b00-d232-11e8-854b-26a675033d54.png)
