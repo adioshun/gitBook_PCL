@@ -75,9 +75,18 @@ $$
 
 
 
+### Euler angle (오일러 각) 회전
 
 
+모든 Rotation Matrix는 3번의 회전(a,b,c)으로 표현 가능 -> 오일러 앤글을 알면 각각을 곱해서 Rotation matrix를 구할수 있음
 
+
+3차원 공간에서 
+- Particle은 (x,y,z) 3 DOF를 가짐 
+- RIgid Body는 (x,y,z,a,b,c) 6 DoF를 가짐 
+    - a(alpha) : x측 회전 roll
+    - b(beta) : y측 회전 pitch
+    - c(gamma) : z측 회전 yaw
 
 
 
