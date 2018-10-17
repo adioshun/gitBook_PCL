@@ -24,4 +24,7 @@
 - 포인트 클라우드 분할
 
 
-부분적으로 [PCL/OpenNI](http://robotica.unileon.es/index.php/PhD-3D-Object-Tracking)의 tutorial 2: Cloud processing (basic)을 참고 하였음 
+부분적으로 [PCL/OpenNI](http://robotica.unileon.es/index.php/PhD-3D-Object-Tracking) 자료를 참고 하고 있습니다. 
+- PCL/OpenNI tutorial 2: Cloud processing (basic)
+- PCL/OpenNI tutorial 3: Cloud processing (advanced)
+
