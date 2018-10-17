@@ -73,7 +73,7 @@ $$
 
 > 공식 유도 : https://youtu.be/MgB0oiIhoTQ?t=238
 
-
+- $$R_{ab} * R_{bc} = R_{ac}$$ --> a에서b를 바라보고, b에서c를 바라본것은, 결과적으로 a에서 c를 바라본것과 같다. 
 
 ### Euler angle (오일러 각) 회전
 
@@ -89,6 +89,13 @@ $$
     - a(alpha) : x측 회전 roll
     - b(beta) : y측 회전 pitch
     - c(gamma) : z측 회전 yaw
+
+
+### Space & Body fixed movement
+
+Space fixed movement : 회전하는 축이 움직이지 않는것 
+
+Body fixed movement : 이동한 다음에 움직이는 것, 로봇 세상에서 대부분의 움직임 
 
 
 
