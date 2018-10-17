@@ -21,7 +21,6 @@ This program is able to load one PCD or PLY file; apply a matrix transformation 
 ## 참고 자료 
 
 
-
 내부 모델 : 물체를 움직이기 위한 모델, 
 - Kinematics 내부모델 : 관절의 회전(Joint Space)과 주먹 끝(Task Space)의 움직임의 관계를 이해하는 것
 - Dynamic 내부모델 : 
@@ -40,7 +39,14 @@ This program is able to load one PCD or PLY file; apply a matrix transformation 
 
 관절별 내부 모델 
 - Prismatic : 3V,2V,-5V = X,Y,Z (eg. 인형뽑기, 가로로 3초, 세로로 2초, 아래로 5초가면 집게의 위치)
-- Revolute : 각도를 다룸 , $$(\theta_1, $$
+- Revolute : 각도를 다룸 , $$(\theta_1,\theta_2,\theta_3) = (x,y,z) $$
+    - x = L_1 cos\theta + L_2 cos\..............
+    - y = ...................
+    - z = z
+
+> Revolute의 관계식 cos/sin을 통해 구하는것은 복잡하고 어렵기 때문에 이를 쉽게 하는것이 **Rotation Matrix**이다. 
+
+
 
 
 
