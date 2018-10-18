@@ -28,3 +28,9 @@
 - PCL/OpenNI tutorial 2: Cloud processing (basic)
 - PCL/OpenNI tutorial 3: Cloud processing (advanced)
 
+
+부분적으로 [3D Perception](https://github.com/fouliex/RoboticPerception)의 코드를 참고 하고 있습니다. 
+- def do_voxel_grid_downssampling(pcl_data,leaf_size):
+- def do_statistical_outlier_filtering(pcl_data,mean_k,tresh):
+- def do_passthrough(pcl_data,filter_axis,axis_min,axis_max):
+- 
