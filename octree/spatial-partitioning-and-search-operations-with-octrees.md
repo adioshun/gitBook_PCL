@@ -16,7 +16,7 @@ Particularly, we explain how to perform a “Neighbors within Voxel Search”, t
 
 
 ```python
-resolution = 0.5#128.0f
+resolution = 0.5#128.0f #  length of one side of a voxel, 단위 = 해당 pointcloud의 단위 따름 
 octree = cloud.make_octreeSearch(resolution)
 octree.add_points_from_input_cloud()
 ```
