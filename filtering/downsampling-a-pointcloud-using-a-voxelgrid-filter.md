@@ -21,6 +21,9 @@ def do_voxel_grid_downssampling(pcl_data,leaf_size):
     vox = pcl_data.make_voxel_grid_filter()
     vox.set_leaf_size(leaf_size, leaf_size, leaf_size) # The bigger the leaf size the less information retained
     return  vox.filter()
+    
+LEAF_SIZE = 0.01
+cloud = do_voxel_grid_downssampling(cloud,LEAF_SIZE)
 ```
 
 
