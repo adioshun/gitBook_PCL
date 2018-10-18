@@ -66,7 +66,9 @@ This program is able to load one PCD or PLY file; apply a matrix transformation 
 
 
 
+### 세번쨰 방법 
 
+`rosrun tf static_transform_publisher 0 0 0 0 0 0 velodyne velodyne_201 10`
 
 
 ---
