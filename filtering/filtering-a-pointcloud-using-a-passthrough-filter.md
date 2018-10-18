@@ -6,6 +6,7 @@
 
 
 ```python 
+# 정의 
 def do_passthrough(pcl_data,filter_axis,axis_min,axis_max):
     '''
     Create a PassThrough  object and assigns a filter axis and range.
@@ -19,11 +20,9 @@ def do_passthrough(pcl_data,filter_axis,axis_min,axis_max):
     passthrough.set_filter_field_name(filter_axis)
     passthrough.set_filter_limits(axis_min, axis_max)
     return passthrough.filter()
-```
+    
 
-사용 
-
-```python 
+# 호출 
 cloud = input_pcl_xyzrgb
 
 filter_axis = 'x'
@@ -40,4 +39,6 @@ filter_axis = 'z'
 axis_min = -1.2
 axis_max = 10.0
 cloud = filter.do_passthrough(cloud, filter_axis, axis_min, axis_max)
+
 ```
+
