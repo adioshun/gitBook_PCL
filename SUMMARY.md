@@ -54,6 +54,8 @@
   * [Using a matrix to transform a point cloud](basicusage/using-a-matrix-to-transform-a-point-cloud.md)
 * Input\_Output
   * [Concatenate the points of two Point Clouds](concatenate-the-points-of-two-point-clouds.md)
+* [Feature](feature.md)
+  * [Estimating Surface Normals in a PointCloud](feature/estimating-surface-normals-in-a-pointcloud.md)
 * [Filtering](filtering.md)
   * [Filtering a PointCloud using a PassThrough filter](filtering/filtering-a-pointcloud-using-a-passthrough-filter.md)
   * [Downsampling a PointCloud using a VoxelGrid filter](filtering/downsampling-a-pointcloud-using-a-voxelgrid-filter.md)
