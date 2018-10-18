@@ -1,5 +1,7 @@
 # [Using a matrix to transform a point cloud](http://pointclouds.org/documentation/tutorials/matrix_transform.php#matrix-transform)
 
+> [Jupyter](http://nbviewer.jupyter.org/github/adioshun/gitBook_PCL/blob/master/basicusage/%20Using%20a%20matrix%20to%20transform%20a%20point%20cloud.ipynb), [python-ros](https://github.com/adioshun/gitBook_PCL/blob/master/basicusage/icp.py)
+
 In this tutorial we will learn how to transform a point cloud using a 4x4 matrix. We will apply a rotation and a translation to a loaded point cloud and display then result.
 
 This program is able to load one PCD or PLY file; apply a matrix transformation on it and display the original and transformed point cloud.
