@@ -70,7 +70,19 @@ This program is able to load one PCD or PLY file; apply a matrix transformation 
 
 `rosrun tf static_transform_publisher 0 0 0 0 0 0 velodyne velodyne_201 10`
 
+static_transform_publisher x y z yaw pitch roll frame_id child_frame_id period_in_ms
+- Publish a static coordinate transform to tf using an x/y/z offset in meters and yaw/pitch/roll in radians. 
+- (yaw is rotation about Z, pitch is rotation about Y, and roll is rotation about X). 
+- The period, in milliseconds, specifies how often to send a transform. 100ms (10hz) is a good value.
+
+static_transform_publisher x y z qx qy qz qw frame_id child_frame_id  period_in_ms
+- Publish a static coordinate transform to tf using an x/y/z offset in meters and quaternion. 
+- The period, in milliseconds, specifies how often to send a transform. 100ms (10hz) is a good value.
+
+
 - Rotation matrix Vs. Euler angle 변환 [코드](https://www.learnopencv.com/rotation-matrix-to-euler-angles/), [웹사이트](https://www.andre-gaschler.com/rotationconverter/) ,[시각화검증](http://danceswithcode.net/engineeringnotes/rotations_in_3d/demo3D/rotations_in_3d_tool.html)
+
+
 ---
 
 ![image](https://user-images.githubusercontent.com/17797922/47072738-a2b80700-d231-11e8-8ff8-67aa8f23cad3.png)
