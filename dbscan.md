@@ -4,6 +4,8 @@
 
 ## 3. DBSCAN((Density-based spatial clustering of applications with noise) 
 
+> 개선 버젼 = OPTICS (It does not need the epsilon parameter (except for performance reasons with index support)
+
 Euclidean clustering, or DBSCAN. 
 
 전체 클러스터 수는 모르지만 일부 정보`(min_samples, max_dist)`를 알고 있을때 사용 `You may not know how many clusters to expect, but you do know something about how the points should be clustered (min_samples, max_dist). `
@@ -33,6 +35,8 @@ Each cluster has 3 levels of members:
  - 고차원 데이터세트로 갈수록 필요한 학습 데이터 양이 급증하는 문제점이며, 이 때문에 많은 연산이 필요해진다는 단점이 있다.
 
 ###### 예 : minPts = 4, 반경 = epsilon
+
+> A low minPts means it will build more clusters from noise, so don't choose it too small.
 
 |![image](https://user-images.githubusercontent.com/17797922/40961916-f2976c78-68de-11e8-9696-aff088b189ce.png)|![image](https://user-images.githubusercontent.com/17797922/40962055-6e81f6fa-68df-11e8-9617-4846be50bfec.png)|![image](https://user-images.githubusercontent.com/17797922/40962080-7ff69e7c-68df-11e8-8ca7-163465efa6ea.png)|
 |-|-|-|
