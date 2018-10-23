@@ -37,6 +37,7 @@ Each cluster has 3 levels of members:
 ###### 예 : minPts = 4, 반경 = epsilon
 
 > A low minPts means it will build more clusters from noise, so don't choose it too small.
+> [How can I choose eps and minPts (two parameters for DBSCAN algorithm) for efficient results?](https://www.researchgate.net/post/How_can_I_choose_eps_and_minPts_two_parameters_for_DBSCAN_algorithm_for_efficient_results)
 
 |![image](https://user-images.githubusercontent.com/17797922/40961916-f2976c78-68de-11e8-9696-aff088b189ce.png)|![image](https://user-images.githubusercontent.com/17797922/40962055-6e81f6fa-68df-11e8-9617-4846be50bfec.png)|![image](https://user-images.githubusercontent.com/17797922/40962080-7ff69e7c-68df-11e8-8ca7-163465efa6ea.png)|
 |-|-|-|
