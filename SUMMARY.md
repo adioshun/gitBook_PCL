@@ -79,7 +79,6 @@
 * [CCL](ccl.md)
 * [Hough Transform](hough-transform.md)
 * [DBSCAN](dbscan.md)
-  * [OPTICS](dbscan/optics.md)
 * [Visualization](visualization.md)
   * [Tool\_CloudCompare](visualization/toolcloudcompare.md)
   * [Tool\_ParaView with PCL](visualization/toolparaview-with-pcl.md)
