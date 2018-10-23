@@ -32,3 +32,6 @@ cloud = do_statistical_outlier_filtering(cloud,10,0.001)
     
 ```
 
+    입력 cloud포맷 : pcl_xyz 
+    pcl_xyz = pcl_helper.XYZRGB_to_XYZ(pcl_xyzrgb)
+    pcl_xyzrgb시 : TypeError: __cinit__() takes exactly 1 positional argument (0 given) 에러 
