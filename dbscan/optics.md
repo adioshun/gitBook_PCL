@@ -1,8 +1,8 @@
-# OPTICS
+# OPTICS (Ordering points to identify the clustering structure )
 
 목적 : OPTICS is an algorithm for finding density-based[1] clusters in spatial data. 
 
-제안자 : It was presented by Mihael Ankerst, Markus M. Breunig, Hans-Peter Kriegel and Jörg Sander.[2] 
+논문 :[OPTICS: Ordering Points To Identify the Clustering Structure](http://www.dbs.ifi.lmu.de/Publikationen/Papers/OPTICS.pdf), Mihael Ankerst, Markus M. Breunig, Hans-Peter Kriegel and Jörg Sander. 1999
 
 Its basic idea is similar to DBSCAN,[3] but it addresses one of DBSCAN's major weaknesses: 
 - the problem of detecting meaningful clusters in data of varying density. 
@@ -19,6 +19,8 @@ This is represented as a **dendrogram**.
 [DBSCAN and OPTICS clustering](https://www.vitavonni.de/blog/201211/2012110201-dbscan-and-optics-clustering.html): 2012
 
 [wiki-pedia](https://en.wikipedia.org/wiki/OPTICS_algorithm)
+
+[OPTICS : Ordering Points To Identify Clustering Algorithm Video | Clustering Analysis - ExcelR](https://www.youtube.com/watch?v=zAbnJ7kERXk): youtube, 20
 
 
 ## 구현 코드 
