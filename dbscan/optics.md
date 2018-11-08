@@ -1,5 +1,7 @@
 # OPTICS (Ordering points to identify the clustering structure )
 
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/OPTICS.svg/712px-OPTICS.svg.png)
+
 목적 : OPTICS is an algorithm for finding density-based[1] clusters in spatial data. 
 
 논문 :[OPTICS: Ordering Points To Identify the Clustering Structure](http://www.dbs.ifi.lmu.de/Publikationen/Papers/OPTICS.pdf), Mihael Ankerst, Markus M. Breunig, Hans-Peter Kriegel and Jörg Sander. 1999
