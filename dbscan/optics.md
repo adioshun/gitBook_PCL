@@ -38,6 +38,16 @@ This is represented as a **dendrogram**.
 [sklearn.cluster.OPTICS](http://scikit-learn.org/dev/modules/generated/sklearn.cluster.OPTICS.html) : [Sample-code](https://scikit-learn.org/dev/auto_examples/cluster/plot_optics.html)
 - OPTICS is still experimental and only available on master (2018.11.08)
 
+```
+git clone https://github.com/scikit-learn/scikit-learn.git
+sudo python setup.py install
+make 
+"""
+import sklearn
+print(sklearn.__version__)
+"""
+```
+
 [OPTICS Clustering](https://github.com/aonghus/optics-cluster) : code-python, 쥬피터 
 
 [CyOPTICS clustering](https://github.com/dvida/cyoptics-clustering): 속도 개선 버젼, cython기
