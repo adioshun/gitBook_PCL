@@ -11,12 +11,20 @@ In order to do so, the points of the database are (linearly) ordered such that p
 
 Additionally, a special distance is stored for each point that represents the density that needs to be accepted for a cluster in order to have both points belong to the same cluster. 
 
+OPTIC 사용하는 경우 
+- radius 파라미터가 확실치 않은 경우 
+- radius 파라미터 need multiple values 인경우 
+
+단점 
+- 속도가 느림 : priority heap사용, nearest neighbor queries사용으로 인해 
+- OPTICS won’t produce a strict partitioning
+
 This is represented as a **dendrogram**.
 - A dendrogram is a diagram representing a tree.
 
 [Density-Based Clustering Exercises + Solutions](http://engdashboard.blogspot.com/2017/09/density-based-clustering-exercises.html): 2017
 
-[DBSCAN and OPTICS clustering](https://www.vitavonni.de/blog/201211/2012110201-dbscan-and-optics-clustering.html): 2012
+~~[DBSCAN and OPTICS clustering](https://www.vitavonni.de/blog/201211/2012110201-dbscan-and-optics-clustering.html)~~: 2012
 
 [wiki-pedia](https://en.wikipedia.org/wiki/OPTICS_algorithm)
 
