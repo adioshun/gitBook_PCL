@@ -37,6 +37,10 @@ This is represented as a **dendrogram**.
 
 [sklearn.cluster.OPTICS](http://scikit-learn.org/dev/modules/generated/sklearn.cluster.OPTICS.html) : [Sample-code](https://scikit-learn.org/dev/auto_examples/cluster/plot_optics.html)
 - OPTICS is still experimental and only available on master (2018.11.08)
+- OPTIC변형이 구현되어 있음 
+    - This implementation deviates from the original OPTICS by first performing k-nearest-neighborhood searches on all points to identify core sizes, 
+    - then computing only the distances to unprocessed points when constructing the cluster order. 
+    - Note that we do not employ a heap to manage the expansion candidates, so the time complexity will be O(n^2).
 
 ```
 git clone https://github.com/scikit-learn/scikit-learn.git
