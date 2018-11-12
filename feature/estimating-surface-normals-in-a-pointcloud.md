@@ -1,6 +1,7 @@
 # [Estimating Surface Normals in a PointCloud](http://pointclouds.org/documentation/tutorials/normal_estimation.php#normal-estimation)
 
 > Normal = 수직 방향, Surface Normal = 표면에 수직 방향
+> 2차원 = Normal Line / 3차원 Surface normal(OR simply **normal**)
 
 주요한 특징으로 조명에 의한 그림자 생성등 시각 효과증에서 많이 사용된다. `Surface normals are important properties of a geometric surface, and are heavily used in many areas such as computer graphics applications, to apply the correct light sources that generate shadings and other visual effects.`
 
