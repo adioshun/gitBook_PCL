@@ -65,6 +65,8 @@ plt.show()
 
 ### 1.1 PCL viewer
 
+- 설치 : sudo apt install pcl-tools
+
 `/usr/bin/pcl_viewer/{  }.pcd`
 
 > [PCL Visualization overview](http://pointclouds.org/documentation/overview/visualization.php), [Youtube](https://www.youtube.com/watch?v=BZBQXcBvHW0)

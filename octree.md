@@ -83,3 +83,20 @@
 ## Article 
 
 - [Octree (옥트리) ](http://blog.naver.com/hermet/57456541): 네이버블로그 
+
+
+---
+
+# Octree Viewer 
+
+![](http://pointclouds.org/documentation/tutorials/_images/octree_bunny2.png)
+
+> http://pointclouds.org/documentation/tutorials/walkthrough.php#visualization
+
+octree_viewer: allows the visualization of octrees
+
+Syntax is: octree_viewer <file_name.pcd> <octree resolution>
+
+Usage example:
+
+Example: ./octree_viewer ../../test/bunny.pcd 0.02
