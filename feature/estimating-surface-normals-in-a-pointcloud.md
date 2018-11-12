@@ -1,5 +1,7 @@
 # [Estimating Surface Normals in a PointCloud](http://pointclouds.org/documentation/tutorials/normal_estimation.php#normal-estimation)
 
+> Normal = 수직 방향, Surface Normal = 표면에 수직 방향
+
 주요한 특징으로 조명에 의한 그림자 생성등 시각 효과증에서 많이 사용된다. `Surface normals are important properties of a geometric surface, and are heavily used in many areas such as computer graphics applications, to apply the correct light sources that generate shadings and other visual effects.`
 
 Given a geometric surface, it’s usually trivial to infer the direction of the normal at a certain point on the surface as the vector perpendicular to the surface in that point. 
@@ -8,7 +10,13 @@ However, since the point cloud datasets that we acquire represent a set of point
 - obtain the underlying surface from the acquired point cloud dataset, using surface meshing techniques, and then compute the surface normals from the mesh;
 - use approximations to infer the surface normals from the point cloud dataset directly.
 
+---
 
+# [WikiPedia : Normal(Geometry)](https://en.wikipedia.org/wiki/Normal_(geometry))
+
+
+
+---
 ![](https://github.com/fouliex/RoboticPerception/raw/master/pr2_robot/misc/SurfaceNormal.JPG)
 
 ## [참고][Surface Normals](https://github.com/fouliex/RoboticPerception#surface-normals)
@@ -28,7 +36,7 @@ The normal of a surface is just a unit vector that is perpendicular to that surf
 
 The normals at different points, along with the changing surface, will point in different direction and the distribution of surface normals taken a whole can be used to describe the shape of the objects. 
 
-
+---
 
 ```python 
 import pcl
@@ -51,3 +59,8 @@ print(normals)
 for i in range(0, normals.size):
     print ('normal_x: '  + str(normals[i][0]) + ', normal_y : ' + str(normals[i][1])  + ', normal_z : ' + str(normals[i][2]))
 ```
+
+
+--- 
+
+[How to visualize surface normals as Marker::Arrow for each point in rviz?](https://answers.ros.org/question/9095/how-to-visualize-surface-normals-as-markerarrow-for-each-point-in-rviz/)
