@@ -21,6 +21,7 @@
   * [5-Clustering](pcl/5-clustering.md)
   * [8- ROS](pcl/8-ros.md)
   * [helper](pcl/helper.md)
+  * 6-Feature
 * [Open3D](open3d.md)
   * [1-File I/O](open3d/1-file-io.md)
   * [2- Numpy ](open3d/2-numpy.md)
@@ -40,10 +41,15 @@
   * [9-Visualization](pytncloud/9-visualization.md)
 * [pyPCL\(/w PCL\)](pypcl.md)
   * [1-File I/O](pypcl/1-file-io.md)
+  * [6-Feature](pypcl/6-feature.md)
+  * [5-Clustering](pypcl/5-clustering.md)
 * [LasPy](laspy.md)
   * [9-Visualization](laspy/9-visualization.md)
 * [pyDriver](pydriver.md)
 * [ecto\_PCL](ectopcl.md)
+* PclPy
+  * [5-Clustering](5-clustering.md)
+  * [6-Feature](6-feature.md)
 
 ## PCL Tutorial
 
