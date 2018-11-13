@@ -62,6 +62,23 @@ for i in range(0, normals.size):
 ```
 
 
+```python 
+import numpy as np
+from open3d import *
+
+pcd = read_point_cloud("/workspace/tmp/normal/fragment.pcd")
+KD = KDTreeSearchParamHybrid(radius = 0.1, max_nn = 30)
+estimate_normals(pcd, search_param = KD)
+
+
+print(pcd.has_normals())
+pcd.normals[0]
+pcd.points[0]
+
+normals = np.asarray(pcd.normals)
+normals[0]
+```
+
 --- 
 
 [How to visualize surface normals as Marker::Arrow for each point in rviz?](https://answers.ros.org/question/9095/how-to-visualize-surface-normals-as-markerarrow-for-each-point-in-rviz/): 부하때문에 어려움 
