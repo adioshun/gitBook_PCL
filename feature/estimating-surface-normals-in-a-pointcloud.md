@@ -11,9 +11,7 @@ However, since the point cloud datasets that we acquire represent a set of point
 - obtain the underlying surface from the acquired point cloud dataset, using surface meshing techniques, and then compute the surface normals from the mesh;
 - use approximations to infer the surface normals from the point cloud dataset directly.
 
----
 
-# [WikiPedia : Normal(Geometry)](https://en.wikipedia.org/wiki/Normal_(geometry))
 
 
 
@@ -78,6 +76,12 @@ pcd.points[0]
 normals = np.asarray(pcd.normals)
 normals[0]
 ```
+
+---
+
+
+# Surface curvature estimates
+
 
 --- 
 
