@@ -63,6 +63,7 @@
   * [How 3D Features work in PCL](feature/how-3d-features-work-in-pcl.md)
   * [Normal Estimation Using Integral Images](feature/normal-estimation-using-integral-images.md)
   * [Point Feature Histograms \(PFH\) descriptors](feature/point-feature-histograms-pfh-descriptors.md)
+  * [Estimating VFH signatures for a set of points](feature/estimating-vfh-signatures-for-a-set-of-points.md)
 * [Filtering](filtering.md)
   * [Filtering a PointCloud using a PassThrough filter](filtering/filtering-a-pointcloud-using-a-passthrough-filter.md)
   * [Downsampling a PointCloud using a VoxelGrid filter](filtering/downsampling-a-pointcloud-using-a-voxelgrid-filter.md)
