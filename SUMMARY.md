@@ -80,6 +80,8 @@
   * [DBSCAN\_Cluster](segmentation/dbscancluster.md)
   * [Euclidean Cluster Extraction](segmentation/euclidean-cluster-extraction.md)
   * [Region growing segmentation](segmentation/region-growing-segmentation.md)
+* Surface
+  * [Smoothing and normal estimation based on polynomial reconstruction](smoothing-and-normal-estimation-based-on-polynomial-reconstruction.md)
 * [Visualization](visualization.md)
   * [Tool\_CloudCompare](visualization/toolcloudcompare.md)
   * [Tool\_ParaView with PCL](visualization/toolparaview-with-pcl.md)
