@@ -91,9 +91,6 @@ The FPFH considers only the direct connections between the current keypoint and 
 1. 질의점의 표면 법선 벡터와 목표점의 표면 법선 벡터를 기반으로 좌표계를 설정하고 
 2. 이 좌표계와 법선 벡터 사이의 관계를 수치화하여 특징 벡터를 구성하는 방법이다.
 
-
-
-
 $$ uvw $$프레임 = $$ u $$축을 질의점의 표면법선 벡터 $$n_s$$로 설정 한다면, $$v$$축과 $$w$$축은 아래와 같다. 
 
 ![](https://i.imgur.com/n8kn6Zg.png)
