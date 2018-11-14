@@ -238,7 +238,7 @@ Spin images computed for 3 points of a model
 
 - 원래는 폴리곤에서 사용하기 위해 설계 되었지만 최근에는 포인트클라우드에도 적용되었다. `It was originally designed to describe surfaces made by vertices, edges and polygons, but it has been since adapted for point clouds.`
 
-- 다른 기술자들과 달리 결과물이 이미와 같은 형태이다. 따라서 여러 방법으로 비교과 가능하다. ` The descriptor is unlike all others in that the output resembles an image that can be compared with another with the usual means.`
+- 다른 기술자들과 달리 결과물이 이미와 같은 형태이다. 따라서 기존 여러 방법으로 비교가 가능하다. ` The descriptor is unlike all others in that the output resembles an image that can be compared with another with the usual means.`
 
 - The support structure used is a cylinder, centered at the point, with a given radius and height, and aligned with the normal. 
 
