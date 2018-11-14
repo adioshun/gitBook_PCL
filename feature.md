@@ -73,6 +73,7 @@ The FPFH considers only the direct connections between the current keypoint and 
 - To account for the loss of these extra connections, an additional step takes place after all histograms have been computed: 
     - the SPFHs of a point's neighbors are "merged" with its own, weighted according to the distance. 
 
+
 - This has the effect of giving a point surface information of points as far away as 2 times the radius used. 
 
 - Finally, the 3 histograms (distance is not used) are concatenated to compose the final descriptor.
