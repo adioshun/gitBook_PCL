@@ -508,6 +508,22 @@ It will encode what the object is made of, so the robot can easily recognize it.
 	- If the leaf is empty (free space), a value of 0 is saved. 
 	- Otherwise, the leaf probabilities are used.
 
+### 2.6 G-RSD
+
+> The global version of the Radius-based Surface Descriptor 
+> works in a similar fashion to GFPFH. 
+
+![](http://robotica.unileon.es/images/thumb/7/7c/GRSD.png/600px-GRSD.png)
+Classification of objects for GRSD and resulting histogram
+
+
+- A voxelization and a surface categorization step are performed beforehand, labelling all surface patches according to the geometric category (plane, cylinder, edge, rim, sphere), using RSD. 
+
+- Then, the whole cluster is classified into one of these categories, and the GRSD descriptor is computed from this.
+
+
+
+
 ---
 
 ## 1. Height Features
