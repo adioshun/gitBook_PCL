@@ -116,6 +116,8 @@ $$ uvw $$프레임 = $$ u $$축을 질의점의 표면법선 벡터 $$n_s$$로 �
 
 ## 1.3 RSD(Radius-Based Surface Descriptor)
 
+![](http://robotica.unileon.es/images/6/6a/RSD_sphere.png)
+
 - 타겟점과 이웃간의 반지름 관계 정보를 이용한다. `The RSD encodes the radial relationship of the point and its neighborhood.`
 
 - For every pair of the keypoint with a neighbor, the algorithm computes 
@@ -126,15 +128,17 @@ $$ uvw $$프레임 = $$ u $$축을 질의점의 표면법선 벡터 $$n_s$$로 �
 
 - Finally, from all the point-neighbor spheres, only the ones with the maximum and minimum radii are kept and saved to the descriptor of that point.
 
-두점이 평면에 있다면 구의 반지름은 infinite이다.  As you may have deduced already, when two points lie on a flat surface, the sphere radius will be infinite.
+- 두점이 평면에 있다면 구의 반지름은 infinite이다.  As you may have deduced already, when two points lie on a flat surface, the sphere radius will be infinite.
 
-반대로, 두 점이 곡선에 있다면 반지름은 원통과 더하거나 덜할것이다. If, on the other hand, they lie on the curved face of a cylinder, the radius will be more or less the same as that of the cylinder. 
+- 반대로, 두 점이 곡선에 있다면 반지름은 원통과 더하거나 덜할것이다. If, on the other hand, they lie on the curved face of a cylinder, the radius will be more or less the same as that of the cylinder. 
 
-This allows us to tell objects apart with RSD. 
+- This allows us to tell objects apart with RSD. 
 
-파라미터로는 최대 반지름이 있다. 이값을 통해 평면인지를 판단한다. The algorithm takes a parameter that sets the maximum radius at which the points will be considered to be part of a plane.
+- 파라미터로: 최대 반지름 `The algorithm takes a parameter that sets the maximum radius at which the points will be considered to be part of a plane.`
+    - 평면인지를 판단한다. 
 
-![](http://robotica.unileon.es/images/6/6a/RSD_sphere.png)
+## 1.4 3DSC (3D Shape Context)
+
 
 ## Signature of Histogram of OrienTation (SHOT)
 
