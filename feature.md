@@ -139,6 +139,13 @@ $$ uvw $$프레임 = $$ u $$축을 질의점의 표면법선 벡터 $$n_s$$로 �
 
 ## 1.4 3DSC (3D Shape Context)
 
+> 2D Shape Context의 3D확장 버젼 
+
+![](http://robotica.unileon.es/images/b/bd/3DSC_support_structure.png)
+```
+Support structure to compute the 3DSC for a point
+```
+
 - It works by creating a support structure (a sphere, to be precise) centered at the point we are computing the descriptor for, with the given search radius. 
 
 - The "north pole" of that sphere (the notion of "up") is pointed to match the normal at that point. 
@@ -161,40 +168,87 @@ $$ uvw $$프레임 = $$ u $$축을 질의점의 표면법선 벡터 $$n_s$$로 �
 
 - Because of this, the descriptor so far does not cope with rotation. 
 
+- To overcome this (so the same point in two different clouds has the same value), 
+    - the support sphere is rotated around the normal N times (a number of degrees that corresponds with the divisions in the azimuth) and the process is repeated for each, giving a total of N descriptors for that point.
 
-- To overcome this (so the same point in two different clouds has the same value), the support sphere is rotated around the normal N times (a number of degrees that corresponds with the divisions in the azimuth) and the process is repeated for each, giving a total of N descriptors for that point.
+## 1.5 USC (Unique Shape Context)
 
+> 3DSC 개선 버젼 
 
+- USC descriptor extends the 3DSC by defining a **local reference frame**, in order to provide an unique orientation for each point. 
 
+- 정확도 향상, 사이즈 감소 효과 `This not only improves the accuracy of the descriptor, it also reduces its size, as computing multiple descriptors to account for orientation is no longer necessary.`
 
-## Signature of Histogram of OrienTation (SHOT)
+## 1.6 SHOT (Signature of Histogram of OrienTation)
 
-FPFH와 같이 3차원 기하학적 특성인 표면 법선 벡터를 이용한 특징
-점 추출 방법인 SHOT는 3차원 점군 기반의 인식 기술에 널리 이용되고
-있다. SHOT는 FPFH와 달리 따로 좌표계를 설정하여 특징 벡터를 구성
-하지 않고, 특정한 그리드 영역을 만들고 그 안에 존재하는 점들의 표면
-법선 벡터와 질의점의 표면 법선 벡터 사이의 각도를 이용하여 특징 벡
-터를 구성한다.
-그림 7과 같이 질의점을 기준으로 구형 그리드 구조를 설정한다. 구형
-구조에서 반경에 따른 구간을 나누고 이것을 다시 방위각과 높이에 따른
-섹터로 분할한다. 본 연구의 실험에서 사용된 SHOT의 그리드 구조는
-방위각을 8개의 구간, 반경을 2개의 구간, 높이에 따른 구간을 2개로 나
-누어서 총 32개의 구형 그리드 섹터로 나누어지는 구조를 사용하였다.
+> 3DSC와 비슷한 컨셉 
+
+![](http://robotica.unileon.es/images/a/af/SHOT_support_structure.png)
+Support structure to compute SHOT. Only 4 azimuth divisions are shown for clarity 
 
 
-구간을 나눈 뒤, 질의점의 표면 법선 벡터를 $n_s$라 하고 특정 구간에
-속하는 $i$번째 목표점의 표면 법선 벡터를 $n_i$라 한다면 이 두 벡터 사이
-의 각을 나타내는 수치는 다음과 같이 표현될 수 있다.
+- Like 3DSC, it encodes information about the topology (surface) withing a spherical support structure. 
 
-![](https://i.imgur.com/41iPa6h.png)
+- This sphere is divided in 32 bins or volumes, 
+    - with 8 divisions along the azimuth, 
+    - 2 along the elevation, and 
+    - 2 along the radius. 
+    
+- For every volume, a one-dimensional local histogram is computed. 
 
-이 수치는 다시 11개의 구간으로 구별되어지고, 위에서 그리드 구조로
-나뉜 32개의 구형 그리드 섹터와 조합되어서 총 352개의 차원을 가지는
-SHOT 특징 벡터를 구성한다.
+- The variable chosen is the angle between the normal of the keypoint and the current point within that volume (to be precise, the cosine, which was found to be better suitable).
+
+- When all local histograms have been computed, they are stitched together in a final descriptor. 
+
+- USC처럼 **local reference frame**을 사용하여 물체 회전에 영향을 안 받는다. `Like the USC descriptor, SHOT makes use of a local reference frame, making it rotation invariant. `
+
+- 또한, 노이즈와 clutter에도 강건성을 보인다. `It is also robust to noise and clutter.`
 
 
 > 하영민, 손 및 팔의 자세 추정을 위한 다시점 뎁스 데이터의 3차원 정합, 2014
 
+- FPFH와 같이 3차원 기하학적 특성인 표면 법선 벡터를 이용한 특징점 추출 방법인 SHOT는 3차원 점군 기반의 인식 기술에 널리 이용되고있다. 
+
+- SHOT는 FPFH와 달리 따로 좌표계를 설정하여 특징 벡터를 구성하지 않고, 특정한 그리드 영역을 만들고 그 안에 존재하는 점들의 표면 법선 벡터와 질의점의 표면 법선 벡터 사이의 각도를 이용하여 특징 벡터를 구성한다.
+
+- 그림 7과 같이 질의점을 기준으로 구형 그리드 구조를 설정한다. 
+
+- 구형 구조에서 반경에 따른 구간을 나누고 이것을 다시 방위각과 높이에 따른 섹터로 분할한다. 
+
+- 본 연구의 실험에서 사용된 SHOT의 그리드 구조는 방위각을 8개의 구간, 반경을 2개의 구간, 높이에 따른 구간을 2개로 나누어서 총 32개의 구형 그리드 섹터로 나누어지는 구조를 사용하였다.
+
+
+- 구간을 나눈 뒤, 질의점의 표면 법선 벡터를 $n_s$라 하고 특정 구간에 속하는 $i$번째 목표점의 표면 법선 벡터를 $n_i$라 한다면 이 두 벡터 사이
+의 각을 나타내는 수치는 다음과 같이 표현될 수 있다.
+
+![](https://i.imgur.com/41iPa6h.png)
+
+- 이 수치는 다시 11개의 구간으로 구별되어지고, 위에서 그리드 구조로 나뉜 32개의 구형 그리드 섹터와 조합되어서 총 352개의 차원을 가지는 SHOT 특징 벡터를 구성한다.
+
+
+
+## 1.7 SI(Spin image)
+
+![](http://robotica.unileon.es/images/thumb/d/db/Spin_images.png/1056px-Spin_images.png)
+```
+Spin images computed for 3 points of a model
+```
+
+- SI는 1997년부터 사용된 가장 오래된 기술자이다. `The Spin Image (SI) is the oldest descriptor we are going to see here. It has been around since 1997, but it still sees some use for certain applications. `
+
+- 원래는 폴리곤에서 사용하기 위해 설계 되었지만 최근에는 포인트클라우드에도 적용되었다. `It was originally designed to describe surfaces made by vertices, edges and polygons, but it has been since adapted for point clouds.`
+
+- 다른 기술자들과 달리 결과물이 이미와 같은 형태이다. 따라서 여러 방법으로 비교과 가능하다. ` The descriptor is unlike all others in that the output resembles an image that can be compared with another with the usual means.`
+
+- The support structure used is a cylinder, centered at the point, with a given radius and height, and aligned with the normal. 
+
+- This cylinder is divided radially and vertically into volumes. 
+
+- For each one, the number of neighbors lying inside is added up, eventually producing a descriptor. 
+
+- 성능향상을 위해 가중치와 보간법이 이용된다. `Weighting and interpolation are used to improve the result. `
+
+- 최종 기술자는 그레이스케일 이미지 이다. 어두울수록 밀집도가 큼을 나타낸다. `The final descriptor can be seen as a grayscale image where dark areas correspond to volumes with higher point density.`
 
 ## 2. Global descriptors
 
