@@ -159,7 +159,10 @@ $$ uvw $$프레임 = $$ u $$축을 질의점의 표면법선 벡터 $$n_s$$로 �
 
 - This still leaves one degree of freedom (only two axes have been locked, the azimuth remains free). 
 
-- Because of this, the descriptor so far does not cope with rotation. To overcome this (so the same point in two different clouds has the same value), the support sphere is rotated around the normal N times (a number of degrees that corresponds with the divisions in the azimuth) and the process is repeated for each, giving a total of N descriptors for that point.
+- Because of this, the descriptor so far does not cope with rotation. 
+
+
+- To overcome this (so the same point in two different clouds has the same value), the support sphere is rotated around the normal N times (a number of degrees that corresponds with the divisions in the azimuth) and the process is repeated for each, giving a total of N descriptors for that point.
 
 
 
