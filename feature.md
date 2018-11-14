@@ -471,6 +471,15 @@ A3: 각도계산 함수 `this function computes the angle formed by the points. 
 Each one has 64 bins, so the size of the final ESF descriptor is 640.
 
 
+
+### 2.5 G-FPFH (Global Fast Point Feature Histogram)
+
+> FPFH descriptor 전역 기술자로 확장 
+
+
+
+
+
 ---
 
 ## 1. Height Features
