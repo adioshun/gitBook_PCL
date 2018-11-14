@@ -313,6 +313,8 @@ RIFT feature values at 3 different locations in the descriptor
 
 ## 2. Global descriptors
 
+> If global descriptors are being used, a Camera Roll Histogram (CRH) should be included in order to retrieve the full 6 DoF pose
+
 전역 기술자는 물체의 기하학 정보를 가지고 있다. Global descriptors encode object geometry. 
 
 
