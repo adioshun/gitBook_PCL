@@ -331,6 +331,103 @@ RIFT feature values at 3 different locations in the descriptor
 
 ### 2.1 VFH(Viewpoint Feature Histogram)
 
+> The VFH is based on the FPFH. 
+
+
+
+|![](http://robotica.unileon.es/images/c/c5/VFH_viewpoint_component.png)|![](http://robotica.unileon.es/images/d/d1/VFH_extended_FPFH_component.png)|
+|-|-|
+|Viewpoint component of the VFH|Extended FPFH component of the VFH |
+
+- FPFH가 물체의 포즈에 invariant하기 때문에 viewpoint 정보를 추가 하여 기능을 확장 하였다. `Because the FPFH is invariant to the object's pose, the authors decided to expand it by including information about the viewpoint. `
+
+- Also, the FPFH is estimated once for the whole cluster, not for every point.
+
+- 구성 `The VFH is made up by two parts:`
+	- a viewpoint direction component, and 
+	- an extended FPFH component. 
+
+#### A. viewpoint direction component
+- To compute the first one, 
+	- the object's centroid is found, which is the point that results from averaging the X, Y and Z coordinates of all points. 
+	- Then, the vector between the viewpoint (the position of the sensor) and this centroid is computed, and normalized. 
+	- The vector is translated to each point when computing the angle because it makes the descriptor scale invariant.
+
+#### B. extended FPFH component
+
+- The second component is computed like the FPFH (that results in 3 histograms for the 3 angular features, α, φ and θ), with some differences: 
+	- it is only computed for the centroid, using the computed viewpoint direction vector as its normal (as the point, obviously, does not have a normal), 
+	- and setting all the cluster's points as neighbors.
+
+
+
+The resulting 4 histograms are concatenated to build the final VFH descriptor. 
+- 1 for the viewpoint component
+- 3 for the extended FPFH component
+
+By default, the bins are normalized using the total number of points in the cluster. 
+- This makes the VFH descriptor invariant to scale.
+
+
+
+### 2.2 CVFH(Clustered Viewpoint Feature Histogram)
+
+> VFH 개선 버젼 
+
+- VFH는 가려짐등 센서의 영향에 간겅하지 못하다. `The original VFH descriptor is not robust to occlusion or other sensor artifacts, or measurement errors. `
+	- If the object cluster is missing many points, the resulting computed centroid will differ from the original, altering the final descriptor, and preventing a positive match from being found. 
+
+- 아이디어는 간단하다. 전체 클러스터에 대해 single VFH을 계산 하는 대신 `The idea is very simple: instead of computing a single VFH histogram for the whole cluster,`
+
+- 개선 방식 `the object is `
+	- first divided in stable, smooth regions using region-growing segmentation, that enforces several constraints in the distances and differences of normals of the points belonging to every region.
+	-  Then, a VFH is computed for every region.  
+
+- 효과 : 최소 하나의 Region이 측정 가능하다면 물체를 찾을 수 있다. `Thanks to this, an object can be found in a scene, as long as at least one of its regions is fully visible.`
+
+
+- 추가적으로 Additionally, a Shape Distribution Component (SDC) is also computed and included. 
+	- It encodes information about the distribution of the points arond the region's centroid, measuring the distances. 
+	- The SDC allows to differentiate objects with similar characteristics (size and normal distribution), like two planar surfaces from each other.
+
+- histogram normalization절차 제거 `The authors proposed to discard the histogram normalization step that is performed in VFH. `
+	- This has the effect of making the descriptor dependant of scale, so an object of a certain size would not match a bigger or smaller copy of itself. 
+	- It also makes CVFH more robust to occlusion.
+
+- CVFH is invariant to the camera roll angle, like most global descriptors. 
+	- This is so because rotations about that camera axis do not change the observable geometry that descriptors are computed from, limiting the pose estimation to 5 DoF.  
+	- The use of a Camera Roll Histogram (CRH) has been proposed to overcome this.
+
+
+### 2.3 OUR-CVFH (Oriented, Unique and Repeatable CVFH)
+
+> CVFH 개선버젼 
+
+![](http://robotica.unileon.es/images/thumb/1/14/OUR-CVFH.png/1199px-OUR-CVFH.png)
+```
+SGURF frame and resulting histogram of a region 
+```
+
+-강건성 확보를 위해 unique reference frame를 추가적으로 계산 
+
+- OUR-CVFH relies on the use of Semi-Global Unique Reference Frames (SGURFs), 
+	- which are repeatable coordinate systems computed for each region. 
+
+- SGURF적용 효과 
+	- Not only they remove the invariance to camera roll and allow to extract the 6DoF pose directly without additional steps, 
+	- but they also improve the spatial descriptiveness.
+
+1. The first part of the computation is akin to CVFH, but after segmentation, the points in each region are filtered once more according to the difference between their normals and the region's average normal. 
+	- This results in better shaped regions, improving the estimation of the Reference Frames (RFs).
+
+2. After this, the SGURF is computed for each region. 
+	- Disambiguation is performed to decide the sign of the axes, according to the points' distribution. 
+	- If this is not enough and the sign remains ambiguous, multiple RFs will need to be created to account for it. 
+
+3. Finally, the OUR-CVFH descriptor is computed. 
+
+The original Shape Distribution Component (SDC) is discarded, and the surface is now described according to the RFs.
+
 ---
 
 ## 1. Height Features
