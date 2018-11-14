@@ -1,4 +1,4 @@
-# [Removing outliers using a StatisticalOutlierRemoval filter](http://pointclouds.org/documentation/tutorials/statistical_outlier.php#statistical-outlier-removal)
+# [Removing outliers using a Statistical OutlierRemoval filter](http://pointclouds.org/documentation/tutorials/statistical_outlier.php#statistical-outlier-removal)
 
 
 In this tutorial we will learn how to remove noisy measurements, (e.g. outliers), from a point cloud dataset using statistical analysis techniques.
