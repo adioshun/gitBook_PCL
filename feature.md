@@ -328,6 +328,9 @@ RIFT feature values at 3 different locations in the descriptor
 - The trick is to compute it for one single point in the object cluster, and set the radius to the maximum possible distance between any two points (so all points in the cluster are considered as neighbors).
 
 
+
+### 2.1 VFH(Viewpoint Feature Histogram)
+
 ---
 
 ## 1. Height Features
