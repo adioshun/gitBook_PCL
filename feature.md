@@ -101,7 +101,7 @@ $$ uvw $$프레임 = $$ u $$축을 질의점의 표면법선 벡터 $$n_s$$로 �
 위와 같이 설정된 $uvw$프레임을 이용하여 표면법선벡터와의 관계를 수치화 할수 있다. 
 
 
-특징 벡터 $$F= <\alpha, \phi, \theta, d >$$ 계산식 (4차원)
+특징 벡터 $$ F= \< \alpha, \phi, \theta, d \> $$ 계산식 (4차원)
 - 점 사이 의 거리
 - 법선 벡터와 좌표계의 축이 이루는 각도가 각 차원의 값
 
@@ -112,6 +112,29 @@ $$ uvw $$프레임 = $$ u $$축을 질의점의 표면법선 벡터 $$n_s$$로 �
 차이점 
 - 특히 FPFH 방식은 PFH와 달리 속도를 크게 개선한 방법으로 질의점 과 주변 점들 사이의 특징 벡터를 계산하고, 그것을 다시 활용하는 전략 을 이용한다. 
 - 이렇게 미리 저장한 특징 벡터를 활용하여 성능에는 큰 차이가 없게 하고, 속도를 크게 개선하였다.
+
+
+## 1.3 RSD(Radius-Based Surface Descriptor)
+
+- 타겟점과 이웃간의 반지름 관계 정보를 이용한다. `The RSD encodes the radial relationship of the point and its neighborhood.`
+
+- For every pair of the keypoint with a neighbor, the algorithm computes 
+    - the distance between them, and 
+    - the difference between their normals. 
+
+- Then, by assuming that both points lie on the surface of a sphere, said sphere is found by fitting not only the points, but also the normals (otherwise, there would be infinite possible spheres). 
+
+- Finally, from all the point-neighbor spheres, only the ones with the maximum and minimum radii are kept and saved to the descriptor of that point.
+
+두점이 평면에 있다면 구의 반지름은 infinite이다.  As you may have deduced already, when two points lie on a flat surface, the sphere radius will be infinite.
+
+반대로, 두 점이 곡선에 있다면 반지름은 원통과 더하거나 덜할것이다. If, on the other hand, they lie on the curved face of a cylinder, the radius will be more or less the same as that of the cylinder. 
+
+This allows us to tell objects apart with RSD. 
+
+파라미터로는 최대 반지름이 있다. 이값을 통해 평면인지를 판단한다. The algorithm takes a parameter that sets the maximum radius at which the points will be considered to be part of a plane.
+
+![](http://robotica.unileon.es/images/6/6a/RSD_sphere.png)
 
 ## Signature of Histogram of OrienTation (SHOT)
 
