@@ -35,3 +35,9 @@ cloud = do_statistical_outlier_filtering(cloud,10,0.001)
     입력 cloud포맷 : pcl_xyz 
     pcl_xyz = pcl_helper.XYZRGB_to_XYZ(pcl_xyzrgb)
     pcl_xyzrgb시 : TypeError: __cinit__() takes exactly 1 positional argument (0 given) 에러 
+
+
+
+---
+
+The statistical outlier removal process is a bit more refined. First, for every point, the mean distance to its K neighbors is computed. Then, if we asume that the result is a normal (gaussian) distribution with a mean μ and a standard deviation σ, we can deem it safe to remove all points with mean distances that fall out of the global mean plus deviation. Basically, it runs a statistical analysis of the distances between neighboring points, and trims all which are not considered "normal" (you define what "normal" is with the parameters of the algorithm).

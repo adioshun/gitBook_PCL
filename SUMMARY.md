@@ -82,8 +82,10 @@
   * [DBSCAN\_Cluster](segmentation/dbscancluster.md)
   * [Euclidean Cluster Extraction](segmentation/euclidean-cluster-extraction.md)
   * [Region growing segmentation](segmentation/region-growing-segmentation.md)
+  * [Conditional Euclidean Clustering](segmentation/conditional-euclidean-clustering.md)
 * Surface
   * [Smoothing and normal estimation based on polynomial reconstruction](smoothing-and-normal-estimation-based-on-polynomial-reconstruction.md)
+  * [Fast triangulation of unordered point clouds](fast-triangulation-of-unordered-point-clouds.md)
 * [Visualization](visualization.md)
   * [Tool\_CloudCompare](visualization/toolcloudcompare.md)
   * [Tool\_ParaView with PCL](visualization/toolparaview-with-pcl.md)
