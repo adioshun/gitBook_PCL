@@ -42,9 +42,13 @@ Most of the time, you can get away by just performing a downsampling and choosin
     - 이때문에 부정확한 Normal을 기반으로 하면 기술자 질도 좋지 않다. `(and because of this, an imprecise normal estimation may produce low-quality descriptors).`
     
 1. 모든 포인들에 대하여 주변점들과 쌍을 생성한다. First, the algorithm pairs all points in the vicinity (not just the chosen keypoint with its neighbors, but also the neighbors with themselves). 
-2.  Then, for each pair, a fixed coordinate frame is computed from their normals. 
-    - With this frame, the difference between the normals can be encoded with 3 angular variables. 
-These variables, together with the euclidean distance between the points, are saved, and then binned to an histogram when all pairs have been computed. 
+
+2. 그들의 Normal을 이용하여 fixed coordinate frame계산 `Then, for each pair, a fixed coordinate frame is computed from their normals.`
+
+3. 이 Frame을 이용하여 Normal간의 차별점을 계산 3각 변수로 정한다. `With this frame, the difference between the normals can be encoded with 3 angular variables. `
+
+4. These variables, together with the euclidean distance between the points, are saved, and then binned to an histogram when all pairs have been computed. 
+
 The final descriptor is the concatenation of the histograms of each variable (4 in total).
 
 |![](http://robotica.unileon.es/images/d/df/PFH_neighbors.png)|![](http://robotica.unileon.es/images/e/e1/PFH_frame.png)|
@@ -53,7 +57,28 @@ The final descriptor is the concatenation of the histograms of each variable (4 
 
 
 
-### 1.2 
+### 1.2 FPFH (Fast Point Feature Histogram)
+
+
+> FPH는 계산 부하가 크다. For a cloud of n keypoints with k neighbors considered, it has a complexity of **O(nk^2)**. 
+> FPFH의 시간 복잡도 : O(nk)
+
+The FPFH considers only the direct connections between the current keypoint and its neighbors, removing additional links between neighbors. .
+
+|![](http://robotica.unileon.es/images/b/bf/FPFH_neighbors.png)|
+|-|
+|Point pairs established |
+
+
+- To account for the loss of these extra connections, an additional step takes place after all histograms have been computed: 
+    - the SPFHs of a point's neighbors are "merged" with its own, weighted according to the distance. 
+
+- This has the effect of giving a point surface information of points as far away as 2 times the radius used. 
+
+- Finally, the 3 histograms (distance is not used) are concatenated to compose the final descriptor.
+
+
+> 하영민, 손 및 팔의 자세 추정을 위한 다시점 뎁스 데이터의 3차원 정합, 2014
 
 특정 점으로부터 일정 반경 내의 점들이 갖는 법선 백터들 간의 각도 관계를 표현하는 히스토 그램이다. 
 
