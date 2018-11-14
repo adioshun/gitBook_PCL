@@ -253,7 +253,44 @@ Spin images computed for 3 points of a model
 
 ## 1.8 RIFT(Rotation-Invariant Feature Transform)
 
-- 2D SIFT 컨셉 활용 
+> 2D SIFT 컨셉 활용 , 색상 정보 필요 
+
+![](http://robotica.unileon.es/images/d/dc/RIFT.png)
+```
+RIFT feature values at 3 different locations in the descriptor
+```
+
+- 유일하게 intensity정보를 필요로 하는 기술자 `It is the only descriptor seen here that requires intensity information in order to compute it `
+	- intensitycan be obtained from the RGB color values
+	- This means, of course, that you will not be able to use RIFT with standard XYZ clouds, you also need the texture.
+
+동작 절차 
+
+1. In the first step, a circular patch (with the given radius) is fitted on the surface the point lies on. 
+	- This patch is divided into concentric rings, according to the chosen distance bin size. 
+
+2. Then, an histogram is populated with all the point's neighbors lying inside a sphere centered at that point and with the mentioned radius.
+
+3. The distance and the orientation of the intensity gradient at each point are considered. 
+
+4. To make it rotation invariant, the angle between the gradient orientation and the vector pointing outward from the center of the patch is measured.
+
+
+## 1.9 NARF(Normal Aligned Radial Feature)
+
+> 포인트클라우드용 아님, Range Image 사용 
+
+- The only descriptor here that does not take a point cloud as input. Instead, it works with range images. 
+
+- A range image is a common RGB image in which the distance to the point that corresponds to a certain pixel is encoded as a color value in the visible light spectrum: the points that are closer to the camera would be violet, while the points near the maximum sensor range would be red.
+
+- NARF also requires us to find suitable keypoints to compute the descriptor for. 
+
+- NARF keypoints are located near an object's corners, and this also requires to find the borders (transitions from foreground to background), which are trivial to find with a range image. 
+
+
+## 1.10 RoPS(Rotational Projection Statistics)
+
 
 
 
