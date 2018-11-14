@@ -293,7 +293,23 @@ RIFT feature values at 3 different locations in the descriptor
 
 
 
+-  Triangle mesh를 이용하는 기술자로 사전에 Mesh생성 작업이 필요 하다. `RoPS feature is a bit different from the other descriptors because it works with a triangle mesh, so a previous triangulation step is needed for generating this mesh from the cloud. `
+	- 나머지 컨셉은 비슷하다. `Apart from that, most concepts are similar.`
 
+- In order to compute RoPS for a keypoint, 
+	- the local surface is cropped according to a support radius, so only points and triangles lying inside are taken into account. 
+	- Then, a local reference frame (LRF) is computed, giving the descriptor its rotational invariance. 
+
+- A coordinate system is created with the point as the origin, and the axes aligned with the LRF. 
+
+- Then, for every axis, several steps are performed.
+	- First, the local surface is rotated around the current axis. 
+	- The angle is determined by one of the parameters, which sets the number of rotations. 
+	- For each one, statistical information about the distribution of the projected points is computed, 
+	- and concatenated to form the final descriptor.
+
+
+---
 
 ## 2. Global descriptors
 
