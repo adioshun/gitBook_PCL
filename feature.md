@@ -139,6 +139,30 @@ $$ uvw $$프레임 = $$ u $$축을 질의점의 표면법선 벡터 $$n_s$$로 �
 
 ## 1.4 3DSC (3D Shape Context)
 
+- It works by creating a support structure (a sphere, to be precise) centered at the point we are computing the descriptor for, with the given search radius. 
+
+- The "north pole" of that sphere (the notion of "up") is pointed to match the normal at that point. 
+
+- Then, the sphere is divided in 3D regions or bins. 
+    - In the first 2 coordinates (azimuth and elevation) the divisions are equally spaced, 
+    - but in the third (the radial dimension), divisions are logarithmically spaced so they are smaller towards the center. 
+
+- A minimum radius can be specified to prevent very small bins, that would be too sensitive to small changes in the surface.
+
+- For each bin, a weighted count is accumulated for every neighboring point that lies within. 
+
+- The weight depends on the volume of the bin and the local point density (number of points around the current neighbor). 
+
+- This gives the descriptor some degree of resolution invariance.
+
+- We have mentioned that the sphere is given the direction of the normal. 
+
+- This still leaves one degree of freedom (only two axes have been locked, the azimuth remains free). 
+
+- Because of this, the descriptor so far does not cope with rotation. To overcome this (so the same point in two different clouds has the same value), the support sphere is rotated around the normal N times (a number of degrees that corresponds with the divisions in the azimuth) and the process is repeated for each, giving a total of N descriptors for that point.
+
+
+
 
 ## Signature of Histogram of OrienTation (SHOT)
 
