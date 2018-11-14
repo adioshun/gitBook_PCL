@@ -34,8 +34,26 @@ Most of the time, you can get away by just performing a downsampling and choosin
 
 지역 기술자는 물체 인식이나 Registration에 활용된다. `Local descriptors are used for object recognition and registration.`
 
-### 1.1 PFH
+### 1.1 PFH (Point Feature Histogram)
 
+- PCL에서 제공하는 가장 중요한 기술자 이다. `It is one of the most important descriptors offered by PCL and the basis of others such as FPFH. `
+
+- PFH은 주변 Normal 방향들의 차이점을 분석하여 기하학적 정보를 수집한다. `The PFH tries to capture information of the geometry surrounding the point by analyzing the difference between the directions of the normals in the vicinity`
+    - 이때문에 부정확한 Normal을 기반으로 하면 기술자 질도 좋지 않다. `(and because of this, an imprecise normal estimation may produce low-quality descriptors).`
+    
+1. 모든 포인들에 대하여 주변점들과 쌍을 생성한다. First, the algorithm pairs all points in the vicinity (not just the chosen keypoint with its neighbors, but also the neighbors with themselves). 
+2.  Then, for each pair, a fixed coordinate frame is computed from their normals. 
+    - With this frame, the difference between the normals can be encoded with 3 angular variables. 
+These variables, together with the euclidean distance between the points, are saved, and then binned to an histogram when all pairs have been computed. 
+The final descriptor is the concatenation of the histograms of each variable (4 in total).
+
+|![](http://robotica.unileon.es/images/d/df/PFH_neighbors.png)|![](http://robotica.unileon.es/images/e/e1/PFH_frame.png)|
+|-|-|
+|Point pairs established|Fixed coordinate frame and angular features computed for one of the pairs|
+
+
+
+### 1.2 
 
 
 ## 2. Global descriptors
