@@ -34,6 +34,7 @@ Most of the time, you can get away by just performing a downsampling and choosin
 
 지역 기술자는 물체 인식이나 Registration에 활용된다. `Local descriptors are used for object recognition and registration.`
 
+### 1.1 PFH
 
 
 
