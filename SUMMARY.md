@@ -76,6 +76,7 @@
 * [Octree](octree.md)
   * [Spatial Partitioning and Search Operations with Octrees](octree/spatial-partitioning-and-search-operations-with-octrees.md)
   * [Spatial change detection on unorganized point cloud data](octree/spatial-change-detection-on-unorganized-point-cloud-data.md)
+  * [Point Cloud Compression](octree/point-cloud-compression.md)
 * [Segmentation](segmentation.md)
   * [DBSCAN\_Cluster](segmentation/dbscancluster.md)
   * [Euclidean Cluster Extraction](segmentation/euclidean-cluster-extraction.md)
