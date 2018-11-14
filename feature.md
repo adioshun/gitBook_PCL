@@ -41,16 +41,17 @@ Most of the time, you can get away by just performing a downsampling and choosin
 
 전역 기술자는 물체의 기하학 정보를 가지고 있다. Global descriptors encode object geometry. 
 
+
 전역 기술자는 개별 포인트들을 계산하는 대신 물체를 나타내는 모든 클러스터를 계산한다. `They are not computed for individual points, but for a whole cluster that represents an object. `
 - 이때문에 후보군 추출을 위한 전처리(=세그멘테이션)이 필요 하다. `Because of this, a preprocessing step (segmentation) is required, in order to retrieve possible candidates.`
 
+
 전역 기술자는 물체 인식이나 분류, 기하학적 분석(물체 타입, 모양), 자세 추정 등에 활용된다. `Global descriptors are used for object recognition and classification, geometric analysis (object type, shape...), and pose estimation.`
 
-You should also know that many local descriptors can also be used as global ones. 
 
-This can be done with descriptors that use a radius to search for neighbors (as PFH does). 
-
-The trick is to compute it for one single point in the object cluster, and set the radius to the maximum possible distance between any two points (so all points in the cluster are considered as neighbors).
+많은 지역 기술자를은 전역 기술자처럼 사용 할수도 있다. You should also know that many local descriptors can also be used as global ones. 
+- This can be done with descriptors that use a radius to search for neighbors (as PFH does). 
+- The trick is to compute it for one single point in the object cluster, and set the radius to the maximum possible distance between any two points (so all points in the cluster are considered as neighbors).
 
 
 ---
