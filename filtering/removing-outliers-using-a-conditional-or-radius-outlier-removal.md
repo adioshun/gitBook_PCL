@@ -16,7 +16,7 @@ x,y,z값을 GT, GE, LT, LE, EQ.조건에 맞추어 제거
 ## Statistical Outlier removal
 
 
-
+> Removing outliers using a StatisticalOutlierRemoval filter 챕터 참고 
 
 ---
 
