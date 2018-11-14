@@ -428,6 +428,49 @@ SGURF frame and resulting histogram of a region
 
 The original Shape Distribution Component (SDC) is discarded, and the surface is now described according to the RFs.
 
+
+
+### 2.4 ESF(Ensemble of Shape Functions)
+
+![](http://robotica.unileon.es/images/4/4a/ESF.png)
+
+- ESF is a combination of 3 different shape functions**(D2, D3, A3)** that describe certain properties of the cloud's points: 
+	- distances, 
+	- angles 
+	- area. 
+	
+	
+- Normal정보를 필요로 하지 않는다. `This descriptor is very unique because it does not require normal information. `
+
+- 별도의 전처리 작업을 필요로 하지 않지만, 노이즈와 incomplete surfaces에 대하여 강건성을 가진다. `Actually, it does not need any preprocessing, as it is robust to noise and incomplete surfaces.`
+
+- The algorithm uses a voxel grid as an approximation of the real surface. 
+
+- 매 반복시 마다 3개의 점으로 랜덤하게 선별한다. `It iterates through all the points in the cloud: for every iteration, 3 random points are chosen. `
+
+#### For these points, the shape functions are computed:
+
+D2: 거리 계산 함수 this function computes the distances between point pairs (3 overall). 
+- Then, for every pair, it checks if the line that connects both points lies entirely inside the surface, entirely outside (crossing free space), or both. 
+- Depending on this, the distance value will be binned to one of three possible histograms: IN, OUT or MIXED.
+
+D2 ratio: an additional histogram for the ratio between parts of the line inside the surface, and parts outside.  
+- This value will be 0 if the line is completely outside, 1 if completely inside, and some value in between if mixed.
+
+D3: 세점으로 형성된 삼각형 면적의 square roo계산 `this computes the square root of the area of the triangle formed by the 3 points. `
+- Like D2, the result is also classified as IN, OUT or MIXED, each with its own histogram.
+
+A3: 각도계산 함수 `this function computes the angle formed by the points. `
+- Then, the value is binned depending on how the line opposite to the angle is (once again, as IN, OUT or MIXED).
+
+
+최종적으로 10개의 서브히스토그램 생성됨 `After the loop is over, we are left with 10 subhistograms`
+- 9개 : IN, OUT and MIXED for D2, D3 and A3, and 
+- 1개 : an additional one for the ratio
+
+Each one has 64 bins, so the size of the final ESF descriptor is 640.
+
+
 ---
 
 ## 1. Height Features
