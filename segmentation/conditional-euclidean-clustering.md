@@ -3,12 +3,15 @@
 > https://github.com/strawlab/python-pcl/blob/master/examples/official/Segmentation/conditional_euclidean_clustering_172.txt
 
 
+Conditional Euclidean segmentation works the same way as the standard one seen above, with one exception. 
 
+Apart from the distance check, points need also to meet a special, custom requirement for them to be added to a cluster.
 
-Conditional Euclidean segmentation works the same way as the standard one seen above, with one exception. Apart from the distance check, points need also to meet a special, custom requirement for them to be added to a cluster. This condition is user-specified. It boils down to this: for every pair of points (the first one, the seed, is being processed in this moment, the second one, candidate, is a neighbor of the former that is being tested) a custom function will be called. This function has a certain signature: it receives
+This condition is user-specified. It boils down to this: for every pair of points (the first one, the seed, is being processed in this moment, the second one, candidate, is a neighbor of the former that is being tested) a custom function will be called. This function has a certain signature: it receives
 
-a copy of the two points so we can perform our own tests, and
-the squared distance
+1. a copy of the two points so we can perform our own tests, and
+2. the squared distance
+
 and returns a boolean value. If the value is true, the candidate may be added to the cluster. If false, it will not, even if it passed the distance check.
 
 ```python
