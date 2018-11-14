@@ -250,6 +250,14 @@ Spin images computed for 3 points of a model
 
 - 최종 기술자는 그레이스케일 이미지 이다. 어두울수록 밀집도가 큼을 나타낸다. `The final descriptor can be seen as a grayscale image where dark areas correspond to volumes with higher point density.`
 
+
+## 1.8 RIFT(Rotation-Invariant Feature Transform)
+
+- 2D SIFT 컨셉 활용 
+
+
+
+
 ## 2. Global descriptors
 
 전역 기술자는 물체의 기하학 정보를 가지고 있다. Global descriptors encode object geometry. 
