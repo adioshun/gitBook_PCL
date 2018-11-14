@@ -1,5 +1,60 @@
 # Lidar Features 
 
+>  [PCL/OpenNI tutorial 4: 3D object recognition \(descriptors\)](http://robotica.unileon.es/index.php/PCL/OpenNI_tutorial_4:_3D_object_recognition_\(descriptors\))
+
+![image](https://user-images.githubusercontent.com/17797922/47074467-68e8ff80-d235-11e8-9c5c-541cf31ac671.png)
+
+Feature요구 사항 
+
+1. It must be robust to transformations: 
+    - rigid transformations (the ones that do not change the distance between points) like translations and rotations must not affect the feature. 
+    - Even if we play with the cloud a bit beforehand, there should be no difference.
+2. It must be robust to noise: 
+    - measurement errors that cause noise should not change the feature estimation much.
+3. It must be resolution invariant: 
+    - if sampled with different density (like after performing downsampling), the result must be identical or similar.
+
+계산후에는 식별자의 크기를 히스토그램들을 이용하여 줄여야 한다. `After calculating the necessary values, an additional step is performed to reduce the descriptor size: the result is binned into an histogram.`
+- To do this, the value range of each variable that makes up the descriptor is divided into n subdivisions, 
+- and the number of occurrences in each one is counted
+
+분류 
+- Global Descriptors
+- Local Descriptors
+
+## 1. Local descriptors
+
+지역 기술자는 각 포인트들을 계산하다. Local descriptors are computed for individual points that we give as input. 
+
+단지, 주변 포인트들을 고려하여 local geometry가 어떤지를 기술한다. They have no notion of what an object is, they just describe how the local geometry is around that point. 
+
+대부분 사용자가 포인트의 어느 부분을 계산할지 선택 한다. Usually, it is your task to choose which points you want a descriptor to be computed for: the keypoints. 
+
+Most of the time, you can get away by just performing a downsampling and choosing all remaining points, but keypoint detectors are available, like the one used for NARF, or ISS.
+
+지역 기술자는 물체 인식이나 Registration에 활용된다. `Local descriptors are used for object recognition and registration.`
+
+
+
+
+## 2. Global descriptors
+
+전역 기술자는 물체의 기하학 정보를 가지고 있다. Global descriptors encode object geometry. 
+
+전역 기술자는 개별 포인트들을 계산하는 대신 물체를 나타내는 모든 클러스터를 계산한다. `They are not computed for individual points, but for a whole cluster that represents an object. `
+- 이때문에 후보군 추출을 위한 전처리(=세그멘테이션)이 필요 하다. `Because of this, a preprocessing step (segmentation) is required, in order to retrieve possible candidates.`
+
+전역 기술자는 물체 인식이나 분류, 기하학적 분석(물체 타입, 모양), 자세 추정 등에 활용된다. `Global descriptors are used for object recognition and classification, geometric analysis (object type, shape...), and pose estimation.`
+
+You should also know that many local descriptors can also be used as global ones. 
+
+This can be done with descriptors that use a radius to search for neighbors (as PFH does). 
+
+The trick is to compute it for one single point in the object cluster, and set the radius to the maximum possible distance between any two points (so all points in the cluster are considered as neighbors).
+
+
+---
+
 ## 1. Height Features
 
 
@@ -58,10 +113,6 @@ In another approach, Kidono et al. [11] introduce two additional features.
 > Confidence-Based Pedestrian Tracking in Unstructured Environments Using 3D Laser Distance Measurements
 
 ---
-### [PCL/OpenNI tutorial 4: 3D object recognition (descriptors)](http://robotica.unileon.es/index.php/PCL/OpenNI_tutorial_4:_3D_object_recognition_(descriptors))
-
-![image](https://user-images.githubusercontent.com/17797922/47074467-68e8ff80-d235-11e8-9c5c-541cf31ac671.png)
-
 
 
 
