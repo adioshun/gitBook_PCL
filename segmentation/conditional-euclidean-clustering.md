@@ -3,14 +3,13 @@
 > https://github.com/strawlab/python-pcl/blob/master/examples/official/Segmentation/conditional_euclidean_clustering_172.txt
 
 
-가장 간단한 방법으로 두 점사이의 거리 정보를 이용한다. `Euclidean segmentation is the simplest of all. It checks the distance between two points. `
-- 거리가 특정 값보다 작다면 같은 클러스터로 간주 한다. `If it is less than a threshold, both are considered to belong in the same cluster. `
 
-It works like a flood fill algorithm:
-1. a point in the cloud is "marked" as "chosen" for the cluster.
-2. Then, it spreads like a virus to all other points that are near enough, and from those to even more points, until none new can be added.
-3. Then, a new cluster is initialized, and the procedure starts again with the remaining unmarked points.
 
+Conditional Euclidean segmentation works the same way as the standard one seen above, with one exception. Apart from the distance check, points need also to meet a special, custom requirement for them to be added to a cluster. This condition is user-specified. It boils down to this: for every pair of points (the first one, the seed, is being processed in this moment, the second one, candidate, is a neighbor of the former that is being tested) a custom function will be called. This function has a certain signature: it receives
+
+a copy of the two points so we can perform our own tests, and
+the squared distance
+and returns a boolean value. If the value is true, the candidate may be added to the cluster. If false, it will not, even if it passed the distance check.
 
 ```python
 
