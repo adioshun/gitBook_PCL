@@ -476,9 +476,37 @@ Each one has 64 bins, so the size of the final ESF descriptor is 640.
 
 > FPFH descriptor 전역 기술자로 확장 
 
+|![](https://i.imgur.com/aVFKskh.png)|![](http://robotica.unileon.es/images/thumb/c/c1/GFPFH.png/750px-GFPFH.png)|
+|-|-|
+|Classification of objects made with FPFH and CRF |Computing the GFPFH with a voxel grid|
 
 
+목적 : 네비게이션에 도움을 주기 위하여 설계 됨 `GFPFH was designed for the task of helping a robot navigate its environment, having some context of the objects around it.`
 
+[동작 과정] 
+1. 표면 분류(categorization) `The first step before being able to compute the descriptor is surface categorization. `
+	-  A set of logical primitives (the classes, or categories) is created, which depends on the type of objects we expect the robot to find on the scene. 
+	- For example, if we know there will be a coffee mug, we create three: one for the handle, and the other two for the outer and inner faces. 
+
+2. FPFH 기술자 계산 Then, FPFH descriptors are computed, 
+
+3. and everything is fed to a Conditional Random Field (CRF) algorithm. 
+	- The CRF will label each surface with one of the previous categories, 
+	- so we end up with a cloud where each point has been classified depending of the type of object (or object's region) it belongs to.
+
+
+오늘날에 GFPFH 기술자는 분류 결과값을 가지고 계산 된다. `Now, the GFPFH descriptor can be computed with the result of the classification step. `
+
+It will encode what the object is made of, so the robot can easily recognize it.
+
+1. First, an octree is created, dividing the object in voxel leaves. 
+	- For every leaf, a set of probabilities is created, one for each class. 
+	- Each one stores the probability of that leaf belonging to the class, and it is computed according to the number of points in that leaf that have been labelled as that class, and the total number of points. 
+
+2. Then, for every pair of leaves in the octree, a line is casted, connecting them. 
+	- Every leaf in its path is checked for occupancy, storing the result in an histogram. 
+	- If the leaf is empty (free space), a value of 0 is saved. 
+	- Otherwise, the leaf probabilities are used.
 
 ---
 
