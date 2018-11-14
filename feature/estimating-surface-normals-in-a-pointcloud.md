@@ -65,9 +65,10 @@ import numpy as np
 from open3d import *
 
 pcd = read_point_cloud("/workspace/tmp/normal/fragment.pcd")
+# Instead of "setRadiusSearch()", you can make use of "setKSearch()", which takes an integer, K.
 KD = KDTreeSearchParamHybrid(radius = 0.1, max_nn = 30)
 estimate_normals(pcd, search_param = KD)
-
+# setViewPoint() # 옵
 
 print(pcd.has_normals())
 pcd.normals[0]
@@ -82,6 +83,7 @@ normals[0]
 
 # Surface curvature estimates
 
+Normals are also important because they give us information about the curvature of the surface at some point
 
 --- 
 
