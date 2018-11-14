@@ -14,6 +14,9 @@ This condition is user-specified. It boils down to this: for every pair of point
 
 and returns a boolean value. If the value is true, the candidate may be added to the cluster. If false, it will not, even if it passed the distance check.
 
+The condition that is implemented above (checking if the candidate's Y coordinate is lower than the seed's) does not make a lot of sense, but I just wanted you to understand how the method works.
+
+
 ```python
 
 import pcl
