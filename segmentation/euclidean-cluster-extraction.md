@@ -83,7 +83,46 @@ for j, indices in enumerate(cluster_indices):
 
 ## 1. 유클리드 클러스터링
 
+> https://github.com/yulivee/RoboND-Perception-Project/blob/master/pr2_robot/scripts/perception_functions.py
 
+```python 
+
+# Euclidean Clustering
+def euclid_cluster(cloud):
+    white_cloud = XYZRGB_to_XYZ(cloud) # Apply function to convert XYZRGB to XYZ
+    tree = white_cloud.make_kdtree()
+    ec = white_cloud.make_EuclideanClusterExtraction()
+    ec.set_ClusterTolerance(0.015)
+    ec.set_MinClusterSize(20)
+    ec.set_MaxClusterSize(3000)
+    ec.set_SearchMethod(tree)
+    cluster_indices = ec.Extract()
+
+    return cluster_indices, white_cloud
+
+
+def cluster_mask(cluster_indices, white_cloud):
+    # Create Cluster-Mask Point Cloud to visualize each cluster separately
+    #Assign a color corresponding to each segmented object in scene
+    cluster_color = get_color_list(len(cluster_indices))
+
+    color_cluster_point_list = []
+
+    for j, indices in enumerate(cluster_indices):
+        for i, indice in enumerate(indices):
+            color_cluster_point_list.append([
+                                            white_cloud[indice][0],
+                                            white_cloud[indice][1],
+                                            white_cloud[indice][2],
+                                            rgb_to_float( cluster_color[j] )
+                                           ])
+
+    #Create new cloud containing all clusters, each with unique color
+    cluster_cloud = pcl.PointCloud_PointXYZRGB()
+    cluster_cloud.from_list(color_cluster_point_list)
+
+    return cluster_cloud
+```
 
 
 ---
