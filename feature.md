@@ -2,9 +2,11 @@
 
 >  [PCL/OpenNI tutorial 4: 3D object recognition \(descriptors\)](http://robotica.unileon.es/index.php/PCL/OpenNI_tutorial_4:_3D_object_recognition_\(descriptors\))
 
+### Feature 리스트 
+
 ![image](https://user-images.githubusercontent.com/17797922/47074467-68e8ff80-d235-11e8-9c5c-541cf31ac671.png)
 
-Feature요구 사항 
+### Feature요구 사항 
 
 1. It must be robust to transformations: 
     - rigid transformations (the ones that do not change the distance between points) like translations and rotations must not affect the feature. 
@@ -14,11 +16,18 @@ Feature요구 사항
 3. It must be resolution invariant: 
     - if sampled with different density (like after performing downsampling), the result must be identical or similar.
 
+
+### Feature 후처리 
+
 계산후에는 식별자의 크기를 히스토그램들을 이용하여 줄여야 한다. `After calculating the necessary values, an additional step is performed to reduce the descriptor size: the result is binned into an histogram.`
 - To do this, the value range of each variable that makes up the descriptor is divided into n subdivisions, 
 - and the number of occurrences in each one is counted
 
-분류 
+Using binned histograms provides the benefit or removing object detail, as the bin size decreases, which normalises the object features, allowing better classification against variations with an objects orientation, position or environmental lighting conditions. However, as the bin size decreases, detail is lost, and different objects begin to show the same characteristic's resulting in incorrect object classification.
+
+ 
+### 대분류 
+ 
 - Global Descriptors
 - Local Descriptors
 
