@@ -11,7 +11,7 @@ However, since the point cloud datasets that we acquire represent a set of point
 - obtain the underlying surface from the acquired point cloud dataset, using surface meshing techniques, and then compute the surface normals from the mesh;
 - use approximations to infer the surface normals from the point cloud dataset directly.
 
-
+To gain an understanding of an object's shape, we will calculate the distribution of an object's surface normals. As a surface normal is perpendicular to the surface of a shape, the distribution of these normals will vary dramatically between a flat or round objects.
 
 
 
