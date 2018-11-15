@@ -78,6 +78,59 @@ normals = np.asarray(pcd.normals)
 normals[0]
 ```
 
+
+### Normal Hist
+
+```python 
+  
+def compute_normal_histograms(normal_cloud, nbins=32, nrange=(-1,1)):
+    '''
+    Computes and bins the point-cloud data using the objects distribution of surface normals.
+    :param: normal_cloud, point cloud containing the filtered clusters.
+    :param: nbins,number of bins that data will be pooled into.
+    :param: nrange, value range of the data to be pooled.
+    :return: the normalised histogram of surface normals
+    '''
+    norm_x_vals = []
+    norm_y_vals = []
+    norm_z_vals = []
+    
+    for I in range(0,normal_cloud.size):
+        norm_x_vals.append(normal_cloud[I][0])
+        norm_y_vals.append(normal_cloud[I][1])
+        norm_z_vals.append(normal_cloud[I][2])
+    
+    """
+    for norm_component in pc2.read_points(normal_cloud,
+                                          field_names = ('normal_x', 'normal_y', 'normal_z'),
+                                          skip_nans=True):
+        norm_x_vals.append(norm_component[0])
+        norm_y_vals.append(norm_component[1])
+        norm_z_vals.append(norm_component[2])
+    """
+    
+
+    # Compute histograms of normal values (just like with color)
+    norm_x_hist = np.histogram(norm_x_vals, bins=nbins, range=nrange)
+    norm_y_hist = np.histogram(norm_y_vals, bins=nbins, range=nrange)
+    norm_z_hist = np.histogram(norm_z_vals, bins=nbins, range=nrange) 
+
+    # Concatenate and normalize the histograms
+    hist_features = np.concatenate((norm_x_hist[0], norm_y_hist[0], norm_z_hist[0])).astype(np.float64)
+    normed_features = hist_features / np.sum(hist_features)
+
+    return normed_features
+
+## 시각화 
+?%matplotlib
+import matplotlib.pyplot as plt
+plt.hist(normed_features, nbins)
+plt.xlabel('Weight (kg)', fontsize = 14)
+plt.xticks(fontsize = 14)
+plt.yticks(fontsize = 14)
+
+```
+
 ---
 
 
