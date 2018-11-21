@@ -136,11 +136,9 @@ plt.yticks(fontsize = 14)
 
 # Surface curvature estimates
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/d3z35hpwPZQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=d3z35hpwPZQ
-" target="_blank"><img src="http://img.youtube.com/vi/d3z35hpwPZQ/0.jpg" 
-alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=d3z35hpwPZQ" target="_blank">
+<img src="http://img.youtube.com/vi/d3z35hpwPZQ/0.jpg" alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 - Red = low curvature, 
 - green-blue = curvature.
 
