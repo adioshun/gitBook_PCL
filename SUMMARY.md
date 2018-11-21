@@ -50,6 +50,7 @@
 * [PCLpy](pclpy.md)
   * [5-Clustering](5-clustering.md)
   * [6-Feature](6-feature.md)
+* [Tracking object in real time](tracking-object-in-real-time.md)
 
 ## PCL Tutorial
 
