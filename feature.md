@@ -596,6 +596,7 @@ In another approach, Kidono et al. [11] introduce two additional features.
 
 ---
 
+![](https://i.imgur.com/pSrsYCC.png)
 
-
+[Point Cloud Processing: Estimating Normal Vectors and Curvature Indicators using Eigenvectors](https://www.slideshare.net/PirouzNourian/tu-delft-geo1004-2015-point-cloud-processing-estimating-normal-vectors-and-curvature-indicators-using-eigenvectors): ppt 17slide
 
