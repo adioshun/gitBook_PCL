@@ -1,6 +1,6 @@
 # Open3D 
 
-관련 링크 : [홈페이지](http://www.open3d.org/docs/getting_started.html#compiling-from-source), [깃허브](https://github.com/IntelVCL/Open3D), [논문](http://www.open3d.org/paper.pdf), [블로그](), 
+관련 링크 : [홈페이지](http://www.open3d.org/docs/getting_started.html#compiling-from-source), [깃허브](https://github.com/IntelVCL/Open3D), [논문](http://www.open3d.org/paper.pdf)
 
 튜토리얼: [Jupyter](https://nbviewer.jupyter.org/url/lang.sist.chukyo-u.ac.jp/Classes/Open3D/Open3D.ipynb), [SSII2018_Tutorial_Open3D](https://github.com/sakizuki/SSII2018_Tutorial_Open3D)
 
