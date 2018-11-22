@@ -50,7 +50,6 @@
 * [PCLpy](pclpy.md)
   * [5-Clustering](5-clustering.md)
   * [6-Feature](6-feature.md)
-* [Tracking object in real time](tracking-object-in-real-time.md)
 
 ## PCL Tutorial
 
@@ -94,6 +93,7 @@
   * [The CloudViewer](visualization/visualizing-point-clouds.md)
   * [PCLVisualizer](visualization/pclvisualizer.md)
   * [PCL Visualization overview](visualization/pcl-visualization-overview.md)
+* [Tracking object in real time](tracking-object-in-real-time.md)
 
 ## Open3D Tutorial
 
