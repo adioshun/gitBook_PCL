@@ -1,14 +1,4 @@
-# Resampling 
 
-Resampling means changing the number of points of the cloud, either by 
-- reducing (downsampling) or 
-    - Voxel Grid 
-
-
-- increasing (upsampling)
-    - surface reconstruction
-
----
 # [Downsampling a PointCloud using a VoxelGrid filter](http://pointclouds.org/documentation/tutorials/voxel_grid.php#voxelgrid)
 
 
