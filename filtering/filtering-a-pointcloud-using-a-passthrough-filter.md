@@ -2,7 +2,7 @@
 
 - In this tutorial we will learn how to perform a simple filtering along a specified dimension – that is, cut off values that are either inside or outside a given user range.
 
-- RoI필터와 같이 x,y,z좌료를 정해 주고 crop하는 방식, 정교한 부분을 제거하지는 못한다. 
+- PassThrough Filter는 입력값으로 관심 영역의 x,y,z의 최대/최소값을 받아 crop하는 방식으로, 직관적이지만 정교한 부분을 제거하지는 못하는 단점이 있습니다. 
 
 
 ```python 
