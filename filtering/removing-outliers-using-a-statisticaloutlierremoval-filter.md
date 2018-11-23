@@ -21,6 +21,7 @@ def do_statistical_outlier_filtering(pcl_data,mean_k,tresh):
     :param tresh:   Any point with a mean distance larger than global will be considered outlier
     :return: Statistical outlier filtered point cloud data
     eg) cloud = do_statistical_outlier_filtering(cloud,10,0.001)
+    : https://github.com/fouliex/RoboticPerception
     '''
     outlier_filter = pcl_data.make_statistical_outlier_filter()
     outlier_filter.set_mean_k(mean_k)
