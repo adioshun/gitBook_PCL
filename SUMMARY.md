@@ -112,6 +112,4 @@
   * [Top\_view](somecodes/topview.md)
   * [Surround\_view](somecodes/surroundview.md)
 * [Bird-Eye-View](bird-eye-view.md)
-  * [ROS\_velodyne\_height\_map](bird-eye-view/rosvelodyne-height-map.md)
-  * [ROS\_BEV\_png](bird-eye-view/rosbev-png.md)
 
