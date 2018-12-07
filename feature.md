@@ -6,6 +6,9 @@
 
 ![image](https://user-images.githubusercontent.com/17797922/47074467-68e8ff80-d235-11e8-9c5c-541cf31ac671.png)
 
+![image](https://user-images.githubusercontent.com/17797922/49631762-16f86680-f9a8-11e8-94be-fdf2fbba6d7c.png)
+
+
 ### Feature요구 사항 
 
 1. It must be robust to transformations: 
