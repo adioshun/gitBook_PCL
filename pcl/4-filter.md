@@ -3,8 +3,9 @@
 ## Outlier Filter
 
 Statistical Outlier Filtering is use to remove outlieres using
-- number of neighboring points of 10
-- standard deviation threshold of 0.001
+
+* number of neighboring points of 10
+* standard deviation threshold of 0.001
 
 ```python
 def do_statistical_outlier_filtering(pcl_data,mean_k,tresh):
@@ -15,10 +16,10 @@ def do_statistical_outlier_filtering(pcl_data,mean_k,tresh):
     :return: Statistical outlier filtered point cloud data
     '''
     outlier_filter = pcl_data.make_statistical_outlier_filter()
-    
+
     ## Set the number of neighboring points to analyze for any given point
     outlier_filter.set_mean_k(mean_k) 
-    
+
     # Any point with a mean distance larger than global (mean distance+x*std_dev)
     # will be considered outlier
     outlier_filter.set_std_dev_mul_thresh(tresh)
@@ -49,10 +50,7 @@ passthrough.set_filter_limits(axis_min, axis_max)
 cloud_filtered = passthrough.filter()
 filename = 'pass_through_filtered.pcd'
 pcl.save(cloud_filtered, filename)
-
 ```
-
-
 
 ```python
 def do_passthrough(pcl_data,filter_axis,axis_min,axis_max):
@@ -83,16 +81,13 @@ filter_axis = 'x'
 axis_min = 0.33
 axis_max = 1.0
 cloud = do_passthrough(cloud, filter_axis, axis_min, axis_max)
-
 ```
 
-단위는 무었인가? 크기는? The indices_xz array indexes all points of cloud_in that have x between 0.0 and 1000.0 and z larger than 10.0 or smaller than -10.0
+단위는 무었인가? 크기는? The indices\_xz array indexes all points of cloud\_in that have x between 0.0 and 1000.0 and z larger than 10.0 or smaller than -10.0
 
 ## 4. RANSAC
 
-
 ```python
-
 def do_ransac_plane_segmentation(pcl_data,pcl_sac_model_plane,pcl_sac_ransac,max_distance):
     '''
     Create the segmentation object
@@ -151,5 +146,7 @@ SACMODEL
    63     SACMODEL_PARALLEL_PLANE,
    64     SACMODEL_NORMAL_PARALLEL_PLANE,
    65     SACMODEL_STICK
-  ```
+```
+
+
 
