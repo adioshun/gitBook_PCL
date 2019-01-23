@@ -28,6 +28,15 @@ p = pcl.PointCloud_PointXYZRGBA()
 p.from_array(np.array(concate, dtype=np.float32))
 ```
 
+
+```
+pcl_xyzrgb = pcl_helper.XYZ_to_XYZRGB(pcl_xyz, [255,255,255])       
+        
+out_ros_msg = pcl_helper.pcl_to_ros(pcl_xyzrgb) #PCL을 ROS 메시지로 변경 
+pub_out = rospy.Publisher("/velodyne_out", PointCloud2, queue_size=1)
+pub_out.publish(out_ros_msg)
+```
+
 ---
 
 함수명	기능	파일포멧
