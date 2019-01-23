@@ -1,26 +1,25 @@
 # PCL & python-pcl
 
 
-
 ```python
 
 
 
 sudo apt-get update && sudo apt-get install -y software-properties-common git
-sudo add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl -y && sudo apt-get update 
+sudo add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl -y && sudo apt-get update
 
 sudo apt-get install -y libpcl-dev #ubuntu 16 (libpcl-dev 1.7.2)
 sudo apt-get install -y libpcl-all #ubnutu 14
 
 """
-### 설치 테스트 
+### 설치 테스트
 cd ~ && mkdir pcl-test && cd pcl-test
 
 wget https://gist.githubusercontent.com/adioshun/319d6a1326d33fa42cdd56833c3ef560/raw/e10d3502ddcd871f9d6b7b57d176b17d52de5571/CMakeLists.txt 
 wget https://gist.githubusercontent.com/adioshun/319d6a1326d33fa42cdd56833c3ef560/raw/e10d3502ddcd871f9d6b7b57d176b17d52de5571/main.cpp
 mkdir build && cd build
 cmake .. && make && ./pcl-test
-# Error 
+# Error
 sudo ln -s /usr/lib/x86_64-linux-gnu/libproj.so.9.1.0 /usr/lib/x86_64-linux-gnu/libproj.so
 sudo ln -s /usr/lib/x86_64-linux-gnu/libvtkCommonCore-6.2.so /usr/lib/libvtkproj4.so
 """
