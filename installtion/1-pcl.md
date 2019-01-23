@@ -1,6 +1,8 @@
 # PCL & python-pcl
 
 
+## 1. pcl LIB. 설치 
+
 ```python
 
 
@@ -26,7 +28,7 @@ sudo ln -s /usr/lib/x86_64-linux-gnu/libvtkCommonCore-6.2.so /usr/lib/libvtkproj
 ```
 
 
-### python-pcl 설치 
+## 2. python-pcl 설치 
 
 ```python
 """
@@ -43,7 +45,7 @@ sudo python3 setup.py install
 #pip3 install git+https://github.com/strawlab/python-pcl
 ```
 
-## 불필요한 파일 / 정보 삭제 
+불필요한 파일 / 정보 삭제 
 
 ```
 add-apt-repository --remove ppa:v-launchpad-jochen-sprickerhof-de/pcl -y 
