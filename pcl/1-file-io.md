@@ -38,3 +38,8 @@ pcl.save_XYZRGBA(pc, 'test.pcd')
 
 
 
+---
+
+# Kitti Bin Read 
+
+raw_lidar = np.fromfile('/datasets/testing/velodyne/000001.bin', dtype=np.float32).reshape((-1, 4))
