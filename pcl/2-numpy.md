@@ -45,3 +45,19 @@ np.savez()	NumPy 배열 객체 복수개를 파일에 저장	바이너리
 np.load()	NumPy 배열 저장 파일로 부터 객체 로딩	바이너리
 np.loadtxt()	텍스트 파일로 부터 배열 로딩	텍스트
 np.savetxt()	텍스트 파일에 NumPy 배열 객체 저장	텍스트
+
+
+
+---
+
+# Kitti Bin Read
+
+```python 
+# from Bin 
+raw_lidar = np.fromfile('/datasets/testing/velodyne/000001.bin', dtype=np.float32).reshape((-1, 4))
+
+# to Bin 
+pc = pcl.load("./sample_lcas.pcd")
+pa = pc.to_array()
+pa.tofile('sample_lcas.bin')
+```
