@@ -1,5 +1,29 @@
+# Bird Eye View
+
+## 1. ROS BEV to png
+https://github.com/mjshiggins/ros-examples
+---
+
+## 2. ROS Height Map 
+
+[velodyne_height_map](http://wiki.ros.org/velodyne_height_map): ROS, 3D Lidar를 2D BEV로 변경
+- ROS obstacle detection for 3D point clouds using a height map algorithm
+
+```
+libvtkproj4-6.2.so.6.2.0에러시
+sudo apt-get install libvtk6-dev
+
+```
+
+rosrun velodyne_height_map heightmap_node _height_threshold:=0.05 #5cm 이상 크기
+
+---
 
 
+
+
+
+---
 http://ronny.rest/blog/post_2017_03_26_lidar_birds_eye/
 
 
