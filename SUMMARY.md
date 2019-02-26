@@ -107,16 +107,13 @@
 * [DBSCAN](dbscan.md)
   * [OPTICS](dbscan/optics.md)
 * [Numpy](https://legacy.gitbook.com/book/adioshun/python_snippet/edit#/edit/master/packagenumpy.md?_k=s830r0)
-* [Some\_codes](somecodes.md)
-  * [ros\_to\_arr\_file](somecodes/rosto-arrfile.md)
-  * [Top\_view](somecodes/topview.md)
-  * [Surround\_view](somecodes/surroundview.md)
+
 
 ## snippet
 
 * [README](snippet/README.md)
 * [ROS-to-array-PCD-pickle](snippet/ros-to-array.md)
 * [Top-View](snippet/top-view.md)
-* [Surrount-view](surround-view.md)
-* [배경제거](bg-removal.md)
+* [Surrount-view](snippet/surround-view.md)
+* [배경제거](snippet/bg-removal.md)
 
