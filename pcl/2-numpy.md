@@ -14,7 +14,8 @@ print(p[3])             # prints (1.0, 0.0, 0.0)
 
 ## 1. From pc to arr
 
-pa = pc.
+pa = pc.to_array()
+
 ## 2. From arr to pc
 
 ### XYZ
