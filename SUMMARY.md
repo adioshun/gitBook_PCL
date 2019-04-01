@@ -4,6 +4,7 @@
 ## PCL
 
 * [Introduction](README.md)
+* [References](references.md)
 
 
 ## Installation 
@@ -94,7 +95,7 @@
 
 ## 참고
 
-* [References](references.md)
+
 * [Normal Estimation](normal-estimation.md)
 * [RANSAC](ransac.md)
 * [CCL](ccl.md)
