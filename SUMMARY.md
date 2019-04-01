@@ -3,9 +3,8 @@
 ## Point Cloud Lib.
 
 * [README](README.md)
-* [PointCLoud](what-is-pointcloud.md)
+* [what is PointCLoud](what-is-pointcloud.md)
 * [References](references.md)
-
 
 ## PCL
 

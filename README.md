@@ -3,7 +3,7 @@
 ## Point Cloud Lib.
 
 * [README](README.md)
-* [PointCLoud](what-is-pointcloud.md)
+* [What is PointCLoud](what-is-pointcloud.md)
 * [References](references.md)
 
 
