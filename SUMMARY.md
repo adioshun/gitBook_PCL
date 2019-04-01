@@ -16,6 +16,7 @@
 * [4-Filter](pcl/4-filter.md)
 * [5-Clustering](pcl/5-clustering.md)
 * [6-Feature](pcl/6-feature.md)
+  * [surface\_normal](pcl/6-feature/surfacenormal.md)
 * [8- ROS](pcl/8-ros.md)
 * [helper](pcl/helper.md)
 
