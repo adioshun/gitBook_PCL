@@ -4,6 +4,7 @@
 
 * [Introduction](README.md)
 * [References](references.md)
+* [패키지/설치](installation.md)
 
 ## Installation
 
