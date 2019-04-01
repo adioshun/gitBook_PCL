@@ -1,162 +1,120 @@
-## Sample files : 
+# Summary
 
-|![image](https://user-images.githubusercontent.com/17797922/41080489-9d804f18-69db-11e8-8a8b-9422c2e13132.png)||
-|-|-|
-|[RoboND-Perception-Exercises](https://github.com/udacity/RoboND-Perception-Exercises/raw/master/Exercise-1/tabletop.pcd)|L-CAS People |
+## Point Cloud Lib.
 
-
-
-
-
-http://lang.sist.chukyo-u.ac.jp/classes/PCL/
+* [README](README.md)
+* [PointCLoud](what-is-pointcloud.md)
+* [References](references.md)
 
 
+## PCL
 
-# The Point Cloud Data
+* [README](pcl/README.md)
+* [0-설치](pcl/installation.md)
+* [1-File I/O](pcl/1-file-io.md)
+* [2-Numpy](pcl/2-numpy.md)
+* [3-Downsampling](pcl/3-downsampling.md)
+* [4-Filter](pcl/4-filter.md)
+* [5-Clustering](pcl/5-clustering.md)
+* [6-Feature](pcl/6-feature.md)
+* [8- ROS](pcl/8-ros.md)
+* [helper](pcl/helper.md)
 
-PCD files contain two sections:
+## Open3D
 
-- a human-readable header that defines the number, size, dimensionality and data type of the point cloud;
-- a data section which can be in ASCII or a binary, non-human-readable format.
+* [README](open3d/README.md)
+* [0-설치](open3d/installation.md)
+* [1-File I/O](open3d/1-file-io.md)
+* [2- Numpy ](open3d/2-numpy.md)
+* [3-Downsampling](open3d/3-downsampling.md)
+* [4-Filtering](open3d/4-filtering.md)
+* [6-SLAM](open3d/6-slam.md)
+* [9-Visulization](open3d/9-visulization.md)
+* [8-ROS](open3d/8-ros.md)
 
+## PCL Tutorial
 
+* [Introduction](introduction.md)
+* [Basic\_Usage](basicusage.md)
+  * [Using a matrix to transform a point cloud](basicusage/using-a-matrix-to-transform-a-point-cloud.md)
+* Input\_Output
+  * [Concatenate the points of two Point Clouds](concatenate-the-points-of-two-point-clouds.md)
+* [Feature](feature.md)
+  * [Estimating Surface Normals in a PointCloud](feature/estimating-surface-normals-in-a-pointcloud.md)
+  * [How 3D Features work in PCL](feature/how-3d-features-work-in-pcl.md)
+  * [Normal Estimation Using Integral Images](feature/normal-estimation-using-integral-images.md)
+  * [Point Feature Histograms \(PFH\) descriptors](feature/point-feature-histograms-pfh-descriptors.md)
+  * [Estimating VFH signatures for a set of points](feature/estimating-vfh-signatures-for-a-set-of-points.md)
+  * [Moment of inertia and eccentricity based descriptors](feature/moment-of-inertia-and-eccentricity-based-descriptors.md)
+  * [RoPs feature](feature/rops-feature.md)
+* [Filtering](filtering.md)
+  * [Filtering a PointCloud using a PassThrough filter](filtering/filtering-a-pointcloud-using-a-passthrough-filter.md)
+  * [Downsampling a PointCloud using a VoxelGrid filter](filtering/downsampling-a-pointcloud-using-a-voxelgrid-filter.md)
+  * [Removing outliers using a StatisticalOutlierRemoval filter](filtering/removing-outliers-using-a-statisticaloutlierremoval-filter.md)
+  * [Extracting indices from a PointCloud](filtering/extracting-indices-from-a-pointcloud.md)
+  * [Removing outliers using a Conditional or Radius Outlier removal](filtering/removing-outliers-using-a-conditional-or-radius-outlier-removal.md)
+* [KdTree](kdtree.md)
+  * [How to use a KdTree to search](how-to-use-a-kdtree-to-search.md)
+* [Octree](octree.md)
+  * [Spatial Partitioning and Search Operations with Octrees](octree/spatial-partitioning-and-search-operations-with-octrees.md)
+  * [Spatial change detection on unorganized point cloud data](octree/spatial-change-detection-on-unorganized-point-cloud-data.md)
+  * [Point Cloud Compression](octree/point-cloud-compression.md)
+* [Segmentation](segmentation.md)
+  * [DBSCAN\_Cluster](segmentation/dbscancluster.md)
+  * [Euclidean Cluster Extraction](segmentation/euclidean-cluster-extraction.md)
+  * [Region growing segmentation](segmentation/region-growing-segmentation.md)
+  * [Conditional Euclidean Clustering](segmentation/conditional-euclidean-clustering.md)
+* Surface
+  * [Smoothing and normal estimation based on polynomial reconstruction](smoothing-and-normal-estimation-based-on-polynomial-reconstruction.md)
+  * [Fast triangulation of unordered point clouds](fast-triangulation-of-unordered-point-clouds.md)
+* [Visualization](visualization.md)
+  * [Tool\_CloudCompare](visualization/toolcloudcompare.md)
+  * [Tool\_ParaView with PCL](visualization/toolparaview-with-pcl.md)
+  * [lib\_k3d](visualization/libk3d.md)
+  * [The CloudViewer](visualization/visualizing-point-clouds.md)
+  * [PCLVisualizer](visualization/pclvisualizer.md)
+  * [PCL Visualization overview](visualization/pcl-visualization-overview.md)
+* [Tracking object in real time](tracking-object-in-real-time.md)
 
+## 참고
 
+* [Normal Estimation](normal-estimation.md)
+* [RANSAC](ransac.md)
+* [CCL](ccl.md)
+* [Hough Transform](hough-transform.md)
+* [DBSCAN](dbscan.md)
+  * [OPTICS](dbscan/optics.md)
+* [Numpy](https://legacy.gitbook.com/book/adioshun/python_snippet/edit#/edit/master/packagenumpy.md?_k=s830r0)
 
-[The PCD (Point Cloud Data) file format](http://pointclouds.org/documentation/tutorials/pcd_file_format.php)
+## snippet
 
-```
-# .PCD v.7 - Point Cloud Data file format
-VERSION .7
-FIELDS x y z rgb
-SIZE 4 4 4 4
-TYPE F F F F
-COUNT 1 1 1 1
-WIDTH 213
-HEIGHT 1
-VIEWPOINT 0 0 0 1 0 0 0
-POINTS 213
-DATA ascii
-0.93773 0.33763 0 4.2108e+06
-0.90805 0.35641 0 4.2108e+06
-0.81915 0.32 0 4.2108e+06
-0.97192 0.278 0 4.2108e+06
-0.944 0.29474 0 4.2108e+06
-0.98111 0.24247 0 4.2108e+06
-0.93655 0.26143 0 4.2108e+06
-0.91631 0.27442 0 4.2108e+06
-0.81921 0.29315 0 4.2108e+06
-0.90701 0.24109 0 4.2108e+06
-0.83239 0.23398 0 4.2108e+06
-0.99185 0.2116 0 4.2108e+06
-0.89264 0.21174 0 4.2108e+06
-```
+* [README](snippet/README.md)
+* [ROS-to-array-PCD-pickle](snippet/ros-to-array.md)
+* [Top-View](snippet/top-view.md)
+* [Surrount-view](snippet/surround-view.md)
+* [배경제거](snippet/bg-removal.md)
 
-## 1. 개요 
+## 다른 패키지들
 
-> [Ronny Restrepo](http://ronny.rest/tutorials/module/pointclouds_01/point_cloud_data/)
-
-|The Point Cloud Data|이미지 데이터와 비교 |
-|-|-|
-|![](http://i.imgur.com/Bc13san.png)|![](http://i.imgur.com/smzFU5N.png)|
-
-
-
-- 포인트 클라우드 데이터는 보통 `N x 3` Numpy 배열로 표현 된다. 
-    - 각 N 줄은 하나의 점과 맵핑이 되며 
-    - 3(x,y,z) 정보를 가지고 있다. 
-
-- Lidar 센서에서 수집한 정보의 경우는 `reflectance`라는 정보가 추가되어 `N x 4` Numpy 배열이 된다. 
-    - reflectance : 반사 시간 정보로 보면 된다. 
-
-
-이미지 데이터
-- 항상 양수 이다. 
-- 기준점은 왼쪽 위부터 이다. 
-- 좌표값은 정수(integer)이다. 
-
-포인트 클라우드 데이터 
-- 양수/음수 이다. 
-- 좌표값은 real numbered이다. 
-- The positive x axis represents forward.
-- The positive y axis represents left.
-- The positive z axis represents up.
-
-## 2. Creating Birdseye View of Point Cloud Data
-
-> 참고 : Height의 Level별 값 추출 (Height as Channels), [Creating Height Slices of Lidar Data](http://ronny.rest/blog/post_2017_03_27_lidar_height_slices/)
-
-In order to create a birds eye view image, the relevant axes from the point cloud data will be the x and y axes.
-
-![](http://i.imgur.com/cHsb48Y.png)
-
-조심해야 할점 
-- the x, and y axes mean the opposite thing.
-- The x, and y axes point in the opposite direction.
-- You have to shift the values across so that (0,0) is the smallest possible value in the image.
-
-
-|- [Creating Birdseye View of Point Cloud Data 코드 및 설명(python)](http://ronny.rest/blog/post_2017_03_26_lidar_birds_eye/), [gist](https://gist.github.com/adioshun/12873804f472080c612e506310674797)|
-|-|
-
-> [참고] cpp로 작성한 코드 : [mjshiggins's github](https://github.com/mjshiggins/ros-examples)
-
-
-
-## 3. Creating 360 degree Panoramic Views
-
-- Project the `points in 3D` space into `cylindrical surface`
-
-- LiDAR센서의 특징에 따라 설정값이 달라 진다. 
-    - `h_res`: Horizontal resolution
-    - `v_res`: vertical resolution
-
-```python
-# KTTI dataset = Velodyne HDL 64E 
-## A vertical field of view of 26.9 degrees, at a resolution of 0.4 degree intervals. The vertical field of view is broken up into +2 degrees above the sensor, and -24.9 degrees below the sensor.
-## A horizontal field of view of 360 degrees, at a resolution of 0.08 - 0.35 (depending on the rotation rate)
-## Rotation rate can be selected to be betwen 5-20Hz.
-## http://velodynelidar.com/docs/datasheet/63-9194%20Rev-E_HDL-64E_S3_Spec%20Sheet_Web.pdf
-
-# Resolution and Field of View of LIDAR sensor
-h_res = 0.35         # horizontal resolution, assuming rate of 20Hz is used 
-v_res = 0.4          # vertical res
-v_fov = (-24.9, 2.0) # Field of view (-ve, +ve) along vertical axis
-v_fov_total = -v_fov[0] + v_fov[1] 
-```
-
-|- [Creating 360 degree Panoramic Views코드 및 설명(matplotlib)](http://ronny.rest/blog/post_2017_03_25_lidar_to_2d/)<br>- [Creating 360 degree Panoramic Views코드 및 설명(numpy)](http://ronny.rest/blog/post_2017_04_03_point_cloud_panorama/)|
-|-|
-
-
-
-
----
-# LAS 포맷
-
-- [정의](https://www.asprs.org/committee-general/laser-las-file-format-exchange-activities.html)
-- the most commonly used binary point data exchange format
-- The LAS file format is a public file format for the interchange of 3-dimensional point cloud data data between data users
-- supports the exchange of any 3-dimensional x,y,z tuplet
-- [What Lidar processing tools are available in Python?](https://gis.stackexchange.com/questions/88322/what-lidar-processing-tools-are-available-in-python)
-- 항공용 Lidar 데이터에서 주로 사용하는지 확인 필요
-
-# pcap to LAS
-
-> LAS format - the most commonly used binary point data exchange format
-
-- (1) I suggest you create many many txt files containing the points in xyz or xyzi a layout (i = intensity). Maybe one file per driveline. (벨로뷰의 csv저장 기능 활용)
-- (2) Then you convert each of them to the LAZ format with txt2las using the '-parse xyz' or the '-parse xyzi' option.
-- (3) Then you tile the resulting LAZ files into buffered tiles that have less than, say 10 million, points per tile with lastile. `lastile -v -i drivelines/*.laz -merged -tile_size 100 -buffer 5 -odir raw_tiles -o gmu.laz`
-- (4) Then you refine tiles to 10 million points per tile if needed
-`lastile -v -i raw_tiles/*.laz -refine_tiles 10000000 -cores 4`
-- (5) And then - starting from the tiles in the tiles_raw folder - you run one of those many tile-based batch processing pipelines for ground classification and DTM generation described previously in numerous tutorials, videos, and forum entries.
-
-
-
-
-
-
-
-
+* [패키지/설치](installation.md)
+* [pyPCD\(/w PCL\)](pypcd.md)
+  * [1-File I/O](1-file-io.md)
+  * [2-Numpy](2-numpy.md)
+  * [8-ROS](8-ros.md)
+* [ROS](ros.md)
+* [pytncloud](pytncloud.md)
+  * [1-File I/O](pytncloud/1-file-io.md)
+  * [2-Numpy](pytncloud/2-numpy.md)
+  * [9-Visualization](pytncloud/9-visualization.md)
+* [pyPCL\(/w PCL\)](pypcl.md)
+  * [1-File I/O](pypcl/1-file-io.md)
+  * [6-Feature](pypcl/6-feature.md)
+  * [5-Clustering](pypcl/5-clustering.md)
+* [LasPy](laspy.md)
+  * [9-Visualization](laspy/9-visualization.md)
+* [pyDriver](pydriver.md)
+* [ecto\_PCL](ectopcl.md)
+* [PCLpy](pclpy.md)
+  * [5-Clustering](5-clustering.md)
+  * [6-Feature](6-feature.md)
 
