@@ -11,8 +11,9 @@ sudo apt-get install -y python3-pip python3-dev
 pip3 install cython==0.25.2 && pip3 install numpy
 git clone https://github.com/strawlab/python-pcl.git
 cd python-pcl
-sudo python3 setup.py build_ext -i
-sudo python3 setup.py install
+python --version
+sudo python setup.py build_ext -i
+sudo python setup.py install
 
 #pip3 install git+https://github.com/strawlab/python-pcl
 ```
