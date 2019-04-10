@@ -56,7 +56,7 @@ np.savetxt()	텍스트 파일에 NumPy 배열 객체 저장	텍스트
 ```python 
 # from Bin 
 raw_lidar = np.fromfile('/datasets/testing/velodyne/000001.bin', dtype=np.float32).reshape((-1, 4))
-
+#points = np.fromfile(v_path, dtype=np.float32, count=-1).reshape([-1, num_features]) #SECOND code 
 # to Bin 
 pc = pcl.load("./sample_lcas.pcd")
 pa = pc.to_array()
