@@ -1,7 +1,52 @@
 # PCL & python-pcl
 
 
-## 1. pcl LIB. 설치 
+
+
+## 1. python-pcl 설치 
+
+```python
+"""
+python3.5에서 안정되게 동작 하는것 같음 (PCL 1.7.2, Cython 0.25.2)
+"""
+sudo apt-get install -y python3-pip python3-dev
+
+pip3 install cython==0.25.2 && pip3 install numpy
+git clone https://github.com/strawlab/python-pcl.git
+cd python-pcl
+sudo python3 setup.py build_ext -i
+sudo python3 setup.py install
+
+#pip3 install git+https://github.com/strawlab/python-pcl
+```
+
+불필요한 파일 / 정보 삭제 
+
+```
+add-apt-repository --remove ppa:v-launchpad-jochen-sprickerhof-de/pcl -y 
+sudo rm -rf /var/lib/apt/lists/*
+```
+
+[공식 홈페이지](http://strawlab.github.io/python-pcl/), [example](https://github.com/strawlab/python-pcl/tree/master/examples) [Qna](https://www.bountysource.com/teams/strawlab/issues?tracker_ids=658709)
+
+
+
+
+### conda 설치
+
+```
+conda config --add channels conda-forge
+conda install -c sirokujira python-pcl #v0.3
+#conda install -c https://conda.anaconda.org/ccordoba12 python-pcl  #v0.2
+```
+
+
+---
+
+
+
+
+## 2. pcl LIB. 설치 
 
 ```python
 
@@ -27,46 +72,6 @@ sudo ln -s /usr/lib/x86_64-linux-gnu/libvtkCommonCore-6.2.so /usr/lib/libvtkproj
 """
 ```
 
-
-## 2. python-pcl 설치 
-
-```python
-"""
-python3.5에서 안정되게 동작 하는것 같음 (PCL 1.7.2, Cython 0.25.2)
-"""
-sudo apt-get install -y python3-pip python3-dev
-
-pip3 install cython==0.25.2 && pip3 install numpy
-git clone https://github.com/strawlab/python-pcl.git
-cd python-pcl
-sudo python3 setup.py build_ext -i
-sudo python3 setup.py install
-
-#pip3 install git+https://github.com/strawlab/python-pcl
-```
-
-불필요한 파일 / 정보 삭제 
-
-```
-add-apt-repository --remove ppa:v-launchpad-jochen-sprickerhof-de/pcl -y 
-sudo rm -rf /var/lib/apt/lists/*
-```
-
-
----
-
-[공식 홈페이지](http://strawlab.github.io/python-pcl/), [example](https://github.com/strawlab/python-pcl/tree/master/examples) [Qna](https://www.bountysource.com/teams/strawlab/issues?tracker_ids=658709)
-
-[원하는 QT 버전에 맞게 PCL 설치하기](http://jinyongjeong.github.io/2017/01/09/pcl_install_with_qt5/): 2017
-
-
-### conda 설치
-
-```
-conda config --add channels conda-forge
-conda install -c sirokujira python-pcl #v0.3
-#conda install -c https://conda.anaconda.org/ccordoba12 python-pcl  #v0.2
-```
 
 
 
