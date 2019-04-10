@@ -1,8 +1,5 @@
 # PCL & python-pcl
 
-
-
-
 ## 1. python-pcl 설치 
 
 ```python
