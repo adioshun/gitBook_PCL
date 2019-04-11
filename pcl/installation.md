@@ -8,7 +8,7 @@
 
 ```python
 """
-python3.5에서 안정되게 동작 하는것 같음 (PCL 1.7.2, Cython 0.25.2)
+ubuntu18 동작 확
 """
 sudo apt-get install -y python3-pip python3-dev
 
