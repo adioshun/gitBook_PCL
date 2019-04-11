@@ -24,7 +24,33 @@
 [Region Growing Segmentation](http://simpleitk-prototype.readthedocs.io/en/latest/user_guide/segmentation/plot_region_growing.html)
 
 
+---
 
+## python-pcl활용 (아직 적용 안된듯)
+
+```python
+#https://github.com/strawlab/python-pcl/blob/master/tests/test_segmentation.py
+import pcl
+p = pcl.load("./table_scene_lms400.pcd")
+vg = p.make_voxel_grid_filter()
+vg.set_leaf_size(0.01, 0.01, 0.01)
+
+cloud_filtered = vg.filter()
+tree = cloud_filtered.make_kdtree()
+segment = cloud_filtered.make_RegionGrowing(ksearch=50)
+segment.set_MinClusterSize(100)
+segment.set_MaxClusterSize(25000)
+segment.set_NumberOfNeighbours(5)
+segment.set_SmoothnessThreshold(0.2)
+segment.set_CurvatureThreshold(0.05)
+segment.set_SearchMethod(tree)
+cluster_indices = segment.Extract()
+
+cloud_cluster = pcl.PointCloud()
+```
+
+---
+## pypcl활용 
 
 ```python 
 # https://github.com/cmpute/pypcl/blob/master/test/segment_test.py
