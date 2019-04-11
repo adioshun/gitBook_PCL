@@ -1,7 +1,7 @@
 # PCL & python-pcl
 
 - 설치 순서 : PCL -> python-pcl
-- ubuntu18에는 기본 PCL 포함 -> `apt-get install libpcl-dev`만 하면 됨
+- ubuntu18에는 기본 PCL 포함 -> `apt-get install libpcl-dev`만 하면 됨 -> python-pcl설치 
 - ROS 설치시 PCL - V1.7 포함  
 
 ## 1. python-pcl 설치 
@@ -16,8 +16,8 @@ pip3 install cython==0.25.2 && pip3 install numpy
 git clone https://github.com/strawlab/python-pcl.git
 cd python-pcl
 python --version
-sudo python setup.py build_ext -i
-sudo python setup.py install
+sudo python3 setup.py build_ext -i
+sudo python3 setup.py install
 
 #pip3 install git+https://github.com/strawlab/python-pcl
 ```
