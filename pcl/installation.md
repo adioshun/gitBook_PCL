@@ -1,5 +1,9 @@
 # PCL & python-pcl
 
+- 설치 순서 : PCL -> python-pcl
+- ubuntu18에는 기본 PCL 포함 -> `apt-get install libpcl-dev`만 하면 됨
+- ROS 설치시 PCL - V1.7 포함  
+
 ## 1. python-pcl 설치 
 
 ```python
