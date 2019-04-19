@@ -53,6 +53,11 @@ ICP is often used to reconstruct 2D or 3D surfaces from different scans, to loca
 ## 0. 시각화 함수 
 
 ```python
+# examples/Python/Basic/icp_registration.py
+from open3d import *
+import numpy as np
+import copy
+
 def draw_registration_result(source, target, transformation):
     source_temp = copy.deepcopy(source)
     target_temp = copy.deepcopy(target)

@@ -9,6 +9,12 @@
 ## 1. Input
 
 ```python 
+# examples/Python/Advanced/global_registration.py
+
+from open3d import *
+import numpy as np
+import copy
+
 def prepare_dataset(voxel_size):
     print(":: Load two point clouds and disturb initial pose.")
     source = read_point_cloud("../../TestData/ICP/cloud_bin_0.pcd")
@@ -109,6 +115,28 @@ def refine_registration(source, target, source_fpfh, target_fpfh, voxel_size):
 ```
 
 
+
+---
+
+# [[Open3D] Fast global registration](http://www.open3d.org/docs/tutorial/Advanced/fast_global_registration.html#fast-global-registration)
+
+- 기존 Global Registration]()은 RANSAC기반이라 느리다. `The RANSAC based Global registration solution may take a long time due to countless model proposals and evaluations. `
+- [Zhou2016]가 제안한 방식은 제안 모델 생성 및 검증 절차가 없어 속도가 빠르다.  `[Zhou2016] introduced a faster approach that quickly optimizes line process weights of few correspondences. As there is no model proposal and evaluation involved for each iteration, the approach proposed in [Zhou2016] can save a lot of computational time.`
+
+
+> RANSAC based global registration took **2.538 sec.** Vs. Fast global registration took **0.193 sec.**
+
+
+```python 
+def execute_fast_global_registration(source_down, target_down, source_fpfh, target_fpfh, voxel_size):
+    distance_threshold = voxel_size * 0.5
+    print(":: Apply fast global registration with distance threshold %.3f" % distance_threshold)
+    
+    result = registration_fast_based_on_feature_matching(
+            source_down, target_down, source_fpfh, target_fpfh,
+            FastGlobalRegistrationOption(
+            maximum_correspondence_distance = distance_threshold))
+```
 
 
 
