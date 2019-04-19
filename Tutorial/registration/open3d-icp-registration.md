@@ -35,6 +35,19 @@ Iterative nearest point (ICP) is an algorithm used to minimize the difference be
 ICP is often used to reconstruct 2D or 3D surfaces from different scans, to localize robots and achieve optimal path planning
 
 
+## 0. 시각화 함수 
+
+```python
+def draw_registration_result(source, target, transformation):
+    source_temp = copy.deepcopy(source)
+    target_temp = copy.deepcopy(target)
+    source_temp.paint_uniform_color([1, 0.706, 0])
+    target_temp.paint_uniform_color([0, 0.651, 0.929])
+    source_temp.transform(transformation)
+    draw_geometries([source_temp, target_temp])
+```
+
+
 ## 1. Input 
 
 ```python 
