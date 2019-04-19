@@ -62,6 +62,72 @@ Again there is a number of feature options to choose from, for example
 
 ### 3.3 Correspondences estimation
 
+Depending on the feature type we can use different methods to find the correspondences.
+
+#### A. For point matching 
+
+using the points’ xyz-coordinates as features
+- brute force matching,
+- kd-tree nearest neighbor search (FLANN),
+- searching in the image space of organized data, and
+- searching in the index space of organized data.
+
+#### B. For feature matching 
+
+not using the points’ coordinates, but certain features
+- brute force matching and
+- kd-tree nearest neighbor search (FLANN).
+
+
+### 3.4 Correspondences rejection
+
+Since wrong correspondences can negatively affect the estimation of the final transformation, they need to be rejected.
+
+방법 
+- RANSAC
+- trimming down the amount and using only a certain percent of the found correspondences
+
+
+### 3.5 Transformation estimation
+
+compute the transformation.
+
+- evaluate some error metric based on correspondence
+- estimate a (rigid) transformation between camera poses (motion estimate) and minimize error metric
+- optimize the structure of the points
+    - Examples: - SVD for motion estimate; - Levenberg-Marquardt with different kernels for motion estimate;
+- use the rigid transformation to rotate/translate the source onto the target, and potentially run an internal ICP loop with either all points or a subset of points or the keypoints
+- iterate until some convergence criterion is met
+
+## 4. Example pipelines
+
+
+### 4.1 Iterative Closest Point
+
+- Search for correspondences.
+- Reject bad correspondences.
+- Estimate a transformation using the good correspondences.
+- Iterate.
+
+### 4.2 Feature based registration
+
+- use SIFT Keypoints (pcl::SIFT…something)
+- use FPFH descriptors (pcl::FPFHEstimation) at the keypoints 
+    - see our tutorials for that, [like](http://www.pointclouds.org/media/rss2011.html)
+- get the FPFH descriptors and estimate correspondences using `pcl::CorrespondenceEstimation`
+- reject bad correspondences using one or many of the `pcl::CorrespondenceRejectionXXX methods`
+- finally get a transformation as mentioned above
+
+
+
+
+
+
+
+
+
+
+
 
 
 
