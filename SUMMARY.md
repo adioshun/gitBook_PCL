@@ -58,6 +58,9 @@
   * [Extracting indices from a PointCloud](filtering/extracting-indices-from-a-pointcloud.md)
   * [Removing outliers using a Conditional or Radius Outlier removal](filtering/removing-outliers-using-a-conditional-or-radius-outlier-removal.md)
 
+* [Registration](Tutorial/registration/README.md)
+  * [How to use iterative closest point](Tutorial/registration/iterative-closest-point.md)
+
 * [KdTree](kdtree.md)
   * [How to use a KdTree to search](how-to-use-a-kdtree-to-search.md)
 
