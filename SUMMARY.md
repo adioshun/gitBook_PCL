@@ -43,9 +43,6 @@
   * [\[PCL-Cpp\] Reading Writing Point Cloud data to PCD files](Tutorial/InputOutput/pcl-cpp-reading-writing-point-cloud-data-to-pcd-files.md)
   * [\[PCL-Python\] Reading Writing Point Cloud data](Tutorial/InputOutput/pcl-python-reading-writing-point-cloud-data.md)
   * [\[Open3D\] Reading Writing Point Cloud data ](Tutorial/InputOutput/open3d-reading-writing-point-cloud-data.md)
-
----
-
 * [Feature](feature.md)
   * [Estimating Surface Normals in a PointCloud](feature/estimating-surface-normals-in-a-pointcloud.md)
   * [How 3D Features work in PCL](feature/how-3d-features-work-in-pcl.md)
@@ -60,12 +57,12 @@
   * [Removing outliers using a StatisticalOutlierRemoval filter](filtering/removing-outliers-using-a-statisticaloutlierremoval-filter.md)
   * [Extracting indices from a PointCloud](filtering/extracting-indices-from-a-pointcloud.md)
   * [Removing outliers using a Conditional or Radius Outlier removal](filtering/removing-outliers-using-a-conditional-or-radius-outlier-removal.md)
-* [Registration](Tutorial/registration/README.md)
-  * [How to use iterative closest point](Tutorial/registration/iterative-closest-point.md)
-  * [The PCL Registration API](Tutorial/registration/the-pcl-registration-api.md)
-  * [\[PCL-Cpp\] How to use Normal Distributions Transform](Tutorial/registration/how-to-use-normal-distributions-transform.md)
-  * [\[Open3D\] ICP registration](Tutorial/registration/open3d-icp-registration.md)
-  * [\[Open3D\] Global registration](Tutorial/registration/open3d-global-registration.md)
+* [Registration](Tutorial/Registration/README.md)
+  * [How to use iterative closest point](Tutorial/Registration/iterative-closest-point.md)
+  * [The PCL Registration API](Tutorial/Registration/the-pcl-registration-api.md)
+  * [\[PCL-Cpp\] How to use Normal Distributions Transform](Tutorial/Registration/how-to-use-normal-distributions-transform.md)
+  * [\[Open3D\] ICP registration](Tutorial/Registration/open3d-icp-registration.md)
+  * [\[Open3D\] Global registration](Tutorial/Registration/open3d-global-registration.md)
 * [KdTree](kdtree.md)
   * [How to use a KdTree to search](how-to-use-a-kdtree-to-search.md)
 * [Octree](octree.md)
