@@ -39,5 +39,12 @@ Open3D 장점
 
 
 
+---
+
+# 참고 링크 
 
 
+
+- [Study of Open3D (first time)](http://robonchu.hatenablog.com/entry/2018/02/24/200635)
+- [Study of Open3D (second time)](http://robonchu.hatenablog.com/entry/2018/02/25/121024)
+- [Study of Oepn3D (third time)](http://robonchu.hatenablog.com/entry/2018/02/25/200510)
