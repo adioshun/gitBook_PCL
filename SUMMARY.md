@@ -20,11 +20,9 @@
 * [8- ROS](pcl/8-ros.md)
 * [helper](pcl/helper.md)
 
-
 ## PCL-C++
 
 * [README](pcl-cpp/README.md)
-
 
 ## Open3D
 
@@ -34,7 +32,6 @@
 * [2- Numpy ](open3d/2-numpy.md)
 * [3-Downsampling](open3d/3-downsampling.md)
 * [4-Filtering](open3d/4-filtering.md)
-* [6-SLAM](open3d/6-slam.md)
 * [9-Visulization](open3d/9-visulization.md)
 * [8-ROS](open3d/8-ros.md)
 
@@ -62,7 +59,7 @@
 * [Registration](Tutorial/registration/README.md)
   * [How to use iterative closest point](Tutorial/registration/iterative-closest-point.md)
   * [The PCL Registration API](Tutorial/registration/the-pcl-registration-api.md)
-  * [How to use Normal Distributions Transform](Tutorial/registration/how-to-use-normal-distributions-transform.md)
+  * [\[PCL-Cpp\] How to use Normal Distributions Transform](Tutorial/registration/how-to-use-normal-distributions-transform.md)
   * [\[Open3D\] ICP registration](Tutorial/registration/open3d-icp-registration.md)
   * [\[Open3D\] Global registration](Tutorial/registration/open3d-global-registration.md)
 * [KdTree](kdtree.md)
