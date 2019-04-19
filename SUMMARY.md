@@ -40,7 +40,7 @@
 * [Introduction](introduction.md)
 * [Basic\_Usage](basicusage.md)
   * [Using a matrix to transform a point cloud](basicusage/using-a-matrix-to-transform-a-point-cloud.md)
-* Input\_Output
+* [Input\_Output](inputoutput.md)
   * [Concatenate the points of two Point Clouds](concatenate-the-points-of-two-point-clouds.md)
 * [Feature](feature.md)
   * [Estimating Surface Normals in a PointCloud](feature/estimating-surface-normals-in-a-pointcloud.md)
