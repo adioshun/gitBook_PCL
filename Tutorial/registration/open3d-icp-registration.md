@@ -1,18 +1,16 @@
 # [[Open3D] ICP registration](http://www.open3d.org/docs/tutorial/Basic/icp_registration.html)
 
 
-- 입력 `The input are `
+입력 `The input are `
     - two point clouds 
     - an initial transformation : usually obtained by a [global registration algorithm](http://www.open3d.org/docs/tutorial/Advanced/global_registration.html#global-registration)
-- 출력 `The output is `
+출력 `The output is `
     - a refined transformation 
 
         
-- In this tutorial, we show two ICP variants, 
-    - the point-to-point ICP 
-    - the point-to-plane ICP : Normal 정보 사용, 더 빠르
-
-###### The point-to-point ICP 
+In this tutorial, we show two ICP variants, 
+- the point-to-point ICP 
+- the point-to-plane ICP : Normal 정보 사용, 더 빠르
 
 In general, the ICP algorithm iterates over two steps:
 - Find correspondence set K={(p,q)} from target point cloud P, and source point cloud Q transformed with current transformation matrix T.
@@ -20,8 +18,25 @@ In general, the ICP algorithm iterates over two steps:
 
 여러 변형들은 E(T)가 다르다. `Different variants of ICP use different objective functions  E(T)`
 
+- Point-to-point ICP에서는 아래 object를 사용 였다. 
 
-###### The point-to-plane ICP
+![](https://i.imgur.com/QGKX26b.png)
+
+```
+Paul J. Besl and Neil D. McKay, A Method for Registration of 3D Shapes, PAMI, 1992.
+```
+
+- Point-to-plane ICP에서는 아래 object를 사용 하였다. 
+
+![](https://i.imgur.com/LwRWt4P.png)
+- $$n_p$$ is the normal of point $$p$$.
+```
+Rusinkiewicz and M. Levoy. Efficient variants of the ICP algorithm. In 3-D Digital Imaging and Modeling, 2001.
+```
+
+> P2Plane방식이 p2point방식 보다 빠른 convergence speed를 보였다. 
+
+
 
 
   
@@ -90,23 +105,6 @@ Access transformation to get result.
 
 여러 변형들은 E(T)가 다르다.
  
-Point-to-point ICP에서는 아래 object를 사용 였다. 
-
-![](https://i.imgur.com/QGKX26b.png)
-
-```
-Paul J. Besl and Neil D. McKay, A Method for Registration of 3D Shapes, PAMI, 1992.
-```
-
-Point-to-plane ICP에서는 아래 object를 사용 하였다. 
-
-![](https://i.imgur.com/LwRWt4P.png)
-- $$n_p$$ is the normal of point $$p$$.
-```
-Rusinkiewicz and M. Levoy. Efficient variants of the ICP algorithm. In 3-D Digital Imaging and Modeling, 2001.
-```
-
-> P2Plane방식이 p2point방식 보다 빠른 convergence speed를 보였다. 
 
 
 ```python 
@@ -146,36 +144,6 @@ Function `registration_icp` takes a parameter and runs point-to-point ICP to obt
 
     - ICPConvergenceCriteria : 실행횟수, By default, runs until convergence or reaches a maximum number of iterations (30 by default)
 
-
-
-## 1. Input 
-
-```python 
-
-
-```
-
-
-
-
-
-## 1. Input 
-
-```python 
-
-
-```
-
-
-
-
-
-## 1. Input 
-
-```python 
-
-
-```
 
 
 
