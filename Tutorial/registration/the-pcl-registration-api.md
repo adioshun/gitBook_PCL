@@ -99,6 +99,9 @@ compute the transformation.
 - use the rigid transformation to rotate/translate the source onto the target, and potentially run an internal ICP loop with either all points or a subset of points or the keypoints
 - iterate until some convergence criterion is met
 
+
+- eg. Normal Distributions Transform (NDT) 
+
 ## 4. Example pipelines
 
 

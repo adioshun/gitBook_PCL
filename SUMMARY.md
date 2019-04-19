@@ -56,6 +56,7 @@
 * [Registration](Tutorial/registration/README.md)
   * [How to use iterative closest point](Tutorial/registration/iterative-closest-point.md)
   * [The PCL Registration API](Tutorial/registration/the-pcl-registration-api.md)
+  * [How to use Normal Distributions Transform](Tutorial/registration/how-to-use-normal-distributions-transform.md)
 * [KdTree](kdtree.md)
   * [How to use a KdTree to search](how-to-use-a-kdtree-to-search.md)
 * [Octree](octree.md)
