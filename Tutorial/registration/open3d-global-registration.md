@@ -4,7 +4,7 @@
     - Global Registration : 초기값 불필요 
     - Local Registration : 초기값 필요(Global Regstration사용), eg. ICP registration 
 
-
+- Open3D에서는 좀더 빠른 수행을 위해 Fast Global registration을 제공 한다. 
 
 ## 1. Input
 
@@ -93,9 +93,20 @@ def execute_global_registration(source_down, target_down, source_fpfh, target_fp
 
 ## 4. Local refinement
 
+성능 문제로 Global Registration은 다운샘플링된 상태로 진행 되고, 결과 또한 정확히 맞지는 않는다. P2Plane ICP를 통해 Refine 절차를 수행 한다. `For performance reason, the global registration is only performed on a heavily down-sampled point cloud. The result is also not tight. We use Point-to-plane ICP to further refine the alignment.`
 
+> ICP(=Local) registration으로 바로 넘어 가도 될듯 
 
-
+```python 
+def refine_registration(source, target, source_fpfh, target_fpfh, voxel_size):
+    distance_threshold = voxel_size * 0.4
+    print(":: Point-to-plane ICP registration is applied on original point")
+    print("   clouds to refine the alignment. This time we use a strict")
+    print("   distance threshold %.3f." % distance_threshold)
+    result = registration_icp(source, target, distance_threshold,
+            result_ransac.transformation,
+            TransformationEstimationPointToPlane())
+```
 
 
 
