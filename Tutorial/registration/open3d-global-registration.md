@@ -1,0 +1,1 @@
+# [[Open3D] Global registration](http://www.open3d.org/docs/tutorial/Advanced/global_registration.html#global-registration)
