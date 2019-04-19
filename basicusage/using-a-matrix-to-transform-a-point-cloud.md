@@ -84,16 +84,3 @@ static_transform_publisher x y z qx qy qz qw frame_id child_frame_id  period_in_
 - Rotation matrix Vs. Euler angle 변환 [코드](https://www.learnopencv.com/rotation-matrix-to-euler-angles/), [웹사이트](https://www.andre-gaschler.com/rotationconverter/) ,[시각화검증](http://danceswithcode.net/engineeringnotes/rotations_in_3d/demo3D/rotations_in_3d_tool.html)
 
 
----
-
-![image](https://user-images.githubusercontent.com/17797922/47072738-a2b80700-d231-11e8-8ff8-67aa8f23cad3.png)
-- w == 1 이면, 벡터 (x,y,z,1) 은 공간에서의 위치 입니다.
-- w == 0 이면, 벡터 (x,y,z,0) 은 방향입니다.
-
-- The first 3 rows and columns (top left) components are the rotation matrix. 
-- The first 3 rows of the last column is the translation.
-
-[예제-평행 이동]
-![image](https://user-images.githubusercontent.com/17797922/47073043-53260b00-d232-11e8-854b-26a675033d54.png)
-
-
