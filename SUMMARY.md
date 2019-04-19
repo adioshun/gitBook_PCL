@@ -40,10 +40,9 @@
 * [Introduction](introduction.md)
 * [Basic\_Usage](basicusage.md)
   * [Using a matrix to transform a point cloud](basicusage/using-a-matrix-to-transform-a-point-cloud.md)
-* [Input\_Output](inputoutput.md)
-  * [Concatenate the points of two Point Clouds](concatenate-the-points-of-two-point-clouds.md)
 * [I\_O](Tutorial/InputOutput/README.md)
   * [\[PCL-Cpp\] Concatenate the points of two Point Clouds](Tutorial/InputOutput/pcl-cpp-concatenate-the-points-of-two-point-clouds.md)
+  * [\[PCL-Cpp\] Reading Writing Point Cloud data to PCD files](Tutorial/InputOutput/pcl-cpp-reading-writing-point-cloud-data-to-pcd-files.md)
 
 ---
 
