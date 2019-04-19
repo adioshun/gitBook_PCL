@@ -62,7 +62,7 @@
   * [The PCL Registration API](Tutorial/Registration/the-pcl-registration-api.md)
   * [\[PCL-Cpp\] How to use Normal Distributions Transform](Tutorial/Registration/how-to-use-normal-distributions-transform.md)
   * [\[Open3D\] ICP registration](Tutorial/Registration/open3d-icp-registration.md)
-  * [\[Open3D\] Global registration](Tutorial/Registration/open3d-global-registration.md)
+  * [\[Open3D\] \(Fast\) Global registration](Tutorial/Registration/open3d-global-registration.md)
 * [KdTree](kdtree.md)
   * [How to use a KdTree to search](how-to-use-a-kdtree-to-search.md)
 * [Octree](octree.md)

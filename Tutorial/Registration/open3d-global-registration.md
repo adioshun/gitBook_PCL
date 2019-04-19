@@ -4,7 +4,7 @@
     - Global Registration : 초기값 불필요 
     - Local Registration : 초기값 필요(Global Regstration사용), eg. ICP registration 
 
-- Open3D에서는 좀더 빠른 수행을 위해 Fast Global registration을 제공 한다. 
+- Open3D에서는 좀더 빠른 수행을 위해 Fast Global registration을 제공 한다. (마지막 참고)
 
 ## 1. Input
 
