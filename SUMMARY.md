@@ -35,10 +35,13 @@
 ## PCL Tutorial
 
 * [Introduction](introduction.md)
+
 * [Basic\_Usage](basicusage.md)
   * [Using a matrix to transform a point cloud](basicusage/using-a-matrix-to-transform-a-point-cloud.md)
+
 * Input\_Output
   * [Concatenate the points of two Point Clouds](concatenate-the-points-of-two-point-clouds.md)
+
 * [Feature](feature.md)
   * [Estimating Surface Normals in a PointCloud](feature/estimating-surface-normals-in-a-pointcloud.md)
   * [How 3D Features work in PCL](feature/how-3d-features-work-in-pcl.md)
@@ -47,26 +50,32 @@
   * [Estimating VFH signatures for a set of points](feature/estimating-vfh-signatures-for-a-set-of-points.md)
   * [Moment of inertia and eccentricity based descriptors](feature/moment-of-inertia-and-eccentricity-based-descriptors.md)
   * [RoPs feature](feature/rops-feature.md)
+  
 * [Filtering](filtering.md)
   * [Filtering a PointCloud using a PassThrough filter](filtering/filtering-a-pointcloud-using-a-passthrough-filter.md)
   * [Downsampling a PointCloud using a VoxelGrid filter](filtering/downsampling-a-pointcloud-using-a-voxelgrid-filter.md)
   * [Removing outliers using a StatisticalOutlierRemoval filter](filtering/removing-outliers-using-a-statisticaloutlierremoval-filter.md)
   * [Extracting indices from a PointCloud](filtering/extracting-indices-from-a-pointcloud.md)
   * [Removing outliers using a Conditional or Radius Outlier removal](filtering/removing-outliers-using-a-conditional-or-radius-outlier-removal.md)
+
 * [KdTree](kdtree.md)
   * [How to use a KdTree to search](how-to-use-a-kdtree-to-search.md)
+
 * [Octree](octree.md)
   * [Spatial Partitioning and Search Operations with Octrees](octree/spatial-partitioning-and-search-operations-with-octrees.md)
   * [Spatial change detection on unorganized point cloud data](octree/spatial-change-detection-on-unorganized-point-cloud-data.md)
   * [Point Cloud Compression](octree/point-cloud-compression.md)
+
 * [Segmentation](segmentation.md)
   * [DBSCAN\_Cluster](segmentation/dbscancluster.md)
   * [Euclidean Cluster Extraction](segmentation/euclidean-cluster-extraction.md)
   * [Region growing segmentation](segmentation/region-growing-segmentation.md)
   * [Conditional Euclidean Clustering](segmentation/conditional-euclidean-clustering.md)
+
 * Surface
   * [Smoothing and normal estimation based on polynomial reconstruction](smoothing-and-normal-estimation-based-on-polynomial-reconstruction.md)
   * [Fast triangulation of unordered point clouds](fast-triangulation-of-unordered-point-clouds.md)
+
 * [Visualization](visualization.md)
   * [Tool\_CloudCompare](visualization/toolcloudcompare.md)
   * [Tool\_ParaView with PCL](visualization/toolparaview-with-pcl.md)
