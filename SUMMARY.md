@@ -37,7 +37,7 @@
 
 * [README](Tutorial/README.md)
 * [Introduction](introduction.md)
-* [Basic Usage](Tutorial/README.md)
+* [Basic Usage](Tutorial/Basic-Usage/README.md)
 * [Basic\_Usage](basicusage.md)
   * [Using a matrix to transform a point cloud](basicusage/using-a-matrix-to-transform-a-point-cloud.md)
 * [I\_O](Tutorial/InputOutput/README.md)
