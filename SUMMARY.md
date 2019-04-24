@@ -57,6 +57,7 @@
 
 * [Feature](Tutorial/Feature/README.md)
   * [\[Open3D\] Vertex normal estimation](Tutorial/Feature/open3d-vertex-normal-estimation.md)
+  * [\[PCL-Python\] Surface Normal](Tutorial/Feature/pcl-python-surface-normal.md)
 
 ---
 
