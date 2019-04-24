@@ -18,6 +18,20 @@ draw_geometries([pcd])
 
 - 컨트롤 flag : `update_geometry()` and `update_renderer()`
 
+```python
+vis = Visualizer()
+vis.create_window()
+for i in range(icp_iteration):
+    # do ICP single iteration
+    # transform geometry using ICP
+    vis.update_geometry()
+    vis.poll_events()
+    vis.update_renderer()
+```
+
+
+
+
 
 ## 2. `draw_geometries_with_custom_animation()`
 
