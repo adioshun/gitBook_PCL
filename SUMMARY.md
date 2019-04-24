@@ -53,6 +53,11 @@
   * [Estimating VFH signatures for a set of points](feature/estimating-vfh-signatures-for-a-set-of-points.md)
   * [Moment of inertia and eccentricity based descriptors](feature/moment-of-inertia-and-eccentricity-based-descriptors.md)
   * [RoPs feature](feature/rops-feature.md)
+
+
+* [Feature](Tutorial/Feature/README.md)
+
+
 * [Filtering](filtering.md)
   * [Filtering a PointCloud using a PassThrough filter](filtering/filtering-a-pointcloud-using-a-passthrough-filter.md)
   * [Downsampling a PointCloud using a VoxelGrid filter](filtering/downsampling-a-pointcloud-using-a-voxelgrid-filter.md)
