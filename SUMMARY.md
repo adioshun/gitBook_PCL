@@ -33,7 +33,6 @@
 * [8-ROS](Open3D/8-ros.md)
 * [9-Visulization](Open3D/9-visulization.md)
 
-
 ## PCL Tutorial
 
 * [README](Tutorial/README.md)
@@ -54,9 +53,12 @@
   * [Moment of inertia and eccentricity based descriptors](feature/moment-of-inertia-and-eccentricity-based-descriptors.md)
   * [RoPs feature](feature/rops-feature.md)
 
+---
 
 * [Feature](Tutorial/Feature/README.md)
+  * [\[Open3D\] Vertex normal estimation](Tutorial/Feature/open3d-vertex-normal-estimation.md)
 
+---
 
 * [Filtering](filtering.md)
   * [Filtering a PointCloud using a PassThrough filter](filtering/filtering-a-pointcloud-using-a-passthrough-filter.md)
