@@ -30,8 +30,9 @@
 * [2- Numpy ](Open3D/2-numpy.md)
 * [3-Downsampling](Open3D/3-downsampling.md)
 * [4-Filtering](Open3D/4-filtering.md)
-* [9-Visulization](Open3D/9-visulization.md)
 * [8-ROS](Open3D/8-ros.md)
+* [9-Visulization](Open3D/9-visulization.md)
+
 
 ## PCL Tutorial
 
