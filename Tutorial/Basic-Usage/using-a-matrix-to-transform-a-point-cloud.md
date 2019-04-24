@@ -18,8 +18,7 @@ This program is able to load one PCD or PLY file; apply a matrix transformation 
     | 0 0 1 z |  /
     | 0 0 0 1 |    -> We do not use this line (and it has to stay 0,0,0,1)
 
-    METHOD #1: Using a Matrix4f
-    This is the "manual" method, perfect to understand but error prone !
+
   */
 
 ```
@@ -27,7 +26,10 @@ This program is able to load one PCD or PLY file; apply a matrix transformation 
 ### 첫번쨰 방법 
 
 ```cpp
-
+  /*
+  METHOD #1: Using a Matrix4f
+  This is the "manual" method, perfect to understand but error prone !
+  */
   Eigen::Matrix4f transform_1 = Eigen::Matrix4f::Identity();
 
   // Define a rotation matrix (see https://en.wikipedia.org/wiki/Rotation_matrix)
