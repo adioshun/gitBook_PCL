@@ -48,7 +48,7 @@ conda install -c sirokujira python-pcl #v0.3
 
 
 
-## 2. pcl LIB. 설치 
+## 2. pcl LIB. 설치 (ROS설치시 미 필요)
 
 ```python
 
