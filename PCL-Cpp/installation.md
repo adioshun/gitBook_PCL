@@ -62,6 +62,9 @@ cmake ..
 make
 #checkinstall #apt-get install checkinstall
 make install
+
+
+
 ```
 
 
