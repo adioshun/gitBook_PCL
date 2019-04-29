@@ -91,6 +91,8 @@ sudo ln -s /usr/lib/x86_64-linux-gnu/libvtkCommonCore-6.2.so /usr/lib/libvtkproj
 ```python 
 locate /pcl/common/io.h
 locate libpcl_recognition.so 
+locate PCLConfig.cmake
+
 ```
 
 확인후 버젼과 다르면 폴더 삭제  
