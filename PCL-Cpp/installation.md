@@ -1,17 +1,58 @@
-## 2. PCL-Cpp 설치  (ROS설치시 미 필요)
+# PCL-Cpp 설치 
 
+> ROS 설치시 기본 설치 됨 (1.7)
+
+## 1. VCpkg이용한 설치 
+
+
+
+
+
+
+## 2. apt-get 이용한 설치 
 ```python
-
-
-
 sudo apt-get update && sudo apt-get install -y software-properties-common git
 sudo add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl -y && sudo apt-get update
 
 sudo apt-get install -y libpcl-dev #ubuntu 16 (libpcl-dev 1.7.2)
 sudo apt-get install -y libpcl-all #ubnutu 14
-
-
 ```
+
+## 3. 소스 설치 
+
+## Github 소스 설치
+
+```python
+sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends \
+make cmake build-essential git \
+libeigen3-dev \
+libflann-dev \
+libusb-1.0-0-dev \
+libvtk6-qt-dev \
+libpcap-dev \
+libboost-all-dev \
+libproj-dev \
+&& sudo rm -rf /var/lib/apt/lists/*
+
+# ubuntu 16 (checked)
+wget https://github.com/PointCloudLibrary/pcl/archive/pcl-1.8.1.tar.gz
+tar zvfx pcl-1.8.1.tar.gz
+
+cd pcl-1.8.1
+mkdir build && cd build
+cmake -DCMAKE_BUILD_TYPE=Release ..
+make -j2
+sudo make -j2 install
+# or (확인 안됨)
+git clone https://github.com/PointCloudLibrary/pcl.git
+cd pcl
+mkdir build && cd build
+cmake ..
+make
+#checkinstall #apt-get install checkinstall
+make install
+```
+
 
 ### 설치 테스트
 
@@ -114,38 +155,6 @@ sudo rm -r VTK-8.0.1 pcl-pcl-1.8.1
 ```
 
 
-## Github 소스 설치
-
-```python
-sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends \
-make cmake build-essential git \
-libeigen3-dev \
-libflann-dev \
-libusb-1.0-0-dev \
-libvtk6-qt-dev \
-libpcap-dev \
-libboost-all-dev \
-libproj-dev \
-&& sudo rm -rf /var/lib/apt/lists/*
-
-# ubuntu 16 (checked)
-wget https://github.com/PointCloudLibrary/pcl/archive/pcl-1.8.1.tar.gz
-tar zvfx pcl-1.8.1.tar.gz
-
-cd pcl-1.8.1
-mkdir build && cd build
-cmake -DCMAKE_BUILD_TYPE=Release ..
-make -j2
-sudo make -j2 install
-# or (확인 안됨)
-git clone https://github.com/PointCloudLibrary/pcl.git
-cd pcl
-mkdir build && cd build
-cmake ..
-make
-#checkinstall #apt-get install checkinstall
-make install
-```
 
 
 
