@@ -42,10 +42,6 @@
   * [\[PCL-Cpp\] Reading Writing Point Cloud data to PCD files](Tutorial/InputOutput/pcl-cpp-reading-writing-point-cloud-data-to-pcd-files.md)
   * [\[PCL-Python\] Reading Writing Point Cloud data](Tutorial/InputOutput/pcl-python-reading-writing-point-cloud-data.md)
   * [\[Open3D\] Reading Writing Point Cloud data ](Tutorial/InputOutput/open3d-reading-writing-point-cloud-data.md)
-* [Feature](feature.md)
-
----
-
 * [Feature](Tutorial/Feature/README.md)
   * [\[Open3D\] Vertex normal estimation](Tutorial/Feature/open3d-vertex-normal-estimation.md)
   * [\[PCL-Python\] Surface Normal](Tutorial/Feature/pcl-python-surface-normal.md)
@@ -57,9 +53,6 @@
   * [\[PCL-Python\] Normal Estimation Using Integral Images](Tutorial/Feature/pcl-python-normal-estimation-using-integral-images.md)
   * [How 3D Features work in PCL](Tutorial/Feature/how-3d-features-work-in-pcl.md)
   * [\[PCL-Cpp\] Estimating Surface Normals in a PointCloud](Tutorial/Feature/pcl-cpp-estimating-surface-normals-in-a-pointcloud.md)
-
----
-
 * [Filtering](filtering.md)
   * [Filtering a PointCloud using a PassThrough filter](filtering/filtering-a-pointcloud-using-a-passthrough-filter.md)
   * [Downsampling a PointCloud using a VoxelGrid filter](filtering/downsampling-a-pointcloud-using-a-voxelgrid-filter.md)
