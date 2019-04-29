@@ -1,0 +1,164 @@
+## 2. PCL-Cpp 설치  (ROS설치시 미 필요)
+
+```python
+
+
+
+sudo apt-get update && sudo apt-get install -y software-properties-common git
+sudo add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl -y && sudo apt-get update
+
+sudo apt-get install -y libpcl-dev #ubuntu 16 (libpcl-dev 1.7.2)
+sudo apt-get install -y libpcl-all #ubnutu 14
+
+
+```
+
+### 설치 테스트
+
+```
+
+cd ~ && mkdir pcl-test && cd pcl-test
+
+wget https://gist.githubusercontent.com/adioshun/319d6a1326d33fa42cdd56833c3ef560/raw/e10d3502ddcd871f9d6b7b57d176b17d52de5571/CMakeLists.txt 
+wget https://gist.githubusercontent.com/adioshun/319d6a1326d33fa42cdd56833c3ef560/raw/e10d3502ddcd871f9d6b7b57d176b17d52de5571/main.cpp
+mkdir build && cd build
+cmake .. && make && ./pcl-test
+# Error
+sudo ln -s /usr/lib/x86_64-linux-gnu/libproj.so.9.1.0 /usr/lib/x86_64-linux-gnu/libproj.so
+sudo ln -s /usr/lib/x86_64-linux-gnu/libvtkCommonCore-6.2.so /usr/lib/libvtkproj4.so
+```
+
+
+
+
+
+
+
+## [소스설치](https://askubuntu.com/questions/916260/how-to-install-point-cloud-library-v1-8-pcl-1-8-0-on-ubuntu-16-04-2-lts-for)
+
+
+### 사전 설치
+
+```python
+apt-get install software-properties-common -y
+
+#Install oracle-java8-jdk:
+sudo add-apt-repository -y ppa:webupd8team/java && sudo apt update && sudo apt -y install oracle-java8-installer
+#sudo add-apt-repository -y ppa:webupd8team/java && apt update && apt -y install oracle-java8-installer
+
+#Install universal pre-requisites:
+
+sudo apt -y install g++ cmake cmake-gui doxygen mpi-default-dev openmpi-bin openmpi-common libusb-1.0-0-dev libqhull* libusb-dev libgtest-dev
+sudo apt -y install git-core freeglut3-dev pkg-config build-essential libxmu-dev libxi-dev libphonon-dev libphonon-dev phonon-backend-gstreamer
+sudo apt -y install phonon-backend-vlc graphviz mono-complete qt-sdk libflann-dev
+#sudo apt -y install g++ cmake cmake-gui doxygen mpi-default-dev openmpi-bin openmpi-common libusb-1.0-0-dev libqhull* libusb-dev libgtest-dev git-core freeglut3-dev pkg-config build-essential libxmu-dev libxi-dev libphonon-dev libphonon-dev phonon-backend-gstreamer phonon-backend-vlc graphviz mono-complete qt-sdk libflann-dev  
+```
+
+### For PCL v1.8, Ubuntu 16.04.2 input the following:
+
+```python
+sudo apt -y install libflann1.8 libboost1.58-all-dev cmake #libeigen3-dev (아래에서 dpkg로 설치)
+
+cd ~/Downloads
+wget http://launchpadlibrarian.net/209530212/libeigen3-dev_3.2.5-4_all.deb
+sudo dpkg -i libeigen3-dev_3.2.5-4_all.deb
+sudo apt-mark hold libeigen3-dev
+
+wget http://www.vtk.org/files/release/7.1/VTK-7.1.0.tar.gz
+tar -xf VTK-7.1.0.tar.gz
+cd VTK-7.1.0 && mkdir build && cd build
+cmake ..
+make
+sudo make install
+
+cd ~/Downloads
+wget https://github.com/PointCloudLibrary/pcl/archive/pcl-1.8.0.tar.gz
+tar -xf pcl-1.8.0.tar.gz
+cd pcl-pcl-1.8.0 && mkdir build && cd build
+cmake ..
+make
+sudo make install
+
+cd ~/Downloads
+rm libeigen3-dev_3.2.5-4_all.deb VTK-7.1.0.tar.gz pcl-1.8.0.tar.gz
+sudo rm -r VTK-7.1.0 pcl-pcl-1.8.0
+
+# docker pull adioshun/pcls:pcl_only
+
+```
+
+### For PCL v1.8.1, Ubuntu 17.10 input the following:
+
+```python
+sudo apt -y install libflann1.9 libboost1.63-all-dev libeigen3-dev
+
+cd ~/Downloads
+wget http://www.vtk.org/files/release/8.0/VTK-8.0.1.tar.gz
+tar -xf VTK-8.0.1.tar.gz
+cd VTK-8.0.1 && mkdir build && cd build
+cmake ..
+make
+sudo make install
+
+cd ~/Downloads
+wget https://github.com/PointCloudLibrary/pcl/archive/pcl-1.8.1.tar.gz
+tar -xf pcl-1.8.1.tar.gz
+cd pcl-pcl-1.8.1 && mkdir build && cd build
+cmake ..
+make
+sudo make install
+
+cd ~/Downloads
+rm VTK-8.0.1.tar.gz pcl-1.8.1.tar.gz
+sudo rm -r VTK-8.0.1 pcl-pcl-1.8.1
+```
+
+
+## Github 소스 설치
+
+```python
+sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends \
+make cmake build-essential git \
+libeigen3-dev \
+libflann-dev \
+libusb-1.0-0-dev \
+libvtk6-qt-dev \
+libpcap-dev \
+libboost-all-dev \
+libproj-dev \
+&& sudo rm -rf /var/lib/apt/lists/*
+
+# ubuntu 16 (checked)
+wget https://github.com/PointCloudLibrary/pcl/archive/pcl-1.8.1.tar.gz
+tar zvfx pcl-1.8.1.tar.gz
+
+cd pcl-1.8.1
+mkdir build && cd build
+cmake -DCMAKE_BUILD_TYPE=Release ..
+make -j2
+sudo make -j2 install
+# or (확인 안됨)
+git clone https://github.com/PointCloudLibrary/pcl.git
+cd pcl
+mkdir build && cd build
+cmake ..
+make
+#checkinstall #apt-get install checkinstall
+make install
+```
+
+
+
+
+
+|Error Code | Solution|
+|-|-|
+|add-apt-repository command not found | `apt-get install software-properties-common python-software-properties`|
+|Unable to locate package libpcl-all|apt-get install libpcl1|
+|pip10, ImportError: cannot import name main|Downgrade: `python2 -m pip install --user --upgrade pip==9.0.3`|
+|fatal error: 'pcl/point_cloud.h' file not found |seems due to that I don’t have an ROS environment.|
+|Python locale error: unsupported locale setting|$ export LC_ALL="en_US.UTF-8"<br>$ export LC_CTYPE="en_US.UTF-8"<br>$ sudo dpkg-reconfigure locales|
+|fatal error: pcl/features/cppf.h: No such file or directory|`sudo add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl;sudo apt-get update;sudo apt-get upgrade libpcl-features-dev libpcl-io-1.7 libpcl-io-1.7-dev`|ubnutu 14 떄문인|
+|'pcl_2d-1.8', required by 'pcl_features-1.8'| line 10 in /usr/local/lib/pkgconfig/pcl_features-1.8.pc <br>`Requires: pcl_common-1.8 pcl_search-1.8 pcl_kdtree-1.8 pcl_octree-1.8 pcl_filters-1.8 #pcl_2d-1.8`|[출처](https://github.com/strawlab/python-pcl/issues/97)|
+
+
