@@ -94,6 +94,11 @@ locate libpcl_recognition.so
 확인후 버젼과 다르면 폴더 삭제  
 
 
+```python 
+vi ~/.bashrc 
+#export PCL_LIBRARY="/usr/local/lib"
+#export PCL_INCLUDE_DIRS="/usr/local/include/pcl-1.9"
+```
 
 
 ## [소스설치](https://askubuntu.com/questions/916260/how-to-install-point-cloud-library-v1-8-pcl-1-8-0-on-ubuntu-16-04-2-lts-for)
