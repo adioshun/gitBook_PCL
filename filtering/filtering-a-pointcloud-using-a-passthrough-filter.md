@@ -1,11 +1,10 @@
 # [Filtering a PointCloud using a PassThrough filter](http://pointclouds.org/documentation/tutorials/passthrough.php#passthrough)
 
-- In this tutorial we will learn how to perform a simple filtering along a specified dimension – that is, cut off values that are either inside or outside a given user range.
+* In this tutorial we will learn how to perform a simple filtering along a specified dimension – that is, cut off values that are either inside or outside a given user range.
 
-- PassThrough Filter는 입력값으로 관심 영역의 x,y,z의 최대/최소값을 받아 crop하는 방식으로, 직관적이지만 정교한 부분을 제거하지는 못하는 단점이 있습니다. 
+* PassThrough Filter는 입력값으로 관심 영역의 x,y,z의 최대/최소값을 받아 crop하는 방식으로, 직관적이지만 정교한 부분을 제거하지는 못하는 단점이 있습니다.
 
-
-```python 
+```python
 # 정의 
 def do_passthrough(pcl_data,filter_axis,axis_min,axis_max):
     '''
@@ -20,7 +19,7 @@ def do_passthrough(pcl_data,filter_axis,axis_min,axis_max):
     passthrough.set_filter_field_name(filter_axis)
     passthrough.set_filter_limits(axis_min, axis_max)
     return passthrough.filter()
-    
+
 
 # 호출 
 cloud = input_pcl_xyzrgb
@@ -39,6 +38,7 @@ filter_axis = 'z'
 axis_min = -1.2
 axis_max = 10.0
 cloud = filter.do_passthrough(cloud, filter_axis, axis_min, axis_max)
-
 ```
+
+
 
