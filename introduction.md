@@ -20,7 +20,6 @@ pcl_surface - 3D 표면 복원 기법들 (meshing, convex hulls, Moving Least Sq
 pcl_range_image - range image (or depth map) 을 나타내고 처리하는 방법
 pcl_io - OpenNI 호환 depth camera 로부터 점군 데이터를 읽고 쓰는 방법
 pcl_visualization - 3D 점군 데이터를 처리하는 알고리즘의 결과를 시각화
-[출처] PCL 설치 및 테스트 (키넥트 개발 Open Kinect 코리아 커뮤니티) |작성자 매발톱
 
 
 
