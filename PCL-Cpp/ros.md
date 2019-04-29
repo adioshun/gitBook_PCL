@@ -5,7 +5,7 @@
 
 ubuntu 16기준 
 cd ~/catkin_src/src/
-catkin_create_pkg my_pcl_tutorial pcl pcl_ros roscpp sensor_msgs
+catkin_create_pkg my_pcl_tutorial pcl pcl_ros roscpp sensor_msgs  #CMakeList.txt 자동 생성 
 
 ```cpp
 // src/example.cpp
