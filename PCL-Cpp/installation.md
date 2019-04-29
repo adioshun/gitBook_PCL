@@ -61,7 +61,7 @@ mkdir build && cd build
 cmake ..
 make
 #checkinstall #apt-get install checkinstall
-make install
+sudo make install
 
 
 
