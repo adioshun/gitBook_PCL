@@ -51,7 +51,7 @@ tar zvfx pcl-1.8.1.tar.gz
 
 cd pcl-1.8.1
 mkdir build && cd build
-cmake -DCMAKE_BUILD_TYPE=Release ..
+cmake .. # with enhanced compiler optimizations `cmake -DCMAKE_BUILD_TYPE=Release ..`
 make -j2
 sudo make -j2 install
 # or (확인 안됨)
