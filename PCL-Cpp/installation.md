@@ -24,8 +24,9 @@ cd vcpkg/
 sudo apt-get update && sudo apt-get install -y software-properties-common git
 sudo add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl -y && sudo apt-get update
 
-sudo apt-get install -y libpcl-dev #ubuntu 16 (libpcl-dev 1.7.2)
 sudo apt-get install -y libpcl-all #ubnutu 14
+sudo apt-get install -y libpcl-dev #ubuntu 16 (libpcl-dev 1.7.2)
+sudo apt-get install -y libpcl-dev #ubuntu 18
 ```
 
 ## 3. 소스 설치 
