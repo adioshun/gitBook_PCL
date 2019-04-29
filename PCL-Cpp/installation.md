@@ -96,8 +96,8 @@ locate libpcl_recognition.so
 
 ```python 
 vi ~/.bashrc 
-#export PCL_LIBRARY="/usr/local/lib"
-#export PCL_INCLUDE_DIRS="/usr/local/include/pcl-1.9"
+export PCL_LIBRARY_DIRS="/usr/local/lib"
+export PCL_INCLUDE_DIRS="/usr/local/include/pcl-1.9"
 ```
 
 
