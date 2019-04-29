@@ -88,6 +88,7 @@
   * [\[PCL-Cpp\] Identifying ground returns using Progressive Morphological Filter segmentation](Tutorial/Segmentation/pcl-cpp-identifying-ground-returns-using-progressive-morphological-filter-segmentation.md)
   * [\[Matlab\] segmentGroundFromLidarData](Tutorial/Segmentation/matlab-segmentgroundfromlidardata.md)
   * [\[PCL-Python\] Conditional Euclidean Clustering](Tutorial/Segmentation/pcl-python-conditional-euclidean-clustering.md)
+  * [\[PCL-Python\] Region growing segmentation](Tutorial/Segmentation/pcl-python-region-growing-segmentation.md)
 * Surface
   * [Smoothing and normal estimation based on polynomial reconstruction](smoothing-and-normal-estimation-based-on-polynomial-reconstruction.md)
   * [Fast triangulation of unordered point clouds](fast-triangulation-of-unordered-point-clouds.md)
