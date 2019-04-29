@@ -60,8 +60,9 @@ cd pcl
 mkdir build && cd build
 cmake ..
 make
-#checkinstall #apt-get install checkinstall
-sudo make install
+sudo checkinstall -D make install #sudo make install대신 실행 추천 
+#apt-get install checkinstall
+
 
 
 
@@ -86,7 +87,7 @@ sudo ln -s /usr/lib/x86_64-linux-gnu/libvtkCommonCore-6.2.so /usr/lib/libvtkproj
 
 ### 설치 후 확인 
 
-> echo | gcc -v -x c -E - 
+> echo | gcc -v -x c++ -E - 
 
 ```python 
 locate /pcl/common/io.h
