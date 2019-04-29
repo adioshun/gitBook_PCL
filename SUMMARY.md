@@ -56,6 +56,14 @@
 * [Feature](Tutorial/Feature/README.md)
   * [\[Open3D\] Vertex normal estimation](Tutorial/Feature/open3d-vertex-normal-estimation.md)
   * [\[PCL-Python\] Surface Normal](Tutorial/Feature/pcl-python-surface-normal.md)
+  * [\[PCL-Python\] RoPs feature](Tutorial/Feature/pcl-python-rops-feature.md)
+  * [\[PCL-Python\] Moment of inertia and eccentricity based descriptors](Tutorial/Feature/pcl-python-moment-of-inertia-and-eccentricity-based-descriptors.md)
+  * [\[PCL-Python\] Estimating VFH signatures for a set of points](Tutorial/Feature/pcl-python-estimating-vfh-signatures-for-a-set-of-points.md)
+  * [\[PCL-Cpp\] PFH Descriptors](Tutorial/Feature/pcl-cpp-pfh-descriptors.md)
+  * [\[PCL-Cpp\] Normal Estimation Using Integral Images](Tutorial/Feature/pcl-cpp-normal-estimation-using-integral-images.md)
+  * [\[PCL-Python\] Normal Estimation Using Integral Images](Tutorial/Feature/pcl-python-normal-estimation-using-integral-images.md)
+  * [How 3D Features work in PCL](Tutorial/Feature/how-3d-features-work-in-pcl.md)
+  * [\[PCL-Cpp\] Estimating Surface Normals in a PointCloud](Tutorial/Feature/pcl-cpp-estimating-surface-normals-in-a-pointcloud.md)
 
 ---
 
@@ -78,11 +86,6 @@
   * [Spatial Partitioning and Search Operations with Octrees](octree/spatial-partitioning-and-search-operations-with-octrees.md)
   * [Spatial change detection on unorganized point cloud data](octree/spatial-change-detection-on-unorganized-point-cloud-data.md)
   * [Point Cloud Compression](octree/point-cloud-compression.md)
-* [Segmentation](segmentation.md)
-  * [DBSCAN\_Cluster](segmentation/dbscancluster.md)
-  * [Euclidean Cluster Extraction](segmentation/euclidean-cluster-extraction.md)
-  * [Region growing segmentation](segmentation/region-growing-segmentation.md)
-  * [Conditional Euclidean Clustering](segmentation/conditional-euclidean-clustering.md)
 * [Segmentation](Tutorial/Segmentation/README.md)
   * [\[PCL-Python\] Euclidean Cluster Extraction](Tutorial/Segmentation/pcl-python-euclidean-cluster-extraction.md)
   * [\[PCL-Cpp\] Identifying ground returns using Progressive Morphological Filter segmentation](Tutorial/Segmentation/pcl-cpp-identifying-ground-returns-using-progressive-morphological-filter-segmentation.md)
