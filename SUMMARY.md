@@ -85,6 +85,7 @@
   * [Conditional Euclidean Clustering](segmentation/conditional-euclidean-clustering.md)
 * [Segmentation](Tutorial/Segmentation/README.md)
   * [\[PCL-Python\] Euclidean Cluster Extraction](Tutorial/Segmentation/pcl-python-euclidean-cluster-extraction.md)
+  * [\[PCL-Cpp\] Identifying ground returns using Progressive Morphological Filter segmentation](Tutorial/Segmentation/pcl-cpp-identifying-ground-returns-using-progressive-morphological-filter-segmentation.md)
 * Surface
   * [Smoothing and normal estimation based on polynomial reconstruction](smoothing-and-normal-estimation-based-on-polynomial-reconstruction.md)
   * [Fast triangulation of unordered point clouds](fast-triangulation-of-unordered-point-clouds.md)
