@@ -43,13 +43,6 @@
   * [\[PCL-Python\] Reading Writing Point Cloud data](Tutorial/InputOutput/pcl-python-reading-writing-point-cloud-data.md)
   * [\[Open3D\] Reading Writing Point Cloud data ](Tutorial/InputOutput/open3d-reading-writing-point-cloud-data.md)
 * [Feature](feature.md)
-  * [Estimating Surface Normals in a PointCloud](feature/estimating-surface-normals-in-a-pointcloud.md)
-  * [How 3D Features work in PCL](feature/how-3d-features-work-in-pcl.md)
-  * [Normal Estimation Using Integral Images](feature/normal-estimation-using-integral-images.md)
-  * [Point Feature Histograms \(PFH\) descriptors](feature/point-feature-histograms-pfh-descriptors.md)
-  * [Estimating VFH signatures for a set of points](feature/estimating-vfh-signatures-for-a-set-of-points.md)
-  * [Moment of inertia and eccentricity based descriptors](feature/moment-of-inertia-and-eccentricity-based-descriptors.md)
-  * [RoPs feature](feature/rops-feature.md)
 
 ---
 
