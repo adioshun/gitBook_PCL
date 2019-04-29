@@ -86,6 +86,8 @@ sudo ln -s /usr/lib/x86_64-linux-gnu/libvtkCommonCore-6.2.so /usr/lib/libvtkproj
 
 ### 설치 후 확인 
 
+> echo | gcc -v -x c -E - 
+
 ```python 
 locate /pcl/common/io.h
 locate libpcl_recognition.so 
