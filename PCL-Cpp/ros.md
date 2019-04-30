@@ -28,6 +28,13 @@ $ catkin_create_pkg my_pcl_tutorial pcl pcl_ros roscpp sensor_msgs  #CMakeList.t
 
 #include <pcl/filters/voxel_grid.h>
 
+
+
+// Topics
+static const std::string SUBSCRIBER_TOPIC = "/velodyne_points";
+static const std::string PUBLISH_TOPIC = "test";
+
+// ROS Publisher
 ros::Publisher pub;
 
 void 
@@ -70,10 +77,10 @@ main (int argc, char** argv)
   ros::NodeHandle nh;
 
   // Create a ROS subscriber for the input point cloud
-  ros::Subscriber sub = nh.subscribe ("/velodyne_points", 1, cloud_cb);
+  ros::Subscriber sub = nh.subscribe (SUBSCRIBER_TOPIC, 1, cloud_cb);
 
   // Create a ROS publisher for the output point cloud
-  pub = nh.advertise<sensor_msgs::PointCloud2> ("output_test", 1);
+  pub = nh.advertise<sensor_msgs::PointCloud2> (PUBLISH_TOPIC, 1);
 
   // Spin
   ros::spin ();
@@ -84,17 +91,46 @@ main (int argc, char** argv)
 
 ###### CMakeLists.txt
 ```
-catkin_package() //[rosrun] Couldn't find executable named example below에러시 
-add_executable(example src/example.cpp) 
-target_link_libraries(example ${catkin_LIBRARIES})
+  find_package(catkin REQUIRED COMPONENTS
+    roscpp
+    pcl_conversions
+    pcl_ros
+  )
+  
+  catkin_package(
+  INCLUDE_DIRS
+  CATKIN_DEPENDS roscpp
+                 pcl_conversions
+                 pcl_ros
+  )
+  
+  add_executable(roscpp_pcl_example src/roscpp_pcl_example.cpp)
+  target_link_libraries(roscpp_pcl_example ${catkin_LIBRARIES})
+  
 ```
+
+###### package.xml
+
+```xml
+  <build_depend>roscpp</build_depend>
+  <build_depend>pcl_conversions</build_depend>
+  <build_depend>pcl_ros</build_depend>
+  <build_depend>libpcl-all-dev</build_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>pcl_conversions</run_depend>
+  <run_depend>pcl_ros</run_depend>
+  <run_depend>libpcl-all</run_depend>
+
+
+
+```
+
 
 ###### RUN 
 
 ```
-rosrun my_pcl_tutorial example input:=/narrow_stereo_textured/points2
-cd ~/catkin_src
-catkin_make
+catkin_make --directory ~/catkin_ws --pkg ground
+source ~/devel/setup.sh
 rosrun my_pcl_tutorial example input:=/narrow_stereo_textured/points2
 ```
 
