@@ -50,7 +50,11 @@ sensor_msgs::PointCloud point_cloud;
 
 sensor_msgs::convertPointCloudToPointCloud2(point_cloud, point_cloud2);
 sensor_msgs::convertPointCloud2ToPointCloud(point_cloud2, point_cloud);
+```
 
+
+
+```cpp
 //Converting a PCL pointcloud to a ROS pcl message/ ROS pcl message to PCL point cloud
 #include sensor_msgs/PointCloud2;
 #include pcl_conversions/pcl_conversions;
