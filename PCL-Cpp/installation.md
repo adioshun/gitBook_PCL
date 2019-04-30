@@ -2,7 +2,7 @@
 
 > ROS 설치시 기본 설치 됨 (1.7)
 
-## 1. ~~[VCpkg이용한 설치 ](http://unanancyowen.com/en/pcl-vcpkg/)~~  #불안정  
+## 1. ~~[VCpkg이용한 설치 ](http://unanancyowen.com/en/pcl-vcpkg/)~~  
 
 [Vcpkg](https://github.com/Microsoft/vcpkg): a tool to acquire and build C++ open source libraries on Windows
 
