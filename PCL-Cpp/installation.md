@@ -2,7 +2,18 @@
 
 > ROS 설치시 기본 설치 됨 (1.7)
 
-## 1. ~~[VCpkg이용한 설치 ](http://unanancyowen.com/en/pcl-vcpkg/)~~  
+
+## 1. apt-get 이용한 설치 
+```python
+sudo apt-get update && sudo apt-get install -y software-properties-common git
+sudo add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl -y && sudo apt-get update
+
+sudo apt-get install -y libpcl-all #ubnutu 14
+sudo apt-get install -y libpcl-dev #ubuntu 16 (libpcl-dev 1.7.2)
+sudo apt-get install -y libpcl-dev #ubuntu 18
+```
+
+## 2. ~~[VCpkg이용한 설치 ](http://unanancyowen.com/en/pcl-vcpkg/)~~  
 
 [Vcpkg](https://github.com/Microsoft/vcpkg): a tool to acquire and build C++ open source libraries on Windows
 
@@ -19,15 +30,7 @@ cd vcpkg/
 
 
 
-## 2. apt-get 이용한 설치 
-```python
-sudo apt-get update && sudo apt-get install -y software-properties-common git
-sudo add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl -y && sudo apt-get update
 
-sudo apt-get install -y libpcl-all #ubnutu 14
-sudo apt-get install -y libpcl-dev #ubuntu 16 (libpcl-dev 1.7.2)
-sudo apt-get install -y libpcl-dev #ubuntu 18
-```
 
 ## 3. 소스 설치 
 
