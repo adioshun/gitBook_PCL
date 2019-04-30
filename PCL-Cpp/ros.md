@@ -40,7 +40,8 @@ cloud_cb (const sensor_msgs::PointCloud2 msg)
 {
   std::cout << "msg is: " << typeid(msg).name() << '\n';
 
-    //ros_pcl2 to pcl2
+  //ros_pcl2 to pcl2
+  //http://www.pcl-users.org/ROS-PointCloud2-to-CloudXYZRGBA-td4039503.html
   pcl::PCLPointCloud2 pcl_pc;
   pcl_conversions::toPCL(msg, pcl_pc);  
   std::cout << "cloud is: " << typeid(msg).name() << '\n';
