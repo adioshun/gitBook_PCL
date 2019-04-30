@@ -22,50 +22,36 @@ $ catkin_create_pkg my_pcl_tutorial pcl pcl_ros roscpp sensor_msgs  #CMakeList.t
 
 #include <ros/ros.h>
 #include <sensor_msgs/PointCloud2.h>
-#include <pcl_conversions/pcl_conversions.h>
+// PCL specific includes
+#include <pcl/conversions.h>
 #include <pcl/point_cloud.h>
 #include <pcl/point_types.h>
+#include <pcl_conversions/pcl_conversions.h>
 
-#include <pcl/filters/voxel_grid.h>
+#include <iostream>       // std::cout
+#include <typeinfo>       // operator typeid
 
-
-
-// Topics
-static const std::string SUBSCRIBER_TOPIC = "/velodyne_points";
-static const std::string PUBLISH_TOPIC = "test";
-
-// ROS Publisher
 ros::Publisher pub;
 
+typedef pcl::PointXYZRGBA              PointXYZRGBA;
+
 void 
-cloud_cb (const sensor_msgs::PointCloud2ConstPtr& input)
+cloud_cb (const sensor_msgs::PointCloud2 msg)
 {
-  ## 메시지 종류
-  # sensor_msgs::PointCloud — ROS message (deprecated)
-  # sensor_msgs::PointCloud2 — 기본 메시지, ROS message
-  # pcl::PCLPointCloud2 — PCL data structure mostly for compatibility with ROS (I think)
-  # pcl::PointCloud<T> — 기본 데이터 포맷, standard PCL data structure
-  // Container for original & filtered data
-  pcl::PCLPointCloud2* cloud = new pcl::PCLPointCloud2; 
-  pcl::PCLPointCloud2ConstPtr cloudPtr(cloud);
-  pcl::PCLPointCloud2 cloud_filtered;
+  std::cout << "msg is: " << typeid(msg).name() << '\n';
 
-  // Convert to PCL data type
-  pcl_conversions::toPCL(*input, *cloud);
+    //ros_pcl2 to pcl2
+  pcl::PCLPointCloud2 pcl_pc;
+  pcl_conversions::toPCL(msg, pcl_pc);  
+  std::cout << "cloud is: " << typeid(msg).name() << '\n';
 
-  // Perform the actual filtering
-  pcl::VoxelGrid<pcl::PCLPointCloud2> sor;
-  sor.setInputCloud (cloudPtr);
-  sor.setLeafSize (0.1, 0.1, 0.1);
-  sor.filter (cloud_filtered);
-  
-  // Do data processing here...
-  #output = *input;
-  // Convert to ROS data type
-  sensor_msgs::PointCloud2 output;
-  pcl_conversions::fromPCL(cloud_filtered, output);
+  //pcl2 to pclxyzrgba
+  pcl::PointCloud<PointXYZRGBA> input_cloud;
+  pcl::fromPCLPointCloud2(pcl_pc, input_cloud);
 
   // Publish the data
+  sensor_msgs::PointCloud2 output;
+  output = msg;  
   pub.publish (output);
 }
 
@@ -77,10 +63,10 @@ main (int argc, char** argv)
   ros::NodeHandle nh;
 
   // Create a ROS subscriber for the input point cloud
-  ros::Subscriber sub = nh.subscribe (SUBSCRIBER_TOPIC, 1, cloud_cb);
+  ros::Subscriber sub = nh.subscribe ("/velodyne_points", 1, cloud_cb);
 
   // Create a ROS publisher for the output point cloud
-  pub = nh.advertise<sensor_msgs::PointCloud2> (PUBLISH_TOPIC, 1);
+  pub = nh.advertise<sensor_msgs::PointCloud2> ("output", 1);
 
   // Spin
   ros::spin ();
