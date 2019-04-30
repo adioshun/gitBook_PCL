@@ -1,5 +1,5 @@
 
-# [Downsampling a PointCloud using a VoxelGrid filter](http://pointclouds.org/documentation/tutorials/voxel_grid.php#voxelgrid)
+# Downsampling a PointCloud using a VoxelGrid filter
 
 
 In this tutorial we will learn how to downsample – that is, reduce the number of points – a point cloud dataset, using a voxelized grid approach.
