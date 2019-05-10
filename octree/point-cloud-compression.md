@@ -48,3 +48,12 @@ main(int argc, char** argv)
 }
 
 ```
+
+
+---
+
+- [A Survey of Compression Strategies for 3D Point Clouds](https://www.youtube.com/watch?v=zgziFNTQ_ZE&feature=youtu.be): Youtube, 9:41
+
+- [Compressing Point Clouds with Point Cloud Library (PCL)](https://www.youtube.com/watch?v=DLvO0b2NBXE&feature=youtu.be): Youtube, 2:02
+
+
