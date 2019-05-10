@@ -1,5 +1,8 @@
 # [How to use iterative closest point](http://pointclouds.org/documentation/tutorials/iterative_closest_point.php#iterative-closest-point)
 
+
+> 깃북 한글 설명 : https://legacy.gitbook.com/book/adioshun/paper_slam/edit#/edit/master/registration/2018-a-modified-method-for-registration-of-3d-point-clouds-with-a-low-overlap-ratio.md?_k=d2n78i
+
 - 기능 :  can determine if one PointCloud is just a rigid transformation of another by minimizing the distances between the points of two pointclouds and rigidly transforming them.
 
 
@@ -8,3 +11,5 @@ ICP(iterative closest point) 알고리즘과 같이 반복적으로 서로 위�
 1) 정합 타겟들 정의
 2) 각 장면 스캔 데이터의 정합 타겟 간 최소오차가 되도록 스캔 데이터를 이동/회전 변환
 3) 정합 결과 확인 및 2) 번 과정 반복
+
+
