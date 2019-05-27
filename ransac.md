@@ -118,4 +118,6 @@ RANSAC 알고리즘을 이용한 지상 라이다 포인트 클라우드의 세�
 ### 2.3 IPP
 
 
+---
 
+[추천][UDACITY강좌](https://classroom.udacity.com/courses/ud810/lessons/3189558841/concepts/31679389240923)
