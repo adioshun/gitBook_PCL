@@ -23,8 +23,9 @@ member variables
     - structured : the total number of rows of the point cloud
     
 템플릿 
-- PointXYZ : `pcl::PointCloud<pcl::PointXYZ> cloud;`
-
+- `pcl::PointCloud<pcl::PointXYZRGBA>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZRGBA>);`
+- Read RGB: `pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZRGB>);`
+- Read pure XYZ: `pcl::PointCloud<pcl::PointXYZ>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZ>);`
 
 ## 2. Structure : `PointXYZ`, `PointXYZI`, `PointXYZRGB`, `PCLPointCloud2`
 
