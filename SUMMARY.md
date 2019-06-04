@@ -93,7 +93,6 @@
   * [lib\_k3d](visualization/libk3d.md)
   * [The CloudViewer](visualization/visualizing-point-clouds.md)
   * [PCLVisualizer](visualization/pclvisualizer.md)
-  * [PCL Visualization overview](visualization/pcl-visualization-overview.md)
 * [Tracking object in real time](tracking-object-in-real-time.md)
 
 ## 참고
