@@ -3,6 +3,15 @@
 
 > https://blog.csdn.net/qq_16481211/article/details/85332763#pclPCLPointCloud2_80
 
+```
+Pcl::PointCloud
+
+Pcl::PointXYZ
+Pcl::PointXYZI
+Pcl::PointXYZRGB
+Pcl::PCLPointCloud2
+```
+
 ## 1. Template class : `Pcl::PointCloud`
 
 member variables
