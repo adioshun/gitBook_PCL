@@ -166,5 +166,7 @@ sensor_msgs::PointCloud2ConstPtr pointcloud_msg;
 pcl::fromROSMsg(*pointcloud_msg.get(), *received_cloud_ptr.get());
 
 ```
+---
 
+- [Two ROS to PCL methods](http://www.programmersought.com/article/5428227702/)
 
