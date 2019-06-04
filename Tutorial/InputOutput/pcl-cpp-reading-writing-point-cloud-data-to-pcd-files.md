@@ -112,7 +112,25 @@ struct PCLPointCloud2
 
 Replace each other : https://blog.csdn.net/qq_16481211/article/details/85332763#pclPCLPointCloud2_80
 
+```cpp
+PointCloud<PointXYZ>和PointCloud<PointXYZRGB> 
 
+PointCloud<PointXYZ> cloud_xyz;
+// [...]
+PointCloud<PointXYZRGB> cloud_xyzrgb;
+copyPointCloud(cloud_xyz, cloud_xyzrgb);
+
+cloud_filtered_blob 聲明的數據格式爲pcl::PCLPointCloud2::Ptr  cloud_filtered_blob (new pcl::PCLPointCloud2);
+cloud_filtered 申明的數據格式  pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_filtered (new pcl::PointCloud<pcl::PointXYZ>) 
+
+pcl::fromPCLPointCloud2 (*cloud_filtered_blob, *cloud_filtered);
+
+void pcl::fromPCLPointCloud(const pcl:PCLPointCloud2 & msg  pcl::PointCloud<PointT>  & cloud const MsgFieldMap & filed_map)
+
+void pcl::fromPCLPointCloud2(const pcl::PCLPointCloud & msg pcl::PointCloud<pointT> &cloud )
+
+void pcl::fromROSMsg（const pcl:PCLPointCloud2 & msg pcl::PointCloud<PointT>  & cloud  ）
+```
 ---
 - [Reading Point Cloud data from PCD files](http://www.pointclouds.org/documentation/tutorials/reading_pcd.php#reading-pcd)
 
