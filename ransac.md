@@ -1,10 +1,15 @@
 # Random sample consensus algorithm (RANSAC)
 
-> 출처 : [RANSAC의 이해와 영상처리 활용(다크 프로그래머)](http://darkpgmr.tistory.com/61)
+![](https://i.imgur.com/E8Ynlcr.png)
+
+UDACITY : https://classroom.udacity.com/courses/ud810/lessons/3189558841/concepts/31679389240923
+
 
 ```
 "Random Sample Consensus: A Paradigm for Model Fitting with Application to Image Analysis and Automated Cartography", 1981 by Martin A. Fischler and Robert C. Bolles 
 ```
+> 출처 : [RANSAC의 이해와 영상처리 활용(다크 프로그래머)](http://darkpgmr.tistory.com/61)
+
 
 #### A. 정의 
 
@@ -65,8 +70,6 @@
 
 
 ---
-# Downsampling
-
 ## 2. Ground Segmentation
 
 지면 포인트들을 그룹화  
@@ -92,7 +95,11 @@ By modeling the table as a plane, we can remove it from the point cloud.
 * Segmentation of the table from everything else 
 * to identify the table.
 
-Random Sample Consensus \(RANSAC\) is used to identify points in the dataset that belong to a particular model. It assumes that all of the data in a dataset is composed of both inliers and outliers, where inliers can be defined by a particular model with a specific set of parameters, and outliers don't.
+RANSAC은 포인트들이 특정 Model에 속하는지 아닌지 식별 한다. `Random Sample Consensus \(RANSAC\) is used to identify points in the dataset that belong to a particular model.`
+
+RANSAC은 포인트들은 두 종류로 구분 된다고 가정 한다: inlier, outlier ` It assumes that all of the data in a dataset is composed of both inliers and outliers,`
+- where inliers can be defined by a particular model with a specific set of parameters, 
+- and outliers don't.
 
 ```
 RANSAC 알고리즘을 이용한 지상 라이다 포인트 클라우드의 세그먼테이션, 2009, 정성수 (파라미터 T 구하는법 기술)
@@ -120,4 +127,4 @@ RANSAC 알고리즘을 이용한 지상 라이다 포인트 클라우드의 세�
 
 ---
 
-[추천][UDACITY강좌](https://classroom.udacity.com/courses/ud810/lessons/3189558841/concepts/31679389240923)
+[[추천] UDACITY강좌](https://classroom.udacity.com/courses/ud810/lessons/3189558841/concepts/31679389240923) :컴퓨터 비젼 - RANSAC
