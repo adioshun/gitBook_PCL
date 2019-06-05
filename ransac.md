@@ -8,6 +8,19 @@ UDACITY : https://classroom.udacity.com/courses/ud810/lessons/3189558841/concept
 ```
 "Random Sample Consensus: A Paradigm for Model Fitting with Application to Image Analysis and Automated Cartography", 1981 by Martin A. Fischler and Robert C. Bolles 
 ```
+
+---
+
+# [How to use Random Sample Consensus model](http://pointclouds.org/documentation/tutorials/random_sample_consensus.php#random-sample-consensus)
+
+
+> PCL Tutirial 
+
+
+---
+
+# RANSAC의 이해와 영상처리 활용
+
 > 출처 : [RANSAC의 이해와 영상처리 활용(다크 프로그래머)](http://darkpgmr.tistory.com/61)
 
 
