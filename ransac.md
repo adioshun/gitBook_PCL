@@ -71,6 +71,55 @@ The pictures to the left and right show a simple application of the RANSAC algor
 - 이경우 모델은 Line이다. ` In this case the model that we are trying to fit to the data is a line, and it looks like it’s a fairly good fit to our data.`
 
 
+```cpp
+
+#include <iostream>
+#include <thread>
+
+#include <pcl/console/parse.h>
+#include <pcl/filters/extract_indices.h>
+#include <pcl/io/pcd_io.h>
+#include <pcl/point_types.h>
+#include <pcl/sample_consensus/ransac.h>
+#include <pcl/sample_consensus/sac_model_plane.h>
+#include <pcl/sample_consensus/sac_model_sphere.h>
+#include <pcl/visualization/pcl_visualizer.h>
+
+
+int
+main(int argc, char** argv)
+{
+  // initialize PointClouds
+  pcl::PointCloud<pcl::PointXYZ>::Ptr cloud (new pcl::PointCloud<pcl::PointXYZ>);
+  pcl::PointCloud<pcl::PointXYZ>::Ptr final (new pcl::PointCloud<pcl::PointXYZ>);
+
+  // cloud에 랜덤 포인트 생성 
+
+  std::vector<int> inliers;
+
+  // created RandomSampleConsensus object and compute the appropriated model
+  pcl::SampleConsensusModelPlane<pcl::PointXYZ>::Ptr model_p (new pcl::SampleConsensusModelPlane<pcl::PointXYZ> (cloud));
+
+  pcl::RandomSampleConsensus<pcl::PointXYZ> ransac (model_p);
+  ransac.setDistanceThreshold (.01);
+  ransac.computeModel();
+  ransac.getInliers(inliers);
+
+  // copies all inliers of the model computed to another PointCloud
+  pcl::copyPointCloud<pcl::PointXYZ>(*cloud, inliers, *final);
+
+  /// ...
+
+  return 0;
+ }
+ 
+```
+
+|![](http://pointclouds.org/documentation/tutorials/_images/ransac_outliers_plane.png)|![](http://pointclouds.org/documentation/tutorials/_images/ransac_inliers_plane.png)|![](http://pointclouds.org/documentation/tutorials/_images/ransac_inliers_sphere.png)|
+|-|-|-|
+|원본|평면 모델 적용|구형 모델 적용|
+
+
 ---
 
 # RANSAC의 이해와 영상처리 활용
