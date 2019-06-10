@@ -55,7 +55,6 @@
   * [\[PCL-Cpp\] Estimating Surface Normals in a PointCloud](Tutorial/Feature/pcl-cpp-estimating-surface-normals-in-a-pointcloud.md)
 * [Filtering](filtering.md)
   * [Downsampling a PointCloud using a VoxelGrid filter](filtering/downsampling-a-pointcloud-using-a-voxelgrid-filter.md)
-  * [Removing outliers using a StatisticalOutlierRemoval filter](filtering/removing-outliers-using-a-statisticaloutlierremoval-filter.md)
   * [Extracting indices from a PointCloud](filtering/extracting-indices-from-a-pointcloud.md)
 * [Registration](Tutorial/Registration/README.md)
   * [How to use iterative closest point](Tutorial/Registration/iterative-closest-point.md)
