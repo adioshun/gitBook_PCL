@@ -1,3 +1,21 @@
+# 다시 살펴 보기 
+
+https://www.google.co.kr/search?newwindow=1&client=ubuntu&hs=m2g&q=%ED%8C%8C%EC%9D%B4%EC%8D%AC+ransac&sa=X&ved=2ahUKEwjHn4Du8t7iAhXlGaYKHZC3CGkQ1QIoCHoECAoQCQ&biw=2560&bih=1194
+
+
+https://carstart.tistory.com/190
+
+https://kkhipp.tistory.com/50
+
+https://m.blog.naver.com/PostView.nhn?blogId=tlaja&logNo=220766940920&proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F
+
+[cpp 코드 ](http://blog.daum.net/pg365/242)
+
+[Object detection in 3D point clouds](https://www.mi.fu-berlin.de/inf/groups/ag-ki/Theses/Completed-theses/Master_Diploma-theses/2016/Damm/Master-Damm.pdf)의 20page참고
+
+
+
+
 # Random sample consensus algorithm (RANSAC)
 
 ![](https://i.imgur.com/E8Ynlcr.png)
