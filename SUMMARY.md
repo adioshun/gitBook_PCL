@@ -42,8 +42,6 @@
 * [I\_O](Tutorial/InputOutput/README.md)
   * [\[PCL-Cpp\] Concatenate the points of two Point Clouds](Tutorial/InputOutput/pcl-cpp-concatenate-the-points-of-two-point-clouds.md)
   * [\[PCL-Cpp\] Reading Writing Point Cloud data to PCD files](Tutorial/InputOutput/pcl-cpp-reading-writing-point-cloud-data-to-pcd-files.md)
-  * [\[PCL-Python\] Reading Writing Point Cloud data](Tutorial/InputOutput/pcl-python-reading-writing-point-cloud-data.md)
-  * [\[Open3D\] Reading Writing Point Cloud data ](Tutorial/InputOutput/open3d-reading-writing-point-cloud-data.md)
 * [Feature](Tutorial/Feature/README.md)
   * [How 3D Features work in PCL](Tutorial/Feature/how-3d-features-work-in-pcl.md)
   * [\[Open3D\] Vertex normal estimation](Tutorial/Feature/open3d-vertex-normal-estimation.md)
