@@ -59,7 +59,6 @@
   * [Removing outliers using a StatisticalOutlierRemoval filter](filtering/removing-outliers-using-a-statisticaloutlierremoval-filter.md)
   * [Extracting indices from a PointCloud](filtering/extracting-indices-from-a-pointcloud.md)
   * [Removing outliers using a Conditional or Radius Outlier removal](filtering/removing-outliers-using-a-conditional-or-radius-outlier-removal.md)
-  * [\[PCL-Cpp\] Downsampling a PointCloud using a VoxelGrid filter](filtering/pcl-cpp-downsampling-a-pointcloud-using-a-voxelgrid-filter.md)
 * [Registration](Tutorial/Registration/README.md)
   * [How to use iterative closest point](Tutorial/Registration/iterative-closest-point.md)
   * [The PCL Registration API](Tutorial/Registration/the-pcl-registration-api.md)
