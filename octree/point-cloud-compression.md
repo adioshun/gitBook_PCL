@@ -1,6 +1,6 @@
 # [Point Cloud Compression](http://pointclouds.org/documentation/tutorials/compression.php#octree-compression)
 
-
+> http://robotica.unileon.es/index.php/PCL/OpenNI_tutorial_2:_Cloud_processing_(basic)
 
 
 
@@ -19,10 +19,7 @@ main(int argc, char** argv)
 	pcl::PointCloud<pcl::PointXYZ>::Ptr decompressedCloud(new pcl::PointCloud<pcl::PointXYZ>);
 
 	// Read a PCD file from disk.
-	if (pcl::io::loadPCDFile<pcl::PointXYZ>(argv[1], *cloud) != 0)
-	{
-		return -1;
-	}
+	pcl::io::loadPCDFile<pcl::PointXYZ> ("tabletop.pcd", *cloud); 
 
 	// Octree compressor object.
 	// Check /usr/include/pcl-<version>/pcl/compression/compression_profiles.h for more profiles.
