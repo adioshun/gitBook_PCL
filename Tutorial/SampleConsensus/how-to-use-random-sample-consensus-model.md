@@ -67,7 +67,39 @@ The pictures to the left and right show a simple application of the RANSAC algor
 
 ## Code 
 
-> 생략 
+코드 분석을 위한 간략화 버젼 
+
+```cpp
+
+
+int
+main(int argc, char** argv)
+{
+  // initialize PointClouds
+  pcl::PointCloud<pcl::PointXYZ>::Ptr cloud (new pcl::PointCloud<pcl::PointXYZ>);
+  pcl::PointCloud<pcl::PointXYZ>::Ptr final (new pcl::PointCloud<pcl::PointXYZ>);
+
+  // cloud에 랜덤 포인트 생성 
+
+  std::vector<int> inliers;
+
+  // created RandomSampleConsensus object and compute the appropriated model
+  pcl::SampleConsensusModelPlane<pcl::PointXYZ>::Ptr model_p (new pcl::SampleConsensusModelPlane<pcl::PointXYZ> (cloud));
+
+  pcl::RandomSampleConsensus<pcl::PointXYZ> ransac (model_p);
+  ransac.setDistanceThreshold (.01);
+  ransac.computeModel();
+  ransac.getInliers(inliers);
+
+  // copies all inliers of the model computed to another PointCloud
+  pcl::copyPointCloud<pcl::PointXYZ>(*cloud, inliers, *final);
+
+  /// ...
+
+  return 0;
+ }
+
+```
 
 ## 결과 
 

@@ -1,16 +1,18 @@
 # [[PCL-Cpp] Plane model segmentation](http://www.pointclouds.org/documentation/tutorials/planar_segmentation.php)
 
+> [How to use Random Sample Consensus model](http://pointclouds.org/documentation/tutorials/random_sample_consensus.php#random-sample-consensus) 선행 학습 필요 
+> [Extracting indices from a PointCloud](http://pointclouds.org/documentation/tutorials/extract_indices.php#extract-indices)의 선수과목 
 
-- [Publishing and Subscribing to different point cloud message types](http://wiki.ros.org/pcl/Overview)
+In this tutorial we will learn how do a simple plane segmentation of a set of points, that is find all the points within a point cloud that support a plane model. 
 
-
-
-
-
+This tutorial supports the Extracting indices from a PointCloud tutorial, presented in the filtering section.
 
 
 
 ---
+# [Publishing and Subscribing to different point cloud message types](http://wiki.ros.org/pcl/Overview)
+
+
 
 ## with ROS 
 

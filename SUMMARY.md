@@ -73,7 +73,7 @@
   * [Point Cloud Compression](octree/point-cloud-compression.md)
   * [\[PCL-Cpp\] Octree](octree/pcl-cpp-octree.md)
 * [Sample Consensus](Tutorial/SampleConsensus/README.md)
-  * [How to use Random Sample Consensus model](Tutorial/SampleConsensus/how-to-use-random-sample-consensus-model.md)
+  * [How to use Random Sample Consensus model \(100%\)](Tutorial/SampleConsensus/how-to-use-random-sample-consensus-model.md)
 * [Segmentation](Tutorial/Segmentation/README.md)
   * [\[PCL-Python\] Euclidean Cluster Extraction](Tutorial/Segmentation/pcl-python-euclidean-cluster-extraction.md)
   * [\[PCL-Cpp\] Identifying ground returns using Progressive Morphological Filter segmentation](Tutorial/Segmentation/pcl-cpp-identifying-ground-returns-using-progressive-morphological-filter-segmentation.md)
