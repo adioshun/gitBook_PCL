@@ -26,20 +26,17 @@ In order to not complicate the tutorial, the segmentation algorithm is not expla
 int
 main (int argc, char** argv)
 {
-  //pcl::PCLPointCloud2::Ptr cloud_blob (new pcl::PCLPointCloud2), cloud_filtered_blob (new pcl::PCLPointCloud2);
-  pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_filtered (new pcl::PointCloud<pcl::PointXYZ>), cloud_p (new pcl::PointCloud<pcl::PointXYZ>), cloud_f (new pcl::PointCloud<pcl::PointXYZ>);
 
-  pcl::io::loadPCDFile<pcl::PointXYZ> ("table_scene_lms400.pcd", *cloud_filtered);
-  std::cerr << "PointCloud : " << cloud_filtered->points.size() << " data points." << std::endl;
+  pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud (new pcl::PointCloud<pcl::PointXYZRGB>), cloud_p (new pcl::PointCloud<pcl::PointXYZRGB>), cloud_f (new pcl::PointCloud<pcl::PointXYZRGB>);
 
-
+  pcl::io::loadPCDFile<pcl::PointXYZRGB> ("tabletop.pcd", *cloud);
+  std::cout << "Loaded :" << cloud->width * cloud->height  << std::endl;
 
   pcl::ModelCoefficients::Ptr coefficients (new pcl::ModelCoefficients ());
   pcl::PointIndices::Ptr inliers (new pcl::PointIndices ());
   // Create the segmentation object
-  pcl::SACSegmentation<pcl::PointXYZ> seg;
-  // Optional 
-  //http://answers.ros.org/question/55223/what-does-setoptimizecoefficients-do-in-sacsegmentation/
+  pcl::SACSegmentation<pcl::PointXYZRGB> seg;
+  // Optional
   seg.setOptimizeCoefficients (true);
   // Mandatory
   seg.setModelType (pcl::SACMODEL_PLANE);
@@ -48,14 +45,14 @@ main (int argc, char** argv)
   seg.setDistanceThreshold (0.01);
 
   // Create the filtering object
-  pcl::ExtractIndices<pcl::PointXYZ> extract;
+  pcl::ExtractIndices<pcl::PointXYZRGB> extract;
 
-  int i = 0, nr_points = (int) cloud_filtered->points.size ();
+  int i = 0, nr_points = (int) cloud->points.size ();
   // While 30% of the original cloud is still there
-  while (cloud_filtered->points.size () > 0.3 * nr_points)
+  while (cloud->points.size () > 0.3 * nr_points)
   {
     // Segment the largest planar component from the remaining cloud
-    seg.setInputCloud (cloud_filtered);
+    seg.setInputCloud (cloud);
     seg.segment (*inliers, *coefficients);
     if (inliers->indices.size () == 0)
     {
@@ -64,17 +61,21 @@ main (int argc, char** argv)
     }
 
     // Extract the inliers
-    extract.setInputCloud (cloud_filtered);
+    extract.setInputCloud (cloud);
     extract.setIndices (inliers);
     extract.setNegative (false);
     extract.filter (*cloud_p);
     std::cerr << "PointCloud representing the planar component: " << cloud_p->width * cloud_p->height << " data points." << std::endl;
-   
-  
+
+    std::stringstream ss;
+    ss << "table_scene_lms400_plane_" << i << ".pcd";
+    pcl::PCDWriter writer2;
+    writer2.write<pcl::PointXYZRGB> (ss.str (), *cloud_p, false);
+
     // Create the filtering object
     extract.setNegative (true);
     extract.filter (*cloud_f);
-    cloud_filtered.swap (cloud_f);
+    cloud.swap (cloud_f);
     i++;
   }
 
