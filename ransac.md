@@ -12,7 +12,7 @@
 	- RANSAC 
 
 
-
+> [최소자승법 이해와 다양한 활용예 (Least Square Method)](https://darkpgmr.tistory.com/56)
 
 # 다시 살펴 보기 
 
