@@ -72,6 +72,9 @@
   * [Spatial change detection on unorganized point cloud data](octree/spatial-change-detection-on-unorganized-point-cloud-data.md)
   * [Point Cloud Compression](octree/point-cloud-compression.md)
   * [\[PCL-Cpp\] Octree](octree/pcl-cpp-octree.md)
+
+* [Sample Consensus](Tutorial/SampleConsensus/README.md)
+
 * [Segmentation](Tutorial/Segmentation/README.md)
   * [\[PCL-Python\] Euclidean Cluster Extraction](Tutorial/Segmentation/pcl-python-euclidean-cluster-extraction.md)
   * [\[PCL-Cpp\] Identifying ground returns using Progressive Morphological Filter segmentation](Tutorial/Segmentation/pcl-cpp-identifying-ground-returns-using-progressive-morphological-filter-segmentation.md)
