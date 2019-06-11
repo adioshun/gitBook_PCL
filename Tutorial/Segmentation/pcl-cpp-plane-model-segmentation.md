@@ -51,8 +51,6 @@ int
   seg.setModelType (pcl::SACMODEL_PLANE); //PLANE 모델 사용
   seg.setMethodType (pcl::SAC_RANSAC);  //RANSAC 방법 사용 
   seg.setDistanceThreshold (0.01); //determines how close a point must be to the model in order to be considered an inlier
-
-  
   
   seg.setInputCloud (cloud);
   seg.segment (*inliers, *coefficients);
