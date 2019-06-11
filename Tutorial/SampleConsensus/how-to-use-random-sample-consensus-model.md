@@ -18,15 +18,21 @@ In this tutorial we learn how to use a RandomSampleConsensus with a plane model 
 
 
 입력 `The input to the RANSAC algorithm is `
-- a set of observed data values, 
-- a parameterized model which can explain or be fitted to the observations, 
-- and some confidence parameters.
+- 입력 데이터 `a set of observed data values, `
+- 파라미터로된 모델 `a parameterized model which can explain or be fitted to the observations, `
+- 신뢰도 파라미터 `and some confidence parameters.`
 
 수행 방법은 무작위로 샘플을 선택(hypothetical inliers라고함) 하여 반복적으로 아래 절차를 진행 한다. `RANSAC achieves its goal by iteratively selecting a random subset of the original data. These data are hypothetical inliers and this hypothesis is then tested as follows:`
-1. A model is fitted to the hypothetical inliers, i.e. all free parameters of the model are reconstructed from the inliers.
+
+1. A model is fitted to the hypothetical inliers, 
+	- i.e. all free parameters of the model are reconstructed from the inliers.
+
 2. All other data are then tested against the fitted model and, if a point fits well to the estimated model, also considered as a hypothetical inlier.
+
 3. The estimated model is reasonably good if sufficiently many points have been classified as hypothetical inliers.
+
 4. The model is reestimated from all hypothetical inliers, because it has only been estimated from the initial set of hypothetical inliers.
+
 5.  Finally, the model is evaluated by estimating the error of the inliers relative to the model.
 
 이 반복은 정해진 횟수만큼 진행 된다. This procedure is repeated a fixed number of times, each time producing either a model which is rejected because too few points are classified as inliers or a refined model together with a corresponding error measure. In the latter case, we keep the refined model if its error is lower than the last saved model.
@@ -58,6 +64,12 @@ The pictures to the left and right show a simple application of the RANSAC algor
 오른쪽 이미지 아웃라이어는 빨간색으로 인라이어는 파란색으로 표현 하고 있다. `The image on our right shows all of the outliers in red, and shows inliers in blue. `
 - 파란선이 RANSAC의 결과 물이다. `The blue line is the result of the work done by RANSAC.`
 - 이경우 모델은 Line이다. ` In this case the model that we are trying to fit to the data is a line, and it looks like it’s a fairly good fit to our data.`
+
+## Code 
+
+> 생략 
+
+## 결과 
 
 RANSAC은 포인트들이 특정 Model에 속하는지 아닌지 식별 한다. `Random Sample Consensus \(RANSAC\) is used to identify points in the dataset that belong to a particular model.`
 
