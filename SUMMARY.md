@@ -57,6 +57,7 @@
   * [\[PCL-Cpp\] Projecting points using a parametric model](Tutorial/Filtering/pcl-cpp-projecting-points-using-a-parametric-model.md)
   * [\[PCL-Cpp\] Downsampling a PointCloud using a VoxelGrid filter](Tutorial/Filtering/pcl-cpp-downsampling-a-pointcloud-using-a-voxelgrid-filter.md)
   * [\[PCL-Cpp\] Extracting indices from a PointCloud](Tutorial/Filtering/pcl-cpp-extracting-indices-from-a-pointcloud.md)
+  * [\[PCL-Python\] Extracting indices from a PointCloud](Tutorial/Filtering/pcl-python-extracting-indices-from-a-pointcloud.md)
 * [Registration](Tutorial/Registration/README.md)
   * [How to use iterative closest point](Tutorial/Registration/iterative-closest-point.md)
   * [The PCL Registration API](Tutorial/Registration/the-pcl-registration-api.md)
