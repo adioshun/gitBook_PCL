@@ -85,6 +85,7 @@
   * [\[PCL-Python\] Progressive Morphological Filter segmentation](Tutorial/Segmentation/pcl-python-progressive-morphological-filter-segmentation.md)
   * [\[PCL-Cpp\] Plane model segmentation](Tutorial/Segmentation/pcl-cpp-plane-model-segmentation.md)
   * [\[PCL-Cpp\] Euclidean Cluster Extraction](Tutorial/Segmentation/pcl-cpp-euclidean-cluster-extraction.md)
+  * [\[PCL-Cpp\] Region growing segmentation](Tutorial/Segmentation/pcl-cpp-region-growing-segmentation.md)
 * Surface
   * [Smoothing and normal estimation based on polynomial reconstruction](smoothing-and-normal-estimation-based-on-polynomial-reconstruction.md)
   * [Fast triangulation of unordered point clouds](fast-triangulation-of-unordered-point-clouds.md)
