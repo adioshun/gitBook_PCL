@@ -8,8 +8,23 @@ In this tutorial we will learn how to use the **region growing algorithm** imple
 
 Thereby, the output of this algorithm is the set of clusters, were each cluster is a set of points that are considered to be a part of the same smooth surface. 
 
-The work of this algorithm is based on the comparison of the angles between the points normals.
+원리 : 포인트 Normal간의 각도(angle)비교 `The work of this algorithm is based on the comparison of the angles between the points normals.`
 
+## Theoretical Primer
+
+First of all it sorts the points by their curvature value. 
+
+It needs to be done because the region begins its growth from the point that has the minimum curvature value. 
+
+The reason for this is that the point with the minimum curvature is located in the flat area (growth from the flattest area allows to reduce the total number of segments).
+
+So we have the sorted cloud. Until there are unlabeled points in the cloud, algorithm picks up the point with minimum curvature value and starts the growth of the region. 
+
+
+This process occurs as follows:
+
+
+## Code 
 
 
 ```cpp
