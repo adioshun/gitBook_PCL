@@ -1,7 +1,6 @@
 # [Euclidean Cluster Extraction](https://github.com/strawlab/python-pcl/blob/master/examples/official/Segmentation/cluster_extraction.py)
 
-
-> 
+ 
 
 가장 간단한 방법으로 두 점사이의 거리 정보를 이용한다. `Euclidean segmentation is the simplest of all. It checks the distance between two points. `
 - 거리가 특정 값보다 작다면 같은 클러스터로 간주 한다. `If it is less than a threshold, both are considered to belong in the same cluster. `
