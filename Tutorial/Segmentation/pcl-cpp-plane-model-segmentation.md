@@ -8,6 +8,10 @@ In this tutorial we will learn how do a simple plane segmentation of a set of po
 This tutorial supports the Extracting indices from a PointCloud tutorial, presented in the filtering section.
 
 
+```
+
+
+
 
 ---
 # [Publishing and Subscribing to different point cloud message types](http://wiki.ros.org/pcl/Overview)
