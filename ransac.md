@@ -1,3 +1,19 @@
+# RANSAC 
+
+## 최소 자승법과 RANSAC
+
+어떤 모델의 파라미터를 구하는 한 방법 
+
+- 최소 자승법 정의 : 데이터와의 residual^2의 합을 최소화하도록 모델의 파라미터를 구하는 방법
+- 최소 자승법 단점 : 데이터에 outlier가 있으면 적용이 어려움 
+- 치소 자승법 대안 
+	- LMedS
+	- M-estimator 
+	- RANSAC 
+
+
+
+
 # 다시 살펴 보기 
 
 https://www.google.co.kr/search?newwindow=1&client=ubuntu&hs=m2g&q=%ED%8C%8C%EC%9D%B4%EC%8D%AC+ransac&sa=X&ved=2ahUKEwjHn4Du8t7iAhXlGaYKHZC3CGkQ1QIoCHoECAoQCQ&biw=2560&bih=1194
@@ -13,8 +29,18 @@ https://m.blog.naver.com/PostView.nhn?blogId=tlaja&logNo=220766940920&proxyRefer
 
 [Object detection in 3D point clouds](https://www.mi.fu-berlin.de/inf/groups/ag-ki/Theses/Completed-theses/Master_Diploma-theses/2016/Damm/Master-Damm.pdf)의 20page참고
 
+---
+
+측정 노이즈(Noise)가 심한 원본 데이터로부터 모델 파라메타(Parameta)를 예측하는 방법
 
 
+
+
+> 출처: https://carstart.tistory.com/190 [나이 서른에 햇병아리 프로그래머]
+
+
+
+---
 
 # Random sample consensus algorithm (RANSAC)
 
