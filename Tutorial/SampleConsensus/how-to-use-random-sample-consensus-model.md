@@ -6,6 +6,8 @@
 
 In this tutorial we learn how to use a RandomSampleConsensus with a plane model to obtain the cloud fitting to this model.
 
+### Theoretical Primer
+
 정의 : 아웃라이어를 포함하는 데이터에서 수학적 모델의 **파라미터**를 예측 하기 위한 반복적 수행 기법 `It is an iterative method that is used to estimate parameters of a mathematical model from a set of data containing outliers. `
 
 모든 데이터가 아웃라이어 + 인라이어로만 구성되어 있다고 가정 ` The RANSAC algorithm assumes that all of the data we are looking at is comprised of both inliers and outliers. `
