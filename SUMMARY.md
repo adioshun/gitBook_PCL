@@ -54,8 +54,6 @@
   * [\[PCL-Python\] Normal Estimation Using Integral Images](Tutorial/Feature/pcl-python-normal-estimation-using-integral-images.md)
   * [\[PCL-Cpp\] Estimating Surface Normals in a PointCloud](Tutorial/Feature/pcl-cpp-estimating-surface-normals-in-a-pointcloud.md)
 * [Filtering\_new](Tutorial/Filtering/README.md)
-  * [Projecting points using a parametric model](Tutorial/Filtering/projecting-points-using-a-parametric-model.md)
-  * [Downsampling a PointCloud using a VoxelGrid filter](Tutorial/Filtering/downsampling-a-pointcloud-using-a-voxelgrid-filter.md)
   * [\[PCL-Cpp\] Projecting points using a parametric model](Tutorial/Filtering/pcl-cpp-projecting-points-using-a-parametric-model.md)
   * [\[PCL-Cpp\] Downsampling a PointCloud using a VoxelGrid filter](Tutorial/Filtering/pcl-cpp-downsampling-a-pointcloud-using-a-voxelgrid-filter.md)
   * [\[PCL-Cpp\] Extracting indices from a PointCloud](Tutorial/Filtering/pcl-cpp-extracting-indices-from-a-pointcloud.md)
