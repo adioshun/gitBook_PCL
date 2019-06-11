@@ -8,6 +8,7 @@ In this tutorial we will learn how to project points onto a parametric model (e.
 The parametric model is given through a set of coefficients – in the case of a plane, through its equation: ax + by + cz + d = 0.
 
 ```cpp
+
 #include <iostream>
 #include <pcl/io/pcd_io.h>
 #include <pcl/point_types.h>
@@ -39,6 +40,8 @@ int
                         << cloud->points[i].z << std::endl;
 
   // Create a set of planar coefficients with X=Y=0,Z=1
+  //We fill in the ModelCoefficients values. 
+  //In this case, we use a plane model, with ax+by+cz+d=0, where a=b=d=0, and c=1, or said differently, the X-Y plane.
   pcl::ModelCoefficients::Ptr coefficients (new pcl::ModelCoefficients ());
   coefficients->values.resize (4);
   coefficients->values[0] = coefficients->values[1] = 0;
@@ -62,3 +65,4 @@ int
 }
 
 ```
+
