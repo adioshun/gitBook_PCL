@@ -104,10 +104,7 @@
 
 * [Normal Estimation](normal-estimation.md)
 * [RANSAC](ransac.md)
-* [CCL](ccl.md)
 * [Hough Transform](hough-transform.md)
-* [DBSCAN](dbscan.md)
-  * [OPTICS](dbscan/optics.md)
 * [Numpy](https://legacy.gitbook.com/book/adioshun/python_snippet/edit#/edit/master/packagenumpy.md?_k=s830r0)
 
 ## snippet
