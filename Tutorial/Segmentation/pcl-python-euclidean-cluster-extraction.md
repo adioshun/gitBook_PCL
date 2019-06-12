@@ -2,6 +2,7 @@
 
  
 
+
 가장 간단한 방법으로 두 점사이의 거리 정보를 이용한다. `Euclidean segmentation is the simplest of all. It checks the distance between two points. `
 - 거리가 특정 값보다 작다면 같은 클러스터로 간주 한다. `If it is less than a threshold, both are considered to belong in the same cluster. `
 
@@ -9,6 +10,9 @@ It works like a flood fill algorithm:
 1. a point in the cloud is "marked" as "chosen" for the cluster.
 2. Then, it spreads like a virus to all other points that are near enough, and from those to even more points, until none new can be added.
 3. Then, a new cluster is initialized, and the procedure starts again with the remaining unmarked points.
+
+
+
 
 
 
