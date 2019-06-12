@@ -77,16 +77,14 @@
 * [Sample Consensus](Tutorial/SampleConsensus/README.md)
   * [How to use Random Sample Consensus model \(100%\)](Tutorial/SampleConsensus/how-to-use-random-sample-consensus-model.md)
 * [Segmentation](Tutorial/Segmentation/README.md)
-  * [\[PCL-Python\] Euclidean Cluster Extraction](Tutorial/Segmentation/pcl-python-euclidean-cluster-extraction.md)
   * [\[PCL-Cpp\] Identifying ground returns using Progressive Morphological Filter segmentation](Tutorial/Segmentation/pcl-cpp-identifying-ground-returns-using-progressive-morphological-filter-segmentation.md)
   * [\[Matlab\] segmentGroundFromLidarData](Tutorial/Segmentation/matlab-segmentgroundfromlidardata.md)
   * [\[PCL-Python\] Conditional Euclidean Clustering](Tutorial/Segmentation/pcl-python-conditional-euclidean-clustering.md)
   * [\[PCL-Python\] Region growing segmentation](Tutorial/Segmentation/pcl-python-region-growing-segmentation.md)
   * [\[PCL-Python\] Progressive Morphological Filter segmentation](Tutorial/Segmentation/pcl-python-progressive-morphological-filter-segmentation.md)
   * [\[PCL-Cpp\] Plane model segmentation](Tutorial/Segmentation/pcl-cpp-plane-model-segmentation.md)
-  * [\[PCL-Cpp\] Euclidean Cluster Extraction](Tutorial/Segmentation/pcl-cpp-euclidean-cluster-extraction.md)
   * [\[PCL-Cpp\] Region growing segmentation](Tutorial/Segmentation/pcl-cpp-region-growing-segmentation.md)
-  * Euclidean Cluster Extraction
+  * [Euclidean Cluster Extraction](Tutorial/Segmentation/euclidean-cluster-extraction.md)
     * [Euclidean Cluster Extraction-PCL-Cpp](Tutorial/Segmentation/euclidean-cluster-extraction-pcl-cpp.md)
     * [Euclidean Cluster Extraction-PCL-Python](Tutorial/Segmentation/euclidean-cluster-extraction-pcl-python.md)
 * Surface
