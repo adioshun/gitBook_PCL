@@ -1,8 +1,8 @@
 # [Spatial Partitioning and Search Operations with Octrees](http://pointclouds.org/documentation/tutorials/octree.php#octree-search)
 
-An octree is a tree-based data structure for managing sparse 3-D data. 
+옥트리는 3D데이터 처리를 위한 트리형태의 데이터 구조체이다. `An octree is a tree-based data structure for managing sparse 3-D data. `
 
-Each internal node has exactly eight children. 
+각 내부 노드는 8개의 자식 노드를 가진다. `Each internal node has exactly eight children. `
 
 In this tutorial we will learn how to use the octree for spatial partitioning and neighbor search within pointcloud data. 
 
