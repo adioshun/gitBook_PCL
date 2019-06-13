@@ -47,10 +47,6 @@
   * [Spatial Partitioning and Search Operations with Octrees](Tutorial/Octree/spatial-partitioning-and-search-operations-with-octrees-PCL-Cpp.md)
   * [Spatial change detection on unorganized point cloud data](Tutorial/Octree/spatial-change-detection-on-unorganized-point-cloud-data-PCL-Cpp.md)
   * [Point Cloud Compression](Tutorial/Octree/point-cloud-compression-PCL-Cpp.md)
-  * [1Spatial Partitioning and Search Operations with Octrees](octree/spatial-partitioning-and-search-operations-with-octrees.md)
-  * [1Spatial change detection on unorganized point cloud data](octree/spatial-change-detection-on-unorganized-point-cloud-data.md)
-  * [1Point Cloud Compression](octree/point-cloud-compression.md)
-  * [\[PCL-Cpp\] Octree](octree/pcl-cpp-octree.md)
 * [Sample Consensus](Tutorial/SampleConsensus/README.md)
   * [How to use Random Sample Consensus model \(100%\)](Tutorial/SampleConsensus/how-to-use-random-sample-consensus-model.md)
 * [Segmentation](Tutorial/Segmentation/README.md)
@@ -75,9 +71,6 @@
   * [The CloudViewer](visualization/visualizing-point-clouds.md)
   * [PCLVisualizer](visualization/pclvisualizer.md)
 * [Tracking object in real time](tracking-object-in-real-time.md)
-
-
-
 
 ## 참고
 
@@ -120,10 +113,6 @@
 * [4-Filtering](Open3D/4-filtering.md)
 * [8-ROS](Open3D/8-ros.md)
 * [9-Visulization](Open3D/9-visulization.md)
-
-
-
-
 
 ## 다른 패키지들
 
