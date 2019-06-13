@@ -119,7 +119,6 @@
   * [1-File I/O](1-file-io.md)
   * [2-Numpy](2-numpy.md)
   * [8-ROS](8-ros.md)
-* [ROS](ros.md)
 * [pytncloud](pytncloud.md)
   * [1-File I/O](pytncloud/1-file-io.md)
   * [2-Numpy](pytncloud/2-numpy.md)
