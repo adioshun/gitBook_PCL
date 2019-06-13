@@ -42,7 +42,7 @@
 * [KdTree](Tutorial/KdTree/README.md)
   * [How to use a KdTree to search](Tutorial/KdTree/how-to-use-a-kdtree-to-search-PCL-Cpp.md)
 * [Octree](Tutorial/Octree/README.md)
-  * [\[PCL-Cpp\] Spatial Partitioning and Search Operations with Octrees](Tutorial/Octree/spatial-partitioning-and-search-operations-with-octrees-PCL-Cpp.md)
+  * [\[PCL-Cpp\] Spatial Partitioning and Search Operations with Octrees-PCL-Cpp](Tutorial/Octree/spatial-partitioning-and-search-operations-with-octrees-PCL-Cpp.md)
   * [\[PCL-Python\] Spatial Partitioning and Search Operations with Octrees](Tutorial/Octree/spatial-partitioning-and-search-operations-with-octrees-PCL-Python.md)
   * [\[PCL-Cpp\] Spatial change detection on unorganized point cloud data](Tutorial/Octree/spatial-change-detection-on-unorganized-point-cloud-data-PCL-Cpp.md)
   * [\[PCL-Cpp\] Point Cloud Compression](Tutorial/Octree/point-cloud-compression-PCL-Cpp.md)
