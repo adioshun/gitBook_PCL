@@ -1,86 +1,9 @@
-## Sample files : 
 
-|![image](https://user-images.githubusercontent.com/17797922/41080489-9d804f18-69db-11e8-8a8b-9422c2e13132.png)||
-|-|-|
-|[RoboND-Perception-Exercises](https://github.com/udacity/RoboND-Perception-Exercises/raw/master/Exercise-1/tabletop.pcd)|L-CAS People |
-
-
-
-
-
-http://lang.sist.chukyo-u.ac.jp/classes/PCL/
-
-
-
-# The Point Cloud Data
-
-PCD files contain two sections:
-
-- a human-readable header that defines the number, size, dimensionality and data type of the point cloud;
-- a data section which can be in ASCII or a binary, non-human-readable format.
-
-
-
-
-
-[The PCD (Point Cloud Data) file format](http://pointclouds.org/documentation/tutorials/pcd_file_format.php)
-
-```
-# .PCD v.7 - Point Cloud Data file format
-VERSION .7
-FIELDS x y z rgb
-SIZE 4 4 4 4
-TYPE F F F F
-COUNT 1 1 1 1
-WIDTH 213
-HEIGHT 1
-VIEWPOINT 0 0 0 1 0 0 0
-POINTS 213
-DATA ascii
-0.93773 0.33763 0 4.2108e+06
-0.90805 0.35641 0 4.2108e+06
-0.81915 0.32 0 4.2108e+06
-0.97192 0.278 0 4.2108e+06
-0.944 0.29474 0 4.2108e+06
-0.98111 0.24247 0 4.2108e+06
-0.93655 0.26143 0 4.2108e+06
-0.91631 0.27442 0 4.2108e+06
-0.81921 0.29315 0 4.2108e+06
-0.90701 0.24109 0 4.2108e+06
-0.83239 0.23398 0 4.2108e+06
-0.99185 0.2116 0 4.2108e+06
-0.89264 0.21174 0 4.2108e+06
-```
 
 ## 1. 개요 
 
 > [Ronny Restrepo](http://ronny.rest/tutorials/module/pointclouds_01/point_cloud_data/)
 
-|The Point Cloud Data|이미지 데이터와 비교 |
-|-|-|
-|![](http://i.imgur.com/Bc13san.png)|![](http://i.imgur.com/smzFU5N.png)|
-
-
-
-- 포인트 클라우드 데이터는 보통 `N x 3` Numpy 배열로 표현 된다. 
-    - 각 N 줄은 하나의 점과 맵핑이 되며 
-    - 3(x,y,z) 정보를 가지고 있다. 
-
-- Lidar 센서에서 수집한 정보의 경우는 `reflectance`라는 정보가 추가되어 `N x 4` Numpy 배열이 된다. 
-    - reflectance : 반사 시간 정보로 보면 된다. 
-
-
-이미지 데이터
-- 항상 양수 이다. 
-- 기준점은 왼쪽 위부터 이다. 
-- 좌표값은 정수(integer)이다. 
-
-포인트 클라우드 데이터 
-- 양수/음수 이다. 
-- 좌표값은 real numbered이다. 
-- The positive x axis represents forward.
-- The positive y axis represents left.
-- The positive z axis represents up.
 
 ## 2. Creating Birdseye View of Point Cloud Data
 
