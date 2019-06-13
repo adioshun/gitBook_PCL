@@ -71,6 +71,25 @@
 > [옥트리](https://blog.naver.com/lifeisforu/80022423480), [옥트리 분할 기법](https://blog.naver.com/lifeisforu/80022423600)
 
 
+
+---
+
+# [PCL Series 3 - Use of Octree](https://blog.csdn.net/qq_22170875/article/details/84844385 
+)
+
+1.1 Baidu Encyclopedia:
+The definition of an octree is that if it is not an empty tree, the child nodes of any node in the tree will only have eight or zero, that is, the child nodes will not have numbers other than 0 and 8. So what is this used for? Imagine a cube, how many small cubes can we cut into at least the same? The answer is eight. Imagine that we have a room. There is a gold coin hidden in a corner of the room. We want to find out the gold coins very quickly. What do you do smartly? We can treat the room as a cube, cut it into eight small cubes, then eliminate the small cubes that don't put anything, and then cut the small cubes that might hold the gold coins into eight equal parts.... Go on, average on Log8 ( Gold coins can be found within the time of all items in the room. Therefore, octree is the scene management used in 3D space, you can quickly know the position of the object in the 3D scene, or detect whether there is collision with other objects and whether it is within the visible range.
+
+1.2 The principle of implementing octree:
+(1). Set the maximum recursion depth. 
+(2). Find the maximum size of the scene and build the first cube with this size. 
+(3). Throw the unit element elements into cubes that can be included and have no children. 
+(4). If the maximum recursion depth is not reached, subdivide the octaves and then carry all the unit elements of the cube to the eight sub-cubes. 
+(5). If the number of unit elements assigned to the subcube is not zero and is the same as the parent cube, then the subcube stops subdividing because of the allocation of the subdivided space according to the spatial partition theory. There must be fewer, if it is the same number, then how to cut the number is still the same, it will cause infinite cutting. 
+(6). Repeat 3 until the maximum recursion depth is reached.
+
+
+
 ---
 
 ## Paper
