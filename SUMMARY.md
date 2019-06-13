@@ -3,7 +3,6 @@
 ## Point Cloud Lib.
 
 * [README](README.md)
-* [References](references.md)
 
 ## PCL Tutorial
 
