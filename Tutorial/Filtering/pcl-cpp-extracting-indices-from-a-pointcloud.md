@@ -11,6 +11,17 @@ In this tutorial we will learn how to use an :pcl:`ExtractIndices <pcl::ExtractI
 
 In order to not complicate the tutorial, the segmentation algorithm is not explained here. Please check the Plane model segmentation tutorial for more information.
 
+
+## code 
+
+
+
+
+
+
+
+---
+
 ```cpp
 
 #include <iostream>
