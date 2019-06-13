@@ -11,13 +11,21 @@ Particularly, we explain how to perform a “Neighbors within Voxel Search”, t
 
 ## Additional Details
 
-Several octree types are provided by the PCL octree component. They basically differ by their individual leaf node characteristics.
+PCL에는 여러개의 Octree가 존재 하며 leaf노드의 특징에 따라 다르다. `Several octree types are provided by the PCL octree component. They basically differ by their individual leaf node characteristics.`
 
-OctreePointCloudPointVector (equal to OctreePointCloud): This octree can hold a list of point indices at each leaf node.
-OctreePointCloudSinglePoint: This octree class hold only a single point indices at each leaf node. Only the most recent point index that is assigned to the leaf node is stored.
-OctreePointCloudOccupancy: This octree does not store any point information at its leaf nodes. It can be used for spatial occupancy checks.
-OctreePointCloudDensity: This octree counts the amount of points within each leaf node voxel. It allows for spatial density queries.
-If octrees needs to be created at high rate, please have a look at the octree double buffering implementation ( Octree2BufBase class ). This class keeps two parallel octree structures in the memory at the same time. In addition to search operations, this also enables spatial change detection. Furthermore, an advanced memory management reduces memory allocation and deallocation operations during the octree building process. The double buffering octree implementation can be assigned to all OctreePointCloud classes via the template argument “OctreeT”.
+- OctreePointCloudPointVector (equal to OctreePointCloud): This octree can hold a list of point indices at each leaf node.
+
+- OctreePointCloudSinglePoint: This octree class hold only a single point indices at each leaf node. Only the most recent point index that is assigned to the leaf node is stored.
+
+- OctreePointCloudOccupancy: This octree does not store any point information at its leaf nodes. It can be used for spatial occupancy checks.
+
+- OctreePointCloudDensity: This octree counts the amount of points within each leaf node voxel. It allows for spatial density queries.
+
+빠른 속도를 원한다면,  If octrees needs to be created at high rate, please have a look at the octree double buffering implementation ( Octree2BufBase class ). 
+- This class keeps two parallel octree structures in the memory at the same time. 
+- 배경탐지에도 활용된다. In addition to search operations, this also enables spatial change detection. 
+- Furthermore, an advanced memory management reduces memory allocation and deallocation operations during the octree building process. 
+- The double buffering octree implementation can be assigned to all OctreePointCloud classes via the template argument “OctreeT”.
 
 All octrees support serialization and deserialization of the octree structure and the octree data content.
 
