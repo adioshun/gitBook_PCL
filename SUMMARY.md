@@ -42,6 +42,7 @@
   * [Spatial Partitioning and Search Operations with Octrees-PCL-Cpp](Tutorial/Octree/spatial-partitioning-and-search-operations-with-octrees-PCL-Cpp.md)
   * [Spatial Partitioning and Search Operations with Octrees-PCL-Python](Tutorial/Octree/spatial-partitioning-and-search-operations-with-octrees-PCL-Python.md)
   * [Spatial change detection on unorganized point cloud data-PCL-Cpp](Tutorial/Octree/spatial-change-detection-on-unorganized-point-cloud-data-PCL-Cpp.md)
+  * [Spatial change detection on unorganized point cloud data-PCL-Python](Tutorial/Octree/spatial-change-detection-on-unorganized-point-cloud-data-PCL-Python.md)
   * [Point Cloud Compression-PCL-Cpp](Tutorial/Octree/point-cloud-compression-PCL-Cpp.md)
 * [Sample Consensus](Tutorial/SampleConsensus/README.md)
   * [How to use Random Sample Consensus model \(100%\)](Tutorial/SampleConsensus/how-to-use-random-sample-consensus-model.md)
