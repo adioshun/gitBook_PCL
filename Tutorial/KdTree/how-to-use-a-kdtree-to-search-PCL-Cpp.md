@@ -33,39 +33,90 @@ You then repeat this procedure on both the left and right sub-trees until the la
 > - N 차원의 공간에서 임의의 영역에 포함되는 점들을 효율적으로 찾기 위한 트리.
 > - 노드 추가와 검색은 상당히 빠르나, 삭제가 느리다. 즉 동적으로 움직이는 점들을 관리하는 데에는 적당하지 않다.
 
-### [page365 블로그](http://blog.daum.net/pg365/140)
-
-k-d tree(k-dimensional tree)는 k-차원의 공간 내에서 점들을 구성하기 위한 공간 분할 자료구조로 binary tree의 특수한 경우입니다. K-d tree는 다차원의 탐색 키를 사용하는 탐색 알고리즘에 유용하게 사용됩니다. 예를 들자면, SIFT나 SURF로 추출한 특징점들은 높은 차원의 벡터로 표시되는데 이 특징점들을 DB에 저장된 특징점들과 비교하여 유사도가 가장 높은 것을 찾기위해 사용됩니다.
-
- 
-
-Insertion
-
-k-d tree에 노드를 삽입하는 방법은 binary search tree와 유사하게 동작합니다. binary search tree의 insertion을 참고하면 이해가 쉽습니다.
-
- 
-
-Search
-
-k-d tree에서 노드를 검색하는 방법은 주로 두 가지 방법을 사용합니다. 첫번째가 range search 방법으로 찾고자 하는 키 값의 범위를 정하고 이 범위에 포함되는 노드를 찾게 됩니다. 이 탐색 방법도 binary search tree에서 탐색 방법과 유사합니다. 두번째는 nearest neighbour search 방법으로 주어진 키 값에 가장 근접한 노드를 찾는 것으로 구현이 좀 까다롭습니다. 여기서 사용한 방법은 hyper cube를 사용하여 노드의 양쪽으로 공간을 분할해 가면서 찾는 방법입니다.
-
- 
-
-Deletion
-
-노드를 tree에서 직접 삭제하는 것은 좀 까다롭습니다.  좀 쉬운 대안으로 노드에 삭제 플래그를 만들고 노드가 삭제될 때 삭제 플래그를 true로 만드는 방법이 있을 것입니다. 여기서는 노드의 삭제는 구현되어있지 않습니다.
 
 
+---
 
 
 
 
 ---
 
-[ppt_search](http://www.pointclouds.org/assets/rss2011/06_search.pdf): RSS2011
-[Introductory guide to Information Retrieval using kNN and KDTree](https://www.analyticsvidhya.com/blog/2017/11/information-retrieval-using-kdtree/)
-[K-d 트리](http://3dmpengines.tistory.com/1352)
-[kd-tree](http://www.snisni.net/98)
-[알고리즘 배우기 - Week5. Geometric Search - kd trees](http://algs4.tistory.com/68)
-[코세라](https://ko.coursera.org/lecture/ml-clustering-and-retrieval/kd-tree-representation-S0gfp)
+# [PCL Series 2 - Use of Kd-Tree](https://blog.csdn.net/qq_22170875/article/details/84786533)
 
+```cpp
+
+#include <pcl/kdtree/kdtree_flann.h> //kdtree近邻搜索
+#include <pcl/io/pcd_io.h> //文件输入输出
+#include <pcl/point_types.h> //点类型相关定义
+#include <pcl/visualization/cloud_viewer.h> //可视化相关定义
+#include <iostream>
+#include <vector>
+int main()
+{
+//1.读取点云
+pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZRGB>);
+if (pcl::io::loadPCDFile<pcl::PointXYZRGB>("rabbit.pcd", *cloud) == -1)
+{
+PCL_ERROR("Cloudn't read file!");
+return -1;
+}
+//2.原始点云着色
+for (size_t i = 0; i < cloud->points.size(); ++i){
+cloud->points[i].r = 255;
+cloud->points[i].g = 255;
+cloud->points[i].b = 255;
+}
+//3.建立kd-tree
+pcl::KdTreeFLANN<pcl::PointXYZRGB> kdtree; //建立kdtree对象
+kdtree.setInputCloud(cloud); //设置需要建立kdtree的点云指针
+//4.K近邻搜索
+pcl::PointXYZRGB searchPoint = cloud->points[1000]; //设置查找点
+int K = 900; //设置需要查找的近邻点个数
+std::vector<int> pointIdxNKNSearch(K); //保存每个近邻点的索引
+std::vector<float> pointNKNSquaredDistance(K); //保存每个近邻点与查找点之间的欧式距离平方
+std::cout << "K nearest neighbor search at (" << searchPoint.x
+<< " " << searchPoint.y
+<< " " << searchPoint.z
+<< ") with K=" << K << std::endl;
+if (kdtree.nearestKSearch(searchPoint, K, pointIdxNKNSearch, pointNKNSquaredDistance) > 0)
+{
+for (size_t i = 0; i < pointIdxNKNSearch.size(); ++i){
+cloud->points[pointIdxNKNSearch[i]].r = 0;
+cloud->points[pointIdxNKNSearch[i]].g = 255;
+cloud->points[pointIdxNKNSearch[i]].b = 0;
+}
+}
+std::cout << "K = 900近邻点个数：" << pointIdxNKNSearch.size() << endl;
+//5.radius半径搜索
+pcl::PointXYZRGB searchPoint1 = cloud->points[3500]; //设置查找点
+std::vector<int> pointIdxRadiusSearch; //保存每个近邻点的索引
+std::vector<float> pointRadiusSquaredDistance; //保存每个近邻点与查找点之间的欧式距离平方
+float radius = 0.03; //设置查找半径范围
+std::cout << "Neighbors within radius search at (" << searchPoint.x
+<< " " << searchPoint.y
+<< " " << searchPoint.z
+<< ") with radius=" << radius << std::endl;
+if (kdtree.radiusSearch(searchPoint1, radius, pointIdxRadiusSearch, pointRadiusSquaredDistance) > 0)
+{
+for (size_t i = 0; i < pointIdxRadiusSearch.size(); ++i){
+cloud->points[pointIdxRadiusSearch[i]].r = 255;
+cloud->points[pointIdxRadiusSearch[i]].g = 0;
+cloud->points[pointIdxRadiusSearch[i]].b = 0;
+}
+}
+std::cout << "半径0.03近邻点个数： " << pointIdxRadiusSearch.size() << endl;
+//6.显示点云
+pcl::visualization::CloudViewer viewer("cloud viewer");
+viewer.showCloud(cloud);
+system("pause");
+return 0;
+}
+```
+---------------------
+作者：chd_ayj
+来源：CSDN
+原文：https://blog.csdn.net/qq_22170875/article/details/84786533
+版权声明：本文为博主原创文章，转载请附上博文链接！
+
+![](https://img-blog.csdnimg.cn/20181204122116440.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIyMTcwODc1,size_16,color_FFFFFF,t_70)

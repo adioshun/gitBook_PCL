@@ -41,8 +41,6 @@
   * [\[PCL-Cpp\] Fuse two pointcloud ](Tutorial/Registration/pcl-cpp-fuse-two-pointcloud.md)
 * [KdTree](Tutorial/KdTree/README.md)
   * [How to use a KdTree to search](Tutorial/KdTree/how-to-use-a-kdtree-to-search-PCL-Cpp.md)
-  * [1How to use a KdTree to search](how-to-use-a-kdtree-to-search.md)
-  * [\[PCL-Cpp\] KDTree](pcl-cpp-kdtree.md)
 * [Octree](Tutorial/Octree/README.md)
   * [Spatial Partitioning and Search Operations with Octrees](Tutorial/Octree/spatial-partitioning-and-search-operations-with-octrees-PCL-Cpp.md)
   * [Spatial change detection on unorganized point cloud data](Tutorial/Octree/spatial-change-detection-on-unorganized-point-cloud-data-PCL-Cpp.md)
