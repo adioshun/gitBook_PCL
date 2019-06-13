@@ -7,7 +7,6 @@
 ## PCL Tutorial
 
 * [README](Tutorial/README.md)
-* [Introduction](introduction.md)
 * [Basic Usage](Tutorial/Basic-Usage/README.md)
   * [Using a matrix to transform a point cloud](Tutorial/Basic-Usage/using-a-matrix-to-transform-a-point-cloud.md)
 * [I\_O](Tutorial/InputOutput/README.md)
