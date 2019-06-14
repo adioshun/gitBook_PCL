@@ -14,7 +14,7 @@
   * [\[PCL-Cpp\] Reading Writing Point Cloud data to PCD files](Tutorial/InputOutput/pcl-cpp-reading-writing-point-cloud-data-to-pcd-files.md)
 * [Feature](Tutorial/Feature/README.md)
   * [How 3D Features work in PCL](Tutorial/Feature/how-3d-features-work-in-pcl.md)
-  * [Normal](Tutorial/Feature/Normal-Estimation.md)
+  * [Normal Estimation](Tutorial/Feature/Normal-Estimation.md)
   * [\[Open3D\] Vertex normal estimation](Tutorial/Feature/open3d-vertex-normal-estimation.md)
   * [\[PCL-Python\] Surface Normal](Tutorial/Feature/pcl-python-surface-normal.md)
   * [\[PCL-Python\] RoPs feature](Tutorial/Feature/pcl-python-rops-feature.md)
