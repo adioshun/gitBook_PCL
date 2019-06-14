@@ -13,8 +13,8 @@
   * [\[PCL-Cpp\] Concatenate the points of two Point Clouds](Tutorial/InputOutput/pcl-cpp-concatenate-the-points-of-two-point-clouds.md)
   * [\[PCL-Cpp\] Reading Writing Point Cloud data to PCD files](Tutorial/InputOutput/pcl-cpp-reading-writing-point-cloud-data-to-pcd-files.md)
 * [Feature](Tutorial/Feature/README.md)
-  * [How 3D Features work in PCL](Tutorial/Feature/how-3d-features-work-in-pcl.md)
   * [Normal Estimation](Tutorial/Feature/Normal-Estimation.md)
+  * [How 3D Features work in PCL](Tutorial/Feature/how-3d-features-work-in-pcl.md)
   * [Vertex normal estimation-Open3](Tutorial/Feature/open3d-vertex-normal-estimation.md)
   * [Estimating Surface Normals in a PointCloud-PCL-Python](Tutorial/Feature/pcl-python-surface-normal.md)
   * [Estimating Surface Normals in a PointCloud-PCL-Cpp](Tutorial/Feature/pcl-cpp-estimating-surface-normals-in-a-pointcloud.md)
@@ -25,6 +25,7 @@
   * [Estimating VFH signatures for a set of points-PCL-Python](Tutorial/Feature/pcl-python-estimating-vfh-signatures-for-a-set-of-points.md)
   * [PFH Descriptors-PCL-CPP](Tutorial/Feature/pcl-cpp-pfh-descriptors.md)
 
+---
 
 * [Filtering](Tutorial/Filtering/README.md)
   * [Projecting points using a parametric model-PCL-Cpp](Tutorial/Filtering/pcl-cpp-projecting-points-using-a-parametric-model.md)
