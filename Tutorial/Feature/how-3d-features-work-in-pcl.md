@@ -80,29 +80,42 @@ Because setInputCloud() is always required, there are up to four combinations th
 
 - 인덱스가 있는 포인트들에 대하여서만 feature를 계산 `the feature estimation method will only compute features for those points which have an index in the given indices vector;`
 
-P2의 인덱스는 주어지지 않았으므로 P2의 feature나 neighbor를 계산 하지 않음 `Here, we assume that p_2’s index is not part of the indices vector given, so no neighbors or features will be estimated at p2.`
+- P2의 인덱스는 주어지지 않았으므로 P2의 feature나 neighbor를 계산 하지 않음 `Here, we assume that p_2’s index is not part of the indices vector given, so no neighbors or features will be estimated at p2.`
 
 
 ### 3. setIndices() = false, setSearchSurface() = true 
 
-첫번째와 비슷하게 모든 입력에 대하여 Feature를 계산 한다. `as in the first case, features will be estimated for all points given as input,`
+- 첫번째와 비슷하게 모든 입력에 대하여 Feature를 계산 한다. `as in the first case, features will be estimated for all points given as input,`
 
-but, the underlying neighboring surface given in setSearchSurface() will be used to obtain nearest neighbors for the input points, rather than the input cloud itself;
+- but, the underlying neighboring surface given in setSearchSurface() will be used to obtain nearest neighbors for the input points, rather than the input cloud itself;
 
- If Q={q_1, q_2} is another cloud given as input, different than P, and P is the search surface for Q, then the neighbors of q_1 and q_2 will be computed from P.
+- If Q={q_1, q_2} is another cloud given as input, different than P, and P is the search surface for Q, then the neighbors of q_1 and q_2 will be computed from P.
  
 ### 4. setIndices() = true, setSearchSurface() = true 
 
-많이 사용되지 않는 경우이다. indices 와  search surface가 모두 주어져있다.  `this is probably the rarest case, where both indices and a search surface is given.`
+- 많이 사용되지 않는 경우이다. indices 와  search surface가 모두 주어져있다.  `this is probably the rarest case, where both indices and a search surface is given.`
 
- In this case, features will be estimated for only a subset from the <input, indices> pair, using the search surface information given in setSearchSurface().
+- In this case, features will be estimated for only a subset from the <input, indices> pair, using the search surface information given in setSearchSurface().
 
-Here, we assume that q_2’s index is not part of the indices vector given for Q, so no neighbors or features will be estimated at q2.
-
-
+- Here, we assume that q_2’s index is not part of the indices vector given for Q, so no neighbors or features will be estimated at q2.
 
 
-The most useful example when setSearchSurface() should be used, is when we have a very dense input dataset, but we do not want to estimate features at all the points in it, but rather at some keypoints discovered using the methods in pcl_keypoints, or at a downsampled version of the cloud (e.g., obtained using a pcl::VoxelGrid<T> filter). In this case, we pass the downsampled/keypoints input via setInputCloud(), and the original data as setSearchSurface().
+####### 활용예 
+
+The most useful example when setSearchSurface() should be used, is when we have a very dense input dataset, but we do not want to estimate features at all the points in it, but rather at some keypoints discovered using the methods in pcl_keypoints, or at a downsampled version of the cloud (e.g., obtained using a pcl::VoxelGrid<T> filter). 
+
+In this case, we pass the downsampled/keypoints input via setInputCloud(), and the original data as setSearchSurface().
+
+---
+
+## An example for normal estimation
+
+방법이 정해 지면 요청되는 점의 이웃 점군들을 사용하여 Local Feature를 계산한다. `Once determined, the neighboring points of a query point can be used to estimate a local feature representation that captures the geometry of the underlying sampled surface around the query point. `
+
+점의 방향(orientation)을 계산 하는것이 중요하다. 이를 Normal 이라 한다. `An important problem in describing the geometry of the surface is to first infer its orientation in a coordinate system, that is, estimate its normal. `
+
+Surface normals은 중요한 특징 정보이며 여러 곳에서 많이 사용된다. `Surface normals are important properties of a surface and are heavily used in many areas such as computer graphics applications to apply the correct light sources that generate shadings and other visual effects (See [RusuDissertation] for more information).`
+
 
 
 
