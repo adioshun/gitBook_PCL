@@ -23,3 +23,26 @@
 
 많은 용어(`shape descriptors` , `geometric features`)들이 있지만 여기서는 **point feature**로 통일 하겠다. `The literature is abundant of different naming schemes describing the same conceptualization, such as shape descriptors or geometric features but for the remaining of this document they will be referred to as point feature representations.`
 
+
+
+주변 점군들을 활용 함으로써 sampled surface geometry를 추론 할수 있게 된다. 이를 통해 비교 작업시 모호성을 줄일수 있다.  `By including the surrounding neighbors, the underlying sampled surface geometry can be inferred and captured in the feature formulation, which contributes to solving the ambiguity comparison problem. `
+
+
+![](http://pointclouds.org/documentation/tutorials/_images/good_features.jpg)
+
+일번적으로 같거나 비슷한 표면 위에 있는 포인트들은 서로 비슷한 특징을 가진다. 반대로 다른 표면에 있으면 다르게 된다. `Ideally, the resultant features would be very similar (with respect to some metric) for points residing on the same or similar surfaces, and different for points found on different surfaces, as shown in the figure below. `
+
+
+A good point feature representation distinguishes itself from a bad one, by being able to capture the same local surface characteristics in the presence of:
+- rigid transformations : that is, 3D rotations and 3D translations in the data should not influence the resultant feature vector F estimation;
+- varying sampling density : in principle, a local surface patch sampled more or less densely should have the same feature vector signature;
+- noise : the point feature representation must retain the same or very similar values in its feature vector in the presence of mild noise in the data.
+
+일반적으로 PCL features은 요청된 포인트에 대하여 이웃 점들을 계산 하기 위하여 In general, PCL features use approximate methods to compute the nearest neighbors of a query point, using fast kd-tree queries. 
+
+There are two types of queries that we’re interested in:
+
+determine the k (user given parameter) neighbors of a query point (also known as k-search);
+determine all the neighbors of a query point within a sphere of radius r (also known as radius-search).
+
+
