@@ -111,6 +111,29 @@ The normals at different points, along with the changing surface, will point in 
 
 
 
+
+---
+
+# [Normal estimation](http://robotica.unileon.es/index.php/PCL/OpenNI_tutorial_2:_Cloud_processing_\(basic\)#Normal_estimation)
+
+노멀은 평면에 직각인 unit vector이다. `As you may remember from geometry class, the normal of a plane is an unit vector that is perpendicular to it.`
+
+The normal of a surface at a point is defined as the vector that is perpendicular to the plane that is tangent to the surface at the point. 
+
+Surface normals can be calculated for the points of a cloud, too. 
+
+이를 Feature로 사용할수는 있으나 설명력이 크진 않다. `It is considered a feature, albeit not a very discriminative one.`
+
+계산을 위해 주변 점군이 필요 하다. `I will not go into detail with the math of the estimation method, but you just have to know that is uses the nearest neighbors (the points that are closest to the one we are calculating the normal for) to find out the tangent plane and the normal vector. `
+
+You can customize the method with the search radius  and the viewpoint.
+- search radius : think about a sphere of that radius, centered in the point; all neighboring points that lie within will be used for the computation
+- viewpoint by default, the output normals will be directionless; by supposing that all vectors must point towards the camera - because otherwise they would belong to surfaces that are not visible from the sensor - they can all be re-oriented accordingly
+
+노멀이 중요한 다른 이유는 **평면의 곡선(curvature)**을 알수 있다는 것이다. `Normals are also important because they give us information about the curvature of the surface at some point, which can be used to our advantage. `
+
+
+
 ---
 ## Matlab code `normals = pcnormals(ptCloud,k)`
 
