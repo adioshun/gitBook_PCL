@@ -203,3 +203,7 @@ plt.yticks(fontsize = 14)
 
 ```
 
+
+---
+
+[Normal Estimation Using Integral Images-PCL-Python](https://github.com/strawlab/python-pcl/blob/master/examples/official/Features/NormalEstimationUsingIntegralImages.py) : Normal estimation on organized clouds(RGB-D)
