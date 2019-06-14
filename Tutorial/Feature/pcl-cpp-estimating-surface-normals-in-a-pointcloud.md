@@ -15,25 +15,6 @@ To gain an understanding of an object's shape, we will calculate the distributio
 
 
 
----
-![](https://github.com/fouliex/RoboticPerception/raw/master/pr2_robot/misc/SurfaceNormal.JPG)
-
-## [참고][Surface Normals](https://github.com/fouliex/RoboticPerception#surface-normals)
-
-
-As one can see color can be used for object recognition, but another powerful way to find what we are looking for in our data is by searching for particular shapes vector images. 
-
-We can search for a given template shape or simply take the gradient of the image and explore the distribution of lights and edges that emerge. 
-
-Since we are working with 3D point clouds, we have an extra dimension of shape information to investigate. 
-
-In our point cloud, we have partial information on the 3D shapes of the object which is to say we have the view of the object surface from just one perspective. What we would like to do is to compare the distribution of points with a ground truth or reference distribution in order to decide whether or not we have found what we are looking for. 
-
-To do this, we need a metric that captures shape and one such metric is the distribution of surface normals.
-
-The normal of a surface is just a unit vector that is perpendicular to that surface. 
-
-The normals at different points, along with the changing surface, will point in different direction and the distribution of surface normals taken a whole can be used to describe the shape of the objects. 
 
 ---
 
