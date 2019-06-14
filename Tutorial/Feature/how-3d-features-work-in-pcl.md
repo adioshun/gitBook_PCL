@@ -38,11 +38,72 @@ A good point feature representation distinguishes itself from a bad one, by bein
 - varying sampling density : in principle, a local surface patch sampled more or less densely should have the same feature vector signature;
 - noise : the point feature representation must retain the same or very similar values in its feature vector in the presence of mild noise in the data.
 
-일반적으로 PCL features은 요청된 포인트에 대하여 이웃 점들을 계산 하기 위하여 In general, PCL features use approximate methods to compute the nearest neighbors of a query point, using fast kd-tree queries. 
+일반적으로 PCL features은 요청된 포인트의 이웃 점들을 계산 하기 위하여 근사방법(approximate methods)을 사용한다. In general, PCL features use approximate methods to compute the nearest neighbors of a query point, using fast kd-tree queries. 
 
 There are two types of queries that we’re interested in:
+- K개의 근접 서치 : determine the k (user given parameter) neighbors of a query point (also known as k-search);
+- R반경내 근접 서치 : determine all the neighbors of a query point within a sphere of radius r (also known as radius-search).
 
-determine the k (user given parameter) neighbors of a query point (also known as k-search);
-determine all the neighbors of a query point within a sphere of radius r (also known as radius-search).
+
+## How to pass the input
+
+As almost all classes in PCL that inherit from the base pcl::PCLBase class, the pcl::Feature class accepts input data in two different ways:
+
+- an entire point cloud dataset, given via setInputCloud (PointCloudConstPtr &) - mandatory
+    - Any feature estimation class with attempt to estimate a feature at every point in the given input cloud.
+
+- a subset of a point cloud dataset, given via setInputCloud (PointCloudConstPtr &) and setIndices (IndicesConstPtr &) - optional
+
+    - Any feature estimation class will attempt to estimate a feature at every point in the given input cloud that has an index in the given indices list. 
+    - By default, if no set of indices is given, all points in the cloud will be considered.*
+
+
+
+Because setInputCloud() is always required, there are up to four combinations that we can create using ` <setInputCloud(), setIndices(), setSearchSurface()>`. 
+
+
+![](http://pointclouds.org/documentation/tutorials/_images/features_input_explained.png)
+
+
+### 1. setIndices() = false, setSearchSurface() = false 
+
+- 가장 일반적으로 사용됨. 입력된 점군에 대한 모든 feature를 구 `this is without a doubt the most used case in PCL, where the user is just feeding in a single PointCloud dataset and expects a certain feature estimated at all the points in the cloud.`
+
+- Since we do not expect to maintain different implementation copies based on whether a set of indices and/or the search surface is given, whenever indices = false, PCL creates a set of internal indices (as a std::vector<int>) that basically point to the entire dataset (indices=1..N, where N is the number of points in the cloud).
+
+- 절차 
+ - First, we estimate the nearest neighbors of p_1, 
+ - then the nearest neighbors of p_2, and so on, until we exhaust all the points in P.
+
+
+### 2. setIndices() = true, setSearchSurface() = false 
+
+- 인덱스가 있는 포인트들에 대하여서만 feature를 계산 `the feature estimation method will only compute features for those points which have an index in the given indices vector;`
+
+P2의 인덱스는 주어지지 않았으므로 P2의 feature나 neighbor를 계산 하지 않음 `Here, we assume that p_2’s index is not part of the indices vector given, so no neighbors or features will be estimated at p2.`
+
+
+### 3. setIndices() = false, setSearchSurface() = true 
+
+첫번째와 비슷하게 모든 입력에 대하여 Feature를 계산 한다. `as in the first case, features will be estimated for all points given as input,`
+
+but, the underlying neighboring surface given in setSearchSurface() will be used to obtain nearest neighbors for the input points, rather than the input cloud itself;
+
+ If Q={q_1, q_2} is another cloud given as input, different than P, and P is the search surface for Q, then the neighbors of q_1 and q_2 will be computed from P.
+ 
+### 4. setIndices() = true, setSearchSurface() = true 
+
+많이 사용되지 않는 경우이다. indices 와  search surface가 모두 주어져있다.  `this is probably the rarest case, where both indices and a search surface is given.`
+
+ In this case, features will be estimated for only a subset from the <input, indices> pair, using the search surface information given in setSearchSurface().
+
+Here, we assume that q_2’s index is not part of the indices vector given for Q, so no neighbors or features will be estimated at q2.
+
+
+
+
+The most useful example when setSearchSurface() should be used, is when we have a very dense input dataset, but we do not want to estimate features at all the points in it, but rather at some keypoints discovered using the methods in pcl_keypoints, or at a downsampled version of the cloud (e.g., obtained using a pcl::VoxelGrid<T> filter). In this case, we pass the downsampled/keypoints input via setInputCloud(), and the original data as setSearchSurface().
+
+
 
 
