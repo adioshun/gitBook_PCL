@@ -17,4 +17,9 @@
 
 일부 센서는 위치 정보 외에도 여러 추가 정보(`intensity`, `surface remission value`,`color`)를 제공하지만 이역시 모호성을 없애지는 못한다. `Some acquisition devices might provide extra information for a sampled point, such as an intensity or surface remission value, or even a color, however that does not solve the problem completely and the comparison remains ambiguous.`
 
-Applications which need to compare points for various reasons require better characteristics and metrics to be able to distinguish between geometric surfaces. The concept of a 3D point as a singular entity with Cartesian coordinates therefore disappears, and a new concept, that of local descriptor takes its place. The literature is abundant of different naming schemes describing the same conceptualization, such as shape descriptors or geometric features but for the remaining of this document they will be referred to as point feature representations.
+특정 서비스에서는 이러한 geometric surfaces간의 구분이 필요 할때가 있다. `Applications which need to compare points for various reasons require better characteristics and metrics to be able to distinguish between geometric surfaces.`
+
+따라서 좌표 정보가 아닌 ``local descriptor``개념이 도입 되었다. ` The concept of a 3D point as a singular entity with Cartesian coordinates therefore disappears, and a new concept, that of local descriptor takes its place.`
+
+많은 용어(`shape descriptors` , `geometric features`)들이 있지만 여기서는 **point feature**로 통일 하겠다. `The literature is abundant of different naming schemes describing the same conceptualization, such as shape descriptors or geometric features but for the remaining of this document they will be referred to as point feature representations.`
+
