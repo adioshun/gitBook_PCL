@@ -58,8 +58,9 @@
     * [Euclidean Cluster Extraction-PCL-Python](Tutorial/Segmentation/euclidean-cluster-extraction-pcl-python.md)
     * [Euclidean Cluster Extraction-Open3D-Python](Tutorial/Segmentation/euclidean-cluster-extraction-open3d-python.md)
 * Surface
-  * [Smoothing and normal estimation based on polynomial reconstruction](smoothing-and-normal-estimation-based-on-polynomial-reconstruction.md)
-  * [Fast triangulation of unordered point clouds](fast-triangulation-of-unordered-point-clouds.md)
+  * [1Smoothing and normal estimation based on polynomial reconstruction](smoothing-and-normal-estimation-based-on-polynomial-reconstruction.md)
+  * [1Fast triangulation of unordered point clouds](fast-triangulation-of-unordered-point-clouds.md)
+  * [Smoothing and normal estimation based on polynomial reconstruction](Tutorial/Surface/Smoothing-and-normal-estimation-based-on-polynomial-reconstruction.md)
 * [Visualization](visualization.md)
   * [Tool\_CloudCompare](visualization/toolcloudcompare.md)
   * [Tool\_ParaView with PCL](visualization/toolparaview-with-pcl.md)
