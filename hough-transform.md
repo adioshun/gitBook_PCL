@@ -1,6 +1,5 @@
 # Hough transform
 
-> 
 
 The Hough transform is a feature extraction technique
 
