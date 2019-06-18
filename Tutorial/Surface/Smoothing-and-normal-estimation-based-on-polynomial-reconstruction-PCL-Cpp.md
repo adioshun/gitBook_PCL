@@ -1,47 +1,42 @@
 # [Smoothing and normal estimation based on polynomial reconstruction](http://pointclouds.org/documentation/tutorials/resampling.php#moving-least-squares)
 
 
-
-
-
----
-
- 
-
 ```cpp
+#include <pcl/point_types.h>
 #include <pcl/io/pcd_io.h>
+#include <pcl/kdtree/kdtree_flann.h>
 #include <pcl/surface/mls.h>
 
 int
-main(int argc, char** argv)
+main (int argc, char** argv)
 {
-	// Objects for storing the point clouds.
-	pcl::PointCloud<pcl::PointXYZ>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZ>);
-	pcl::PointCloud<pcl::PointXYZ>::Ptr filteredCloud(new pcl::PointCloud<pcl::PointXYZ>);
+  // Load input file into a PointCloud<T> with an appropriate type
+  pcl::PointCloud<pcl::PointXYZ>::Ptr cloud (new pcl::PointCloud<pcl::PointXYZ> ());
+  pcl::io::loadPCDFile ("table_scene_lms400_downsampled.pcd", *cloud);
 
-	// Read a PCD file from disk.
-	pcl::io::loadPCDFile<pcl::PointXYZ>("table_scene_lms400_downsampled.pcd", *cloud);
-	std::cout << "Loaded " << cloud->width * cloud->height  << std::endl;
+  // Create a KD-Tree
+  pcl::search::KdTree<pcl::PointXYZ>::Ptr tree (new pcl::search::KdTree<pcl::PointXYZ>);
 
-	// Filtering object.
-	pcl::MovingLeastSquares<pcl::PointXYZ, pcl::PointXYZ> filter;
-	filter.setInputCloud(cloud);
-	// Object for searching.
-	pcl::search::KdTree<pcl::PointXYZ>::Ptr kdtree;
-	filter.setSearchMethod(kdtree);
-	// Use all neighbors in a radius of 3cm.
-	filter.setSearchRadius(0.03);
-	// Upsampling method. Other possibilites are DISTINCT_CLOUD, RANDOM_UNIFORM_DENSITY
-	// and VOXEL_GRID_DILATION. NONE disables upsampling. Check the API for details.
-	filter.setUpsamplingMethod(pcl::MovingLeastSquares<pcl::PointXYZ, pcl::PointXYZ>::SAMPLE_LOCAL_PLANE);
-	// Radius around each point, where the local plane will be sampled.
-	filter.setUpsamplingRadius(0.03);
-	// Sampling step size. Bigger values will yield less (if any) new points.
-	filter.setUpsamplingStepSize(0.02);
+  // Output has the PointNormal type in order to store the normals calculated by MLS
+  pcl::PointCloud<pcl::PointNormal> mls_points;
 
-	filter.process(*filteredCloud);
+  // Init object (second point type is for the normals, even if unused)
+  // the first template type is used for the input and output cloud. 
+  // Only the XYZ dimensions of the input are smoothed in the output.
+  pcl::MovingLeastSquares<pcl::PointXYZ, pcl::PointNormal> mls;
+ 
+   // Set parameters
+  mls.setInputCloud (cloud);
+  mls.setPolynomialOrder (2);
+  mls.setSearchMethod (tree);
+  mls.setSearchRadius (0.03);
 
-	pcl::io::savePCDFile<pcl::PointXYZ>("table_scene_lms400_upsampled.pcd", *filteredCloud);
-	std::cout << "Loaded " << filteredCloud->width * filteredCloud->height  << std::endl;
+  // Reconstruct
+  mls.process (mls_points);
+
+  // Save output
+  pcl::io::savePCDFile ("table_scene_lms400_upsampled.pcd", mls_points);
 }
 ```
+
+
