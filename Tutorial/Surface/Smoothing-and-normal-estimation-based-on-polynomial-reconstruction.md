@@ -23,3 +23,6 @@ Plotting the curvatures at each point as a measure of the eigenvalue relationshi
 
 ---
 
+# [PCL/OpenNI tutorial 2: Cloud processing (Surface smoothing)](http://robotica.unileon.es/index.php/PCL/OpenNI_tutorial_2:_Cloud_processing\_\(basic\))
+
+As stated, depth sensors are not very accurate, and the resulting clouds have measurement errors, outliers, holes in surfaces, etc. Surfaces can be reconstructed by means of an algorithm, that iterates through all points and interpolates the data, trying to guess how the original surface was. Like with upsampling, PCL uses the MLS algorithm and class. Performing this step is important, because the resulting cloud's normals will be more accurate.
