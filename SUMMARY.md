@@ -88,7 +88,6 @@
 * [4-Filter](PCL-Python/4-filter.md)
 * [5-Clustering](PCL-Python/5-clustering.md)
 * [8- ROS](PCL-Python/8-ros.md)
-* [helper](PCL-Python/helper.md)
 
 ## PCL-C++
 
