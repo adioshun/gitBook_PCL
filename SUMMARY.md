@@ -7,11 +7,6 @@
 ## PCL Tutorial
 
 * [README](Tutorial/README.md)
-* [Basic Usage](Tutorial/Basic-Usage/README.md)
-  * [Using a matrix to transform a point cloud](Tutorial/Basic-Usage/using-a-matrix-to-transform-a-point-cloud.md)
-* [I\_O](Tutorial/InputOutput/README.md)
-  * [\[PCL-Cpp\] Concatenate the points of two Point Clouds](Tutorial/InputOutput/pcl-cpp-concatenate-the-points-of-two-point-clouds.md)
-  * [\[PCL-Cpp\] Reading Writing Point Cloud data to PCD files](Tutorial/InputOutput/pcl-cpp-reading-writing-point-cloud-data-to-pcd-files.md)
 * [Feature](Tutorial/Feature/README.md)
   * [Normal Estimation](Tutorial/Feature/Normal-Estimation.md)
   * [How 3D Features work in PCL](Tutorial/Feature/how-3d-features-work-in-pcl.md)
