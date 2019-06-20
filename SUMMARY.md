@@ -56,11 +56,6 @@
   * [Smoothing and normal estimation based on polynomial reconstruction](Tutorial/Surface/Smoothing-and-normal-estimation-based-on-polynomial-reconstruction.md)
   * [Fast triangulation of unordered point clouds](Tutorial/Surface/Fast-triangulation-of-unordered-point-clouds.md)
 * [Visualization](visualization.md)
-  * [Tool\_CloudCompare](visualization/toolcloudcompare.md)
-  * [Tool\_ParaView with PCL](visualization/toolparaview-with-pcl.md)
-  * [lib\_k3d](visualization/libk3d.md)
-  * [The CloudViewer](visualization/visualizing-point-clouds.md)
-  * [PCLVisualizer](visualization/pclvisualizer.md)
 * [Tracking object in real time](tracking-object-in-real-time.md)
 
 ## 참고
