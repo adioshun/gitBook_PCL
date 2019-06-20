@@ -1,6 +1,8 @@
 # Matplot를 이용한 시각화 
 
 
+- [필수] 코드 수정후 KITTI외 시각화 기능으로 추가 https://github.com/navoshta/KITTI-Dataset/blob/master/kitti-dataset.ipynb
+
 ```python
 
 #%matplotlib inline
