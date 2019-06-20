@@ -1,27 +1,3 @@
-홈에지ㅣ : http://www.danielgm.net/cc/
-
-
-[블로그](http://www.pointcloud.jp/blog_n23/)
-
-```python
-$ sudo snap install cloudcompare
-$ sudo snap refresh --edge cloudcompare
-$ cloudcompare.CloudCompare
-```
-
-
-
----
-
-플러그인 : https://github.com/CloudCompare/CloudCompare/issues/646
-플러그인 so파일을 `/snap/cloudcompare/current/lib/cloudcompare/plugins` 
-
-프로그램 실행 - help - about plugins
-
-
-https://github.com/CloudCompare/CloudCompare/issues/536
-
-
 
 
 
