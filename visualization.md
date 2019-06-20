@@ -1,24 +1,3 @@
-# k3d를 이용한 시각화 
-
-```python 
-
-# 시각화 부분
-
-pa = cloud.to_array()
-
-plot = k3d.plot()
-print(pa.shape[0])
-points_number = pa.shape[0]
-colors = np.random.randint(0, 0xFFFFFF, points_number)
-
-points = k3d.points(pa, colors, point_size=0.01, shader='3d')
-plot += points
-plot.camera_auto_fit = False
-plot.display()
-
-```
-
-
 # Matplot를 이용한 시각화 
 
 
@@ -56,112 +35,7 @@ plt.show()
 
 ```
 
----
-# Visualization 
 
-## 1. PCD
-
-[샘플 PCD Download](https://github.com/PointCloudLibrary/data/blob/master/tutorials/table_scene_lms400.pcd), [PCD File Format](http://www.jeffdelmerico.com/wp-content/uploads/2014/03/pcl_tutorial.pdf): slide 12
-
-### 1.1 PCL viewer
-
-- 설치 : sudo apt install pcl-tools
-
-`/usr/bin/pcl_viewer/{  }.pcd`
-
-> [PCL Visualization overview](http://pointclouds.org/documentation/overview/visualization.php), [Youtube](https://www.youtube.com/watch?v=BZBQXcBvHW0)
-
-
-
-### 1.2 Jupyter
-
-[point cloud visualization with jupyter/pcl-python/and potree](https://www.youtube.com/watch?v=s2IvpYvB7Ew)
-
-
-### 1.3 Mayavi 이용 
-
-[Mayavi 홈페이지](http://docs.enthought.com/mayavi/mayavi/)
-
-[Plot with Mayavi in Jupyter notebook on Docker for Mac](https://taku-y.github.io/mac-docker-jupyter-mayavi.html)
-
-
-[공식 설치 가이드 /w Jupyter](http://docs.enthought.com/mayavi/mayavi/installation.html#installing-with-pip)
-
-
-
-
-Test code
-```python
-from mayavi import mlab
-mlab.init_notebook()
-s = mlab.test_plot3d()
-s
-```
-
-실행 코드 
-
-```python
-# ==============================================================================
-#                                                                     VIZ_MAYAVI
-# Input : kitti Raw Dataset 
-# ==============================================================================
-def viz_mayavi(points, vals="distance"):
-    x = points[:, 0]  # x position of point
-    y = points[:, 1]  # y position of point
-    z = points[:, 2]  # z position of point
-    # r = lidar[:, 3]  # reflectance value of point
-    d = np.sqrt(x ** 2 + y ** 2)  # Map Distance from sensor
-
-    # Plot using mayavi -Much faster and smoother than matplotlib
-    import mayavi.mlab
-
-    if vals == "height":
-        col = z
-    else:
-        col = d
-
-    fig = mayavi.mlab.figure(bgcolor=(0, 0, 0), size=(640, 360))
-    mayavi.mlab.points3d(x, y, z,
-                         col,          # Values used for Color
-                         mode="point",
-                         colormap='spectral', # 'bone', 'copper', 'gnuplot'
-                         # color=(0, 1, 0),   # Used a fixed (r,g,b) instead
-                         figure=fig,
-                         )
-    mayavi.mlab.show()
-```
-
-
-### 1.4 Paraview 
-
-[ParaView/PCL Plugin](https://www.paraview.org/Wiki/ParaView/PCL_Plugin)
-- apt-get install paraview
-
-
-### 1.5 3D Viewer
-
-> [How to visualize a range image](http://pointclouds.org/documentation/tutorials/range_image_visualization.php#range-image-visualization)
-
-
-Code Download : [range_image_visualization.cpp](https://gist.githubusercontent.com/adioshun/1ae4197af17f79f01f1ec3ec7c8f4bcb/raw/6ec7e03db63f0477688a66ae580c14795dec0803/range_image_visualization.cpp), [CMakeLists.txt](https://gist.githubusercontent.com/adioshun/1ae4197af17f79f01f1ec3ec7c8f4bcb/raw/6ec7e03db63f0477688a66ae580c14795dec0803/CMakeLists.txt)
-
-
-
-```
-mkdir range_image_visualization; cd range_image_visualization
-vi range_image_visualization.cpp
-vi CMakeLists.txt
-mkdir build;cd build
-cmake ..
-make
-
-# Test
-wget https://raw.github.com/PointCloudLibrary/data/master/tutorials/table_scene_lms400.pcd
-./range_image_visualization table_scene_lms400.pcd 
-
-```
-
-> Simple Version : [Cloud Viewer](http://pointclouds.org/documentation/tutorials/cloud_viewer.php#cloud-viewer)
 
 
 
@@ -220,37 +94,54 @@ plt.show()
 
 
 
----
-
-## plot.ly
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ---
 
+### 1.5 3D Viewer
+
+> [How to visualize a range image](http://pointclouds.org/documentation/tutorials/range_image_visualization.php#range-image-visualization)
 
 
-https://www.slicer.org/ : medical images
+Code Download : [range_image_visualization.cpp](https://gist.githubusercontent.com/adioshun/1ae4197af17f79f01f1ec3ec7c8f4bcb/raw/6ec7e03db63f0477688a66ae580c14795dec0803/range_image_visualization.cpp), [CMakeLists.txt](https://gist.githubusercontent.com/adioshun/1ae4197af17f79f01f1ec3ec7c8f4bcb/raw/6ec7e03db63f0477688a66ae580c14795dec0803/CMakeLists.txt)
 
 
-http://www.sci.utah.edu/software/imagevis3d.html
 
-http://www.danielgm.net/cc/
+```
+mkdir range_image_visualization; cd range_image_visualization
+vi range_image_visualization.cpp
+vi CMakeLists.txt
+mkdir build;cd build
+cmake ..
+make
+
+# Test
+wget https://raw.github.com/PointCloudLibrary/data/master/tutorials/table_scene_lms400.pcd
+./range_image_visualization table_scene_lms400.pcd 
+
+```
+
+> Simple Version : [Cloud Viewer](http://pointclouds.org/documentation/tutorials/cloud_viewer.php#cloud-viewer)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+
