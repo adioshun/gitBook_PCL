@@ -74,11 +74,6 @@
 * [배경제거](snippet/bg-removal.md)
 * [Ronny Restrepo](snippet/ronny-restrepo.md)
 
-## PCL-C++
-
-* [README](PCL-Cpp/README.md)
-* [설치](PCL-Cpp/installation.md)
-* [ROS](PCL-Cpp/ros.md)
 
 ## Open3D
 
@@ -93,6 +88,7 @@
 ## 다른 패키지들
 
 * [패키지/설치](installation.md)
+* [PCL-Cpp](PCL-Cpp/README.md)
 * [PCL-Python](PCL-Python/README.md)
 * [pyPCD\(/w PCL\)](pypcd.md)
   * [1-File I/O](1-file-io.md)
