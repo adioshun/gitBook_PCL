@@ -74,16 +74,6 @@
 * [배경제거](snippet/bg-removal.md)
 * [Ronny Restrepo](snippet/ronny-restrepo.md)
 
-## PCL-Python
-
-* [README](PCL-Python/README.md)
-* [0-설치](PCL-Python/installation.md)
-* [2-Numpy](PCL-Python/2-numpy.md)
-* [3-Downsampling](PCL-Python/3-downsampling.md)
-* [4-Filter](PCL-Python/4-filter.md)
-* [5-Clustering](PCL-Python/5-clustering.md)
-* [8- ROS](PCL-Python/8-ros.md)
-
 ## PCL-C++
 
 * [README](PCL-Cpp/README.md)
@@ -103,6 +93,7 @@
 ## 다른 패키지들
 
 * [패키지/설치](installation.md)
+* [PCL-Python](PCL-Python/README.md)
 * [pyPCD\(/w PCL\)](pypcd.md)
   * [1-File I/O](1-file-io.md)
   * [2-Numpy](2-numpy.md)
