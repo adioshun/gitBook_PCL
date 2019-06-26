@@ -1,4 +1,4 @@
-3D NMS(Non-Maximum Suppression)
+# 3D NMS(Non-Maximum Suppression)
 
 ```python
 
@@ -24,9 +24,9 @@ def nms(x, nms_th):
   bboxes = np.asarray(bboxes, np.float32)
   return bboxes
 ```
+---
 
-
-3D IoU (Intersection over Union)
+# 3D IoU (Intersection over Union)
 
 ```python
 # 3D IoU python Implementation
