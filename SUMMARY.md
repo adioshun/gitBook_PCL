@@ -68,10 +68,7 @@
 ## snippet
 
 * [README](snippet/README.md)
-* [Top-View](snippet/top-view.md)
-* [Surrount-view](snippet/surround-view.md)
 * [배경제거](snippet/bg-removal.md)
-* [Ronny Restrepo](snippet/ronny-restrepo.md)
 
 ## 다른 패키지들
 
