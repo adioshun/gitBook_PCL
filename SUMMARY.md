@@ -75,21 +75,16 @@
 * [Ronny Restrepo](snippet/ronny-restrepo.md)
 
 
-## Open3D
-
-* [README](Open3D/README.md)
-* [0-설치](Open3D/installation.md)
-* [2- Numpy ](Open3D/2-numpy.md)
-* [3-Downsampling](Open3D/3-downsampling.md)
-* [4-Filtering](Open3D/4-filtering.md)
-* [8-ROS](Open3D/8-ros.md)
-* [9-Visulization](Open3D/9-visulization.md)
 
 ## 다른 패키지들
 
 * [패키지/설치](installation.md)
 * [PCL-Cpp](PCL-Cpp/README.md)
 * [PCL-Python](PCL-Python/README.md)
+* [Open3D](Open3D/README.md)
+  * [4-Filtering](Open3D/4-filtering.md)
+  * [8-ROS](Open3D/8-ros.md)
+  * [9-Visulization](Open3D/9-visulization.md)
 * [pyPCD\(/w PCL\)](pypcd.md)
   * [1-File I/O](1-file-io.md)
   * [2-Numpy](2-numpy.md)
