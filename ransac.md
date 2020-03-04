@@ -21,7 +21,14 @@
 > 출처: https://carstart.tistory.com/190 [나이 서른에 햇병아리 프로그래머]
 
 
+![](https://i.imgur.com/eqr5ZV1.png)
+1. 임이의 점 2개를 선택하여 직선의 방정식 L(a,b)을 계산 한다. 
+2. 직선상에 점들이 오차범위(t)내의 점들을 선택 하여 inlier로 설정 한다. 그외는 outlier
+3. inlier의 갯수가 임계치(d) 갯수 이내 이면, inlier만으로 다시 직선의 방정식New_L을 추정한다. 
+4. New_L이 적합 오차 e안에 속하면 최종 후보에 추가 한다. 
+4. n번 반복 수행 한후 후보중 최적의 값을 선택 한다. 
 
+> 오일석, 컴퓨터 비젼  
 
 
 > [최소자승법 이해와 다양한 활용예 (Least Square Method)](https://darkpgmr.tistory.com/56)
