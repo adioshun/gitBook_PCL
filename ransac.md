@@ -12,6 +12,18 @@
 	- RANSAC 
 
 
+
+목적 : 측정 노이즈(Noise)가 심한 원본 데이터로부터 모델 **파라메타(Parameta)**를 예측하는 방법
+- 직선(모델 : y=ax+b)을 찾는 예시에서는 RANSAC은 이 모델의 매개변수 a와 b를 추정해준다. 
+
+
+
+> 출처: https://carstart.tistory.com/190 [나이 서른에 햇병아리 프로그래머]
+
+
+
+
+
 > [최소자승법 이해와 다양한 활용예 (Least Square Method)](https://darkpgmr.tistory.com/56)
 
 # 다시 살펴 보기 
@@ -30,13 +42,6 @@ https://m.blog.naver.com/PostView.nhn?blogId=tlaja&logNo=220766940920&proxyRefer
 [Object detection in 3D point clouds](https://www.mi.fu-berlin.de/inf/groups/ag-ki/Theses/Completed-theses/Master_Diploma-theses/2016/Damm/Master-Damm.pdf)의 20page참고
 
 ---
-
-측정 노이즈(Noise)가 심한 원본 데이터로부터 모델 파라메타(Parameta)를 예측하는 방법
-
-
-
-
-> 출처: https://carstart.tistory.com/190 [나이 서른에 햇병아리 프로그래머]
 
 
 
