@@ -18,15 +18,15 @@
 
 법선 추론 방법은 여러가지가 있다. 여기서는 가장 간단한 방법을 살펴 보겠다. `Though many different normal estimation methods exist, the one that we will concentrate on this tutorial is one of the simplest, and is formulated as follows. `
 
-The problem of determining the normal to a point on the surface is approximated by the problem of estimating the normal of a plane tangent to the surface, which in turn becomes a least-square plane fitting estimation problem.
+표면의 법선을 결정하는 방법은 표면에 접하는 수직(tangent)을 추론하는 문제로 접근 할수 있다. 이렇게 되면 **least-square plane fitting estimation**로 해결 가능하다. `The problem of determining the normal to a point on the surface is approximated by the problem of estimating the normal of a plane tangent to the surface, which in turn becomes a least-square plane fitting estimation problem.`
 
-**[중요]** 표면 법선을 추론하는 것은 이웃 점들로 생성된 covariance matrix의 eigenvectors  eigenvalues를 분석 하는것으로 간주 할수 있다. `The solution for estimating the surface normal is therefore reduced to an analysis of the eigenvectors and eigenvalues(or PCA) of a covariance matrix created from the nearest neighbors of the query point. `
+표면 법선을 추론하는 것은 이웃 점들로 생성된 covariance matrix의 eigenvectors  eigenvalues를 분석 하는것으로 간주 할수 있다. `The solution for estimating the surface normal is therefore reduced to an analysis of the eigenvectors and eigenvalues(or PCA) of a covariance matrix created from the nearest neighbors of the query point. `
 
 
 좀더 정확히는 각점 P_i에 **covariance matrix** C를 어셈블 하는 것이다. 
 
 $$
-\mathcal{C} = \frac{1}{k}\sum_{i=1}^{k}{\cdot (\boldsymbol{p}_i-\overline{\boldsymbol{p}})\cdot(\boldsymbol{p}_i-\overline{\boldsymbol{p}})^{T}}, ~\mathcal{C} \cdot \vec{{\mathsf v}_j} = \lambda_j \cdot \vec{{\mathsf v}_j},~ j \in \{0, 1, 2\}
+\mathcal{C} = \frac{1}{k}\sum_{i=1}^{k}{\cdot (\boldsymbol{p}_i-\overline{\boldsymbol{p}})\cdot(\boldsymbol{p}_i-\overline{\boldsymbol{p}})^{T}}, \mathcal{C} \cdot \vec{{\mathsf v}_j} = \lambda_j \cdot \vec{{\mathsf v}_j}, j \in \{0, 1, 2\}
 $$
 
 - k is the number of point neighbors considered in the neighborhood of p_i
