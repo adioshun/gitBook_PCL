@@ -3,19 +3,20 @@
 > Normal = 수직 방향, Surface Normal = 표면에 수직 방향
 > 2차원 = Normal Line / 3차원 Surface normal(OR simply **normal**)
 
-주요한 특징으로 조명에 의한 그림자 생성등 시각 효과증에서 많이 사용된다. `Surface normals are important properties of a geometric surface, and are heavily used in many areas such as computer graphics applications, to apply the correct light sources that generate shadings and other visual effects.`
+표면 법선은 기하하적 표면에 대한 주요한 특징으로 많은 분야에서 많이 사용된다(조명에 의한 그림자 생성 보정 등). `Surface normals are important properties of a geometric surface, and are heavily used in many areas such as computer graphics applications, to apply the correct light sources that generate shadings and other visual effects.`
 
 기하학적 표면이 주어 졌을때, 표면의 특정 지점에서 수직인 벡터로 추론하는 것은 쉽다.`Given a geometric surface, it’s usually trivial to infer the direction of the normal at a certain point on the surface as the vector perpendicular to the surface in that point. `
 
-However, since the point cloud datasets that we acquire represent a set of point samples on the real surface, there are two possibilities:
-- obtain the underlying surface from the acquired point cloud dataset, using surface meshing techniques, and then compute the surface normals from the mesh;
-- use approximations to infer the surface normals from the point cloud dataset directly.
+그러나 포인트 클라우드 데이터셋 실제 표면의 포인트 샘플이므로 두가지 방법이 있다. `However, since the point cloud datasets that we acquire represent a set of point samples on the real surface, there are two possibilities:`
+- 1. 메쉬 생성후 메쉬에서 표면 법선 추정 `obtain the underlying surface from the acquired point cloud dataset, using surface meshing techniques, and then compute the surface normals from the mesh;`
+- 2. 포인트 클라우드에서 바로 표면 법선 추정 `use approximations to infer the surface normals from the point cloud dataset directly.`
+
+본 문서에서는 두번째에 대하여 다루고 있다. `This tutorial will address the latter, that is, given a point cloud dataset, directly compute the surface normals at each point in the cloud.`
 
 
 ## Theoretical primer
 
 법선 추론 방법은 여러가지가 있다. 여기서는 가장 간단한 방법을 살펴 보겠다. `Though many different normal estimation methods exist, the one that we will concentrate on this tutorial is one of the simplest, and is formulated as follows. `
-
 
 The problem of determining the normal to a point on the surface is approximated by the problem of estimating the normal of a plane tangent to the surface, which in turn becomes a least-square plane fitting estimation problem.
 
