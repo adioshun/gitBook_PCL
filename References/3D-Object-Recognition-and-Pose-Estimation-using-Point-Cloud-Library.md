@@ -1,8 +1,7 @@
 > https://drive.google.com/file/d/1QtQTlm3_FiOdBslbtMAubVMyd2Bjofl1/view?fbclid=IwAR0NZfTAvfSwg_X_Flx5Uhg5GMLRaNFdgKU6PZRsHuskc95Sd2ErAKLg4LM
 
 
-
-# 2.4. Local feature method
+## 2.4. Local feature method
 
 이전 방법 대비 강건성과 일관된 결과를 얻을수 있는 방법이 필요 하다. `It is necessary to find a more complex solution that will be robust and consistent, and can also eliminate the limitations or shortcomings of the previous method. `
 
@@ -20,7 +19,7 @@ Based on computed information, a comparison of models and scenes is done, and ul
 
 Correspondence means the very, very similar, points between the model and the scene.
 
-## 2.4.1 Point cloud processing
+### 2.4.1 Point cloud processing
 
 필터링, 표면 재구성, 배경제거등은 지역 특징 방법에 사용된다. `Filtration, surface reconstruction and background removal, described in chapters 2.1 to 2.3, are still used and play an important role in the local feature method.`
 
@@ -34,7 +33,7 @@ descriptors가 좋은 정보 추출을 위해서는 노이즈나 불규칙성은
 
 배경이 없다는 것은 더 적은 수의 key points, normals, and descriptors계산만 해도 되기 때문이다. `The absence of the background means that a smaller calculation of the number of key points, normals, and descriptors is required.`
 
-## 2.4.2. Normal
+### 2.4.2. Normal
 
 노멀 벡터는 접평면에 수직이다. 표면의 방향을 결정할때 사용된다.  `In 3D space, normal vectors are vertical to a tangent plane(접평면) made up of a set of points in the local area, and serve to mathematically determine the orientation of the surface that confines the observed whole, in this case, they are the required objects on the scene.`
 
@@ -78,7 +77,7 @@ $$
 2. Calculate normal n for point p
 3. Orient normal to a point of view
 
-## 2.4.3. Key points
+### 2.4.3. Key points
 
 ![](https://i.imgur.com/CQ5NSnv.png)
 
@@ -101,7 +100,7 @@ PCL에서 제공하는 키포인트 탐지 알고리즘은 아래와 같다. `Wi
 
 > 생략 
 
-## 2.4.4. Descriptors
+### 2.4.4. Descriptors
 
 노멀과 키포인트등의 특징 계산후 기술자(descriptors)를 이용하여 물체를 인식 하는 작업을 수행 합니다. `After performing the required filtration and the above-described calculated features, such as normal and key points, descriptors play the descriptive role of object recognition. `
 
@@ -192,8 +191,77 @@ Although many studies indicate better CSHOT results than SHOT [20] [21], Except 
 Poor results can be attributed to the absence of additional light, which means that color consistency is not achieved in all parts of the scene due to the effect of shading and different illumination.
 
 
+### 2.4.5 ICP registration
+
+정합의 개념은 두개의 동일한 점군을 정렬시키는 것이다. `The concept of registration in a 3D vision refers to the alignment of two same clouds of points called the source and the target whose goal is fixed and the source is mobile. `
+
+최종적으로는 **변환행렬**을 구하는 것이다. `The idea is to minimize the distance of the model with the same object on the scene and ultimately get their matrix transformation as a difference in translation and rotation[22]. `
+
+ICP알고리즘 수행을 위한 요구 사항은 **최초 위치**를 계산 하는것이다. 최초 위치는 기술자와  their comparisons을 통해 구해진다. ` In order for the ICP (Iterative closest points) registration task to be performed, it requires the calculation of the initial position of the object on the scene, which is the results of the task of the descriptors and their comparisons.`
+
+ICP 정합은 초기 변환에러를 보정하기 위한 일종의 **fine positioning**로도 볼수 있다. `Thus ICP registration can be considered as a fine positioning that will correct the initial transformation error.`
+
+이 알고리즘은 소스와 타겟의 짝지어진 위치의 에러 **갯수**를 카운팅 하여 동작 한다. `The algorithm works by counting the error of the position of each pair of points between two point clouds, i.e., the source and the target. `
+
+최종 변환은 짝지어진 점의 에러에 기반하여 결정 된다. ` The final transformation is determined based on the error of all calculated pairs of points. `
+
+이름에서 알수 있듯이 반복적으로 수행하면서 두 점군의 차이를 줄여 나간다. `From the name itself, the algorithm operates iteratively where at each step the difference between the two clouds is reduced.`
+
+알고리즘은 몇가지 단점이 있다. ` The algorithm contains several basic criteria:`
+1. The maximum number of iterations defined by the user
+2. The maximum allowable error between the two clouds defined by the user
+3. The maximum allowable sum of the Euclidean distance squares defined by the user
+
+지정 횟수만큼 수행을 해도 정합도가 맞지 않는다면 ... `If in the maximum number of iterations the desired value of fitness function is not achieved, the algorithm rejects the result and the program moves from scratch.`
+
+기술자 연산과 단리 ICP는 매우 빠른 알고리즘이고 좋은 결과를 뽑아 낸다. `Unlike computing and comparison of the descriptors, ICP is a very fast algorithm which ultimately does not have a major impact on the duration of the entire program but greatly optimizes the final matrix of transformation.`
+
+ICP는 충분히 좋은 성능을 보이고 있다. `The ICP registration algorithm is already sufficiently self-sufficient to produce useful applications, such as literature research [23]`
+
+![](https://i.imgur.com/uAVRtTu.png)
+
+### 2.4.6 Final transformation matrix
+
+기준 모델과 물체간의 위치 차이를 결정하기 위하서는  transformation을 알아야 한다. `To determine the difference in the position of the reference model and object on the scene, it is necessary to know their transformation with respect to the origin of the camera. `
+
+두 transformation을 알게 되면 회전과 움직임 정도를 알수 있다. `By knowing these two transformations it is possible to determine the difference in the shift and rotation between the reference and the recognized object. `
+
+모델과 물체 사이의 거리는 중앙을 보고 알수 있다. `The distance between the model and object is observed from the centroid or the center of gravity. `
+
+The following figure shows the necessary transformations to get information about the scene's location.
+
+![](https://i.imgur.com/ZeftuXf.png)
+
+- The symbol $$T^O_{K 1}$$  means the transformation of the reference coordinate system (coordinate system of model) O_1 with respect to Kinect, $$T^_O K 2$$ the transformation of the identified object with respect to Kinect, 
+- while T O 2 1 the transformation between the two objects on the scene.
+- The transformation T O 2 1 is sent to the robot by TCP connection as the final result and can be calculated from the expression:
+
+> 추가 내용 있음 
 
 
+### 2.4.9 Advantages and Disadvantages of the Local Features Method
+
+A more complex approach to the problem has successfully overcome some of the basic limitations of the previous method, such as the inability to correctly define the object that is to be recognized in an unstructured environment and the problem of merging two objects that are close to one cluster. 
+
+Although descriptors of leading dimensions describing local geometry, are invariant to rotation and translation, testing has shown that larger rotations can drastically affect a smaller final number of correspondence. 
+
+Such a phenomenon may arise due to the inconsistencies of the normals explained in section 2.4.2 and / or the key points explained in section 2.4.3 between the scene and the model. 
+
+The problem can be solved by multiple rotation of models that are stored in the data base and are parallely compared to the scene, or by getting better quality data, but it is necessary to examine it with the experiment.
+
+Because of the variation of the repeatability of the key points, the inaccurate initialization of the initial position obtained from the correspondence is possible, which again affects the poorer positioning by ICP registration, such occurrences are more frequently present in symmetric objects as will be shown later by testing.
+
+Advantages:
+- The ability to recognize and locate the desired object in an unstructured environment 
+- Multiple recognition of the same objects in one program's iteration 
+- Building a data base made up of different objects 
+- A large selection of descriptors and methods for calculating key points 
+- More access evaluating correspondence to obtain robustness
+
+Disadvantages:
+- Process-challenging method
+- A large number of mutually dependent parameters that need to be matched
+- Large rotations reduce the number of correspondence
 
 ---
 
@@ -229,4 +297,45 @@ Normal, key points and ultimately descriptors are counted for model and scene.
 
 ### 3.2.3 Calculation of descriptors
 
+
+### 3.2.4 Comparison and evaluation of descriptors
+
+To compare the descriptors described in section 2.4.4, 
+1. include the header `#include <pcl / kdtree / kdtree_flann.h>`, 
+2. and then turn on the class `pcl ::KdTreeFLANN <DescriptorType>`.
+
+Use kd-tree to compare scenes and models descriptors. 
+
+The squared distance interval for a SHOT descriptor is 0 to 1, where zero represents the ideal case and the matching of only those descriptors that are exactly the same. 
+
+In order to achieve a greater number of correspondence, and to be composed of as many descriptors as possible, a square distance of 0.335f has been set. 
+
+Due to the possibility of false correspondence, it is necessary to further evaluate them with the Hough3D algorithm, but
+before that it is necessary to define a local reference coordinate system for key points of the model and scene.
+
+To implement the local coordinate reference system, 
+1. include the header `#include <pcl / features / board.h>`, 
+2. and then invoke the class `pcl ::BOARDLocalReferenceFrameEstimation <PointType, NormalType,RFType>`.
+
+The radius to define the local coordinate system must be similar to the radius for the descriptor calculation. 
+
+After defining the local coordinate system, the correlation of the Hough3D algorithm is evaluated. 
+
+To implement the Hough3D algorithm, 
+1. include the header `#include <pcl /recognition / cg / hough_3d.h>`, 
+2. and then invite the class `pcl ::Hough3DGrouping <PointType, PointType, RFType, RFType>`.
+
+Care must be taken to select these parameters for evaluating descriptors.
+
+What is the value of the .setHoughBinSize function ? 
+- Smaller will also be a smaller number of correspondence, but they will be more accurate.
+- If the value is set too high, a number of false correspondence is possible resulting in the recognition of the wrong object on the scene. 
+
+What is the .setHoughThreshold parameter ?
+- For a higher values, you can expect more accurate correspondence. 
+- But for a smaller values, there may be more correspondence, but may appear incorrect one. 
+
+Finally from the resulting vector of correspondences between scene and model, the transformation matrix of initial position of the object on the scene is calculated. 
+
+If there are multiple objects at the same time in the scene, the output will also consist of multiple transformation matrices, which is suitable for working with multiple robots.
 
