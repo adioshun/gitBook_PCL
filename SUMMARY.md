@@ -103,3 +103,6 @@
 * [cilantro](Others/cilantro.md)
 * [3DTK](Others/3DTK.md)
 
+## References
+
+* [3D Object Recognition and Pose Estimation using Point Cloud Library](References/3D-Object-Recognition-and-Pose-Estimation-using-Point-Cloud-Library.md)
