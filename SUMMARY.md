@@ -43,10 +43,10 @@
   * [\[PCL-Cpp\] Identifying ground returns using Progressive Morphological Filter segmentation](Tutorial/Segmentation/pcl-cpp-identifying-ground-returns-using-progressive-morphological-filter-segmentation.md)
   * [\[Matlab\] segmentGroundFromLidarData](Tutorial/Segmentation/matlab-segmentgroundfromlidardata.md)
 
-  * [\[PCL-Python\] Region growing segmentation](Tutorial/Segmentation/pcl-python-region-growing-segmentation.md)
+  * [Region growing segmentation](Tutorial/Segmentation/region-growing-segmentation.md)
   * [\[PCL-Python\] Progressive Morphological Filter segmentation](Tutorial/Segmentation/pcl-python-progressive-morphological-filter-segmentation.md)
   * [\[PCL-Cpp\] Plane model segmentation](Tutorial/Segmentation/pcl-cpp-plane-model-segmentation.md)
-  * [\[PCL-Cpp\] Region growing segmentation](Tutorial/Segmentation/pcl-cpp-region-growing-segmentation.md)
+
   * [Euclidean Cluster Extraction](Tutorial/Segmentation/euclidean-cluster-extraction.md)
     * [Conditional Euclidean Clustering](Tutorial/Segmentation/conditional-euclidean-clustering.md)
 * [Surface](Tutorial/Surface/README.md)
