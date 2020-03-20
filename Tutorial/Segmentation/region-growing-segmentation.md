@@ -23,7 +23,21 @@ So we have the sorted cloud. Until there are unlabeled points in the cloud, algo
 
 This process occurs as follows:
 
-> 생략 
+
+동작 원리는 다음과 같다. `This process occurs as follows:`
+
+1. (아마도?? 최저 곡률포인트들을) 선택하여 seeds 그룹에 지정한다. `The picked point is added to the set called seeds.`
+ 
+ 2. 각 시드포인트들의 이웃 점을 탐색 한다. ` For every seed point algorithm finds neighbouring points.`
+	-  시드 포인트와 이웃 포인트의 노멀의 각도를 비교해서 특정값 이내 이면 같은 그룹으로 포함 시키다. `Every neighbour is tested for the angle between its normal and normal of the current seed point. If the angle is less than threshold value then current point is added to the current region.`
+	- 모든 이웃의 곡률값을 계산하여 특정값보다 곡률값이 작다면 시드 로 지정한다. `After that every neighbour is tested for the curvature value. If the curvature is less than threshold value then this point is added to the seeds.`
+	- 현재의 시드를 제거 한다. `   Current seed is removed from the seeds.`
+
+시드 그룹을 모두 수행하면 종료 한다. `If the seeds set becomes empty this means that the algorithm has grown the region and the process is repeated from the beginning. `
+
+You can find the pseudocode for the said algorithm below.
+
+![](https://i.imgur.com/Wzv2CqT.png)
 
 ---
 
