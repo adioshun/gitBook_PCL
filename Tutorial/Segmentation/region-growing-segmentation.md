@@ -4,25 +4,28 @@
 
 In this tutorial we will learn how to use the **region growing algorithm** implemented in the `pcl::RegionGrowing` class. 
 
-목적 : **smoothness**를 기준으로 비슷한것 묶음 `The purpose of the said algorithm is to merge the points that are close enough in terms of the smoothness constraint. `
+목적 : **smoothness constraint**를 기준으로 비슷한것 묶음 `The purpose of the said algorithm is to merge the points that are close enough in terms of the smoothness constraint. `
 
-Thereby, the output of this algorithm is the set of clusters, were each cluster is a set of points that are considered to be a part of the same smooth surface. 
+따라서 결과물들은 비슷한 smooth surface끼리 그룹화 된다. `Thereby, the output of this algorithm is the set of clusters, were each cluster is a set of points that are considered to be a part of the same smooth surface. `
 
 원리 : 포인트 Normal간의 각도(angle)비교 `The work of this algorithm is based on the comparison of the angles between the points normals.`
 
 ## Theoretical Primer
 
-First of all it sorts the points by their curvature value. 
+포인드들을 곡률에 따라 정렬한다. `First of all it sorts the points by their curvature value. `
 
-It needs to be done because the region begins its growth from the point that has the minimum curvature value. 
+위 작업을 필수 적인데 이유는 시작점인 최소 곡률값을 찾기 위해서 이다. `It needs to be done because the region begins its growth from the point that has the minimum curvature value. `
 
-The reason for this is that the point with the minimum curvature is located in the flat area (growth from the flattest area allows to reduce the total number of segments).
+최소 곡률값을 찾는 이유는 이 곳이 평면에 위치 하기 때문이다. 평면에서 시작해야 전체 세그멘트의 양을 줄일수 있다. `The reason for this is that the point with the minimum curvature is located in the flat area (growth from the flattest area allows to reduce the total number of segments).`
 
 So we have the sorted cloud. Until there are unlabeled points in the cloud, algorithm picks up the point with minimum curvature value and starts the growth of the region. 
 
 
 This process occurs as follows:
 
+> 생략 
+
+---
 
 > 물체의 normals과 curvatures정보를 이용하여 비슷한것끼리 묶어서 그룹으로 처리 
 
@@ -31,9 +34,9 @@ This process occurs as follows:
 -  The angle between their **normals** and the difference of **curvatures** are checked to see if they could belong to the same smooth surface.
 
 
-유클리드 방식과의 차이점 : Think about a box laying on a table: 
-- 유클리드는 테이블의 위 상자의 경우 붙어 있으므로 하나로 간주한다. with Euclidean segmentation, both would be considered to be in the same cluster because they are "touching". 
-- 리전그로위은 테이블과 상자의 Normal정보가 다름으로 분류가 가능하다. With region growing segmentation, this would not happen, because there is a 90° (with ideal normal estimation, that is) difference between the normals of a point in the table and another one in the box's lateral.
+유클리드 방식과의 차이점 : `Think about a box laying on a table: `
+- 유클리드는 테이블의 위 상자의 경우 붙어 있으므로 하나로 간주한다. `with Euclidean segmentation, both would be considered to be in the same cluster because they are "touching". `
+- 리전그로위은 테이블과 상자의 Normal정보가 다름으로 분류가 가능하다. `With region growing segmentation, this would not happen, because there is a 90° (with ideal normal estimation, that is) difference between the normals of a point in the table and another one in the box's lateral.`
 
 
 
