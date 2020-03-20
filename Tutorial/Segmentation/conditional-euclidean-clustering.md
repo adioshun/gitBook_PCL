@@ -2,25 +2,8 @@
 
 > https://github.com/strawlab/python-pcl/blob/master/examples/official/Segmentation/conditional_euclidean_clustering_172.txt
 
-Conditional Euclidean segmentation works the same way as the standard one seen above, with one exception. 
-
-Apart from the distance check, points need also to meet a special, custom requirement for them to be added to a cluster.
-
-This condition is user-specified. It boils down to this: for every pair of points (the first one, the seed, is being processed in this moment, the second one, candidate, is a neighbor of the former that is being tested) a custom function will be called. 
-
-This function has a certain signature: it receives
-
-1. a copy of the two points so we can perform our own tests, and
-2. the squared distance
-
-and returns a boolean value. If the value is true, the candidate may be added to the cluster. If false, it will not, even if it passed the distance check.
-
-The condition that is implemented above (checking if the candidate's Y coordinate is lower than the seed's) does not make a lot of sense, but I just wanted you to understand how the method works.
-
-
----
 This tutorial describes how to use the  `pcl::ConditionalEuclideanClustering`  class: 
-- A segmentation algorithm that clusters points based on Euclidean distance and a user-customizable condition that needs to hold.
+- 유클리드 알고리즘 + 사용자 정의 조건 ` A segmentation algorithm that clusters points based on Euclidean distance and a user-customizable condition that needs to hold.`
 
 This class uses the same greedy-like / region-growing / flood-filling approach that is used in  [Euclidean Cluster Extraction],  [Region growing segmentation]  and  [Color-based region growing segmentation]. 
 
@@ -36,9 +19,9 @@ This class uses the same greedy-like / region-growing / flood-filling approach t
 
 The  [Euclidean Cluster Extraction]  and  [Region growing segmentation]  tutorials already explain the region growing algorithm very accurately. 
 
-The only addition to those explanations is that the condition that needs to hold for a neighbor to be merged into the current cluster, can now be fully customized.
+두 군집을 합치는 조건을 사용자가 지정 할수 있음 `The only addition to those explanations is that the condition that needs to hold for a neighbor to be merged into the current cluster, can now be fully customized.`
 
-As a cluster grows, it will evaluate the user-defined condition between points already inside the cluster and nearby candidate points. 
+군집이 커지면서 이웃 군집과 합쳐지는 상황에서 지정된 조건을 참조 하여 수행 `As a cluster grows, it will evaluate the user-defined condition between points already inside the cluster and nearby candidate points. `
 
 The candidate points (nearest neighbor points) are found using a Euclidean radius search around each point in the cluster. 
 
@@ -49,6 +32,22 @@ The Conditional Euclidean Clustering class can also automatically filter cluster
 The clusters classified as too small or too large can still be retrieved afterwards.
 
 
+---
+
+기본 동작 과정은 같다. 하나만 다르다. `Conditional Euclidean segmentation works the same way as the standard one seen above, with one exception. `
+
+하나의 클러스터로 포함 시킬지 여부를 위해 거리를 계산만 고려 하였는데 이때 사용자 정의 조건을 추가로 고려 한다. ` Apart from the distance check, points need also to meet a special, custom requirement for them to be added to a cluster.`
+
+This condition is user-specified. It boils down to this: for every pair of points (the first one, the seed, is being processed in this moment, the second one, candidate, is a neighbor of the former that is being tested) a custom function will be called. 
+
+This function has a certain signature: it receives
+
+1. a copy of the two points so we can perform our own tests, and
+2. the squared distance
+
+and returns a boolean value. If the value is true, the candidate may be added to the cluster. If false, it will not, even if it passed the distance check.
+
+The condition that is implemented above (checking if the candidate's Y coordinate is lower than the seed's) does not make a lot of sense, but I just wanted you to understand how the method works.
 
 --- 
 
