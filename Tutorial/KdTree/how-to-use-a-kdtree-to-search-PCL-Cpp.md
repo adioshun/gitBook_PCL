@@ -37,6 +37,9 @@ You then repeat this procedure on both the left and right sub-trees until the la
 
 ---
 
+- [포인트 클라우드에서 누가 누가 빠른가? KDTree](https://blog.naver.com/laonple/221207919855)
+
+
 
 
 
