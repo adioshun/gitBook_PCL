@@ -35,7 +35,8 @@ You then repeat this procedure on both the left and right sub-trees until the la
 
 ```cpp
 #include <pcl/point_cloud.h>
-#include <pcl/kdtree/kdtree_flann.h>
+#include <pcl/search/kdtree.h>
+//#include <pcl/kdtree/kdtree_flann.h>
 #include <pcl/io/pcd_io.h>
 #include <iostream>
 #include <vector>
@@ -61,7 +62,8 @@ main (int argc, char** argv)
   }
 
   //KdTree 오브젝트 생성 
-  pcl::KdTreeFLANN<pcl::PointXYZRGB> kdtree;
+  pcl::search::KdTree<pcl::PointXYZRGB> kdtree;
+  //pcl::KdTreeFLANN<pcl::PointXYZRGB> kdtree; //FLANN 기반 KdTree #include <pcl/kdtree/kdtree_flann.h>)
   kdtree.setInputCloud (cloud);    //입력 
 
      //기준점(searchPoint) 설정 방법 #1(x,y,z 좌표 지정)
