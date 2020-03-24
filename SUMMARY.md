@@ -30,6 +30,7 @@
   * [\[Open3D\] Colored point cloud registration](Tutorial/Registration/open3d-colored-point-cloud-registration.md)
   * [\[PCL-Cpp\] Fuse two pointcloud ](Tutorial/Registration/pcl-cpp-fuse-two-pointcloud.md)
 * [KdTree](Tutorial/KdTree/README.md)
+  * [brute_force](Tutorial/KdTree/brute_force.md)
   * [How to use a KdTree to search](Tutorial/KdTree/how-to-use-a-kdtree-to-search-PCL-Cpp.md)
 * [Octree](Tutorial/Octree/README.md)
   * [Spatial Partitioning and Search Operations with Octrees-PCL-Cpp](Tutorial/Octree/spatial-partitioning-and-search-operations-with-octrees-PCL-Cpp.md)
