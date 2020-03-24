@@ -32,6 +32,7 @@
 * [KdTree](Tutorial/KdTree/README.md)
   * [brute_force](Tutorial/KdTree/brute_force.md)
   * [How to use a KdTree to search](Tutorial/KdTree/how-to-use-a-kdtree-to-search-PCL-Cpp.md)
+  * [performance_compare_brute_force_kd_tree](Tutorial/KdTree/performance_compare_brute_force_kd_tree.md)
 * [Octree](Tutorial/Octree/README.md)
   * [Spatial Partitioning and Search Operations with Octrees-PCL-Cpp](Tutorial/Octree/spatial-partitioning-and-search-operations-with-octrees-PCL-Cpp.md)
   * [Spatial Partitioning and Search Operations with Octrees-PCL-Python](Tutorial/Octree/spatial-partitioning-and-search-operations-with-octrees-PCL-Python.md)
