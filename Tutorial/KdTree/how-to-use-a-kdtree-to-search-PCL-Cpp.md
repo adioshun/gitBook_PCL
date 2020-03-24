@@ -33,6 +33,146 @@ You then repeat this procedure on both the left and right sub-trees until the la
 > - N 차원의 공간에서 임의의 영역에 포함되는 점들을 효율적으로 찾기 위한 트리.
 > - 노드 추가와 검색은 상당히 빠르나, 삭제가 느리다. 즉 동적으로 움직이는 점들을 관리하는 데에는 적당하지 않다.
 
+
+## Radius search 
+
+```cpp
+#include <pcl/point_cloud.h>
+#include <pcl/kdtree/kdtree_flann.h>
+#include <pcl/search/kdtree.h>
+#include <pcl/io/pcd_io.h>
+#include <iostream>
+#include <vector>
+#include <ctime>
+
+//How to use a KdTree to search
+//http://pointclouds.org/documentation/tutorials/kdtree_search.php#kdtree-search
+//Commnets : Hunjung, Lim (hunjung.lim@hotmail.com)
+
+int
+main (int argc, char** argv)
+{
+  
+  // *.PCD 파일 읽기 (https://raw.githubusercontent.com/adioshun/gitBook_Tutorial_PCL/master/Intermediate/sample/cloud_cluster_0.pcd)
+  pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud (new pcl::PointCloud<pcl::PointXYZRGB>);	
+  pcl::io::loadPCDFile<pcl::PointXYZRGB>("cloud_cluster_0.pcd", *cloud);
+
+  // 시각적 확인을 위해 색상 통일 (255,255,255)
+  for (size_t i = 0; i < cloud->points.size(); ++i){
+  cloud->points[i].r = 255;
+  cloud->points[i].g = 255;
+  cloud->points[i].b = 255;
+  }
+
+  //KdTree 오브젝트 생성 
+  //pcl::KdTreeFLANN<pcl::PointXYZRGB> kdtree; //FLANN 기반 KdTree #include <pcl/kdtree/kdtree_flann.h>)
+  pcl::search::KdTree<pcl::PointXYZRGB> kdtree;
+  kdtree.setInputCloud (cloud);    //입력 
+
+  //기준점(searchPoint) 설정 방법 
+  pcl::PointXYZRGB searchPoint = cloud->points[3000];  
+
+  //기준점 좌표 출력 
+  std::cout << "searchPoint :" << searchPoint.x << " " << searchPoint.y << " " << searchPoint.z  << std::endl;
+
+  // 기준점에서 지정된 반경내 포인트 탐색 (Neighbor search within radius)
+  float radius = 0.02; //탐색할 반경 설정(Set the search radius)
+  std::vector<int> pointIdxRadiusSearch;
+  std::vector<float> pointRadiusSquaredDistance;
+
+  if ( kdtree.radiusSearch (searchPoint, radius, pointIdxRadiusSearch, pointRadiusSquaredDistance) > 0 )
+  {
+    //시각적 확인을 위하여 색상 변경 (0,0,255)
+    for (size_t i = 0; i < pointIdxRadiusSearch.size (); ++i)
+      for (size_t i = 0; i < pointIdxRadiusSearch.size(); ++i)
+        {
+        cloud->points[pointIdxRadiusSearch[i]].r = 0;
+        cloud->points[pointIdxRadiusSearch[i]].g = 0;
+        cloud->points[pointIdxRadiusSearch[i]].b = 255;
+        }
+  }
+
+  // 탐색된 점의 수 출력 
+  std::cout << "Radius 0.02 nearest neighbors: " << pointIdxRadiusSearch.size() << std::endl;
+
+  // 생성된 포인트클라우드 저장 
+  pcl::io::savePCDFile<pcl::PointXYZRGB>("Kdtree_radius_output.pcd", *cloud);
+
+  return 0;
+}
+```
+
+### knn search 
+
+```cpp
+#include <pcl/point_cloud.h>
+#include <pcl/kdtree/kdtree_flann.h>
+#include <pcl/search/kdtree.h>
+#include <pcl/io/pcd_io.h>
+#include <iostream>
+#include <vector>
+#include <ctime>
+
+//How to use a KdTree to search
+//http://pointclouds.org/documentation/tutorials/kdtree_search.php#kdtree-search
+//Commnets : Hunjung, Lim (hunjung.lim@hotmail.com)
+
+int
+main (int argc, char** argv)
+{
+  
+  // *.PCD 파일 읽기 (https://raw.githubusercontent.com/adioshun/gitBook_Tutorial_PCL/master/Intermediate/sample/cloud_cluster_0.pcd)
+  pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud (new pcl::PointCloud<pcl::PointXYZRGB>);	
+  pcl::io::loadPCDFile<pcl::PointXYZRGB>("cloud_cluster_0.pcd", *cloud);
+
+  // 시각적 확인을 위해 색상 통일 (255,255,255)
+  for (size_t i = 0; i < cloud->points.size(); ++i){
+  cloud->points[i].r = 255;
+  cloud->points[i].g = 255;
+  cloud->points[i].b = 255;
+  }
+
+  //KdTree 오브젝트 생성 
+  //pcl::KdTreeFLANN<pcl::PointXYZRGB> kdtree;  //FLANN 기반 KdTree #include <pcl/kdtree/kdtree_flann.h>)
+  pcl::search::KdTree<pcl::PointXYZRGB> kdtree;
+  kdtree.setInputCloud (cloud);    //입력 
+
+  //기준점(searchPoint) 설정 방법 (3000번째 포인트)
+  pcl::PointXYZRGB searchPoint = cloud->points[3000]; 
+
+  //기준점 좌표 출력 
+  std::cout << "searchPoint :" << searchPoint.x << " " << searchPoint.y << " " << searchPoint.z  << std::endl;
+   
+
+  //기준점에서 가까운 순서중 K번째까지의 포인트 탐색 (K nearest neighbor search)
+  int K = 10;   // 탐색할 포인트 수 설정 
+  std::vector<int> pointIdxNKNSearch(K);
+  std::vector<float> pointNKNSquaredDistance(K);
+
+  if ( kdtree.nearestKSearch (searchPoint, K, pointIdxNKNSearch, pointNKNSquaredDistance) > 0 )
+  {
+    //시각적 확인을 위하여 색상 변경 (0,255,0) 
+    for (size_t i = 0; i < pointIdxNKNSearch.size (); ++i)
+    {
+      cloud->points[pointIdxNKNSearch[i]].r = 0;
+      cloud->points[pointIdxNKNSearch[i]].g = 255;
+      cloud->points[pointIdxNKNSearch[i]].b = 0;
+    }
+  }
+
+  // 탐색된 점의 수 출력 
+  std::cout << "K = 10 ：" << pointIdxNKNSearch.size() << std::endl;
+
+  // 생성된 포인트클라우드 저장 
+  pcl::io::savePCDFile<pcl::PointXYZRGB>("Kdtree_knn_output.pcd", *cloud);
+
+  return 0;
+}
+
+```
+
+## 
+
 ```cpp
 #include <pcl/point_cloud.h>
 #include <pcl/search/kdtree.h>
