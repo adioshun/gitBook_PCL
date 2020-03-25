@@ -27,6 +27,7 @@
   * [How to incrementally register pairs of clouds](Tutorial/Registration/How-to-incrementally-register-pairs-of-clouds.md)
   * [Interactive Iterative Closest Point](Tutorial/Registration/Interactive-Iterative-Closest-Point.md)
   * [How to use Normal Distributions Transform](Tutorial/Registration/How-to-use-Normal-Distributions-Transform.md)
+  * [Robust pose estimation of rigid objects](Tutorial/Registration/Robust-pose-estimation-of-rigid-objects.md)
   * [\[PCL-Cpp\] How to use Normal Distributions Transform](Tutorial/Registration/how-to-use-normal-distributions-transform.md)
   * [\[Open3D\] ICP registration](Tutorial/Registration/open3d-icp-registration.md)
   * [\[Open3D\] \(Fast\) Global registration](Tutorial/Registration/open3d-global-registration.md)
