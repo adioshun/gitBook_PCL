@@ -160,7 +160,7 @@ pcl::io::loadPCDFile<pcl::PointXYZ> ("bun4.pcd", *tgt);
 // Get an uniform grid of keypoints  //다운 샘플링 
 PointCloud<PointXYZ>::Ptr keypoints_src (new PointCloud<PointXYZ>), 
                          keypoints_tgt (new PointCloud<PointXYZ>);
-UniformSampling<PointXYZ> uniform;
+pcl::UniformSampling<PointXYZ> uniform;
 uniform.setRadiusSearch (1);  // 1m
 uniform.setInputCloud (src);
 uniform.filter (*keypoints_src);
@@ -168,11 +168,10 @@ uniform.setInputCloud (tgt);
 uniform.filter (*keypoints_tgt);
 print_info ("- Found %lu and %lu keypoints for the source and target datasets.\n", keypoints_src->points.size (), keypoints_tgt->points.size ());
 
-
 // Compute normals for all points keypoint
 PointCloud<Normal>::Ptr normals_src (new PointCloud<Normal>), 
                          normals_tgt (new PointCloud<Normal>);
-NormalEstimation<PointXYZ, Normal> normal_est;
+pcl::NormalEstimation<PointXYZ, Normal> normal_est;
 normal_est.setInputCloud (src);
 normal_est.setRadiusSearch (0.5);  // 50cm
 normal_est.compute (*normals_src);
@@ -180,43 +179,35 @@ normal_est.setInputCloud (tgt);
 normal_est.compute (*normals_tgt);
 print_info ("- Estimated %lu and %lu normals for the source and target datasets.\n", normals_src->points.size (), normals_tgt->points.size ());
 
-
-
 // Compute FPFH features at each keypoint
 PointCloud<FPFHSignature33>::Ptr fpfhs_src (new PointCloud<FPFHSignature33>), 
                               fpfhs_tgt (new PointCloud<FPFHSignature33>);
-FPFHEstimation<PointXYZ, Normal, FPFHSignature33> fpfh_est;
+pcl::FPFHEstimation<PointXYZ, Normal, FPFHSignature33> fpfh_est;
 fpfh_est.setInputCloud (keypoints_src);
 fpfh_est.setInputNormals (normals_src);
 fpfh_est.setRadiusSearch (1); // 1m
 fpfh_est.setSearchSurface (src);
 fpfh_est.compute (*fpfhs_src);
-
 fpfh_est.setInputCloud (keypoints_tgt);
 fpfh_est.setInputNormals (normals_tgt);
 fpfh_est.setSearchSurface (tgt);
 fpfh_est.compute (*fpfhs_tgt);
 
-
-
 // Find correspondences between keypoints in FPFH space
 CorrespondencesPtr all_correspondences (new Correspondences), 
                     good_correspondences (new Correspondences);
-
-//findCorrespondences (fpfhs_src, fpfhs_tgt, *all_correspondences);
-CorrespondenceEstimation<FPFHSignature33, FPFHSignature33> est;
+pcl::registration::CorrespondenceEstimation<FPFHSignature33, FPFHSignature33> est;
 est.setInputCloud (fpfhs_src);
 est.setInputTarget (fpfhs_tgt);
 est.determineReciprocalCorrespondences (*all_correspondences);
 
 // Reject correspondences based on their XYZ distance
-CorrespondenceRejectorDistance rej;
+pcl::registration::CorrespondenceRejectorDistance rej;
 rej.setInputCloud<PointXYZ> (keypoints_src);
 rej.setInputTarget<PointXYZ> (keypoints_tgt);
 rej.setMaximumDistance (1);    // 1m
 rej.setInputCorrespondences (all_correspondences);
 rej.getCorrespondences (*good_correspondences);
-
 
 for (int i = 0; i < good_correspondences->size (); ++i)
 std::cerr << good_correspondences->at (i) << std::endl;
@@ -224,7 +215,7 @@ std::cerr << good_correspondences->at (i) << std::endl;
 // Obtain the best transformation between the two sets of keypoints given the remaining correspondences
 // Compute the best transformtion
 Eigen::Matrix4f transform;
-TransformationEstimationSVD<PointXYZ, PointXYZ> trans_est;
+pcl::registration::TransformationEstimationSVD<PointXYZ, PointXYZ> trans_est;
 trans_est.estimateRigidTransformation (*keypoints_src, *keypoints_tgt, *good_correspondences, transform);
 
 
@@ -232,7 +223,7 @@ std::cerr << transform << std::endl;
 // Transform the data and write it to disk
 PointCloud<PointXYZ> output;
 transformPointCloud (*src, output, transform);
-
+ 
 savePCDFileBinary ("source_transformed.pcd", output);
 }
 
