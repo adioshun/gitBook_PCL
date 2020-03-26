@@ -50,7 +50,6 @@ int
 #include <iostream>
 #include <pcl/io/pcd_io.h>
 #include <pcl/point_types.h>
-#include <pcl/registration/icp.h>
 #include <pcl/registration/icp_nl.h> //IterativeClosestPointNonLinear
 
 // https://github.com/otherlab/pcl/blob/master/test/registration/test_registration.cpp
