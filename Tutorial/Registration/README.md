@@ -1,6 +1,6 @@
 # Registration 
 
-* [The PCL Registration API](the-pcl-registration-api.md)
+* [The PCL Registration API](the-pcl-registration-api.md) [[참고_코드]](https://github.com/otherlab/pcl/blob/master/test/registration/test_registration_api.cpp)
 * [How to use iterative closest point](iterative-closest-point.md)
 * [How to incrementally register pairs of clouds](How-to-incrementally-register-pairs-of-clouds.md)
 * [Interactive Iterative Closest Point](Interactive-Iterative-Closest-Point.md)
