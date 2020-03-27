@@ -16,6 +16,7 @@
   * [Moment of inertia and eccentricity based descriptors-PCL-Python](Tutorial/Feature/pcl-python-moment-of-inertia-and-eccentricity-based-descriptors.md)
   * [Estimating VFH signatures for a set of points-PCL-Python](Tutorial/Feature/pcl-python-estimating-vfh-signatures-for-a-set-of-points.md)
   * [PFH Descriptors-PCL-CPP](Tutorial/Feature/pcl-cpp-pfh-descriptors.md)
+  * [Normal Estimation Using Integral Images](Tutorial/Feature/Normal-Estimation-Using-Integral-Images.md)
 * [Filtering](Tutorial/Filtering/README.md)
   * [Projecting points using a parametric model-PCL-Cpp](Tutorial/Filtering/pcl-cpp-projecting-points-using-a-parametric-model.md)
   * [Downsampling a PointCloud using a VoxelGrid filter-PCL-Cpp](Tutorial/Filtering/pcl-cpp-downsampling-a-pointcloud-using-a-voxelgrid-filter.md)
