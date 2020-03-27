@@ -60,6 +60,7 @@
   * [Fast triangulation of unordered point clouds](Tutorial/Surface/Fast-triangulation-of-unordered-point-clouds.md)
 * [Visualization](visualization.md)
 * [Tracking object in real time](tracking-object-in-real-time.md)
+* [Range Image](Tutorial/RangeImage/How-to-create-a-range-image-from-a-point-cloud.md)
 
 ## Moock
 
