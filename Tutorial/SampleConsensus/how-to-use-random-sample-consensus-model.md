@@ -75,6 +75,10 @@ The pictures to the left and right show a simple application of the RANSAC algor
 #include <pcl/sample_consensus/ransac.h>
 #include <pcl/sample_consensus/sac_model_plane.h>
 
+// How to use Random Sample Consensus model
+// http://pointclouds.org/documentation/tutorials/random_sample_consensus.php#random-sample-consensus
+
+
 int
 main(int argc, char** argv)
 {
@@ -82,6 +86,7 @@ main(int argc, char** argv)
   pcl::PointCloud<pcl::PointXYZ>::Ptr cloud (new pcl::PointCloud<pcl::PointXYZ>);
   pcl::PointCloud<pcl::PointXYZ>::Ptr final (new pcl::PointCloud<pcl::PointXYZ>);
   pcl::io::loadPCDFile<pcl::PointXYZ>("sample_consenus_input.pcd", *cloud);
+  //https://github.com/adioshun/gitBook_Tutorial_PCL/blob/master/Beginner/sample/sample_consenus_input.pcd
   
   std::vector<int> inliers;
   
@@ -98,6 +103,9 @@ main(int argc, char** argv)
   pcl::io::savePCDFile<pcl::PointXYZ>("sample_consenus_final_model_p.pcd", *final);
 
   return 0;
+  
+  // 다른 방법들 
+  //https://github.com/PointCloudLibrary/pcl/blob/master/test/sample_consensus/test_sample_consensus_plane_models.cpp
  }
 
 ```
