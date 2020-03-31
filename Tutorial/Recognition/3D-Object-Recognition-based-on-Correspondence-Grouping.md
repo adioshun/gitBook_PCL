@@ -17,24 +17,18 @@ For each cluster, representing a possible model instance in the scene, the Corre
 #include <pcl/features/board.h>
 #include <pcl/filters/uniform_sampling.h>
 #include <pcl/recognition/cg/hough_3d.h>
-//#include <pcl/recognition/cg/geometric_consistency.h>
-#include <pcl/kdtree/kdtree_flann.h>    //Kdtree库
+#include <pcl/kdtree/kdtree_flann.h>  
 #include <pcl/kdtree/impl/kdtree_flann.hpp>
 #include <pcl/common/transforms.h>
 #include <pcl/console/parse.h>
-#include <pcl/visualization/cloud_viewer.h>//点云查看窗口头文件
+#include <pcl/visualization/cloud_viewer.h>
 #include <pcl/visualization/pcl_visualizer.h>
 #include <pcl/visualization/boost.h>
  
-//#include <vtkAutoInit.h>
-//VTK_MODULE_INIT(vtkRenderingOpenGL2);
- 
- 
- 
-typedef pcl::PointXYZ PointType; //文中的PintType即为PointXYZRGBA
+typedef pcl::PointXYZ PointType; 
 typedef pcl::Normal NormalType;
 typedef pcl::ReferenceFrame RFType;
-typedef pcl::SHOT352 DescriptorType;//SHOT特征的数据结构
+typedef pcl::SHOT352 DescriptorType;
  
 std::string model_filename_;
 std::string scene_filename_;
@@ -42,7 +36,6 @@ std::string scene_filename_;
 // 시각화 설정 
 bool show_keypoints_(true);
 bool show_correspondences_(true);
-
 //Algorithm params
 float model_ss_(0.0114425);//7.5f); //
 float scene_ss_(0.0305134);//20.0f);//
@@ -50,7 +43,6 @@ float rf_rad_(0.0152567);//10.0f);  //
 float descr_rad_(0.0228851);//15.0f);//
 float cg_size_(0.0152567);//10.0f);  //
 float cg_thresh_(5.0f);
-
 
 int main(int argc, char *argv[])
 {
@@ -79,11 +71,9 @@ int main(int argc, char *argv[])
   // https://github.com/PointCloudLibrary/pcl/blob/master/test/milk.pcd?raw=true
   // https://github.com/PointCloudLibrary/pcl/blob/master/test/milk_cartoon_all_small_clorox.pcd?raw=true
  
-	//
 	// 노멀 계산 Compute Normals
-	// Calculate the normals for each point of the model and scene cloud, using the 10 nearest neighbors at each point 
-  // (this parameter seems pretty good, a lot of data sets, not just the data sets provided).
-	//
+	//Calculate the normals for each point of the model and scene cloud, using the 10 nearest neighbors at each point 
+  //(this parameter seems pretty good, a lot of data sets, not just the data sets provided).
 	pcl::NormalEstimationOMP<PointType, NormalType> norm_est;
 	norm_est.setKSearch(10);
 	norm_est.setNumberOfThreads(4); //User Error 1001에러 해결용 : argument to num_threads clause must be positive
@@ -92,31 +82,26 @@ int main(int argc, char *argv[])
 	norm_est.setInputCloud(scene);
 	norm_est.compute(*scene_normals);
  
-	//
 	// 다운 샘플링 Downsample Clouds to Extract keypoints
 	// It then samples each cloud to find a small number of key points and 
   // then correlates these key points to the 3D descriptor for performing key-point matching and determining point-to-point correspondence.
-	//用于：pcl：`UniformSampling <pcl :: UniformSampling>的半径是使用命令行开关设置的半径或默认值。
-	//
- 
+
 	pcl::UniformSampling<PointType> uniform_sampling;
 	uniform_sampling.setInputCloud(model);
 	uniform_sampling.setRadiusSearch(model_ss_);
 	uniform_sampling.filter(*model_keypoints);
 	std::cout << "Model total points: " << model->size() << "; Selected Keypoints: " << model_keypoints->size() << std::endl;
- 
-	uniform_sampling.setInputCloud(scene);
+
+ 	uniform_sampling.setInputCloud(scene);
 	uniform_sampling.setRadiusSearch(scene_ss_);
 	uniform_sampling.filter(*scene_keypoints);
 	std::cout << "Scene total points: " << scene->size() << "; Selected Keypoints: " << scene_keypoints->size() << std::endl;
 	
- 
-	//
 	// Compute Descriptor for keypoints
 	// The next phase involves correlating the 3D descriptor to each model and scene key points.
 	pcl::SHOTEstimationOMP<PointType, NormalType, DescriptorType> descr_est;
 	descr_est.setRadiusSearch(descr_rad_);
- 
+
 	descr_est.setInputCloud(model_keypoints);
 	descr_est.setInputNormals(model_normals);
 	descr_est.setNumberOfThreads(4);
@@ -128,9 +113,8 @@ int main(int argc, char *argv[])
 	descr_est.setNumberOfThreads(4);
 	descr_est.setSearchSurface(scene);
 	descr_est.compute(*scene_descriptors);
- 
-	
-	//  Find Model-Scene Correspondences with KdTree
+ 	
+	//Find Model-Scene Correspondences with KdTree
 	//Now we need to determine the point-to-point correspondence between the model descriptor and the scene descriptor.
 	//For this purpose, the program is used：pcl：`KdTreeFLANN <pcl :: KdTreeFLANN>`，Its input cloud has been set to the cloud containing the model descriptor.
 	//For each descriptor associated with a scene keypoint, it efficiently finds the most similar model descriptor based on Euclidean distance,
@@ -172,43 +156,41 @@ int main(int argc, char *argv[])
 	std::vector<Eigen::Matrix4f, Eigen::aligned_allocator<Eigen::Matrix4f> > rototranslations;
 	std::vector<pcl::Correspondences> clustered_corrs;
  
-	////  Using Hough3D
- // F. Tombari and L. Di Stefano: “Object recognition in 3D scenes with occlusions and clutter by Hough voting”, 4th Pacific-Rim Symposium on Image and Video Technology, 2010.
-		//
-		//  Compute (Keypoints) Reference Frames only for Hough
-		//
-		pcl::PointCloud<RFType>::Ptr model_rf(new pcl::PointCloud<RFType>());
-		pcl::PointCloud<RFType>::Ptr scene_rf(new pcl::PointCloud<RFType>());
- 
-		pcl::BOARDLocalReferenceFrameEstimation<PointType, NormalType, RFType> rf_est;
-		rf_est.setFindHoles(true);
-		rf_est.setRadiusSearch(rf_rad_);
- 
-		rf_est.setInputCloud(model_keypoints);
-		rf_est.setInputNormals(model_normals);
-		rf_est.setSearchSurface(model);
-		rf_est.compute(*model_rf);
- 
-		rf_est.setInputCloud(scene_keypoints);
-		rf_est.setInputNormals(scene_normals);
-		rf_est.setSearchSurface(scene);
-		rf_est.compute(*scene_rf);
- 
-	//	//  Clustering
-		pcl::Hough3DGrouping<PointType, PointType, RFType, RFType> clusterer;
-		clusterer.setHoughBinSize(cg_size_);
-		clusterer.setHoughThreshold(cg_thresh_);
-		clusterer.setUseInterpolation(true);
-		clusterer.setUseDistanceWeight(false);
- 
-		clusterer.setInputCloud(model_keypoints);
-		clusterer.setInputRf(model_rf);
-		clusterer.setSceneCloud(scene_keypoints);
-		clusterer.setSceneRf(scene_rf);
-		clusterer.setModelSceneCorrespondences(model_scene_corrs);
- 
-		//clusterer.cluster (clustered_corrs);
-		clusterer.recognize(rototranslations, clustered_corrs);
+	//  Using Hough3D
+  // F. Tombari and L. Di Stefano: “Object recognition in 3D scenes with occlusions and clutter by Hough voting”, 4th Pacific-Rim Symposium on Image and Video Technology, 2010.
+  //  Compute (Keypoints) Reference Frames only for Hough
+  pcl::PointCloud<RFType>::Ptr model_rf(new pcl::PointCloud<RFType>());
+  pcl::PointCloud<RFType>::Ptr scene_rf(new pcl::PointCloud<RFType>());
+
+  pcl::BOARDLocalReferenceFrameEstimation<PointType, NormalType, RFType> rf_est;
+  rf_est.setFindHoles(true);
+  rf_est.setRadiusSearch(rf_rad_);
+
+  rf_est.setInputCloud(model_keypoints);
+  rf_est.setInputNormals(model_normals);
+  rf_est.setSearchSurface(model);
+  rf_est.compute(*model_rf);
+
+  rf_est.setInputCloud(scene_keypoints);
+  rf_est.setInputNormals(scene_normals);
+  rf_est.setSearchSurface(scene);
+  rf_est.compute(*scene_rf);
+
+	//  Clustering
+  pcl::Hough3DGrouping<PointType, PointType, RFType, RFType> clusterer;
+  clusterer.setHoughBinSize(cg_size_);
+  clusterer.setHoughThreshold(cg_thresh_);
+  clusterer.setUseInterpolation(true);
+  clusterer.setUseDistanceWeight(false);
+
+  clusterer.setInputCloud(model_keypoints);
+  clusterer.setInputRf(model_rf);
+  clusterer.setSceneCloud(scene_keypoints);
+  clusterer.setSceneRf(scene_rf);
+  clusterer.setModelSceneCorrespondences(model_scene_corrs);
+
+  //clusterer.cluster (clustered_corrs);
+  clusterer.recognize(rototranslations, clustered_corrs);
 
 
 	/*
@@ -238,9 +220,7 @@ int main(int argc, char *argv[])
 		printf("        t = < %0.3f, %0.3f, %0.3f >\n", translation(0), translation(1), translation(2));
 	}
  
-	//
 	//  Visualization
-	//
 	pcl::visualization::PCLVisualizer viewer("Correspondence Grouping");
 	viewer.addPointCloud(scene, "scene_cloud");//可视化场景点云
  
