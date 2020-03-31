@@ -62,6 +62,8 @@
 * [Visualization](visualization.md)
 * [Tracking object in real time](tracking-object-in-real-time.md)
 * [Range Image](Tutorial/RangeImage/How-to-create-a-range-image-from-a-point-cloud.md)
+* [Recognition](Tutorial/Recognition/README.md)
+  * [3D Object Recognition based on Correspondence Grouping](Tutorial/Recognition/3D-Object-Recognition-based-on-Correspondence-Grouping.md)
 
 ## Moock
 
