@@ -29,20 +29,6 @@ typedef pcl::PointXYZ PointType;
 typedef pcl::Normal NormalType;
 typedef pcl::ReferenceFrame RFType;
 typedef pcl::SHOT352 DescriptorType;
- 
-std::string model_filename_;
-std::string scene_filename_;
- 
-// 시각화 설정 
-bool show_keypoints_(true);
-bool show_correspondences_(true);
-//Algorithm params
-float model_ss_(0.0114425);//7.5f); //
-float scene_ss_(0.0305134);//20.0f);//
-float rf_rad_(0.0152567);//10.0f);  //
-float descr_rad_(0.0228851);//15.0f);//
-float cg_size_(0.0152567);//10.0f);  //
-float cg_thresh_(5.0f);
 
 int main(int argc, char *argv[])
 {
@@ -55,7 +41,7 @@ int main(int argc, char *argv[])
   // http://robotica.unileon.es/index.php/PCL/OpenNI_tutorial_5:_3D_object_recognition_(pipeline)
 
 	pcl::PointCloud<PointType>::Ptr model(new pcl::PointCloud<PointType>());
-	pcl::PointCloud<PointType>::Ptr model_keypoints(new pcl::PointCloud<PointType>()); //Define model point cloud types, and feature points
+	pcl::PointCloud<PointType>::Ptr model_keypoints(new pcl::PointCloud<PointType>()); 
 	pcl::PointCloud<PointType>::Ptr scene(new pcl::PointCloud<PointType>());
 	pcl::PointCloud<PointType>::Ptr scene_keypoints(new pcl::PointCloud<PointType>());
  
@@ -66,41 +52,39 @@ int main(int argc, char *argv[])
  
 
   // 파일 읽기 
-	pcl::io::loadPCDFile("milk.pcd", *model);
-	pcl::io::loadPCDFile("milk_cartoon_all_small_clorox.pcd", *scene);
   // https://github.com/PointCloudLibrary/pcl/blob/master/test/milk.pcd?raw=true
   // https://github.com/PointCloudLibrary/pcl/blob/master/test/milk_cartoon_all_small_clorox.pcd?raw=true
+	pcl::io::loadPCDFile("milk.pcd", *model);
+	pcl::io::loadPCDFile("milk_cartoon_all_small_clorox.pcd", *scene);
+
  
 	// 노멀 계산 Compute Normals
-	//Calculate the normals for each point of the model and scene cloud, using the 10 nearest neighbors at each point 
-  //(this parameter seems pretty good, a lot of data sets, not just the data sets provided).
 	pcl::NormalEstimationOMP<PointType, NormalType> norm_est;
 	norm_est.setKSearch(10);
-	norm_est.setNumberOfThreads(4); //User Error 1001에러 해결용 : argument to num_threads clause must be positive
+	norm_est.setNumberOfThreads(4); 
 	norm_est.setInputCloud(model);
 	norm_est.compute(*model_normals); 
 	norm_est.setInputCloud(scene);
 	norm_est.compute(*scene_normals);
  
-	// 다운 샘플링 Downsample Clouds to Extract keypoints
-	// It then samples each cloud to find a small number of key points and 
-  // then correlates these key points to the 3D descriptor for performing key-point matching and determining point-to-point correspondence.
+	// 다운 샘플링 
+  // 샘플링 결과를 키포인트로 사용하여 3D descriptor생성 
+  // 최종적으로 key-point matching과 determining point-to-point correspondence에 활용 
 
 	pcl::UniformSampling<PointType> uniform_sampling;
 	uniform_sampling.setInputCloud(model);
-	uniform_sampling.setRadiusSearch(model_ss_);
+	uniform_sampling.setRadiusSearch(0.0114425);
 	uniform_sampling.filter(*model_keypoints);
 	std::cout << "Model total points: " << model->size() << "; Selected Keypoints: " << model_keypoints->size() << std::endl;
 
  	uniform_sampling.setInputCloud(scene);
-	uniform_sampling.setRadiusSearch(scene_ss_);
+	uniform_sampling.setRadiusSearch(0.0305134);
 	uniform_sampling.filter(*scene_keypoints);
 	std::cout << "Scene total points: " << scene->size() << "; Selected Keypoints: " << scene_keypoints->size() << std::endl;
 	
-	// Compute Descriptor for keypoints
-	// The next phase involves correlating the 3D descriptor to each model and scene key points.
+	// SHOT 기술자 생성 
 	pcl::SHOTEstimationOMP<PointType, NormalType, DescriptorType> descr_est;
-	descr_est.setRadiusSearch(descr_rad_);
+	descr_est.setRadiusSearch(0.0228851);
 
 	descr_est.setInputCloud(model_keypoints);
 	descr_est.setInputNormals(model_normals);
@@ -114,20 +98,11 @@ int main(int argc, char *argv[])
 	descr_est.setSearchSurface(scene);
 	descr_est.compute(*scene_descriptors);
  	
-	//Find Model-Scene Correspondences with KdTree
-	//Now we need to determine the point-to-point correspondence between the model descriptor and the scene descriptor.
-	//For this purpose, the program is used：pcl：`KdTreeFLANN <pcl :: KdTreeFLANN>`，Its input cloud has been set to the cloud containing the model descriptor.
-	//For each descriptor associated with a scene keypoint, it efficiently finds the most similar model descriptor based on Euclidean distance,
-	//And add that pair to：pcl：`Correspondences <pcl :: Correspondences>`vector
-	//(Only if the two descriptors are sufficiently similar, ie their squared distance is less than the threshold, set to 0.25).
-	//
-	pcl::CorrespondencesPtr model_scene_corrs(new pcl::Correspondences());
- 
-	pcl::KdTreeFLANN<DescriptorType> match_search;
+	//KdTree 탐색을 이용하여 Correspondences 유사도 계산 
+	pcl::CorrespondencesPtr model_scene_corrs(new pcl::Correspondences()); //결과 저장 
+	pcl::KdTreeFLANN<DescriptorType> match_search; 
 	match_search.setInputCloud(model_descriptors);
- 
-	////  For each scene keypoint descriptor, 
-	////find nearest neighbor into the model keypoints descriptor cloud and add it to the correspondences vector.
+ 	// 각 scene keypoint descriptor와 model keypoints descriptor 간의 nearest neighbor 검색 
 	for (size_t i = 0; i < scene_descriptors->size(); ++i)
 	{
 		std::vector<int> neigh_indices(1);
@@ -137,7 +112,7 @@ int main(int argc, char *argv[])
 			continue;
 		}
 		int found_neighs = match_search.nearestKSearch(scene_descriptors->at(i), 1, neigh_indices, neigh_sqr_dists);
-		if (found_neighs == 1 && neigh_sqr_dists[0] < 0.25f) //  add match only if the squared descriptor distance is less than 0.25 (SHOT descriptor distances are between 0 and 1 by design)
+		if (found_neighs == 1 && neigh_sqr_dists[0] < 0.25f) //  유사도 구분 기준 유클리드 거리 0.25 
 		{
 			pcl::Correspondence corr(neigh_indices[0], static_cast<int> (i), neigh_sqr_dists[0]);
 			model_scene_corrs->push_back(corr);
@@ -145,26 +120,16 @@ int main(int argc, char *argv[])
 	}
 	std::cout << "Correspondences found: " << model_scene_corrs->size() << std::endl;
  
-	//
-	//  Actual Clustering
-	//The last stage of the pipeline is the actual clustering of previously found correspondences
-	//The default algorithm is：pcl：`Hough3DGrouping <pcl::Hough3DGrouping>`，It is based on the Hough Voting process
-	//Note that this algorithm needs to associate a local reference frame (LRF) for each keypoint belonging to the cloud, these keypoints being passed as parameters!
-	//In this example, we use before calling clustering algorithm：pcl：`BOARDLocalReferenceFrameEstimation <pcl::BOARDLocalReferenceFrameEstimation> estimator
-	//显式计算LRF集。
-	//
-	std::vector<Eigen::Matrix4f, Eigen::aligned_allocator<Eigen::Matrix4f> > rototranslations;
-	std::vector<pcl::Correspondences> clustered_corrs;
- 
 	//  Using Hough3D
   // F. Tombari and L. Di Stefano: “Object recognition in 3D scenes with occlusions and clutter by Hough voting”, 4th Pacific-Rim Symposium on Image and Video Technology, 2010.
   //  Compute (Keypoints) Reference Frames only for Hough
   pcl::PointCloud<RFType>::Ptr model_rf(new pcl::PointCloud<RFType>());
   pcl::PointCloud<RFType>::Ptr scene_rf(new pcl::PointCloud<RFType>());
 
+  //Hough3D에서 사용하는 Local Reference Frame (LRF) 계산 
   pcl::BOARDLocalReferenceFrameEstimation<PointType, NormalType, RFType> rf_est;
   rf_est.setFindHoles(true);
-  rf_est.setRadiusSearch(rf_rad_);
+  rf_est.setRadiusSearch(0.0152567);
 
   rf_est.setInputCloud(model_keypoints);
   rf_est.setInputNormals(model_normals);
@@ -176,10 +141,10 @@ int main(int argc, char *argv[])
   rf_est.setSearchSurface(scene);
   rf_est.compute(*scene_rf);
 
-	//  Clustering
+	//Hough3D Clustering 수행 (LRF계산 선행 되어야함)
   pcl::Hough3DGrouping<PointType, PointType, RFType, RFType> clusterer;
-  clusterer.setHoughBinSize(cg_size_);
-  clusterer.setHoughThreshold(cg_thresh_);
+  clusterer.setHoughBinSize(0.0152567);
+  clusterer.setHoughThreshold(5.0f);
   clusterer.setUseInterpolation(true);
   clusterer.setUseDistanceWeight(false);
 
@@ -188,20 +153,14 @@ int main(int argc, char *argv[])
   clusterer.setSceneCloud(scene_keypoints);
   clusterer.setSceneRf(scene_rf);
   clusterer.setModelSceneCorrespondences(model_scene_corrs);
-
-  //clusterer.cluster (clustered_corrs);
+  
+  std::vector<Eigen::Matrix4f, Eigen::aligned_allocator<Eigen::Matrix4f> > rototranslations;
+	std::vector<pcl::Correspondences> clustered_corrs;
+  //clusterer.cluster (clustered_corrs); //rototranslations 정보없이 clustered_corrs만 필요 할때 사용 
   clusterer.recognize(rototranslations, clustered_corrs);
 
 
-	/*
-  It is not necessary to calculate the LRF explicitly before calling the clustering algorithm. If the cloud extracted to the clustering algorithm has no associated set of LRFs,
-	Hough 3D Grouping automatically calculates them before performing clustering. In particular, this can happen when invoking the identification (or cluster) method without setting the LRF：
-	In this case, you need to specify the radius of LRF clustering algorithm as an additional parameter (setLocalRfSearchRadius using Method)。
-	*/
-
-	//
 	//  Output results
-	//
 	std::cout << "Model instances found: " << rototranslations.size() << std::endl;
 	for (size_t i = 0; i < rototranslations.size(); ++i)
 	{
@@ -220,9 +179,15 @@ int main(int argc, char *argv[])
 		printf("        t = < %0.3f, %0.3f, %0.3f >\n", translation(0), translation(1), translation(2));
 	}
  
-	//  Visualization
+
+
+	//  시각화 
+  bool show_keypoints_(false);
+  bool show_correspondences_(true);
+
+
 	pcl::visualization::PCLVisualizer viewer("Correspondence Grouping");
-	viewer.addPointCloud(scene, "scene_cloud");//可视化场景点云
+	viewer.addPointCloud(scene, "scene_cloud");
  
 	pcl::PointCloud<PointType>::Ptr off_scene_model(new pcl::PointCloud<PointType>());
 	pcl::PointCloud<PointType>::Ptr off_scene_model_keypoints(new pcl::PointCloud<PointType>());
