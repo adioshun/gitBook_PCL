@@ -13,6 +13,7 @@
   * [Vertex normal estimation-Open3](Tutorial/Feature/open3d-vertex-normal-estimation.md)
   * [Estimating Surface Normals in a PointCloud](Tutorial/Feature/Estimating-surface-normals-in-a-pointcloud.md)
   * [RoPs feature-PCL-Python](Tutorial/Feature/pcl-python-rops-feature.md)
+  * [Moment of inertia and eccentricity based descriptors](Tutorial/Feature/Moment-of-inertia-and-eccentricity-based-descriptors.md)
   * [Moment of inertia and eccentricity based descriptors-PCL-Python](Tutorial/Feature/pcl-python-moment-of-inertia-and-eccentricity-based-descriptors.md)
   * [Estimating VFH signatures for a set of points-PCL-Python](Tutorial/Feature/pcl-python-estimating-vfh-signatures-for-a-set-of-points.md)
   * [PFH Descriptors-PCL-CPP](Tutorial/Feature/pcl-cpp-pfh-descriptors.md)
