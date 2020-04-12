@@ -37,6 +37,7 @@
   * [\[PCL-Cpp\] Fuse two pointcloud ](Tutorial/Registration/pcl-cpp-fuse-two-pointcloud.md)
 * [KdTree](Tutorial/KdTree/README.md)
   * [brute_force](Tutorial/KdTree/brute_force.md)
+  * [organized]((Tutorial/KdTree/organized.md)
   * [How to use a KdTree to search](Tutorial/KdTree/how-to-use-a-kdtree-to-search-PCL-Cpp.md)
   * [performance_compare_brute_force_kd_tree](Tutorial/KdTree/performance_compare_brute_force_kd_tree.md)
 * [Octree](Tutorial/Octree/README.md)
