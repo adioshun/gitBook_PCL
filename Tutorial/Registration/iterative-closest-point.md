@@ -122,3 +122,5 @@ main (int argc, char** argv)
  return (0);
 }
 ```
+
+https://github.com/PointCloudLibrary/pcl/blob/master/test/registration/test_registration.cpp
