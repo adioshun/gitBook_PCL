@@ -43,17 +43,22 @@
 
 ### 3.1 Keypoints
 
-keypoint is an interest point that has a “special property” in the scene
-- 코너 
+A keypoint is an interest point that has a “special property” in the scene, 
+- eg) like the corner of a book, or the letter “P” on a book that has written “PCL” on it. 
 
 There are a number of different keypoints available in PCL like 
-- NARF
-- SIFT
+- NARF, 
+- SIFT 
 - FAST
+
+또는 모든 포인트를 모두 사용할수도 있다. `Alternatively you can take every point, or a subset, as keypoints as well. `
+- 문제는 너무 많은 포인트 수이다. `The problem with “feeding two kinect datasets into a correspondence estimation” directly is that you have 300k points in each frame, so there can be 300k^2 correspondences.`
+
+
 
 ### 3.2 Feature descriptors
 
-Based on the keypoints found we have to extract [features](http://www.pointclouds.org/documentation/tutorials/how_features_work.php)
+Based on the keypoints found we have to extract features , where we assemble the information and generate vectors to compare them with each other.
 
 Again there is a number of feature options to choose from, for example 
 - NARF
@@ -63,11 +68,12 @@ Again there is a number of feature options to choose from, for example
 
 ### 3.3 Correspondences estimation
 
-Depending on the feature type we can use different methods to find the correspondences.
+Given two sets of feature vectors coming from two acquired scans we have to find corresponding features to find overlapping parts in the data.
+
+분류 기준 : 사용하는 Feature의 타입에 따라 correspondences찾는 방법이 다름 `Depending on the feature type we can use different methods to find the correspondences.`
 
 #### A. For point matching 
-
-using the points’ xyz-coordinates as features
+For _point matching_ (using the points’ xyz-coordinates as features) different methods exist for organized and unorganized data:
 - brute force matching,
 - kd-tree nearest neighbor search (FLANN),
 - searching in the image space of organized data, and
@@ -75,23 +81,31 @@ using the points’ xyz-coordinates as features
 
 #### B. For feature matching 
 
-not using the points’ coordinates, but certain features
+For _feature matching_ (not using the points’ coordinates, but certain features) only the following methods exist:
 - brute force matching and
 - kd-tree nearest neighbor search (FLANN).
 
 
+In addition to the search, two types of correspondence estimation are distinguished:
+-   Direct correspondence estimation (default) searches for correspondences in cloud B for every point in cloud A .  
+-   “Reciprocal” correspondence estimation searches for correspondences from cloud A to cloud B, and from B to A and only use the intersection.
+
+
 ### 3.4 Correspondences rejection
 
-Since wrong correspondences can negatively affect the estimation of the final transformation, they need to be rejected.
+질이 않좋은 correspondences는 제거 하여야 한다. `Naturally, not all estimated correspondences are correct. Since wrong correspondences can negatively affect the estimation of the final transformation, they need to be rejected. `
 
-방법 
-- RANSAC
-- trimming down the amount and using only a certain percent of the found correspondences
+방법 `This could be done using`
+- RANSAC or 
+- by trimming down the amount and using only a certain percent of the found correspondences.
+
+A special case are one to many correspondences where one point in the model corresponds to a number of points in the source. These could be filtered by using only the one with the smallest distance or by checking for other matchings near by.
+
 
 
 ### 3.5 Transformation estimation
 
-compute the transformation.
+The last step is to actually compute the transformation.
 
 - evaluate some error metric based on correspondence
 - estimate a (rigid) transformation between camera poses (motion estimate) and minimize error metric
