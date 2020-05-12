@@ -243,7 +243,168 @@ savePCDFileBinary ("source_transformed.pcd", output);
 
 ```
 
+---
 
+## with keypoint 
+
+```cpp
+#include <gtest/gtest.h>
+
+#include <pcl/point_types.h>
+#include <pcl/io/pcd_io.h>
+#include <pcl/filters/uniform_sampling.h>
+#include <pcl/features/normal_3d.h>
+#include <pcl/features/fpfh.h>
+#include <pcl/registration/registration.h>
+#include <pcl/registration/icp.h>
+#include <pcl/registration/icp_nl.h>
+#include <pcl/registration/transformation_estimation_point_to_plane.h>
+#include <pcl/registration/transformation_validation_euclidean.h>
+#include <pcl/registration/transformation_estimation_point_to_plane_lls.h>
+#include <pcl/registration/ia_ransac.h>
+#include <pcl/registration/pyramid_feature_matching.h>
+#include <pcl/features/ppf.h>
+#include <pcl/registration/ppf_registration.h>
+#include <pcl/registration/ndt.h>
+// We need Histogram<2> to function, so we'll explicitely add kdtree_flann.hpp here
+#include <pcl/kdtree/impl/kdtree_flann.hpp>
+//(pcl::Histogram<2>)
+#include <pcl/keypoints/iss_3d.h>
+using namespace pcl;
+using namespace pcl::io;
+using namespace std;
+
+
+// https://github.com/otherlab/pcl/blob/master/test/registration/test_registration.cpp
+
+
+double
+computeCloudResolution(const pcl::PointCloud<pcl::PointXYZ>::ConstPtr& cloud)
+{
+	double resolution = 0.0;
+	int numberOfPoints = 0;
+	int nres;
+	std::vector<int> indices(2);
+	std::vector<float> squaredDistances(2);
+	pcl::search::KdTree<pcl::PointXYZ> tree;
+	tree.setInputCloud(cloud);
+
+	for (size_t i = 0; i < cloud->size(); ++i)
+	{
+		if (! pcl_isfinite((*cloud)[i].x))
+			continue;
+
+		// Considering the second neighbor since the first is the point itself.
+		nres = tree.nearestKSearch(i, 2, indices, squaredDistances);
+		if (nres == 2)
+		{
+			resolution += sqrt(squaredDistances[1]);
+			++numberOfPoints;
+		}
+	}
+	if (numberOfPoints != 0)
+		resolution /= numberOfPoints;
+
+	return resolution;
+}
+
+
+int
+main (int argc, char** argv)
+{
+pcl::PointCloud<pcl::PointXYZ>::Ptr src (new pcl::PointCloud<pcl::PointXYZ>);
+pcl::PointCloud<pcl::PointXYZ>::Ptr tgt (new pcl::PointCloud<pcl::PointXYZ>);
+pcl::io::loadPCDFile<pcl::PointXYZ> ("bun0.pcd", *src);
+pcl::io::loadPCDFile<pcl::PointXYZ> ("bun4.pcd", *tgt);
+
+// Get an uniform grid of keypoints  //다운 샘플링 
+PointCloud<PointXYZ>::Ptr keypoints_src (new PointCloud<PointXYZ>), 
+                         keypoints_tgt (new PointCloud<PointXYZ>);
+pcl::UniformSampling<PointXYZ> uniform;
+uniform.setRadiusSearch (1);  // 1m
+uniform.setInputCloud (src);
+uniform.filter (*keypoints_src);
+uniform.setInputCloud (tgt);
+uniform.filter (*keypoints_tgt);
+////print_info ("- Found %lu and %lu keypoints for the source and target datasets.\n", keypoints_src->points.size (), keypoints_tgt->points.size ());
+
+
+// ISS keypoint detector object.
+// http://robotica.unileon.es/index.php/PCL/OpenNI_tutorial_5:_3D_object_recognition_(pipeline)#Local_pipeline
+pcl::ISSKeypoint3D<pcl::PointXYZ, pcl::PointXYZ> detector;
+detector.setInputCloud(src);
+pcl::search::KdTree<pcl::PointXYZ>::Ptr kdtree(new pcl::search::KdTree<pcl::PointXYZ>);
+detector.setSearchMethod(kdtree);
+double resolution = 0.0058329 // computeCloudResolution(src);
+std::cout << "resolution: "<< resolution << std::endl;    
+// Set the radius of the spherical neighborhood used to compute the scatter matrix.
+detector.setSalientRadius(6 * resolution);
+// Set the radius for the application of the non maxima supression algorithm.
+detector.setNonMaxRadius(4 * resolution);
+// Set the minimum number of neighbors that has to be found while applying the non maxima suppression algorithm.
+detector.setMinNeighbors(5);
+// Set the upper bound on the ratio between the second and the first eigenvalue.
+detector.setThreshold21(0.975);
+// Set the upper bound on the ratio between the third and the second eigenvalue.
+detector.setThreshold32(0.975);
+// Set the number of prpcessing threads to use. 0 sets it to automatic.
+detector.setNumberOfThreads(4);
+detector.compute(*keypoints_tgt);
+
+
+
+// Compute normals for all points keypoint
+PointCloud<Normal>::Ptr normals_src (new PointCloud<Normal>), 
+                         normals_tgt (new PointCloud<Normal>);
+pcl::NormalEstimation<PointXYZ, Normal> normal_est;
+normal_est.setInputCloud (src);
+normal_est.setRadiusSearch (0.5);  // 50cm
+normal_est.compute (*normals_src);
+normal_est.setInputCloud (tgt);
+normal_est.compute (*normals_tgt);
+//print_info ("- Estimated %lu and %lu normals for the source and target datasets.\n", normals_src->points.size (), normals_tgt->points.size ());
+
+// Compute FPFH features at each keypoint
+PointCloud<FPFHSignature33>::Ptr fpfhs_src (new PointCloud<FPFHSignature33>), 
+                              fpfhs_tgt (new PointCloud<FPFHSignature33>);
+pcl::FPFHEstimation<PointXYZ, Normal, FPFHSignature33> fpfh_est;
+fpfh_est.setInputCloud (keypoints_src);
+fpfh_est.setInputNormals (normals_src);
+fpfh_est.setRadiusSearch (1); // 1m
+fpfh_est.setSearchSurface (src);
+fpfh_est.compute (*fpfhs_src);
+fpfh_est.setInputCloud (keypoints_tgt);
+fpfh_est.setInputNormals (normals_tgt);
+fpfh_est.setSearchSurface (tgt);
+fpfh_est.compute (*fpfhs_tgt);
+
+
+
+// Initialize Sample Consensus Initial Alignment (SAC-IA)
+  pcl::SampleConsensusInitialAlignment<PointXYZ, PointXYZ, FPFHSignature33> reg;
+  reg.setMinSampleDistance (0.05f);
+  reg.setMaxCorrespondenceDistance (0.2);
+  reg.setMaximumIterations (1000);
+
+  reg.setInputCloud (src);
+  reg.setInputTarget (tgt);
+  reg.setSourceFeatures (fpfhs_src);
+  reg.setTargetFeatures (fpfhs_tgt);
+
+  // Register
+  pcl::PointCloud<pcl::PointXYZ> Final;   
+  reg.align (Final);
+
+  std::cout << "has converged:" << reg.hasConverged() << " score: " <<   // 정확히 정합되면 1(True)
+  reg.getFitnessScore() << std::endl;
+  
+  Eigen::Matrix4f transformation = reg.getFinalTransformation ();
+  std::cout << transformation << std::endl;                // 변환 행렬 출력 
+
+ return (0);
+}
+
+```
 
 
 
