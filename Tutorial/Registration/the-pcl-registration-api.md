@@ -276,6 +276,7 @@ using namespace std;
 
 
 // https://github.com/otherlab/pcl/blob/master/test/registration/test_registration.cpp
+// pcd_data : open3d.ord
 
 
 double
@@ -314,28 +315,32 @@ main (int argc, char** argv)
 {
 pcl::PointCloud<pcl::PointXYZ>::Ptr src (new pcl::PointCloud<pcl::PointXYZ>);
 pcl::PointCloud<pcl::PointXYZ>::Ptr tgt (new pcl::PointCloud<pcl::PointXYZ>);
-pcl::io::loadPCDFile<pcl::PointXYZ> ("bun0.pcd", *src);
-pcl::io::loadPCDFile<pcl::PointXYZ> ("bun4.pcd", *tgt);
+pcl::io::loadPCDFile<pcl::PointXYZ> ("cloud_bin_1.pcd", *src);
+pcl::io::loadPCDFile<pcl::PointXYZ> ("cloud_bin_2.pcd", *tgt);
 
-// Get an uniform grid of keypoints  //다운 샘플링 
+// Get an uniform grid of keypoints  //?�운 ?�플�?
 PointCloud<PointXYZ>::Ptr keypoints_src (new PointCloud<PointXYZ>), 
                          keypoints_tgt (new PointCloud<PointXYZ>);
+
+
+/*					 
 pcl::UniformSampling<PointXYZ> uniform;
 uniform.setRadiusSearch (1);  // 1m
 uniform.setInputCloud (src);
 uniform.filter (*keypoints_src);
 uniform.setInputCloud (tgt);
 uniform.filter (*keypoints_tgt);
-////print_info ("- Found %lu and %lu keypoints for the source and target datasets.\n", keypoints_src->points.size (), keypoints_tgt->points.size ());
+//print("- Found %lu and %lu keypoints for the source and target datasets.\n", keypoints_src->points.size (), keypoints_tgt->points.size ());
+*/
+std::cout << "Downsample" << std::endl;
 
 
 // ISS keypoint detector object.
-// http://robotica.unileon.es/index.php/PCL/OpenNI_tutorial_5:_3D_object_recognition_(pipeline)#Local_pipeline
 pcl::ISSKeypoint3D<pcl::PointXYZ, pcl::PointXYZ> detector;
 detector.setInputCloud(src);
 pcl::search::KdTree<pcl::PointXYZ>::Ptr kdtree(new pcl::search::KdTree<pcl::PointXYZ>);
 detector.setSearchMethod(kdtree);
-double resolution = 0.0058329 // computeCloudResolution(src);
+double resolution = computeCloudResolution(src);
 std::cout << "resolution: "<< resolution << std::endl;    
 // Set the radius of the spherical neighborhood used to compute the scatter matrix.
 detector.setSalientRadius(6 * resolution);
@@ -349,9 +354,11 @@ detector.setThreshold21(0.975);
 detector.setThreshold32(0.975);
 // Set the number of prpcessing threads to use. 0 sets it to automatic.
 detector.setNumberOfThreads(4);
+
 detector.compute(*keypoints_tgt);
 
 
+std::cout << "keypoints" << std::endl;
 
 // Compute normals for all points keypoint
 PointCloud<Normal>::Ptr normals_src (new PointCloud<Normal>), 
@@ -363,7 +370,7 @@ normal_est.compute (*normals_src);
 normal_est.setInputCloud (tgt);
 normal_est.compute (*normals_tgt);
 //print_info ("- Estimated %lu and %lu normals for the source and target datasets.\n", normals_src->points.size (), normals_tgt->points.size ());
-
+std::cout << "normal_est" << std::endl;
 // Compute FPFH features at each keypoint
 PointCloud<FPFHSignature33>::Ptr fpfhs_src (new PointCloud<FPFHSignature33>), 
                               fpfhs_tgt (new PointCloud<FPFHSignature33>);
@@ -378,7 +385,7 @@ fpfh_est.setInputNormals (normals_tgt);
 fpfh_est.setSearchSurface (tgt);
 fpfh_est.compute (*fpfhs_tgt);
 
-
+std::cout << "fpfh_est" << std::endl;
 
 // Initialize Sample Consensus Initial Alignment (SAC-IA)
   pcl::SampleConsensusInitialAlignment<PointXYZ, PointXYZ, FPFHSignature33> reg;
@@ -395,11 +402,11 @@ fpfh_est.compute (*fpfhs_tgt);
   pcl::PointCloud<pcl::PointXYZ> Final;   
   reg.align (Final);
 
-  std::cout << "has converged:" << reg.hasConverged() << " score: " <<   // 정확히 정합되면 1(True)
+  std::cout << "has converged:" << reg.hasConverged() << " score: " <<   // ?�확???�합?�면 1(True)
   reg.getFitnessScore() << std::endl;
   
   Eigen::Matrix4f transformation = reg.getFinalTransformation ();
-  std::cout << transformation << std::endl;                // 변환 행렬 출력 
+  std::cout << transformation << std::endl;                // 변???�렬 출력 
 
  return (0);
 }
