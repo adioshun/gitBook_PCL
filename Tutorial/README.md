@@ -1,6 +1,10 @@
-API설명 상세 : https://nlesc.github.io/python-pcl/
+이곳은 [PCL Tutorial](https://pcl.readthedocs.io/projects/tutorials/en/latest/index.html#)의 내용을 간략하게 번역 정리 하기 위해 만들었습니다. 
 
-[Community](http://www.pcl-users.org/), [설치(gitbook)](https://adioshun.gitbooks.io/system_setup/content/08a-pcl-setup.html)
+
+
+> Python버전의 API설명은 [[이곳]](https://nlesc.github.io/python-pcl/)을 참고 바랍니다. 
+
+
 
 ![image](https://user-images.githubusercontent.com/17797922/39513568-cc50661e-4dc2-11e8-8e9e-0e9e1e5747ad.png)
 
