@@ -8,17 +8,24 @@
 
 * [README](Tutorial/README.md)
 * [Feature](Tutorial/Feature/README.md)
-  * [Normal Estimation](Tutorial/Feature/Normal-Estimation.md)
   * [How 3D Features work in PCL](Tutorial/Feature/how-3d-features-work-in-pcl.md)
-  * [Vertex normal estimation-Open3](Tutorial/Feature/open3d-vertex-normal-estimation.md)
   * [Estimating Surface Normals in a PointCloud](Tutorial/Feature/Estimating-surface-normals-in-a-pointcloud.md)
-  * [RoPs feature-PCL-Python](Tutorial/Feature/pcl-python-rops-feature.md)
-  * [Moment of inertia and eccentricity based descriptors](Tutorial/Feature/Moment-of-inertia-and-eccentricity-based-descriptors.md)
-  * [Moment of inertia and eccentricity based descriptors-PCL-Python](Tutorial/Feature/pcl-python-moment-of-inertia-and-eccentricity-based-descriptors.md)
-  * [Estimating VFH signatures for a set of points-PCL-Python](Tutorial/Feature/pcl-python-estimating-vfh-signatures-for-a-set-of-points.md)
-  * [PFH Descriptors-PCL-CPP](Tutorial/Feature/pcl-cpp-pfh-descriptors.md)
+    * [Ref # Normal Estimation ](Tutorial/Feature/Normal-Estimation.md)
+    * [Code # Vertex normal estimation-Open3](Tutorial/Feature/open3d-vertex-normal-estimation.md)
   * [Normal Estimation Using Integral Images](Tutorial/Feature/Normal-Estimation-Using-Integral-Images.md)
-  * [Ref #1](Tutorial/ref_1.md)
+  * Point Feature Histograms (PFH) descriptors
+    * [PFH Descriptors-PCL-CPP](Tutorial/Feature/pcl-cpp-pfh-descriptors.md)
+  * Fast Point Feature Histograms (FPFH) descriptors
+  * [Estimating VFH signatures for a set of points-PCL-Python](Tutorial/Feature/pcl-python-estimating-vfh-signatures-for-a-set-of-points.md)
+  * How to extract NARF Features from a range image
+  * [Moment of inertia and eccentricity based descriptors](Tutorial/Feature/Moment-of-inertia-and-eccentricity-based-descriptors.md)
+    * [Code # Moment of inertia and eccentricity based descriptors-PCL-Python](Tutorial/Feature/pcl-python-moment-of-inertia-and-eccentricity-based-descriptors.md)
+  * RoPs (Rotational Projection Statistics) feature
+    * [Code # RoPs feature-PCL-Python](Tutorial/Feature/pcl-python-rops-feature.md)
+  * Globally Aligned Spatial Distribution (GASD) descriptors
+  * [Ref # Summary of Descriptor](Tutorial/ref_1.md) 
+
+
 * [Filtering](Tutorial/Filtering/README.md)
   * [Projecting points using a parametric model-PCL-Cpp](Tutorial/Filtering/pcl-cpp-projecting-points-using-a-parametric-model.md)
   * [Downsampling a PointCloud using a VoxelGrid filter-PCL-Cpp](Tutorial/Filtering/pcl-cpp-downsampling-a-pointcloud-using-a-voxelgrid-filter.md)
