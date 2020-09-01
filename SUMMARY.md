@@ -11,6 +11,7 @@
   * [How 3D Features work in PCL](Tutorial/Feature/how-3d-features-work-in-pcl.md)
   * [Estimating Surface Normals in a PointCloud](Tutorial/Feature/Estimating-surface-normals-in-a-pointcloud.md)
     * [Ref # Normal Estimation ](Tutorial/Feature/Normal-Estimation.md)
+    * [Code # Noraml and Noral Histogram(Python)](Tutorial/Feature/python-pcl-normal-histogram.md)
     * [Code # Vertex normal estimation-Open3](Tutorial/Feature/open3d-vertex-normal-estimation.md)
   * [Normal Estimation Using Integral Images](Tutorial/Feature/Normal-Estimation-Using-Integral-Images.md)
   * Point Feature Histograms (PFH) descriptors
