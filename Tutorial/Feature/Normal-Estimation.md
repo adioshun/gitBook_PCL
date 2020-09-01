@@ -157,4 +157,23 @@ draw_geometries([downpcd])
 print("")
 ```
 
+---
+
+
+# Surface curvature estimates
+
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=d3z35hpwPZQ" target="_blank">
+<img src="http://img.youtube.com/vi/d3z35hpwPZQ/0.jpg" alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+- Red = low curvature, 
+- green-blue = curvature.
+
+Normals are also important because they give us information about the curvature of the surface at some point
+
+--- 
+
+[How to visualize surface normals as Marker::Arrow for each point in rviz?](https://answers.ros.org/question/9095/how-to-visualize-surface-normals-as-markerarrow-for-each-point-in-rviz/): 부하때문에 어려움 
+
+[pcl_normal_visualization.cpp](http://docs.ros.org/groovy/api/pcl_cloud_tools/html/pcl__normal__visualization_8cpp_source.html)
+
 
