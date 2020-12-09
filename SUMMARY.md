@@ -7,6 +7,11 @@
 ## PCL Tutorial
 
 * [README](Tutorial/README.md)
+
+* [Keypoint](Tutorial/Keypoint/README.md)
+  * [ISS Keypoint](Tutorial/Keypoint/iss-keypoint.md)
+  * [NARF Keypoint](Tutorial/Keypoint/narf-keypoint.md)
+
 * [Feature](Tutorial/Feature/README.md)
   * [How 3D Features work in PCL](Tutorial/Feature/how-3d-features-work-in-pcl.md)
   * [Estimating Surface Normals in a PointCloud](Tutorial/Feature/Estimating-surface-normals-in-a-pointcloud.md)
