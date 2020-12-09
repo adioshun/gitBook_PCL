@@ -4,82 +4,8 @@
 
 * [README](README.md)
 
-## PCL Tutorial
+## [PCL Tutorial](Tutorial/README.md)
 
-* [README](Tutorial/README.md)
-
-* [Keypoint](Tutorial/Keypoint/README.md)
-  * [ISS Keypoint](Tutorial/Keypoint/iss-keypoint.md)
-  * [NARF Keypoint](Tutorial/Keypoint/narf-keypoint.md)
-
-* [Feature](Tutorial/Feature/README.md)
-  * [How 3D Features work in PCL](Tutorial/Feature/how-3d-features-work-in-pcl.md)
-  * [Estimating Surface Normals in a PointCloud](Tutorial/Feature/Estimating-surface-normals-in-a-pointcloud.md)
-    * [Ref # Normal Estimation ](Tutorial/Feature/Normal-Estimation.md)
-    * [Code # Noraml and Noral Histogram(Python)](Tutorial/Feature/python-pcl-normal-histogram.md)
-    * [Code # Vertex normal estimation-Open3](Tutorial/Feature/open3d-vertex-normal-estimation.md)
-  * [Normal Estimation Using Integral Images](Tutorial/Feature/Normal-Estimation-Using-Integral-Images.md)
-  * Point Feature Histograms (PFH) descriptors
-    * [PFH Descriptors-PCL-CPP](Tutorial/Feature/pcl-cpp-pfh-descriptors.md)
-  * Fast Point Feature Histograms (FPFH) descriptors
-  * [Estimating VFH signatures for a set of points-PCL-Python](Tutorial/Feature/pcl-python-estimating-vfh-signatures-for-a-set-of-points.md)
-  * How to extract NARF Features from a range image
-  * [Moment of inertia and eccentricity based descriptors](Tutorial/Feature/Moment-of-inertia-and-eccentricity-based-descriptors.md)
-    * [Code # Moment of inertia and eccentricity based descriptors-PCL-Python](Tutorial/Feature/pcl-python-moment-of-inertia-and-eccentricity-based-descriptors.md)
-  * RoPs (Rotational Projection Statistics) feature
-    * [Code # RoPs feature-PCL-Python](Tutorial/Feature/pcl-python-rops-feature.md)
-  * Globally Aligned Spatial Distribution (GASD) descriptors
-  * [Ref # Summary of Descriptor](Tutorial/ref_1.md) 
-
-
-* [Filtering](Tutorial/Filtering/README.md)
-  * [Projecting points using a parametric model-PCL-Cpp](Tutorial/Filtering/pcl-cpp-projecting-points-using-a-parametric-model.md)
-  * [Downsampling a PointCloud using a VoxelGrid filter-PCL-Cpp](Tutorial/Filtering/pcl-cpp-downsampling-a-pointcloud-using-a-voxelgrid-filter.md)
-  * [Extracting indices from a PointCloud-PCL-Cpp](Tutorial/Filtering/pcl-cpp-extracting-indices-from-a-pointcloud.md)
-  * [Extracting indices from a PointCloud-PCL-Python](Tutorial/Filtering/pcl-python-extracting-indices-from-a-pointcloud.md)
-* [Registration](Tutorial/Registration/README.md)
-  * [The PCL Registration API](Tutorial/Registration/the-pcl-registration-api.md)
-  * [How to use iterative closest point](Tutorial/Registration/iterative-closest-point.md)
-  * [How to incrementally register pairs of clouds](Tutorial/Registration/How-to-incrementally-register-pairs-of-clouds.md)
-  * [Interactive Iterative Closest Point](Tutorial/Registration/Interactive-Iterative-Closest-Point.md)
-  * [How to use Normal Distributions Transform](Tutorial/Registration/How-to-use-Normal-Distributions-Transform.md)
-  * [Robust pose estimation of rigid objects](Tutorial/Registration/Robust-pose-estimation-of-rigid-objects.md)
-  * [\[PCL-Cpp\] How to use Normal Distributions Transform](Tutorial/Registration/how-to-use-normal-distributions-transform.md)
-  * [\[Open3D\] ICP registration](Tutorial/Registration/open3d-icp-registration.md)
-  * [\[Open3D\] \(Fast\) Global registration](Tutorial/Registration/open3d-global-registration.md)
-  * [\[Open3D\] Colored point cloud registration](Tutorial/Registration/open3d-colored-point-cloud-registration.md)
-  * [\[PCL-Cpp\] Fuse two pointcloud ](Tutorial/Registration/pcl-cpp-fuse-two-pointcloud.md)
-* [KdTree](Tutorial/KdTree/README.md)
-  * [brute_force](Tutorial/KdTree/brute_force.md)
-  * [organized](Tutorial/KdTree/organized.md)
-  * [How to use a KdTree to search](Tutorial/KdTree/how-to-use-a-kdtree-to-search-PCL-Cpp.md)
-  * [performance_compare_brute_force_kd_tree](Tutorial/KdTree/performance_compare_brute_force_kd_tree.md)
-* [Octree](Tutorial/Octree/README.md)
-  * [Spatial Partitioning and Search Operations with Octrees-PCL-Cpp](Tutorial/Octree/spatial-partitioning-and-search-operations-with-octrees-PCL-Cpp.md)
-  * [Spatial Partitioning and Search Operations with Octrees-PCL-Python](Tutorial/Octree/spatial-partitioning-and-search-operations-with-octrees-PCL-Python.md)
-  * [Spatial change detection on unorganized point cloud data-PCL-Cpp](Tutorial/Octree/spatial-change-detection-on-unorganized-point-cloud-data-PCL-Cpp.md)
-  * [Spatial change detection on unorganized point cloud data-PCL-Python](Tutorial/Octree/spatial-change-detection-on-unorganized-point-cloud-data-PCL-Python.md)
-  * [Point Cloud Compression-PCL-Cpp](Tutorial/Octree/point-cloud-compression-PCL-Cpp.md)
-* [Sample Consensus](Tutorial/SampleConsensus/README.md)
-  * [How to use Random Sample Consensus model \(100%\)](Tutorial/SampleConsensus/how-to-use-random-sample-consensus-model.md)
-* [Segmentation](Tutorial/Segmentation/README.md)
-  * [\[PCL-Cpp\] Identifying ground returns using Progressive Morphological Filter segmentation](Tutorial/Segmentation/pcl-cpp-identifying-ground-returns-using-progressive-morphological-filter-segmentation.md)
-  * [\[Matlab\] segmentGroundFromLidarData](Tutorial/Segmentation/matlab-segmentgroundfromlidardata.md)
-
-  * [Region growing segmentation](Tutorial/Segmentation/region-growing-segmentation.md)
-  * [\[PCL-Python\] Progressive Morphological Filter segmentation](Tutorial/Segmentation/pcl-python-progressive-morphological-filter-segmentation.md)
-  * [\[PCL-Cpp\] Plane model segmentation](Tutorial/Segmentation/pcl-cpp-plane-model-segmentation.md)
-
-  * [Euclidean Cluster Extraction](Tutorial/Segmentation/euclidean-cluster-extraction.md)
-    * [Conditional Euclidean Clustering](Tutorial/Segmentation/conditional-euclidean-clustering.md)
-* [Surface](Tutorial/Surface/README.md)
-  * [Smoothing and normal estimation based on polynomial reconstruction](Tutorial/Surface/Smoothing-and-normal-estimation-based-on-polynomial-reconstruction.md)
-  * [Fast triangulation of unordered point clouds](Tutorial/Surface/Fast-triangulation-of-unordered-point-clouds.md)
-* [Visualization](visualization.md)
-* [Tracking object in real time](tracking-object-in-real-time.md)
-* [Range Image](Tutorial/RangeImage/How-to-create-a-range-image-from-a-point-cloud.md)
-* [Recognition](Tutorial/Recognition/README.md)
-  * [3D Object Recognition based on Correspondence Grouping](Tutorial/Recognition/3D-Object-Recognition-based-on-Correspondence-Grouping.md)
 
 ## Moock
 
