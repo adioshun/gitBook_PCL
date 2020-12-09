@@ -1,6 +1,11 @@
 
+# ISS (Intrinsic Shape Signatures)
 
+- ISS is a local descriptor presented in 2009, which creates a view-independent signature of the local surface patch. 
+- An algorithm for choosing keypoints was also included to better fit the descriptor. 
+- The algorithm scans the surfaces and chooses only points with large variations in the principal direction (the shape of the surface), which are ideal for keypoints
 
+> https://robotica.unileon.es/index.php/PCL/OpenNI_tutorial_5:_3D_object_recognition_(pipeline)
 
 
 
