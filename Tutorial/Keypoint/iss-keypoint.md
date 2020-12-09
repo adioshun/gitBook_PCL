@@ -42,6 +42,65 @@ main(int argc, char** argv)
 }
 
 ```
+---
+```cpp
+//https://github.com/adioshun/gitBook_PCL/blob/master/Tutorial/Registration/the-pcl-registration-api.md
+void
+estimate_iss_Keypoints (const PointCloud<PointXYZ>::Ptr &src, 
+                   const PointCloud<PointXYZ>::Ptr &tgt,
+                   PointCloud<PointXYZ> &keypoints_src,
+                   PointCloud<PointXYZ> &keypoints_tgt)
+{
+	// ISS keypoint detector object.
+	pcl::ISSKeypoint3D<pcl::PointXYZ, pcl::PointXYZ> detector_src;
+	detector_src.setInputCloud(src);
+	pcl::search::KdTree<pcl::PointXYZ>::Ptr kdtree_src(new pcl::search::KdTree<pcl::PointXYZ>);
+	detector_src.setSearchMethod(kdtree_src);
+	double resolution_src = computeCloudResolution(src);
+	std::cout << "resolution: "<< resolution_src << std::endl;    
+	// Set the radius of the spherical neighborhood used to compute the scatter matrix.
+	detector_src.setSalientRadius(6 * resolution_src);
+	// Set the radius for the application of the non maxima supression algorithm.
+	detector_src.setNonMaxRadius(4 * resolution_src);
+	// Set the minimum number of neighbors that has to be found while applying the non maxima suppression algorithm.
+	detector_src.setMinNeighbors(5);
+	// Set the upper bound on the ratio between the second and the first eigenvalue.
+	detector_src.setThreshold21(0.975);
+	// Set the upper bound on the ratio between the third and the second eigenvalue.
+	detector_src.setThreshold32(0.975);
+	// Set the number of prpcessing threads to use. 0 sets it to automatic.
+	detector_src.setNumberOfThreads(4);
+
+	detector_src.compute(keypoints_src);
+
+
+
+	pcl::ISSKeypoint3D<pcl::PointXYZ, pcl::PointXYZ> detector_tgt;
+	detector_tgt.setInputCloud(tgt);
+	pcl::search::KdTree<pcl::PointXYZ>::Ptr kdtree_tgt(new pcl::search::KdTree<pcl::PointXYZ>);
+	detector_tgt.setSearchMethod(kdtree_tgt);
+	double resolution_tgt = computeCloudResolution(tgt);
+	std::cout << "resolution: "<< resolution_tgt << std::endl;    
+	// Set the radius of the spherical neighborhood used to compute the scatter matrix.
+	detector_tgt.setSalientRadius(6 * resolution_tgt);
+	// Set the radius for the application of the non maxima supression algorithm.
+	detector_tgt.setNonMaxRadius(4 * resolution_tgt);
+	// Set the minimum number of neighbors that has to be found while applying the non maxima suppression algorithm.
+	detector_tgt.setMinNeighbors(5);
+	// Set the upper bound on the ratio between the second and the first eigenvalue.
+	detector_tgt.setThreshold21(0.975);
+	// Set the upper bound on the ratio between the third and the second eigenvalue.
+	detector_tgt.setThreshold32(0.975);
+	// Set the number of prpcessing threads to use. 0 sets it to automatic.
+	detector_tgt.setNumberOfThreads(4);
+
+	detector_tgt.compute(keypoints_tgt);
+
+}
+
+```
+
+
 
 ---
 
