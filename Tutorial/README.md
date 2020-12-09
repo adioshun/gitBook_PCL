@@ -17,8 +17,7 @@
 - pcl_io - OpenNI 호환 depth camera 로부터 점군 데이터를 읽고 쓰는 방법
 - pcl_visualization - 3D 점군 데이터를 처리하는 알고리즘의 결과를 시각화
 
-
-* [README](README.md)
+---
 
 * [Keypoint](Keypoint/README.md)
   * [ISS Keypoint](Keypoint/iss-keypoint.md)
