@@ -1,4 +1,4 @@
-# [How 3D Features work in PCL](http://pointclouds.org/documentation/tutorials/how_features_work.php)
+# [How 3D Features work in PCL](https://pcl.readthedocs.io/projects/tutorials/en/latest/how_features_work.html#how-3d-features-work)
 
 - 3D feature estimation methodologies in PCL
 - `pcl::Feature` class
@@ -28,7 +28,7 @@
 주변 점군들을 활용 함으로써 sampled surface geometry를 추론 할수 있게 된다. 이를 통해 비교 작업시 모호성을 줄일수 있다.  `By including the surrounding neighbors, the underlying sampled surface geometry can be inferred and captured in the feature formulation, which contributes to solving the ambiguity comparison problem. `
 
 
-![](http://pointclouds.org/documentation/tutorials/_images/good_features.jpg)
+![](https://pcl.readthedocs.io/projects/tutorials/en/latest/_images/s/good_features.jpg)
 
 일번적으로 같거나 비슷한 표면 위에 있는 포인트들은 서로 비슷한 특징을 가진다. 반대로 다른 표면에 있으면 다르게 된다. `Ideally, the resultant features would be very similar (with respect to some metric) for points residing on the same or similar surfaces, and different for points found on different surfaces, as shown in the figure below. `
 
@@ -62,7 +62,7 @@ As almost all classes in PCL that inherit from the base pcl::PCLBase class, the 
 Because setInputCloud() is always required, there are up to four combinations that we can create using ` <setInputCloud(), setIndices(), setSearchSurface()>`. 
 
 
-![](http://pointclouds.org/documentation/tutorials/_images/features_input_explained.png)
+![](https://pcl.readthedocs.io/projects/tutorials/en/latest/_images/features_input_explained.png)
 
 
 ### 1. setIndices() = false, setSearchSurface() = false 
